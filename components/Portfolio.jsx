@@ -1,111 +1,167 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import { Github, Mail, ExternalLink, ChevronRight, Terminal, CircleDot } from "lucide-react";
+import { Github, Mail, ExternalLink, ChevronRight } from "lucide-react";
 
-const FONT_STYLE = `
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+const PROJECTS = [
+  {
+    id: "P01",
+    title: "Payroll Management System",
+    org: "LGU-Mahinog",
+    status: "LIVE",
+    desc: "Full payroll cycle for a local government unit — GSIS, Pag-IBIG and bank deductions, quincena periods, deduction management with automatic net-pay recalculation, Excel import for employee records, and batch payslip generation.",
+    tags: ["PHP", "CodeIgniter 4", "MySQL", "PhpSpreadsheet"],
+    color: "#ff3366",
+    icon: "P",
+  },
+  {
+    id: "P02",
+    title: "Smart Mobile Kitchen",
+    org: "Disaster Relief Distribution",
+    status: "PILOT",
+    desc: "QR-based claim tracking for disaster relief food distribution — per-person claim limits, live cooked-food inventory deduction, kiosk mode with idle-loop demo screen, Bisaya-language scan feedback, and a 5-second polling admin monitor.",
+    tags: ["PHP", "CodeIgniter 4", "QR Scan", "Live Polling"],
+    color: "#00d4ff",
+    icon: "S",
+  },
+  {
+    id: "P03",
+    title: "iTRAK RFID Driver Terminal",
+    org: "Motorela Fleet Management",
+    status: "LIVE",
+    desc: "RFID tap terminal for tricycle drivers — two-step preview-then-accept scan guard, duplicate-tap cooldown, violation reporting, a driver-facing queue portal, and multi-event support with a persisted event selector.",
+    tags: ["PHP", "RFID", "CodeIgniter 4", "Realtime UI"],
+    color: "#ffcc00",
+    icon: "i",
+  },
+  {
+    id: "P04",
+    title: "Barangay Resident Management",
+    org: "Community Administration",
+    status: "LIVE",
+    desc: "Structured resident records for barangay-level governance — registration, lookups, and reporting built for day-to-day frontline staff use.",
+    tags: ["PHP", "CodeIgniter 4", "MySQL"],
+    color: "#aa66ff",
+    icon: "B",
+  },
+];
 
-:root {
-  --ink: #0b0f1a;
-  --panel: #121729;
-  --panel-line: #232a42;
-  --gold: #c9a227;
-  --gold-soft: #e4c460;
-  --parchment: #ede6d6;
-  --muted: #8891ac;
-  --signal: #4caf6d;
-  --rust: #b4553a;
-}
+const SKILLS = [
+  {
+    group: "Backend",
+    items: ["PHP", "CodeIgniter 4", "REST APIs", "Query Builder & raw SQL", "Session & role-based auth"],
+  },
+  {
+    group: "Data & Ops",
+    items: ["MySQL / MariaDB", "PhpSpreadsheet", "RFID & QR integration", ".env credential hygiene", "Git & GitHub"],
+  },
+  {
+    group: "Frontend",
+    items: ["JavaScript", "jQuery", "Bootstrap", "Chart.js dashboards", "Responsive layouts"],
+  },
+  {
+    group: "Domain",
+    items: ["LGU payroll & compliance", "Disaster relief logistics", "Resident records", "Fleet & transit systems"],
+  },
+];
 
-.pf-root {
-  background: var(--ink);
-  color: var(--parchment);
-  font-family: 'IBM Plex Sans', sans-serif;
-  position: relative;
-  overflow-x: hidden;
-}
+const SOCIALS = [
+  { label: "Email", value: "youremail@example.com", href: "mailto:youremail@example.com", icon: Mail, color: "#ff3366" },
+  { label: "GitHub", value: "github.com/yourusername", href: "https://github.com/yourusername", icon: Github, color: "#00d4ff" },
+];
 
-.pf-serif { font-family: 'Fraunces', serif; }
-.pf-mono { font-family: 'IBM Plex Mono', monospace; }
+const TRAININGS = [
+  {
+    title: "Web Development Bootcamp",
+    org: "Tech Academy Philippines",
+    date: "2023",
+    desc: "Intensive full-stack web development training covering modern PHP frameworks, database design, and deployment workflows.",
+    tags: ["PHP", "MySQL", "REST APIs"],
+  },
+  {
+    title: "CodeIgniter 4 Advanced Workshop",
+    org: "CI4 Community",
+    date: "2023",
+    desc: "Deep-dive into CodeIgniter 4 features including models, libraries, HMVC modules, and security best practices.",
+    tags: ["CodeIgniter 4", "MVC", "Security"],
+  },
+  {
+    title: "Government Systems Design",
+    org: "LGU Digital Transformation",
+    date: "2022",
+    desc: "Training on designing compliant back-office systems for local government units including payroll and resident management requirements.",
+    tags: ["LGU Compliance", "Payroll", "Systems Design"],
+  },
+];
 
-.pf-scanlines {
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    to bottom,
-    rgba(201,162,39,0.025) 0px,
-    rgba(201,162,39,0.025) 1px,
-    transparent 1px,
-    transparent 3px
+const HACKATHONS = [
+  {
+    title: "Civic Tech Hackathon 2023",
+    org: "Philippine Tech Community",
+    date: "2023",
+    desc: "Built a QR-based disaster relief tracking prototype in 24 hours. The concept later evolved into the Smart Mobile Kitchen system.",
+    tags: ["Prototype", "QR Code", "Relief Logistics"],
+  },
+  {
+    title: "Open Source LGU Systems Challenge",
+    org: "DevCon Philippines",
+    date: "2022",
+    desc: "Developed an open-source barangay resident management module with role-based access and reporting features.",
+    tags: ["Open Source", "Barangay", "Community"],
+  },
+  {
+    title: "Fleet Management Hackathon",
+    org: "Transit Tech PH",
+    date: "2022",
+    desc: "Created an RFID-based fleet terminal prototype with real-time tracking and driver authentication flows.",
+    tags: ["RFID", "Fleet", "Realtime"],
+  },
+];
+
+function ProjectMockup({ color, icon, title }) {
+  return (
+    <div style={{ width: "100%", maxWidth: 320, position: "relative" }}>
+      <svg viewBox="0 0 320 200" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "auto" }}>
+        <rect width="320" height="200" rx="8" fill={`${color}15`} />
+        <rect x="1" y="1" width="318" height="198" rx="7" stroke={`${color}40`} strokeWidth="1" />
+        <rect x="12" y="12" width="8" height="8" rx="2" fill={color} opacity="0.6" />
+        <rect x="26" y="12" width="8" height="8" rx="2" fill={color} opacity="0.4" />
+        <rect x="40" y="12" width="8" height="8" rx="2" fill={color} opacity="0.3" />
+        <rect x="12" y="32" width="60" height="6" rx="3" fill={color} opacity="0.3" />
+        <rect x="12" y="44" width="120" height="4" rx="2" fill="white" opacity="0.08" />
+        <rect x="12" y="54" width="100" height="4" rx="2" fill="white" opacity="0.06" />
+        <rect x="12" y="64" width="90" height="4" rx="2" fill="white" opacity="0.06" />
+        <rect x="12" y="80" width="140" height="60" rx="4" fill={color} opacity="0.08" />
+        <rect x="160" y="80" width="148" height="60" rx="4" fill="white" opacity="0.03" />
+        <rect x="170" y="90" width="80" height="6" rx="3" fill={color} opacity="0.4" />
+        <rect x="170" y="102" width="120" height="4" rx="2" fill="white" opacity="0.08" />
+        <rect x="170" y="112" width="100" height="4" rx="2" fill="white" opacity="0.06" />
+        <rect x="12" y="150" width="296" height="32" rx="4" fill="white" opacity="0.02" />
+        <rect x="20" y="158" width="80" height="16" rx="4" fill={color} opacity="0.2" />
+        <rect x="108" y="158" width="80" height="16" rx="4" fill="white" opacity="0.05" />
+        <rect x="196" y="158" width="100" height="16" rx="4" fill="white" opacity="0.03" />
+        <text x="160" y="105" textAnchor="middle" fill={color} opacity="0.5" fontSize="32" fontFamily="sans-serif" fontWeight="bold">{icon}</text>
+      </svg>
+    </div>
   );
-  mix-blend-mode: overlay;
 }
 
-.pf-fade-up {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+function StatusPill({ status }) {
+  const isLive = status === "LIVE";
+  return (
+    <span
+      className="pf-mono inline-flex items-center gap-1.5 text-xs px-2 py-1 rounded-sm"
+      style={{
+        color: isLive ? "#a8e0b8" : "#e8c98a",
+        background: isLive ? "rgba(76,175,109,0.1)" : "rgba(201,162,39,0.1)",
+        border: `1px solid ${isLive ? "rgba(76,175,109,0.35)" : "rgba(201,162,39,0.35)"}`,
+      }}
+    >
+      <span className="pf-status-dot" style={{ width: 6, height: 6, borderRadius: "50%", background: isLive ? "#4caf6d" : "#c9a227", animation: "pf-blink 2.4s ease-in-out infinite" }} />
+      {status}
+    </span>
+  );
 }
-.pf-fade-up.pf-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.pf-row {
-  transition: background 0.25s ease, border-color 0.25s ease;
-}
-.pf-row:hover {
-  background: rgba(201,162,39,0.05);
-  border-color: var(--gold);
-}
-
-.pf-status-dot {
-  animation: pf-blink 2.4s ease-in-out infinite;
-}
-@keyframes pf-blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.35; }
-}
-
-.pf-underline {
-  position: relative;
-}
-.pf-underline::after {
-  content: '';
-  position: absolute;
-  left: 0; right: 100%;
-  bottom: -3px;
-  height: 1px;
-  background: var(--gold);
-  transition: right 0.35s ease;
-}
-.pf-underline:hover::after { right: 0; }
-
-.pf-card-glow {
-  box-shadow: 0 0 0 1px var(--panel-line);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-.pf-card-glow:hover {
-  box-shadow: 0 0 0 1px var(--gold), 0 8px 30px -12px rgba(201,162,39,0.35);
-  transform: translateY(-2px);
-}
-
-.pf-boot-line {
-  opacity: 0;
-  animation: pf-boot-in 0.4s ease forwards;
-}
-@keyframes pf-boot-in {
-  from { opacity: 0; transform: translateX(-6px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .pf-fade-up, .pf-boot-line { animation: none !important; transition: none !important; opacity: 1 !important; transform: none !important; }
-  .pf-status-dot { animation: none !important; }
-}
-`;
 
 function useReveal() {
   const ref = useRef(null);
@@ -120,7 +176,7 @@ function useReveal() {
           obs.disconnect();
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -133,299 +189,278 @@ function Reveal({ children, delay = 0, className = "" }) {
   return (
     <div
       ref={ref}
-      className={`pf-fade-up ${visible ? "pf-visible" : ""} ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
+      className={className}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(24px)",
+        transition: `opacity 0.8s ease ${delay}ms, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
+      }}
     >
       {children}
     </div>
   );
 }
 
-const SYSTEMS = [
-  {
-    id: "SYS-01",
-    name: "Payroll Management System",
-    org: "LGU-Mahinog",
-    status: "LIVE",
-    desc: "Full payroll cycle for a local government unit — GSIS, Pag-IBIG and bank deductions, quincena periods, deduction management with automatic net-pay recalculation, Excel import for employee records, and batch payslip generation.",
-    tags: ["PHP", "CodeIgniter 4", "MySQL", "PhpSpreadsheet"],
-  },
-  {
-    id: "SYS-02",
-    name: "Smart Mobile Kitchen",
-    org: "Disaster Relief Distribution",
-    status: "PILOT",
-    desc: "QR-based claim tracking for disaster relief food distribution — per-person claim limits, live cooked-food inventory deduction, kiosk mode with idle-loop demo screen, Bisaya-language scan feedback, and a 5-second polling admin monitor.",
-    tags: ["PHP", "CodeIgniter 4", "QR Scan", "Live Polling"],
-  },
-  {
-    id: "SYS-03",
-    name: "iTRAK RFID Driver Terminal",
-    org: "Motorela Fleet Management",
-    status: "LIVE",
-    desc: "RFID tap terminal for tricycle drivers — two-step preview-then-accept scan guard, duplicate-tap cooldown, violation reporting, a driver-facing queue portal, and multi-event support with a persisted event selector.",
-    tags: ["PHP", "RFID", "CodeIgniter 4", "Realtime UI"],
-  },
-  {
-    id: "SYS-04",
-    name: "Barangay Resident Management",
-    org: "Community Administration",
-    status: "LIVE",
-    desc: "Structured resident records for barangay-level governance — registration, lookups, and reporting built for day-to-day frontline staff use.",
-    tags: ["PHP", "CodeIgniter 4", "MySQL"],
-  },
-];
-
-const SKILLS = [
-  { group: "Backend", items: ["PHP", "CodeIgniter 4", "REST APIs", "Query Builder & raw SQL", "Session & role-based auth"] },
-  { group: "Data & Ops", items: ["MySQL / MariaDB", "PhpSpreadsheet", "RFID & QR integration", ".env credential hygiene", "Git & GitHub"] },
-  { group: "Frontend", items: ["JavaScript", "jQuery", "Bootstrap", "Chart.js dashboards", "Responsive layouts"] },
-  { group: "Domain", items: ["LGU payroll & compliance", "Disaster relief logistics", "Resident records", "Fleet & transit systems"] },
-];
-
-function StatusPill({ status }) {
-  const isLive = status === "LIVE";
-  return (
-    <span
-      className="pf-mono inline-flex items-center gap-1.5 text-xs px-2 py-1 rounded-sm"
-      style={{
-        color: isLive ? "#a8e0b8" : "#e8c98a",
-        background: isLive ? "rgba(76,175,109,0.1)" : "rgba(201,162,39,0.1)",
-        border: `1px solid ${isLive ? "rgba(76,175,109,0.35)" : "rgba(201,162,39,0.35)"}`,
-      }}
-    >
-      <CircleDot size={10} className="pf-status-dot" />
-      {status}
-    </span>
-  );
-}
-
 export default function Portfolio() {
-  const [bootDone, setBootDone] = useState(false);
-  const [openId, setOpenId] = useState(null);
-  const bootLines = [
-    "INIT payroll-mgt.service ......... OK",
-    "INIT smk-relief.service ........... OK",
-    "INIT itrak-rfid.service ............ OK",
-    "INIT barangay-records.service ... OK",
-    "SYSTEMS ONLINE",
-  ];
+  const [mouse, setMouse] = useState({ x: 0, y: 0 });
+  const rootRef = useRef(null);
 
   useEffect(() => {
-    const t = setTimeout(() => setBootDone(true), bootLines.length * 260 + 400);
-    return () => clearTimeout(t);
+    const handleMouse = (e) => {
+      if (!rootRef.current) return;
+      const rect = rootRef.current.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+      const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+      setMouse({ x, y });
+    };
+    window.addEventListener("mousemove", handleMouse);
+    return () => window.removeEventListener("mousemove", handleMouse);
   }, []);
 
   return (
-    <div className="pf-root min-h-screen w-full">
-      <style>{FONT_STYLE}</style>
-      <div className="pf-scanlines" />
-
-      {/* NAV */}
-      <nav className="relative z-10 flex items-center justify-between px-6 md:px-12 py-6 border-b" style={{ borderColor: "var(--panel-line)" }}>
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-sm border flex items-center justify-center pf-mono text-sm" style={{ borderColor: "var(--gold)", color: "var(--gold)" }}>
-            CD
-          </div>
-          <span className="pf-mono text-xs tracking-widest" style={{ color: "var(--muted)" }}>
-            CIVIC SYSTEMS DEVELOPER
-          </span>
-        </div>
-        <div className="hidden md:flex gap-8 pf-mono text-xs tracking-wider">
-          {["REGISTRY", "SKILLS", "CONTACT"].map((l) => (
-            <a key={l} href={`#${l.toLowerCase()}`} className="pf-underline" style={{ color: "var(--parchment)" }}>
-              {l}
-            </a>
-          ))}
-        </div>
-      </nav>
-
+    <div ref={rootRef}>
       {/* HERO */}
-      <section className="relative z-10 px-6 md:px-12 py-16 md:py-24 grid md:grid-cols-5 gap-12 items-center">
-        <div className="md:col-span-3">
-          <div className="pf-mono text-xs tracking-widest mb-4" style={{ color: "var(--gold)" }}>
-            FULL-STACK DEVELOPER — PHP · CODEIGNITER 4
+      <section className="hero-root">
+        <div className="noise" />
+        <div className="grid-lines" />
+
+        <div
+          className="blob blob-1"
+          style={{ transform: `translate(${mouse.x * 20}px, ${mouse.y * 20}px)` }}
+        />
+        <div
+          className="blob blob-2"
+          style={{ transform: `translate(${mouse.x * -15}px, ${mouse.y * -15}px)` }}
+        />
+        <div
+          className="blob blob-3"
+          style={{ transform: `translate(${mouse.x * 10}px, ${mouse.y * 10}px)` }}
+        />
+
+        <div className="orbit orbit-1">
+          <div className="orbit-dot" />
+        </div>
+        <div className="orbit orbit-2">
+          <div className="orbit-dot" style={{ background: "var(--accent-1)", boxShadow: "0 0 10px var(--accent-1)" }} />
+        </div>
+
+        <div className="content">
+          <div className="mono-label">FULL-STACK DEVELOPER</div>
+
+          <div className="name-wrap">
+            <div
+              className="name-main"
+              style={{ transform: `translate(${mouse.x * 3}px, ${mouse.y * 3}px)` }}
+            >
+              RICHARD
+            </div>
           </div>
-          <h1 className="pf-serif text-4xl md:text-6xl leading-[1.08] mb-6" style={{ color: "var(--parchment)" }}>
-            Building the systems<br />local government<br />
-            <span style={{ color: "var(--gold-soft)" }}>actually runs on.</span>
-          </h1>
-          <p className="text-base md:text-lg max-w-xl mb-8" style={{ color: "var(--muted)" }}>
-            I design and build back-office software for municipal operations —
-            payroll, disaster relief logistics, resident records, and fleet
-            terminals — where the requirement isn't a demo, it's a Monday
-            morning that has to work.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="#registry"
-              className="pf-mono text-sm px-5 py-3 rounded-sm flex items-center gap-2 transition-transform hover:-translate-y-0.5"
-              style={{ background: "var(--gold)", color: "var(--ink)" }}
-            >
-              View the systems registry <ChevronRight size={15} />
+
+          <div className="accent-bar" />
+
+          <div className="tagline">
+            I build robust back-office systems for local government and civic operations — payroll, logistics, and resident management software that works when it matters most.
+          </div>
+
+          <div className="cta-row">
+            <a href="#work" className="cta cta-primary">
+              View My Work <ChevronRight size={14} />
             </a>
-            <a
-              href="#contact"
-              className="pf-mono text-sm px-5 py-3 rounded-sm border flex items-center gap-2 transition-colors hover:border-[var(--gold)]"
-              style={{ borderColor: "var(--panel-line)", color: "var(--parchment)" }}
-            >
-              Get in touch
+            <a href="#contact" className="cta cta-secondary">
+              Get In Touch
             </a>
           </div>
         </div>
 
-        {/* Boot terminal card */}
-        <div className="md:col-span-2">
-          <div className="pf-card-glow rounded-md p-5" style={{ background: "var(--panel)" }}>
-            <div className="flex items-center gap-2 mb-4 pb-3 border-b" style={{ borderColor: "var(--panel-line)" }}>
-              <Terminal size={14} style={{ color: "var(--gold)" }} />
-              <span className="pf-mono text-xs" style={{ color: "var(--muted)" }}>system-status.log</span>
-            </div>
-            <div className="pf-mono text-xs leading-relaxed space-y-1.5">
-              {bootLines.map((line, i) => (
-                <div
-                  key={i}
-                  className="pf-boot-line"
-                  style={{
-                    animationDelay: `${i * 260}ms`,
-                    color: i === bootLines.length - 1 ? "var(--signal)" : "var(--parchment)",
-                  }}
-                >
-                  {i === bootLines.length - 1 ? "▸ " : "  "}{line}
-                </div>
-              ))}
-              {bootDone && (
-                <div className="pf-boot-line pt-2 mt-2 border-t" style={{ borderColor: "var(--panel-line)", animationDelay: "0ms", color: "var(--muted)" }}>
-                  4 systems deployed · 3 live in production
-                </div>
-              )}
-            </div>
+        <div className="scroll-indicator">
+          <div className="scroll-mouse">
+            <div className="scroll-dot" />
           </div>
+          <span className="scroll-text">Scroll</span>
         </div>
       </section>
 
-      {/* REGISTRY */}
-      <section id="registry" className="relative z-10 px-6 md:px-12 py-16 md:py-20 border-t" style={{ borderColor: "var(--panel-line)" }}>
+      {/* WORK GALLERY */}
+      <section id="work" className="section">
         <Reveal>
-          <div className="flex items-baseline justify-between mb-10 flex-wrap gap-3">
-            <h2 className="pf-serif text-3xl md:text-4xl" style={{ color: "var(--parchment)" }}>Systems Registry</h2>
-            <span className="pf-mono text-xs" style={{ color: "var(--muted)" }}>4 ENTRIES</span>
-          </div>
+          <div className="section-label">Selected Work</div>
+          <div className="section-title">Work Gallery</div>
         </Reveal>
 
-        <div className="border-t" style={{ borderColor: "var(--panel-line)" }}>
-          {SYSTEMS.map((sys, i) => {
-            const open = openId === sys.id;
-            return (
-              <Reveal key={sys.id} delay={i * 80}>
-                <div
-                  className="pf-row border-b cursor-pointer px-4 md:px-6 py-5"
-                  style={{ borderColor: "var(--panel-line)" }}
-                  onClick={() => setOpenId(open ? null : sys.id)}
-                >
-                  <div className="flex flex-wrap items-center gap-4 justify-between">
-                    <div className="flex items-center gap-4 min-w-0">
-                      <span className="pf-mono text-xs" style={{ color: "var(--gold)" }}>{sys.id}</span>
-                      <div className="min-w-0">
-                        <div className="pf-serif text-lg md:text-xl truncate" style={{ color: "var(--parchment)" }}>{sys.name}</div>
-                        <div className="text-xs" style={{ color: "var(--muted)" }}>{sys.org}</div>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-4 shrink-0">
-                      <StatusPill status={sys.status} />
-                      <ChevronRight
-                        size={16}
-                        style={{
-                          color: "var(--muted)",
-                          transform: open ? "rotate(90deg)" : "rotate(0deg)",
-                          transition: "transform 0.25s ease",
-                        }}
-                      />
-                    </div>
+        <div className="work-grid">
+          {PROJECTS.map((project, i) => (
+            <Reveal key={project.id} delay={i * 100}>
+              <div className="work-card">
+                <div className="work-image" style={{ background: `linear-gradient(135deg, ${project.color}11, ${project.color}05)` }}>
+                  <ProjectMockup color={project.color} icon={project.icon} title={project.title} />
+                </div>
+                <div className="work-content">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="pf-mono text-xs" style={{ color: project.color }}>{project.id}</span>
+                    <StatusPill status={project.status} />
                   </div>
-                  <div
-                    style={{
-                      maxHeight: open ? "220px" : "0px",
-                      overflow: "hidden",
-                      transition: "max-height 0.35s ease",
-                    }}
-                  >
-                    <p className="text-sm mt-4 mb-3 max-w-3xl" style={{ color: "var(--muted)" }}>{sys.desc}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {sys.tags.map((t) => (
-                        <span
-                          key={t}
-                          className="pf-mono text-[11px] px-2 py-1 rounded-sm"
-                          style={{ border: "1px solid var(--panel-line)", color: "var(--gold-soft)" }}
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
+                  <div className="work-title">{project.title}</div>
+                  <div className="text-xs mb-3" style={{ color: "var(--muted)" }}>{project.org}</div>
+                  <div className="work-desc">{project.desc}</div>
+                  <div className="work-tags">
+                    {project.tags.map((t) => (
+                      <span key={t} className="work-tag">{t}</span>
+                    ))}
                   </div>
                 </div>
-              </Reveal>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* SKILLS */}
-      <section id="skills" className="relative z-10 px-6 md:px-12 py-16 md:py-20 border-t" style={{ borderColor: "var(--panel-line)" }}>
-        <Reveal>
-          <h2 className="pf-serif text-3xl md:text-4xl mb-10" style={{ color: "var(--parchment)" }}>Stack &amp; Domain</h2>
-        </Reveal>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {SKILLS.map((s, i) => (
-            <Reveal key={s.group} delay={i * 90}>
-              <div className="pf-card-glow rounded-md p-5 h-full" style={{ background: "var(--panel)" }}>
-                <div className="pf-mono text-xs tracking-widest mb-4" style={{ color: "var(--gold)" }}>{s.group.toUpperCase()}</div>
-                <ul className="space-y-2">
-                  {s.items.map((it) => (
-                    <li key={it} className="text-sm" style={{ color: "var(--parchment)" }}>{it}</li>
-                  ))}
-                </ul>
               </div>
             </Reveal>
           ))}
         </div>
       </section>
 
-      {/* CONTACT */}
-      <section id="contact" className="relative z-10 px-6 md:px-12 py-16 md:py-24 border-t" style={{ borderColor: "var(--panel-line)" }}>
+      {/* ABOUT */}
+      <section id="about" className="section" style={{ borderTop: "1px solid var(--line)" }}>
         <Reveal>
-          <div className="max-w-2xl">
-            <div className="pf-mono text-xs tracking-widest mb-4" style={{ color: "var(--gold)" }}>REQUEST A SYSTEM</div>
-            <h2 className="pf-serif text-3xl md:text-5xl mb-6" style={{ color: "var(--parchment)" }}>
-              Have an office that runs on spreadsheets?
-            </h2>
-            <p className="mb-8" style={{ color: "var(--muted)" }}>
-              I build the software in between — the part that turns a manual
-              process into something your staff actually trust on payday.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a
-                href="mailto:youremail@example.com"
-                className="pf-mono text-sm px-5 py-3 rounded-sm flex items-center gap-2 transition-transform hover:-translate-y-0.5"
-                style={{ background: "var(--gold)", color: "var(--ink)" }}
-              >
-                <Mail size={15} /> youremail@example.com
-              </a>
-              <a
-                href="https://github.com/yourusername"
-                className="pf-mono text-sm px-5 py-3 rounded-sm border flex items-center gap-2 transition-colors hover:border-[var(--gold)]"
-                style={{ borderColor: "var(--panel-line)", color: "var(--parchment)" }}
-              >
-                <Github size={15} /> github.com/yourusername <ExternalLink size={12} />
-              </a>
-            </div>
-          </div>
+          <div className="section-label">About Me</div>
+          <div className="section-title">Story, Skills & Background</div>
         </Reveal>
+
+        <div className="about-grid">
+          <Reveal delay={100}>
+            <div className="about-story">
+              <p>
+                <strong>I'm RICHARD, a full-stack developer specializing in back-office systems for local government and civic operations.</strong>
+              </p>
+              <p>
+                My journey started with a simple observation: the people who keep communities running — payroll officers, disaster response coordinators, barangay staff — are often stuck using spreadsheets and paper forms.
+              </p>
+              <p>
+                I build the software in between. Systems that handle real money, real people, and real deadlines. From GSIS-compliant payroll processing to RFID fleet terminals and QR-based relief distribution, I focus on software that works when it matters most.
+              </p>
+              <p>
+                Currently based in the Philippines, I work primarily with PHP and CodeIgniter 4, with a strong foundation in MySQL, REST APIs, and practical front-end tooling. Every project I deliver is built to be maintained by the staff who will use it on Monday mornings.
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={200}>
+            <div className="skills-list">
+              {SKILLS.map((skill) => (
+                <div key={skill.group} className="skill-group">
+                  <div className="skill-group-title">{skill.group.toUpperCase()}</div>
+                  <div className="skill-items">
+                    {skill.items.map((item) => (
+                      <span key={item} className="skill-item">{item}</span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
       </section>
 
-      <footer className="relative z-10 px-6 md:px-12 py-8 border-t pf-mono text-xs flex justify-between flex-wrap gap-2" style={{ borderColor: "var(--panel-line)", color: "var(--muted)" }}>
-        <span>© {new Date().getFullYear()} — built with CodeIgniter-grade discipline.</span>
-        <span>REGISTRY LAST SYNCED: TODAY</span>
+      {/* TRAININGS & HACKATHONS */}
+      <section id="trainings" className="section" style={{ borderTop: "1px solid var(--line)" }}>
+        <Reveal>
+          <div className="section-label">Growth & Experience</div>
+          <div className="section-title">Trainings & Hackathons</div>
+        </Reveal>
+
+        <div className="about-grid">
+          <Reveal delay={100}>
+            <div>
+              <div className="section-label" style={{ marginBottom: 24 }}>Trainings</div>
+              <div className="timeline">
+                {TRAININGS.map((t, i) => (
+                  <div key={i} className="timeline-item">
+                    <div className="timeline-dot" />
+                    <div className="timeline-content">
+                      <div className="timeline-header">
+                        <div className="timeline-title">{t.title}</div>
+                        <div className="timeline-date">{t.date}</div>
+                      </div>
+                      <div className="timeline-org">{t.org}</div>
+                      <div className="timeline-desc">{t.desc}</div>
+                      <div className="timeline-tags">
+                        {t.tags.map((tag) => (
+                          <span key={tag} className="timeline-tag">{tag}</span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={200}>
+            <div>
+              <div className="section-label" style={{ marginBottom: 24 }}>Hackathons</div>
+              <div className="timeline">
+                {HACKATHONS.map((h, i) => (
+                  <div key={i} className="timeline-item">
+                    <div className="timeline-dot" style={{ borderColor: "var(--accent-1)" }} />
+                    <div className="timeline-content">
+                      <div className="timeline-header">
+                        <div className="timeline-title">{h.title}</div>
+                        <div className="timeline-date">{h.date}</div>
+                      </div>
+                      <div className="timeline-org">{h.org}</div>
+                      <div className="timeline-desc">{h.desc}</div>
+                      <div className="timeline-tags">
+                        {h.tags.map((tag) => (
+                          <span key={tag} className="timeline-tag">{tag}</span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section id="contact" className="section" style={{ borderTop: "1px solid var(--line)" }}>
+        <Reveal>
+          <div className="section-label">Get In Touch</div>
+          <div className="section-title">Contact</div>
+        </Reveal>
+
+        <div className="contact-grid">
+          <Reveal delay={100}>
+            <div className="contact-info">
+              {SOCIALS.map((social) => (
+                <a key={social.label} href={social.href} className="contact-item" target="_blank" rel="noopener noreferrer">
+                  <div className="contact-icon" style={{ background: `${social.color}22`, border: `1px solid ${social.color}44` }}>
+                    <social.icon size={20} style={{ color: social.color }} />
+                  </div>
+                  <div>
+                    <div className="contact-label">{social.label}</div>
+                    <div className="contact-value">{social.value}</div>
+                  </div>
+                  <ExternalLink size={14} style={{ color: "var(--muted)", marginLeft: "auto" }} />
+                </a>
+              ))}
+            </div>
+          </Reveal>
+
+          <Reveal delay={200}>
+            <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+              <input type="text" placeholder="Your Name" className="contact-input" />
+              <input type="email" placeholder="Your Email" className="contact-input" />
+              <textarea placeholder="Tell me about your project..." className="contact-input" />
+              <button type="submit" className="contact-submit">
+                Send Message
+              </button>
+            </form>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="footer">
+        <div className="footer-text">
+          &copy; {new Date().getFullYear()} RICHARD — Built with discipline.
+        </div>
       </footer>
     </div>
   );
