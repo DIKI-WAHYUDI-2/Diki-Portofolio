@@ -190,6 +190,13 @@ body::-webkit-scrollbar {
   box-shadow: 0 4px 20px rgba(0,0,0,0.04);
   opacity: 1;
   pointer-events: all;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-bar.scrolled {
+  z-index: 200;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  transform: translateX(-50%) translateY(-2px);
 }
 
 .nav-left {
