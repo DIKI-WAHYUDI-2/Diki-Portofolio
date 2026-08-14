@@ -489,10 +489,11 @@ body::-webkit-scrollbar {
 
 .work-album-center {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   width: 420px;
   flex-shrink: 0;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease, margin 0.6s ease, width 0.6s ease;
+  will-change: transform, opacity, margin, width;
 }
 
 .work-album-center:hover {
@@ -505,8 +506,15 @@ body::-webkit-scrollbar {
   width: 300px;
   flex-shrink: 0;
   opacity: 0.92;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease, margin 0.6s ease, width 0.6s ease;
   margin: 0 -60px;
+  cursor: pointer;
+  will-change: transform, opacity, margin, width;
+}
+
+.work-album-side:hover {
+  transform: perspective(1200px) rotateY(0deg) translateX(0px) scale(1.03);
+  opacity: 1;
 }
 
 .work-album-left {
@@ -515,11 +523,6 @@ body::-webkit-scrollbar {
 
 .work-album-right {
   transform: perspective(1200px) rotateY(-18deg) translateX(30px);
-}
-
-.work-album-side:hover {
-  transform: perspective(1200px) rotateY(0deg) translateX(0px) scale(1.03);
-  opacity: 1;
 }
 
 .work-album-img {

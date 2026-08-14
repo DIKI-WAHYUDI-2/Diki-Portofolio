@@ -155,6 +155,9 @@ export default function Portfolio() {
   const marqueeTrackRef = useRef(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const goTo = (index) => setActiveIndex((prev) => (index + PROJECTS.length) % PROJECTS.length);
 
   useEffect(() => {
     const handleMouse = (e) => {
@@ -332,15 +335,22 @@ export default function Portfolio() {
         <Reveal delay={100}>
           <div className="work-album">
             <div className="work-album-inner">
-              <div className="work-album-side work-album-left">
-                <img src={PROJECTS[1].image} alt={PROJECTS[1].title} className="work-album-img" />
-              </div>
-              <div className="work-album-center">
-                <img src={PROJECTS[0].image} alt={PROJECTS[0].title} className="work-album-img" />
-              </div>
-              <div className="work-album-side work-album-right">
-                <img src={PROJECTS[2].image} alt={PROJECTS[2].title} className="work-album-img" />
-              </div>
+              {PROJECTS.map((project, index) => {
+                const offset = (index - activeIndex + PROJECTS.length) % PROJECTS.length;
+                let position = 'work-album-center';
+                if (offset === 1) position = 'work-album-side work-album-right';
+                else if (offset === 2) position = 'work-album-side work-album-left';
+
+                return (
+                  <div
+                    key={project.num}
+                    className={position}
+                    onClick={() => goTo(index)}
+                  >
+                    <img src={project.image} alt={project.title} className="work-album-img" />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </Reveal>
