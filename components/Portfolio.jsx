@@ -238,14 +238,6 @@ export default function Portfolio() {
           <div className="circle circle-3" />
         </div>
 
-        <div className="profile-wrap">
-          <img src="/images/profile.png" alt="RICHARD" className="profile-image" />
-          <div className="profile-overlay" />
-          <div className="profile-content">
-            <div className="profile-label">IT GRADUATE · QA · SOFTWARE TESTING</div>
-          </div>
-        </div>
-
         <div className="scroll-indicator">
           <div className="scroll-line" />
           <span className="scroll-text">Scroll Down</span>
