@@ -402,6 +402,14 @@ body::-webkit-scrollbar {
   margin: 0 auto;
 }
 
+#work {
+  padding-bottom: 60px;
+}
+
+#about {
+  padding-top: 60px;
+}
+
 .section-label {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
