@@ -231,6 +231,7 @@ export default function Portfolio() {
         </svg>
 
         <div className="bg-name">RICHARD MICULOB</div>
+        <div className="bg-name-2" style={{ animationDelay: "9s" }}>RICHARD MICULOB</div>
 
         <div className="concentric-circles">
           <div className="circle circle-1" />

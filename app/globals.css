@@ -67,9 +67,34 @@ body::-webkit-scrollbar {
   user-select: none;
   letter-spacing: -3px;
   animation: slideRightToLeft 18s linear infinite;
+  will-change: transform;
+}
+
+.bg-name-2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: clamp(120px, 22vw, 350px);
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(0,0,0,0.85);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 1;
+  user-select: none;
+  letter-spacing: -3px;
+  animation: slideRightToLeft2 18s linear infinite;
+  will-change: transform;
 }
 
 @keyframes slideRightToLeft {
+  0% { transform: translate(-50%, -50%) translateX(100vw); }
+  100% { transform: translate(-50%, -50%) translateX(-100vw); }
+}
+
+@keyframes slideRightToLeft2 {
   0% { transform: translate(-50%, -50%) translateX(100vw); }
   100% { transform: translate(-50%, -50%) translateX(-100vw); }
 }
