@@ -333,14 +333,11 @@ export default function Portfolio() {
             <div className="work-album-side">
               <img src={PROJECTS[2].image} alt={PROJECTS[2].title} className="work-album-img" />
             </div>
-          </div>
-        </Reveal>
-
-        <Reveal delay={200}>
-          <div className="work-album-action">
-            <a href="https://github.com/chardoxx-3/RFID-Student-Monitoring-System" className="work-album-btn" target="_blank" rel="noopener noreferrer">
-              View Projects <ExternalLink size={14} />
-            </a>
+            <div className="work-album-action">
+              <a href="https://github.com/chardoxx-3/RFID-Student-Monitoring-System" className="work-album-btn" target="_blank" rel="noopener noreferrer">
+                View Projects <ExternalLink size={14} />
+              </a>
+            </div>
           </div>
         </Reveal>
       </section>
