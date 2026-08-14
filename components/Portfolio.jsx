@@ -240,7 +240,6 @@ export default function Portfolio() {
 
         <div className="profile-wrap">
           <img src="/images/profile.png" alt="RICHARD" className="profile-image" />
-          <div className="profile-label">IT GRADUATE · QA · SOFTWARE TESTING</div>
         </div>
 
         <div className="scroll-indicator">
