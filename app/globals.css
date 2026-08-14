@@ -67,8 +67,8 @@ body::-webkit-scrollbar {
   display: flex;
   width: max-content;
   animation:
-    marquee-enter 4s linear forwards,
-    marquee var(--marquee-loop-duration, 18s) linear 4s infinite;
+    marquee-enter 8s linear forwards,
+    marquee var(--marquee-loop-duration, 18s) linear 8s infinite;
   will-change: transform;
 }
 

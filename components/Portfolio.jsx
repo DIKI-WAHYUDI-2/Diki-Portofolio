@@ -176,7 +176,7 @@ export default function Portfolio() {
     if (!track) return;
 
     const syncMarqueeSpeed = () => {
-      const enterSeconds = 4; // matches marquee-enter duration in CSS
+      const enterSeconds = 8; // matches marquee-enter duration in CSS
       const pxPerSecond = window.innerWidth / enterSeconds; // entrance travels 100vw in 4s
       const loopDistance = track.scrollWidth / 2; // loop travels -50% of the doubled track
       const loopSeconds = loopDistance / pxPerSecond;
