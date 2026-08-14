@@ -397,7 +397,7 @@ body::-webkit-scrollbar {
 .section {
   position: relative;
   z-index: 10;
-  padding: 120px 40px;
+  padding: 80px 40px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -606,7 +606,7 @@ body::-webkit-scrollbar {
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  gap: 48px;
   align-items: start;
 }
 
