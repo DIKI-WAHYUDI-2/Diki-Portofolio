@@ -85,16 +85,12 @@ body::-webkit-scrollbar {
   z-index: 1;
   user-select: none;
   letter-spacing: -3px;
-  animation: slideRightToLeft2 18s linear infinite;
+  animation: slideRightToLeft 18s linear infinite;
+  animation-delay: -9s;
   will-change: transform;
 }
 
 @keyframes slideRightToLeft {
-  0% { transform: translate(-50%, -50%) translateX(100vw); }
-  100% { transform: translate(-50%, -50%) translateX(-100vw); }
-}
-
-@keyframes slideRightToLeft2 {
   0% { transform: translate(-50%, -50%) translateX(100vw); }
   100% { transform: translate(-50%, -50%) translateX(-100vw); }
 }
