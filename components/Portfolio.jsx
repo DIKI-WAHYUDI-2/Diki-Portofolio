@@ -329,8 +329,36 @@ export default function Portfolio() {
           <div className="section-desc">A collection of systems, digital projects, and technical work I've built.</div>
         </Reveal>
 
+        <Reveal delay={100}>
+          <div className="work-highlight">
+            <div className="work-highlight-header">
+              <span className="work-editorial-num">01 —</span>
+              <h3 className="work-editorial-title">{PROJECTS[0].title}</h3>
+            </div>
+            <div className="work-editorial-category">{PROJECTS[0].category}</div>
+            <div className="work-editorial-desc">{PROJECTS[0].desc}</div>
+            <div className="work-editorial-tech">Tech: {PROJECTS[0].tech.join(" · ")}</div>
+            <div className="work-editorial-awards">
+              Awards:
+              {PROJECTS[0].awards.map((award) => (
+                <span key={award} className="work-award">🏆 {award}</span>
+              ))}
+            </div>
+            <a href={PROJECTS[0].link} className="work-editorial-link">
+              {PROJECTS[0].linkText} <ExternalLink size={14} />
+            </a>
+          </div>
+        </Reveal>
+      </section>
+
+      <section id="work-other" className="section">
+        <Reveal>
+          <div className="section-label">02 — More Work</div>
+          <div className="section-title">Other Projects</div>
+        </Reveal>
+
         <div className="work-editorial">
-          {PROJECTS.map((project, i) => (
+          {PROJECTS.slice(1).map((project, i) => (
             <Reveal key={project.num} delay={i * 100}>
               <div className="work-editorial-card">
                 <div className="work-editorial-header">
@@ -340,14 +368,6 @@ export default function Portfolio() {
                 <div className="work-editorial-category">{project.category}</div>
                 <div className="work-editorial-desc">{project.desc}</div>
                 <div className="work-editorial-tech">Tech: {project.tech.join(" · ")}</div>
-                {project.awards.length > 0 && (
-                  <div className="work-editorial-awards">
-                    Awards:
-                    {project.awards.map((award) => (
-                      <span key={award} className="work-award">🏆 {award}</span>
-                    ))}
-                  </div>
-                )}
                 <a href={project.link} className="work-editorial-link">
                   {project.linkText} <ExternalLink size={14} />
                 </a>

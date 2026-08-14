@@ -433,20 +433,19 @@ body::-webkit-scrollbar {
 .work-editorial {
   display: flex;
   flex-direction: column;
+  gap: 48px;
 }
 
 .work-editorial-card {
+  padding: 0;
+}
+
+.work-highlight {
   padding: 48px 0;
-  border-bottom: 1px solid var(--line);
-  transition: border-color 0.3s ease;
 }
 
-.work-editorial-card:first-child {
-  border-top: 1px solid var(--line);
-}
-
-.work-editorial-card:hover {
-  border-bottom-color: var(--text);
+.work-highlight .work-editorial-title {
+  font-size: clamp(28px, 4.5vw, 48px);
 }
 
 .work-editorial-header {
