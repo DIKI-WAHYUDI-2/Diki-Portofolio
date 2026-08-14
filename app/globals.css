@@ -547,42 +547,6 @@ body::-webkit-scrollbar {
   margin: 0 auto 20px;
 }
 
-.work-info-awards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
-.work-info-award {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  padding: 5px 12px;
-  border-radius: 6px;
-  background: var(--surface-2);
-  color: var(--text);
-  border: 1px solid var(--line);
-}
-
-.work-info-tags {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 24px;
-}
-
-.work-info-tag {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  padding: 4px 10px;
-  border-radius: 6px;
-  background: var(--surface-2);
-  color: var(--muted);
-  border: 1px solid var(--line);
-}
-
 .work-info-link {
   display: inline-flex;
   align-items: center;

@@ -385,20 +385,6 @@ export default function Portfolio() {
           <h3 className="work-info-title">{activeProject.title}</h3>
           <p className="work-info-desc">{activeProject.desc}</p>
 
-          {activeProject.awards.length > 0 && (
-            <div className="work-info-awards">
-              {activeProject.awards.map((award) => (
-                <span key={award} className="work-info-award">🏆 {award}</span>
-              ))}
-            </div>
-          )}
-
-          <div className="work-info-tags">
-            {activeProject.tech.map((t) => (
-              <span key={t} className="work-info-tag">{t}</span>
-            ))}
-          </div>
-
           <a
             href={activeProject.link}
             className="work-info-link"
