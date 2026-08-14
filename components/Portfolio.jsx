@@ -6,17 +6,6 @@ import { Github, Mail, ExternalLink, Menu, X } from "lucide-react";
 const PROJECTS = [
   {
     num: "01",
-    title: "ResQR - Disaster Relief Management System",
-    category: "Web Development",
-    desc: "A QR code-based disaster relief management system for registering beneficiaries, tracking relief distribution, and coordinating emergency response operations.",
-    tech: ["HTML", "CSS", "PHP", "MySQL"],
-    awards: [],
-    image: "/images/ResQR/login.png",
-    link: "#",
-    linkText: "View Project →",
-  },
-    {
-    num: "02",
     title: "RFID-Based CPSC Student Monitoring System with Automated Photo Capture and Email Notification",
     category: "Capstone Project",
     desc: "Automated attendance tracking using RFID readers with photo capture, Google Drive export, email notifications, and admin reporting.",
@@ -24,6 +13,17 @@ const PROJECTS = [
     awards: ["Best Capstone Paper", "Best Capstone System"],
     image: "/images/Capstone/login.png",
     link: "https://github.com/chardoxx-3/RFID-Student-Monitoring-System",
+    linkText: "View Project →",
+  },
+  {
+    num: "02",
+    title: "ResQR - Disaster Relief Management System",
+    category: "Web Development",
+    desc: "A QR code-based disaster relief management system for registering beneficiaries, tracking relief distribution, and coordinating emergency response operations.",
+    tech: ["HTML", "CSS", "PHP", "MySQL"],
+    awards: [],
+    image: "/images/ResQR/login.png",
+    link: "#",
     linkText: "View Project →",
   },
   {
@@ -155,12 +155,9 @@ export default function Portfolio() {
   const marqueeTrackRef = useRef(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  const goTo = (index) => {
-    const normalized = ((index % PROJECTS.length) + PROJECTS.length) % PROJECTS.length;
-    setActiveIndex(normalized);
-  };
+  const goTo = (index) => setActiveIndex((prev) => (index + PROJECTS.length) % PROJECTS.length);
 
   useEffect(() => {
     const handleMouse = (e) => {
