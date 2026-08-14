@@ -5,40 +5,44 @@ import { Github, Mail, ExternalLink, ChevronRight, Menu, X } from "lucide-react"
 
 const PROJECTS = [
   {
-    id: "P01",
-    title: "Payroll Management System",
-    org: "LGU-Mahinog",
-    status: "LIVE",
-    desc: "Full payroll cycle for a local government unit — GSIS, Pag-IBIG and bank deductions, quincena periods, deduction management with automatic net-pay recalculation, Excel import for employee records, and batch payslip generation.",
-    tags: ["PHP", "CodeIgniter 4", "MySQL", "PhpSpreadsheet"],
-    color: "#000000",
+    num: "01",
+    title: "RFID-Based CPSC Student Monitoring System with Automated Photo Capture and Email Notification",
+    category: "Web Development / Database",
+    desc: "Automated attendance tracking using RFID readers with photo capture, Google Drive export, email notifications, and admin reporting.",
+    tech: ["Python Django", "MySQL", "RFID", "Email Automation"],
+    awards: ["Best Capstone Paper", "Best Capstone System"],
+    link: "#",
+    linkText: "View Case Study →",
   },
   {
-    id: "P02",
-    title: "Smart Mobile Kitchen",
-    org: "Disaster Relief Distribution",
-    status: "PILOT",
-    desc: "QR-based claim tracking for disaster relief food distribution — per-person claim limits, live cooked-food inventory deduction, kiosk mode with idle-loop demo screen, Bisaya-language scan feedback, and a 5-second polling admin monitor.",
-    tags: ["PHP", "CodeIgniter 4", "QR Scan", "Live Polling"],
-    color: "#333333",
+    num: "02",
+    title: "ResQR - Disaster Relief Management System",
+    category: "Web Development / Database",
+    desc: "A QR code-based disaster relief management system for registering beneficiaries, tracking relief distribution, and coordinating emergency response operations.",
+    tech: ["HTML", "CSS", "PHP", "MySQL"],
+    awards: [],
+    link: "#",
+    linkText: "View Project →",
   },
   {
-    id: "P03",
-    title: "iTRAK RFID Driver Terminal",
-    org: "Motorela Fleet Management",
-    status: "LIVE",
-    desc: "RFID tap terminal for tricycle drivers — two-step preview-then-accept scan guard, duplicate-tap cooldown, violation reporting, a driver-facing queue portal, and multi-event support with a persisted event selector.",
-    tags: ["PHP", "RFID", "CodeIgniter 4", "Realtime UI"],
-    color: "#1F2933",
+    num: "03",
+    title: "iTrak - Terminal Management System",
+    category: "Web Development / Database",
+    desc: "RFID-based terminal management system for tracking driver attendance, managing routes and queues, processing payments, and generating real-time analytics.",
+    tech: ["PHP", "MySQL", "HTML", "CSS"],
+    awards: [],
+    link: "#",
+    linkText: "View Project →",
   },
   {
-    id: "P04",
-    title: "Barangay Resident Management",
-    org: "Community Administration",
-    status: "LIVE",
-    desc: "Structured resident records for barangay-level governance — registration, lookups, and reporting built for day-to-day frontline staff use.",
-    tags: ["PHP", "CodeIgniter 4", "MySQL"],
-    color: "#6B6B6B",
+    num: "04",
+    title: "DocuTrack - Document Tracking System",
+    category: "Web Development / Database",
+    desc: "DocuTRACK: a document tracking system for archiving, tagging, approving, and syncing letters with Google Drive.",
+    tech: ["PHP", "MySQL", "HTML", "CSS"],
+    awards: [],
+    link: "#",
+    linkText: "View Project →",
   },
 ];
 
@@ -320,49 +324,33 @@ export default function Portfolio() {
       {/* WORK GALLERY */}
       <section id="work" className="section">
         <Reveal>
-          <div className="section-label">Selected Work</div>
+          <div className="section-label">01 — Selected Work</div>
           <div className="section-title">Work Gallery</div>
+          <div className="section-desc">A collection of systems, digital projects, and technical work I've built.</div>
         </Reveal>
 
-        <div className="work-grid">
+        <div className="work-editorial">
           {PROJECTS.map((project, i) => (
-            <Reveal key={project.id} delay={i * 100}>
-              <div className="work-card">
-                <div className="work-image" style={{ background: `linear-gradient(135deg, ${project.color}08, ${project.color}03)` }}>
-                  <svg viewBox="0 0 320 200" fill="none" style={{ width: "100%", height: "100%", position: 'absolute', inset: 0 }}>
-                    <rect width="320" height="200" rx="8" fill={project.color} opacity="0.03" />
-                    <rect x="12" y="12" width="8" height="8" rx="2" fill={project.color} opacity="0.2" />
-                    <rect x="26" y="12" width="8" height="8" rx="2" fill={project.color} opacity="0.15" />
-                    <rect x="40" y="12" width="8" height="8" rx="2" fill={project.color} opacity="0.1" />
-                    <rect x="12" y="32" width="60" height="6" rx="3" fill={project.color} opacity="0.15" />
-                    <rect x="12" y="44" width="120" height="4" rx="2" fill={project.color} opacity="0.1" />
-                    <rect x="12" y="54" width="100" height="4" rx="2" fill={project.color} opacity="0.08" />
-                    <rect x="12" y="64" width="90" height="4" rx="2" fill={project.color} opacity="0.08" />
-                    <rect x="12" y="80" width="140" height="60" rx="4" fill={project.color} opacity="0.05" />
-                    <rect x="160" y="80" width="148" height="60" rx="4" fill={project.color} opacity="0.03" />
-                    <rect x="170" y="90" width="80" height="6" rx="3" fill={project.color} opacity="0.2" />
-                    <rect x="170" y="102" width="120" height="4" rx="2" fill={project.color} opacity="0.1" />
-                    <rect x="170" y="112" width="100" height="4" rx="2" fill={project.color} opacity="0.08" />
-                    <rect x="12" y="150" width="296" height="32" rx="4" fill={project.color} opacity="0.02" />
-                    <rect x="20" y="158" width="80" height="16" rx="4" fill={project.color} opacity="0.1" />
-                    <rect x="108" y="158" width="80" height="16" rx="4" fill={project.color} opacity="0.05" />
-                    <rect x="196" y="158" width="100" height="16" rx="4" fill={project.color} opacity="0.03" />
-                  </svg>
+            <Reveal key={project.num} delay={i * 100}>
+              <div className="work-editorial-card">
+                <div className="work-editorial-header">
+                  <span className="work-editorial-num">{project.num} —</span>
+                  <h3 className="work-editorial-title">{project.title}</h3>
                 </div>
-                <div className="work-content">
-                  <div className="flex items-center justify-between mb-3">
-                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: project.color, letterSpacing: '0.05em' }}>{project.id}</span>
-                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', padding: '4px 10px', borderRadius: '6px', background: 'var(--surface-2)', color: 'var(--muted)', border: '1px solid var(--line)', letterSpacing: '0.05em' }}>{project.status}</span>
-                  </div>
-                  <div className="work-title">{project.title}</div>
-                  <div style={{ fontSize: '13px', color: 'var(--muted)', marginBottom: '12px' }}>{project.org}</div>
-                  <div className="work-desc">{project.desc}</div>
-                  <div className="work-tags">
-                    {project.tags.map((t) => (
-                      <span key={t} className="work-tag">{t}</span>
+                <div className="work-editorial-category">{project.category}</div>
+                <div className="work-editorial-desc">{project.desc}</div>
+                <div className="work-editorial-tech">Tech: {project.tech.join(" · ")}</div>
+                {project.awards.length > 0 && (
+                  <div className="work-editorial-awards">
+                    Awards:
+                    {project.awards.map((award) => (
+                      <span key={award} className="work-award">🏆 {award}</span>
                     ))}
                   </div>
-                </div>
+                )}
+                <a href={project.link} className="work-editorial-link">
+                  {project.linkText} <ExternalLink size={14} />
+                </a>
               </div>
             </Reveal>
           ))}
