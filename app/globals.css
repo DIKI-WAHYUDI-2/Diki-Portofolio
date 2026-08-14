@@ -544,13 +544,14 @@ body::-webkit-scrollbar {
   line-height: 1.7;
   color: var(--muted);
   max-width: 700px;
-  margin: 0 auto 20px;
+  margin: 0 0 20px;
+  text-align: left;
 }
 
 .work-info-awards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 8px;
   margin-bottom: 16px;
 }
@@ -568,7 +569,7 @@ body::-webkit-scrollbar {
 .work-info-tags {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 8px;
   margin-bottom: 24px;
 }
