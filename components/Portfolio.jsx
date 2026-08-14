@@ -199,8 +199,8 @@ export default function Portfolio() {
           transform: 'translateX(-50%)',
           background: 'var(--surface)',
           padding: '24px',
-          borderRadius: '16px',
-          boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+          borderRadius: '18px',
+          boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
           zIndex: 99,
           display: 'flex',
           flexDirection: 'column',
@@ -217,26 +217,26 @@ export default function Portfolio() {
       {/* HERO */}
       <section className="hero-root">
         <svg className="bg-lines" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-          <path d="M0 450C240 350 480 550 720 450C960 350 1200 550 1440 450" stroke="rgba(0,0,0,0.04)" strokeWidth="1" fill="none"/>
-          <path d="M0 500C240 400 480 600 720 500C960 400 1200 600 1440 500" stroke="rgba(0,0,0,0.03)" strokeWidth="1" fill="none"/>
-          <circle cx="720" cy="450" r="200" stroke="rgba(0,0,0,0.04)" strokeWidth="1" fill="none"/>
-          <circle cx="720" cy="450" r="280" stroke="rgba(0,0,0,0.03)" strokeWidth="1" fill="none" strokeDasharray="8 8"/>
+          <path d="M0 450C240 350 480 550 720 450C960 350 1200 550 1440 450" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.3"/>
+          <path d="M0 500C240 400 480 600 720 500C960 400 1200 600 1440 500" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.2"/>
         </svg>
 
         <div className="bg-name">RICHARD</div>
 
-        <div className="hero-left hidden md:block">
-          <div>Freelance</div>
-          <div>Designer & Developer</div>
-        </div>
-
-        <div className="hero-right hidden md:block">
-          Scroll down
+        <div className="concentric-circles">
+          <div className="circle circle-1" />
+          <div className="circle circle-2" />
+          <div className="circle circle-3" />
         </div>
 
         <div className="profile-wrap">
           <img src="/images/profile.png" alt="RICHARD" className="profile-image" />
-          <div className="profile-label">Full-Stack Developer</div>
+          <div className="profile-label">IT GRADUATE · QA · SOFTWARE TESTING</div>
+        </div>
+
+        <div className="scroll-indicator">
+          <div className="scroll-line" />
+          <span className="scroll-text">Scroll Down</span>
         </div>
       </section>
 
@@ -303,16 +303,16 @@ export default function Portfolio() {
           <Reveal delay={100}>
             <div className="about-story">
               <p>
-                <strong>I'm RICHARD, a full-stack developer specializing in back-office systems for local government and civic operations.</strong>
+                <strong>I'm RICHARD, a BSIT graduate specializing in QA, software testing, system development, and web development.</strong>
               </p>
               <p>
-                My journey started with a simple observation: the people who keep communities running — payroll officers, disaster response coordinators, barangay staff — are often stuck using spreadsheets and paper forms.
+                My journey in technology started with a deep curiosity about how systems work and how to make them better. I focus on ensuring software quality through rigorous testing, building robust back-end systems, and creating clean, functional web interfaces.
               </p>
               <p>
-                I build the software in between. Systems that handle real money, real people, and real deadlines. From GSIS-compliant payroll processing to RFID fleet terminals and QR-based relief distribution, I focus on software that works when it matters most.
+                I specialize in QA methodologies, manual and automated testing, and full-stack development with PHP and CodeIgniter 4. Every project I deliver is built with precision, maintainability, and the end-user experience in mind.
               </p>
               <p>
-                Currently based in the Philippines, I work primarily with PHP and CodeIgniter 4, with a strong foundation in MySQL, REST APIs, and practical front-end tooling. Every project I deliver is built to be maintained by the staff who will use it on Monday mornings.
+                Based in the Philippines, I'm passionate about creating reliable, efficient, and well-tested software solutions that help organizations operate more effectively.
               </p>
             </div>
           </Reveal>
