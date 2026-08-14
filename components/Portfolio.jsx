@@ -198,6 +198,18 @@ export default function Portfolio() {
 
   return (
     <div ref={rootRef}>
+      <svg className="bg-lines" viewBox="0 0 1440 3200" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0 200C240 150 480 250 720 200C960 150 1200 250 1440 200" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.3"/>
+        <path d="M0 450C240 350 480 550 720 450C960 350 1200 550 1440 450" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.25"/>
+        <path d="M0 700C240 600 480 800 720 700C960 600 1200 800 1440 700" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.2"/>
+        <path d="M0 1000C240 900 480 1100 720 1000C960 900 1200 1100 1440 1000" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.18"/>
+        <path d="M0 1250C240 1150 480 1350 720 1250C960 1150 1200 1350 1440 1250" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.18"/>
+        <path d="M0 1550C240 1450 480 1650 720 1550C960 1450 1200 1650 1440 1550" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.15"/>
+        <path d="M0 1850C240 1750 480 1950 720 1850C960 1750 1200 1950 1440 1850" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.15"/>
+        <path d="M0 2150C240 2050 480 2250 720 2150C960 2050 1200 2250 1440 2150" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.12"/>
+        <path d="M0 2450C240 2350 480 2550 720 2450C960 2350 1200 2550 1440 2450" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.12"/>
+        <path d="M0 2750C240 2650 480 2850 720 2750C960 2650 1200 2850 1440 2750" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.1"/>
+      </svg>
       {/* NAVIGATION */}
       <nav className={`nav-bar ${scrolled ? "scrolled" : ""}`}>
         <div className="nav-left">
@@ -243,14 +255,6 @@ export default function Portfolio() {
 
       {/* HERO */}
       <section className="hero-root">
-        <svg className="bg-lines" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-          <path d="M0 450C240 350 480 550 720 450C960 350 1200 550 1440 450" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.3"/>
-          <path d="M0 500C240 400 480 600 720 500C960 400 1200 600 1440 500" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.2"/>
-          <path d="M0 200C360 120 720 280 1080 180C1260 140 1380 220 1440 200" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.18"/>
-          <path d="M0 700C360 620 720 780 1080 680C1260 640 1380 720 1440 700" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.18"/>
-          <path d="M0 320C180 280 360 360 540 320C720 280 900 360 1080 320C1260 280 1380 340 1440 320" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.12"/>
-          <path d="M0 580C180 540 360 620 540 580C720 540 900 620 1080 580C1260 540 1380 600 1440 580" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.12"/>
-        </svg>
 
 <div className="bg-name-marquee">
           <div className="bg-name-track" ref={marqueeTrackRef}>
