@@ -331,7 +331,7 @@ export default function Portfolio() {
               <div className="section-desc">A collection of systems, digital projects, and technical work I've built.</div>
             </div>
             <a href="https://github.com/chardoxx-3/RFID-Student-Monitoring-System" className="work-album-btn-top" target="_blank" rel="noopener noreferrer">
-              View Projects <ExternalLink size={14} />
+              View More Projects <ExternalLink size={14} />
             </a>
           </div>
         </Reveal>
