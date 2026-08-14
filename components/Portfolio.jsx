@@ -319,56 +319,21 @@ export default function Portfolio() {
         <Reveal>
           <div className="section-label">Selected Work</div>
           <div className="section-title">Work Gallery</div>
-          <div className="section-desc">A collection of systems, digital projects, and technical work I've built.</div>
         </Reveal>
 
-        <div className="work-images">
-          <Reveal delay={100}>
-            <div className="work-image-card work-image-feature">
-              <div className="work-image-wrap">
-                <img src={PROJECTS[0].image} alt={PROJECTS[0].title} className="work-image-img" />
-              </div>
-              <div className="work-image-body">
-                <h3 className="work-image-title">{PROJECTS[0].title}</h3>
-                <div className="work-image-category">{PROJECTS[0].category}</div>
-                <div className="work-image-desc">{PROJECTS[0].desc}</div>
-                <div className="work-image-tech">Tech: {PROJECTS[0].tech.join(" · ")}</div>
-                <div className="work-image-awards">
-                  {PROJECTS[0].awards.map((award) => (
-                    <span key={award} className="work-award">🏆 {award}</span>
-                  ))}
-                </div>
-                <a href={PROJECTS[0].link} className="work-image-link" target="_blank" rel="noopener noreferrer">
-                  {PROJECTS[0].linkText} <ExternalLink size={14} />
-                </a>
-              </div>
+        <Reveal delay={100}>
+          <div className="work-album">
+            <div className="work-album-side work-album-left">
+              <img src={PROJECTS[1].image} alt={PROJECTS[1].title} className="work-album-img" />
             </div>
-          </Reveal>
-
-          <div className="work-images-row">
-            {PROJECTS.slice(1).map((project, i) => (
-              <Reveal key={project.num} delay={i * 80}>
-                <div className="work-image-card">
-                  <div className="work-image-wrap">
-                    <img src={project.image} alt={project.title} className="work-image-img" />
-                  </div>
-                  <div className="work-image-body">
-                    <div className="work-image-header">
-                      <span className="work-image-num">{project.num} —</span>
-                      <h4 className="work-image-title">{project.title}</h4>
-                    </div>
-                    <div className="work-image-category">{project.category}</div>
-                    <div className="work-image-desc">{project.desc}</div>
-                    <div className="work-image-tech">Tech: {project.tech.join(" · ")}</div>
-                    <a href={project.link} className="work-image-link" target="_blank" rel="noopener noreferrer">
-                      {project.linkText} <ExternalLink size={14} />
-                    </a>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
+            <div className="work-album-center">
+              <img src={PROJECTS[0].image} alt={PROJECTS[0].title} className="work-album-img" />
+            </div>
+            <div className="work-album-side work-album-right">
+              <img src={PROJECTS[2].image} alt={PROJECTS[2].title} className="work-album-img" />
+            </div>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* ABOUT */}
