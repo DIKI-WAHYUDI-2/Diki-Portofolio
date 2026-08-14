@@ -51,48 +51,40 @@ body::-webkit-scrollbar {
   z-index: 1;
 }
 
-.bg-name {
+/* Marquee Background Text */
+.bg-name-marquee {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.bg-name-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 18s linear infinite;
+}
+
+.bg-name-text {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: clamp(120px, 22vw, 350px);
   color: transparent;
   -webkit-text-stroke: 1.5px rgba(0,0,0,0.85);
   white-space: nowrap;
-  pointer-events: none;
-  z-index: 1;
-  user-select: none;
   letter-spacing: -3px;
-  animation: slideRightToLeft 18s linear infinite;
-  will-change: transform;
+  user-select: none;
+  flex-shrink: 0;
+  padding-right: 2rem;
 }
 
-.bg-name-2 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: clamp(120px, 22vw, 350px);
-  color: transparent;
-  -webkit-text-stroke: 1.5px rgba(0,0,0,0.85);
-  white-space: nowrap;
-  pointer-events: none;
-  z-index: 1;
-  user-select: none;
-  letter-spacing: -3px;
-  animation: slideRightToLeft 18s linear infinite;
-  animation-delay: -9s;
-  will-change: transform;
-}
-
-@keyframes slideRightToLeft {
-  0% { transform: translate(-50%, -50%) translateX(100vw); }
-  100% { transform: translate(-50%, -50%) translateX(-100vw); }
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .concentric-circles {
@@ -764,23 +756,23 @@ textarea.contact-input {
   .hero-root {
     padding: 100px 20px 60px;
   }
-  
+
   .nav-center {
     display: none;
   }
-  
+
   .nav-cta {
     display: none;
   }
-  
-  .bg-name {
+
+  .bg-name-text {
     font-size: clamp(80px, 18vw, 200px);
   }
-  
+
   .section {
     padding: 80px 20px;
   }
-  
+
   .scroll-indicator {
     right: 20px;
     bottom: 20px;
