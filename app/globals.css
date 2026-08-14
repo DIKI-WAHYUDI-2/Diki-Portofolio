@@ -66,41 +66,12 @@ body::-webkit-scrollbar {
   z-index: 1;
   user-select: none;
   letter-spacing: -3px;
-  animation: slideRightToLeft 20s linear infinite;
-}
-
-.bg-name-2 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: clamp(120px, 22vw, 350px);
-  color: transparent;
-  -webkit-text-stroke: 1.5px rgba(0,0,0,0.85);
-  white-space: nowrap;
-  pointer-events: none;
-  z-index: 1;
-  user-select: none;
-  letter-spacing: -3px;
-  opacity: 0;
-  animation: fadeInOut 20s linear infinite;
+  animation: slideRightToLeft 18s linear infinite;
 }
 
 @keyframes slideRightToLeft {
   0% { transform: translate(-50%, -50%) translateX(100vw); }
-  45% { transform: translate(-50%, -50%) translateX(-100vw); }
-  50% { transform: translate(-50%, -50%) translateX(-100vw); opacity: 0; }
-  55% { transform: translate(-50%, -50%) translateX(100vw); opacity: 0; }
-  100% { transform: translate(-50%, -50%) translateX(100vw); opacity: 1; }
-}
-
-@keyframes fadeInOut {
-  0%, 45% { opacity: 0; }
-  50% { opacity: 1; }
-  95% { opacity: 1; }
-  100% { opacity: 0; }
+  100% { transform: translate(-50%, -50%) translateX(-100vw); }
 }
 
 .concentric-circles {

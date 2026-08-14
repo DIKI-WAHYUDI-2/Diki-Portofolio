@@ -230,8 +230,7 @@ export default function Portfolio() {
           <path d="M0 500C240 400 480 600 720 500C960 400 1200 600 1440 500" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.2"/>
         </svg>
 
-        <div className="bg-name">RICHARD</div>
-        <div className="bg-name-2">RICHARD MICULOB</div>
+        <div className="bg-name">RICHARD MICULOB</div>
 
         <div className="concentric-circles">
           <div className="circle circle-1" />
