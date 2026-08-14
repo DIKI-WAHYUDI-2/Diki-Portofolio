@@ -198,17 +198,17 @@ export default function Portfolio() {
 
   return (
     <div ref={rootRef}>
-      <svg className="bg-lines" viewBox="0 0 1440 3200" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <path d="M0 200C240 150 480 250 720 200C960 150 1200 250 1440 200" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.3"/>
-        <path d="M0 450C240 350 480 550 720 450C960 350 1200 550 1440 450" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.25"/>
-        <path d="M0 700C240 600 480 800 720 700C960 600 1200 800 1440 700" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.2"/>
-        <path d="M0 1000C240 900 480 1100 720 1000C960 900 1200 1100 1440 1000" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.18"/>
-        <path d="M0 1250C240 1150 480 1350 720 1250C960 1150 1200 1350 1440 1250" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.18"/>
-        <path d="M0 1550C240 1450 480 1650 720 1550C960 1450 1200 1650 1440 1550" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.15"/>
-        <path d="M0 1850C240 1750 480 1950 720 1850C960 1750 1200 1950 1440 1850" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.15"/>
-        <path d="M0 2150C240 2050 480 2250 720 2150C960 2050 1200 2250 1440 2150" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.12"/>
-        <path d="M0 2450C240 2350 480 2550 720 2450C960 2350 1200 2550 1440 2450" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.12"/>
-        <path d="M0 2750C240 2650 480 2850 720 2750C960 2650 1200 2850 1440 2750" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.1"/>
+      <svg className="bg-lines" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{width:'100%',height:'100%'}}>
+        <path d="M-100 120 C 200 40, 500 200, 800 100 C 1100 0, 1300 180, 1540 80" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.32"/>
+        <path d="M0 260 C 300 180, 600 340, 900 260 C 1200 180, 1400 320, 1440 240" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.28"/>
+        <path d="M-50 400 C 250 320, 550 480, 850 400 C 1150 320, 1380 460, 1490 380" stroke="var(--light-gray)" strokeWidth="1.5" fill="none" opacity="0.25"/>
+        <path d="M0 540 C 200 460, 500 620, 800 540 C 1100 460, 1300 600, 1440 520" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.3"/>
+        <path d="M-100 680 C 300 600, 600 760, 900 680 C 1200 600, 1400 740, 1540 660" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.22"/>
+        <path d="M0 820 C 350 780, 650 880, 950 820 C 1250 760, 1400 860, 1440 800" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.18"/>
+        <path d="M-80 160 C 180 100, 400 220, 700 140 C 1000 60, 1220 200, 1520 120" stroke="var(--light-gray)" strokeWidth="1.5" fill="none" opacity="0.2"/>
+        <path d="M0 450 C 280 380, 580 520, 880 440 C 1180 360, 1380 500, 1440 420" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.15"/>
+        <path d="M-60 610 C 220 550, 520 670, 820 590 C 1120 510, 1340 650, 1500 570" stroke="var(--light-gray)" strokeWidth="1.5" fill="none" opacity="0.26"/>
+        <path d="M0 760 C 320 700, 620 820, 920 740 C 1220 660, 1420 800, 1440 720" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.24"/>
       </svg>
       {/* NAVIGATION */}
       <nav className={`nav-bar ${scrolled ? "scrolled" : ""}`}>
@@ -255,6 +255,14 @@ export default function Portfolio() {
 
       {/* HERO */}
       <section className="hero-root">
+        <svg className="bg-lines" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M-120 180 C 180 80, 420 260, 780 160 C 1140 60, 1320 240, 1560 120" stroke="var(--light-gray)" strokeWidth="1.5" fill="none" opacity="0.35"/>
+          <path d="M0 340 C 320 260, 620 420, 940 340 C 1260 260, 1420 400, 1440 320" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.3"/>
+          <path d="M-80 520 C 260 440, 560 600, 860 520 C 1160 440, 1380 580, 1520 500" stroke="var(--light-gray)" strokeWidth="1.5" fill="none" opacity="0.28"/>
+          <path d="M0 720 C 340 660, 640 780, 940 700 C 1240 620, 1420 760, 1440 680" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.24"/>
+          <path d="M-140 80 C 200 40, 480 160, 820 100 C 1160 40, 1340 140, 1580 80" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.22"/>
+          <path d="M0 860 C 300 800, 600 920, 900 840 C 1200 760, 1400 900, 1440 820" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.2"/>
+        </svg>
 
 <div className="bg-name-marquee">
           <div className="bg-name-track" ref={marqueeTrackRef}>
@@ -281,6 +289,13 @@ export default function Portfolio() {
 
       {/* WORK GALLERY */}
       <section id="work" className="section">
+        <svg className="bg-lines" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M-100 120 C 220 60, 500 220, 800 140 C 1100 60, 1300 200, 1540 100" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.3"/>
+          <path d="M0 280 C 280 220, 580 360, 880 280 C 1180 200, 1380 340, 1440 260" stroke="var(--light-gray)" strokeWidth="1.5" fill="none" opacity="0.28"/>
+          <path d="M-60 460 C 240 400, 540 540, 840 460 C 1140 380, 1360 520, 1500 440" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.32"/>
+          <path d="M0 640 C 320 580, 620 720, 920 640 C 1220 560, 1420 700, 1440 620" stroke="var(--light-gray)" strokeWidth="1.5" fill="none" opacity="0.26"/>
+          <path d="M-80 800 C 260 740, 560 860, 860 780 C 1160 700, 1380 840, 1520 760" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.24"/>
+        </svg>
         <Reveal>
           <div className="section-label">Selected Work</div>
           <div className="section-title">Work Gallery</div>
@@ -333,6 +348,14 @@ export default function Portfolio() {
 
       {/* ABOUT */}
       <section id="about" className="section" style={{ borderTop: "1px solid var(--line)" }}>
+        <svg className="bg-lines" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M-140 160 C 200 100, 480 240, 820 180 C 1160 120, 1340 260, 1580 200" stroke="var(--light-gray)" strokeWidth="1.5" fill="none" opacity="0.34"/>
+          <path d="M0 340 C 320 280, 620 420, 920 360 C 1220 300, 1420 440, 1440 380" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.3"/>
+          <path d="M-80 540 C 240 480, 540 620, 840 560 C 1140 500, 1360 640, 1500 580" stroke="var(--light-gray)" strokeWidth="1.5" fill="none" opacity="0.28"/>
+          <path d="M0 740 C 340 680, 640 820, 940 760 C 1240 700, 1420 840, 1440 780" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.26"/>
+          <path d="M-100 900 C 260 840, 560 960, 860 900 C 1160 840, 1380 980, 1520 920" stroke="var(--light-gray)" strokeWidth="1.5" fill="none" opacity="0.22"/>
+          <path d="M0 100 C 300 40, 600 180, 900 120 C 1200 60, 1400 200, 1440 140" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.2"/>
+        </svg>
         <Reveal>
           <div className="section-label">About Me</div>
           <div className="section-title">Story, Skills & Background</div>
@@ -375,6 +398,14 @@ export default function Portfolio() {
 
       {/* TRAININGS & HACKATHONS */}
       <section id="trainings" className="section" style={{ borderTop: "1px solid var(--line)" }}>
+        <svg className="bg-lines" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M-120 200 C 240 140, 540 280, 860 220 C 1180 160, 1380 300, 1560 240" stroke="var(--light-gray)" strokeWidth="1.5" fill="none" opacity="0.32"/>
+          <path d="M0 400 C 300 340, 600 480, 900 420 C 1200 360, 1400 500, 1440 440" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.3"/>
+          <path d="M-60 600 C 260 540, 560 680, 860 620 C 1160 560, 1360 700, 1500 640" stroke="var(--light-gray)" strokeWidth="1.5" fill="none" opacity="0.26"/>
+          <path d="M0 800 C 320 740, 620 860, 920 800 C 1220 740, 1420 880, 1440 820" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.24"/>
+          <path d="M-80 50 C 220 0, 500 120, 840 80 C 1180 40, 1360 160, 1520 100" stroke="var(--light-gray)" strokeWidth="1.5" fill="none" opacity="0.2"/>
+          <path d="M0 950 C 300 900, 600 1020, 900 960 C 1200 900, 1400 1040, 1440 980" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.18"/>
+        </svg>
         <Reveal>
           <div className="section-label">Growth & Experience</div>
           <div className="section-title">Trainings & Hackathons</div>
@@ -437,6 +468,14 @@ export default function Portfolio() {
 
       {/* CONTACT */}
       <section id="contact" className="section" style={{ borderTop: "1px solid var(--line)" }}>
+        <svg className="bg-lines" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M-140 140 C 200 80, 480 220, 820 160 C 1160 100, 1340 240, 1580 180" stroke="var(--light-gray)" strokeWidth="1.5" fill="none" opacity="0.36"/>
+          <path d="M0 320 C 320 260, 620 400, 920 340 C 1220 280, 1420 420, 1440 360" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.32"/>
+          <path d="M-80 520 C 240 460, 540 600, 840 540 C 1140 480, 1360 620, 1500 560" stroke="var(--light-gray)" strokeWidth="1.5" fill="none" opacity="0.3"/>
+          <path d="M0 720 C 340 660, 640 800, 940 740 C 1240 680, 1420 820, 1440 760" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.28"/>
+          <path d="M-100 880 C 260 820, 560 960, 860 900 C 1160 840, 1380 980, 1520 920" stroke="var(--light-gray)" strokeWidth="1.5" fill="none" opacity="0.24"/>
+          <path d="M0 60 C 300 20, 600 140, 900 80 C 1200 20, 1400 160, 1440 100" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.22"/>
+        </svg>
         <Reveal>
           <div className="section-label">Get In Touch</div>
           <div className="section-title">Contact</div>
@@ -475,6 +514,11 @@ export default function Portfolio() {
 
       {/* FOOTER */}
       <footer className="footer">
+        <svg className="bg-lines" viewBox="0 0 1440 300" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M-100 80 C 220 40, 520 140, 860 100 C 1200 60, 1380 160, 1540 120" stroke="var(--light-gray)" strokeWidth="1.5" fill="none" opacity="0.34"/>
+          <path d="M0 180 C 300 140, 600 240, 900 200 C 1200 160, 1400 260, 1440 220" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.3"/>
+          <path d="M-80 260 C 240 220, 540 320, 840 280 C 1140 240, 1360 340, 1520 300" stroke="var(--light-gray)" strokeWidth="1.5" fill="none" opacity="0.26"/>
+        </svg>
         <div className="footer-text">
           &copy; {new Date().getFullYear()} RICHARD — Built with discipline.
         </div>
