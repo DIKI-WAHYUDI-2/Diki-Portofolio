@@ -149,8 +149,6 @@ body::-webkit-scrollbar {
   animation: profileIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   opacity: 0;
   pointer-events: none;
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 100%);
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 100%);
 }
 
 @keyframes profileIn {
@@ -163,6 +161,14 @@ body::-webkit-scrollbar {
   inset: 0;
   background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.35) 100%);
   z-index: 2;
+  pointer-events: none;
+}
+
+.profile-fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 55%, var(--bg) 100%);
+  z-index: 3;
   pointer-events: none;
 }
 

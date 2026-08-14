@@ -303,6 +303,7 @@ export default function Portfolio() {
 
         <div className="profile-wrap">
           <img src="/images/profile.png" alt="RICHARD" className="profile-image" />
+          <div className="profile-fade" />
         </div>
 
         <div className="scroll-indicator">
