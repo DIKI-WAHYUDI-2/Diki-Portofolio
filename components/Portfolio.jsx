@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import { Github, Mail, ExternalLink, ChevronRight, Menu, X } from "lucide-react";
+import { Github, Mail, ExternalLink, Menu, X } from "lucide-react";
 
 const PROJECTS = [
   {
@@ -155,11 +155,6 @@ export default function Portfolio() {
   const marqueeTrackRef = useRef(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const goTo = (index) => setActiveIndex((prev) => (index + PROJECTS.length) % PROJECTS.length);
-  const goPrev = () => goTo(activeIndex - 1);
-  const goNext = () => goTo(activeIndex + 1);
 
   useEffect(() => {
     const handleMouse = (e) => {
@@ -335,50 +330,17 @@ export default function Portfolio() {
         </Reveal>
 
         <Reveal delay={100}>
-          <div className="work-carousel">
-            <div className="work-carousel-main">
-              <button className="work-carousel-arrow work-carousel-prev" onClick={goPrev} aria-label="Previous">
-                <ChevronRight size={20} style={{ transform: 'rotate(180deg)' }} />
-              </button>
-              <div className="work-carousel-image-wrap">
-                <img src={PROJECTS[activeIndex].image} alt={PROJECTS[activeIndex].title} className="work-carousel-image" />
+          <div className="work-album">
+            <div className="work-album-inner">
+              <div className="work-album-side work-album-left">
+                <img src={PROJECTS[1].image} alt={PROJECTS[1].title} className="work-album-img" />
               </div>
-              <button className="work-carousel-arrow work-carousel-next" onClick={goNext} aria-label="Next">
-                <ChevronRight size={20} />
-              </button>
-            </div>
-
-            <div className="work-carousel-thumbs">
-              {PROJECTS.map((project, index) => (
-                <button
-                  key={project.num}
-                  className={`work-carousel-thumb ${index === activeIndex ? 'active' : ''}`}
-                  onClick={() => goTo(index)}
-                  aria-label={project.title}
-                >
-                  <img src={project.image} alt={project.title} />
-                </button>
-              ))}
-            </div>
-
-            <div className="work-carousel-info" key={activeIndex}>
-              <div className="work-carousel-header">
-                <span className="work-carousel-num">{PROJECTS[activeIndex].num} —</span>
-                <h3 className="work-carousel-title">{PROJECTS[activeIndex].title}</h3>
+              <div className="work-album-center">
+                <img src={PROJECTS[0].image} alt={PROJECTS[0].title} className="work-album-img" />
               </div>
-              <div className="work-carousel-category">{PROJECTS[activeIndex].category}</div>
-              <div className="work-carousel-desc">{PROJECTS[activeIndex].desc}</div>
-              <div className="work-carousel-tech">Tech: {PROJECTS[activeIndex].tech.join(" · ")}</div>
-              {PROJECTS[activeIndex].awards.length > 0 && (
-                <div className="work-carousel-awards">
-                  {PROJECTS[activeIndex].awards.map((award) => (
-                    <span key={award} className="work-award">🏆 {award}</span>
-                  ))}
-                </div>
-              )}
-              <a href={PROJECTS[activeIndex].link} className="work-carousel-link" target="_blank" rel="noopener noreferrer">
-                {PROJECTS[activeIndex].linkText} <ExternalLink size={14} />
-              </a>
+              <div className="work-album-side work-album-right">
+                <img src={PROJECTS[2].image} alt={PROJECTS[2].title} className="work-album-img" />
+              </div>
             </div>
           </div>
         </Reveal>
