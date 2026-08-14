@@ -580,8 +580,6 @@ body::-webkit-scrollbar {
     grid-template-columns: 1fr;
   }
 }
-  margin-bottom: 16px;
-}
 
 .work-award {
   font-size: 13px;
