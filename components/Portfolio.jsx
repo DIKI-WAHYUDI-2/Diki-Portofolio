@@ -6,41 +6,34 @@ import { Github, Mail, ExternalLink, ChevronRight, Menu, X } from "lucide-react"
 const PROJECTS = [
   {
     num: "01",
-    title: "RFID-Based CPSC Student Monitoring System with Automated Photo Capture and Email Notification",
-    category: "Web Development / Database",
+    title: "RFID-Based CPSC Student Monitoring System",
+    category: "Capstone Project",
     desc: "Automated attendance tracking using RFID readers with photo capture, Google Drive export, email notifications, and admin reporting.",
     tech: ["Python Django", "MySQL", "RFID", "Email Automation"],
     awards: ["Best Capstone Paper", "Best Capstone System"],
-    link: "#",
-    linkText: "View Case Study →",
+    image: "/images/Capstone/login.png",
+    link: "https://github.com/chardoxx-3/RFID-Student-Monitoring-System",
+    linkText: "View Project →",
   },
   {
     num: "02",
     title: "ResQR - Disaster Relief Management System",
-    category: "Web Development / Database",
+    category: "Web Development",
     desc: "A QR code-based disaster relief management system for registering beneficiaries, tracking relief distribution, and coordinating emergency response operations.",
     tech: ["HTML", "CSS", "PHP", "MySQL"],
     awards: [],
+    image: "/images/ResQR/login.png",
     link: "#",
     linkText: "View Project →",
   },
   {
     num: "03",
     title: "iTrak - Terminal Management System",
-    category: "Web Development / Database",
+    category: "Web Development",
     desc: "RFID-based terminal management system for tracking driver attendance, managing routes and queues, processing payments, and generating real-time analytics.",
     tech: ["PHP", "MySQL", "HTML", "CSS"],
     awards: [],
-    link: "#",
-    linkText: "View Project →",
-  },
-  {
-    num: "04",
-    title: "DocuTrack - Document Tracking System",
-    category: "Web Development / Database",
-    desc: "DocuTRACK: a document tracking system for archiving, tagging, approving, and syncing letters with Google Drive.",
-    tech: ["PHP", "MySQL", "HTML", "CSS"],
-    awards: [],
+    image: "/images/iTrak/Screenshot%202026-08-14%20175457.png",
     link: "#",
     linkText: "View Project →",
   },
@@ -329,42 +322,48 @@ export default function Portfolio() {
           <div className="section-desc">A collection of systems, digital projects, and technical work I've built.</div>
         </Reveal>
 
-        <div className="work-compact">
+        <div className="work-images">
           <Reveal delay={100}>
-            <div className="work-feature">
-              <div className="work-feature-body">
-                <h3 className="work-feature-title">{PROJECTS[0].title}</h3>
-                <div className="work-editorial-desc">{PROJECTS[0].desc}</div>
-                <div className="work-editorial-tech">Tech: {PROJECTS[0].tech.join(" · ")}</div>
-                <div className="work-editorial-awards">
+            <div className="work-image-card work-image-feature">
+              <div className="work-image-wrap">
+                <img src={PROJECTS[0].image} alt={PROJECTS[0].title} className="work-image-img" />
+              </div>
+              <div className="work-image-body">
+                <h3 className="work-image-title">{PROJECTS[0].title}</h3>
+                <div className="work-image-category">{PROJECTS[0].category}</div>
+                <div className="work-image-desc">{PROJECTS[0].desc}</div>
+                <div className="work-image-tech">Tech: {PROJECTS[0].tech.join(" · ")}</div>
+                <div className="work-image-awards">
                   {PROJECTS[0].awards.map((award) => (
                     <span key={award} className="work-award">🏆 {award}</span>
                   ))}
                 </div>
-                <a href="https://github.com/chardoxx-3/RFID-Student-Monitoring-System" className="work-editorial-link" target="_blank" rel="noopener noreferrer">
-                  View Project <ExternalLink size={14} />
+                <a href={PROJECTS[0].link} className="work-image-link" target="_blank" rel="noopener noreferrer">
+                  {PROJECTS[0].linkText} <ExternalLink size={14} />
                 </a>
-              </div>
-              <div className="work-feature-media">
-                <img src="/images/resqr/login.png" alt="ResQR Login" className="work-feature-img" />
               </div>
             </div>
           </Reveal>
 
-          <div className="work-others">
+          <div className="work-images-row">
             {PROJECTS.slice(1).map((project, i) => (
               <Reveal key={project.num} delay={i * 80}>
-                <div className="work-mini">
-                  <div className="work-mini-header">
-                    <span className="work-mini-num">{project.num} —</span>
-                    <h4 className="work-mini-title">{project.title}</h4>
+                <div className="work-image-card">
+                  <div className="work-image-wrap">
+                    <img src={project.image} alt={project.title} className="work-image-img" />
                   </div>
-                  <div className="work-mini-category">{project.category}</div>
-                  <div className="work-editorial-desc">{project.desc}</div>
-                  <div className="work-editorial-tech">Tech: {project.tech.join(" · ")}</div>
-                  <a href={project.link} className="work-editorial-link">
-                    {project.linkText} <ExternalLink size={14} />
-                  </a>
+                  <div className="work-image-body">
+                    <div className="work-image-header">
+                      <span className="work-image-num">{project.num} —</span>
+                      <h4 className="work-image-title">{project.title}</h4>
+                    </div>
+                    <div className="work-image-category">{project.category}</div>
+                    <div className="work-image-desc">{project.desc}</div>
+                    <div className="work-image-tech">Tech: {project.tech.join(" · ")}</div>
+                    <a href={project.link} className="work-image-link" target="_blank" rel="noopener noreferrer">
+                      {project.linkText} <ExternalLink size={14} />
+                    </a>
+                  </div>
                 </div>
               </Reveal>
             ))}
