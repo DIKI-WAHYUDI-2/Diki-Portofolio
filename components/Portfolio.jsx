@@ -273,6 +273,7 @@ export default function Portfolio() {
         </div>
         <div className="nav-center hidden md:flex">
           <a href="#work" className="nav-link">Work</a>
+          <a href="#capabilities" className="nav-link">Capabilities</a>
           <a href="#about" className="nav-link">About</a>
           <a href="#contact" className="nav-link">Contact</a>
         </div>
@@ -302,6 +303,7 @@ export default function Portfolio() {
           minWidth: '200px'
         }}>
           <a href="#work" className="nav-link" onClick={() => setMenuOpen(false)}>Work</a>
+          <a href="#capabilities" className="nav-link" onClick={() => setMenuOpen(false)}>Capabilities</a>
           <a href="#about" className="nav-link" onClick={() => setMenuOpen(false)}>About</a>
           <a href="#contact" className="nav-link" onClick={() => setMenuOpen(false)}>Contact</a>
           <a href="#contact" className="nav-cta" style={{ textAlign: 'center' }} onClick={() => setMenuOpen(false)}>Hire Me</a>

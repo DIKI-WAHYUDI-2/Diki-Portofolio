@@ -403,6 +403,11 @@ body::-webkit-scrollbar {
 }
 
 #work {
+  padding-bottom: 40px;
+}
+
+#capabilities {
+  padding-top: 40px;
   padding-bottom: 60px;
 }
 
