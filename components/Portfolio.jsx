@@ -332,13 +332,13 @@ export default function Portfolio() {
         <Reveal delay={100}>
           <div className="work-album">
             <div className="work-album-inner">
-              <div className="work-album-side">
+              <div className="work-album-side work-album-left">
                 <img src={PROJECTS[1].image} alt={PROJECTS[1].title} className="work-album-img" />
               </div>
               <div className="work-album-center">
                 <img src={PROJECTS[0].image} alt={PROJECTS[0].title} className="work-album-img" />
               </div>
-              <div className="work-album-side">
+              <div className="work-album-side work-album-right">
                 <img src={PROJECTS[2].image} alt={PROJECTS[2].title} className="work-album-img" />
               </div>
             </div>
