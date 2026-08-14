@@ -156,6 +156,7 @@ export default function Portfolio() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeIndex, setActiveIndex] = useState(1);
+  const activeProject = PROJECTS[activeIndex];
 
   const goTo = (index) => {
     const normalized = ((index % PROJECTS.length) + PROJECTS.length) % PROJECTS.length;
@@ -335,20 +336,18 @@ export default function Portfolio() {
           </div>
         </Reveal>
 
-<Reveal delay={100}>
+        <Reveal delay={100}>
           <div className="work-album">
             <div className="work-album-inner">
               {PROJECTS.map((project, index) => {
                 const total = PROJECTS.length;
 
-                // Signed distance from the active image: 0 = center,
-                // negative = left side, positive = right side.
                 let diff = (index - activeIndex + total) % total;
                 if (diff > total / 2) diff -= total;
 
                 const isCenter = diff === 0;
                 const distance = Math.abs(diff);
-                const dir = isCenter ? 0 : diff / distance; // -1 or 1
+                const dir = isCenter ? 0 : diff / distance;
 
                 const style = isCenter
                   ? {
@@ -381,6 +380,39 @@ export default function Portfolio() {
             </div>
           </div>
         </Reveal>
+
+        <div className="work-info" key={activeProject.num}>
+          <div className="work-info-top">
+            <span className="work-info-num">{activeProject.num}</span>
+            <span className="work-info-category">{activeProject.category}</span>
+          </div>
+
+          <h3 className="work-info-title">{activeProject.title}</h3>
+          <p className="work-info-desc">{activeProject.desc}</p>
+
+          {activeProject.awards.length > 0 && (
+            <div className="work-info-awards">
+              {activeProject.awards.map((award) => (
+                <span key={award} className="work-info-award">🏆 {award}</span>
+              ))}
+            </div>
+          )}
+
+          <div className="work-info-tags">
+            {activeProject.tech.map((t) => (
+              <span key={t} className="work-info-tag">{t}</span>
+            ))}
+          </div>
+
+          <a
+            href={activeProject.link}
+            className="work-info-link"
+            target={activeProject.link !== "#" ? "_blank" : undefined}
+            rel="noopener noreferrer"
+          >
+            {activeProject.linkText}
+          </a>
+        </div>
       </section>
 
       {/* ABOUT */}
