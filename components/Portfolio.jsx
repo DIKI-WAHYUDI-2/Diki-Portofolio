@@ -317,26 +317,30 @@ export default function Portfolio() {
       {/* WORK GALLERY */}
       <section id="work" className="section">
         <Reveal>
-          <div className="section-label">Selected Work</div>
-          <div className="section-title">Work Gallery</div>
-          <div className="section-desc">A collection of systems, digital projects, and technical work I've built.</div>
+          <div className="work-header">
+            <div>
+              <div className="section-label">Selected Work</div>
+              <div className="section-title">Work Gallery</div>
+              <div className="section-desc">A collection of systems, digital projects, and technical work I've built.</div>
+            </div>
+            <a href="https://github.com/chardoxx-3/RFID-Student-Monitoring-System" className="work-album-btn-top" target="_blank" rel="noopener noreferrer">
+              View Projects <ExternalLink size={14} />
+            </a>
+          </div>
         </Reveal>
 
         <Reveal delay={100}>
           <div className="work-album">
-            <div className="work-album-side">
-              <img src={PROJECTS[1].image} alt={PROJECTS[1].title} className="work-album-img" />
-            </div>
-            <div className="work-album-center">
-              <img src={PROJECTS[0].image} alt={PROJECTS[0].title} className="work-album-img" />
-            </div>
-            <div className="work-album-side">
-              <img src={PROJECTS[2].image} alt={PROJECTS[2].title} className="work-album-img" />
-            </div>
-            <div className="work-album-action">
-              <a href="https://github.com/chardoxx-3/RFID-Student-Monitoring-System" className="work-album-btn" target="_blank" rel="noopener noreferrer">
-                View Projects <ExternalLink size={14} />
-              </a>
+            <div className="work-album-inner">
+              <div className="work-album-side">
+                <img src={PROJECTS[1].image} alt={PROJECTS[1].title} className="work-album-img" />
+              </div>
+              <div className="work-album-center">
+                <img src={PROJECTS[0].image} alt={PROJECTS[0].title} className="work-album-img" />
+              </div>
+              <div className="work-album-side">
+                <img src={PROJECTS[2].image} alt={PROJECTS[2].title} className="work-album-img" />
+              </div>
             </div>
           </div>
         </Reveal>
