@@ -693,6 +693,56 @@ body::-webkit-scrollbar {
   border: 1px solid var(--line);
 }
 
+/* Capabilities */
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.capability-group {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 24px;
+  transition: border-color 0.3s ease;
+}
+
+.capability-group:hover {
+  border-color: var(--text);
+}
+
+.capability-group-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.capability-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.capability-item {
+  font-size: 13px;
+  color: var(--muted);
+  padding: 6px 12px;
+  background: var(--surface-2);
+  border-radius: 6px;
+  border: 1px solid var(--line);
+}
+
+@media (max-width: 768px) {
+  .capabilities-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Trainings & Hackathons */
 .timeline {
   position: relative;

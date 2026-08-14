@@ -58,6 +58,25 @@ const SKILLS = [
   },
 ];
 
+const CAPABILITIES = [
+  {
+    category: "SOFTWARE & QA",
+    items: ["System Testing", "Bug Identification", "Bug Reporting", "Requirements Validation", "System Analysis", "Database Management"],
+  },
+  {
+    category: "WEB & DEVELOPMENT",
+    items: ["HTML", "CSS", "Python", "MySQL", "Web Development", "Database Systems"],
+  },
+  {
+    category: "VIRTUAL ASSISTANCE",
+    items: ["Data Entry", "Data Validation", "Document Management", "Google Workspace", "Online Research", "Administrative Support"],
+  },
+  {
+    category: "CONTENT & DIGITAL",
+    items: ["Social Media Management", "Content Creation", "Content Optimization", "Analytics", "Research", "Basic Digital Marketing"],
+  },
+];
+
 const SOCIALS = [
   { label: "Email", value: "youremail@example.com", href: "mailto:youremail@example.com", icon: Mail, color: "#000000" },
   { label: "GitHub", value: "github.com/yourusername", href: "https://github.com/yourusername", icon: Github, color: "#000000" },
@@ -393,6 +412,27 @@ export default function Portfolio() {
           >
             {activeProject.linkText}
           </a>
+        </div>
+      </section>
+
+      {/* WHAT I CAN DO */}
+      <section id="capabilities" className="section">
+        <Reveal>
+          <div className="section-label">What I Can Do</div>
+          <div className="section-title">Capabilities</div>
+        </Reveal>
+
+        <div className="capabilities-grid">
+          {CAPABILITIES.map((cap) => (
+            <div key={cap.category} className="capability-group">
+              <div className="capability-group-title">{cap.category}</div>
+              <div className="capability-items">
+                {cap.items.map((item) => (
+                  <span key={item} className="capability-item">{item}</span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
