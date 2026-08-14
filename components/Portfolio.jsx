@@ -341,14 +341,16 @@ export default function Portfolio() {
               {PROJECTS.map((project, index) => {
                 const offset = (index - activeIndex + PROJECTS.length) % PROJECTS.length;
                 let position = 'work-album-center';
-                if (offset === 1) position = 'work-album-side work-album-right';
-                else if (offset === 2) position = 'work-album-side work-album-left';
+                if (offset === 1) position = 'work-album-side work-album-left';
+                else if (offset === 2) position = 'work-album-side work-album-right';
+
+                const isCenter = position === 'work-album-center';
 
                 return (
                   <div
                     key={project.num}
                     className={position}
-                    onClick={() => goTo(index)}
+                    onClick={() => !isCenter && goTo(index)}
                   >
                     <img src={project.image} alt={project.title} className="work-album-img" />
                   </div>
