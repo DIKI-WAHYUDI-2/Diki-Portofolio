@@ -442,10 +442,54 @@ body::-webkit-scrollbar {
 
 .work-highlight {
   padding: 48px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .work-highlight .work-editorial-title {
   font-size: clamp(28px, 4.5vw, 48px);
+}
+
+.work-highlight-media {
+  width: 100%;
+  max-width: 640px;
+  margin-bottom: 32px;
+}
+
+.work-highlight-img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  box-shadow: 0 20px 40px -20px rgba(0,0,0,0.1);
+}
+
+.work-highlight .work-editorial-desc {
+  max-width: 720px;
+  text-align: center;
+}
+
+.work-highlight .work-editorial-tech {
+  text-align: center;
+}
+
+.work-highlight .work-editorial-awards {
+  justify-content: center;
+  gap: 16px;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.work-award {
+  font-size: 14px;
+  color: var(--text);
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
 }
 
 .work-editorial-header {

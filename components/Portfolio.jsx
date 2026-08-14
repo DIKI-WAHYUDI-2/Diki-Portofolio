@@ -331,21 +331,20 @@ export default function Portfolio() {
 
         <Reveal delay={100}>
           <div className="work-highlight">
-            <div className="work-highlight-header">
-              <span className="work-editorial-num">01 —</span>
-              <h3 className="work-editorial-title">{PROJECTS[0].title}</h3>
+            <div className="work-highlight-media">
+              <img src="/images/resqr/login.png" alt="ResQR Login" className="work-highlight-img" />
             </div>
+            <h3 className="work-editorial-title">{PROJECTS[0].title}</h3>
             <div className="work-editorial-category">{PROJECTS[0].category}</div>
             <div className="work-editorial-desc">{PROJECTS[0].desc}</div>
             <div className="work-editorial-tech">Tech: {PROJECTS[0].tech.join(" · ")}</div>
             <div className="work-editorial-awards">
-              Awards:
               {PROJECTS[0].awards.map((award) => (
                 <span key={award} className="work-award">🏆 {award}</span>
               ))}
             </div>
-            <a href={PROJECTS[0].link} className="work-editorial-link">
-              {PROJECTS[0].linkText} <ExternalLink size={14} />
+            <a href="https://github.com/chardoxx-3/RFID-Student-Monitoring-System" className="work-editorial-link" target="_blank" rel="noopener noreferrer">
+              View Project <ExternalLink size={14} />
             </a>
           </div>
         </Reveal>
