@@ -364,7 +364,7 @@ export default function Portfolio() {
       </section>
 
       {/* ABOUT */}
-      <section id="about" className="section" style={{ borderTop: "1px solid var(--line)" }}>
+      <section id="about" className="section">
         <Reveal>
           <div className="section-label">About Me</div>
           <div className="section-title">Story, Skills & Background</div>
@@ -406,7 +406,7 @@ export default function Portfolio() {
       </section>
 
       {/* TRAININGS & HACKATHONS */}
-      <section id="trainings" className="section" style={{ borderTop: "1px solid var(--line)" }}>
+      <section id="trainings" className="section">
         <Reveal>
           <div className="section-label">Growth & Experience</div>
           <div className="section-title">Trainings & Hackathons</div>
@@ -468,7 +468,7 @@ export default function Portfolio() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="section" style={{ borderTop: "1px solid var(--line)" }}>
+      <section id="contact" className="section">
         <Reveal>
           <div className="section-label">Get In Touch</div>
           <div className="section-title">Contact</div>
