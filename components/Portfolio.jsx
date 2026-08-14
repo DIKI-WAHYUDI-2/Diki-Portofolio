@@ -246,6 +246,10 @@ export default function Portfolio() {
         <svg className="bg-lines" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
           <path d="M0 450C240 350 480 550 720 450C960 350 1200 550 1440 450" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.3"/>
           <path d="M0 500C240 400 480 600 720 500C960 400 1200 600 1440 500" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.2"/>
+          <path d="M-100 300L1540 250" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.15"/>
+          <path d="M-100 650L1540 700" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.15"/>
+          <path d="M200 -100L180 900" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.12"/>
+          <path d="M1240 -100L1220 900" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.12"/>
         </svg>
 
 <div className="bg-name-marquee">
