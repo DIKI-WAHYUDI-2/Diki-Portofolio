@@ -434,58 +434,39 @@ body::-webkit-scrollbar {
 .work-album {
   position: relative;
   width: 100%;
-  min-height: 520px;
+  min-height: 480px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 24px;
+  gap: 0;
   padding: 40px 0;
 }
 
 .work-album-center {
   position: relative;
   z-index: 2;
-  width: 420px;
+  width: 520px;
   flex-shrink: 0;
-  transform: rotate(-2deg);
   transition: transform 0.4s ease;
 }
 
 .work-album-center:hover {
-  transform: rotate(0deg) scale(1.02);
+  transform: scale(1.02);
 }
 
 .work-album-side {
   position: relative;
   z-index: 1;
-  width: 320px;
+  width: 400px;
   flex-shrink: 0;
-  transform: rotate(3deg);
-  opacity: 0.85;
+  opacity: 0.9;
   transition: transform 0.4s ease, opacity 0.4s ease;
+  margin: 0 -40px;
 }
 
 .work-album-side:hover {
-  transform: rotate(1deg) scale(1.02);
+  transform: scale(1.02);
   opacity: 1;
-}
-
-.work-album-left {
-  margin-right: -60px;
-  transform: rotate(4deg);
-}
-
-.work-album-right {
-  margin-left: -60px;
-  transform: rotate(-4deg);
-}
-
-.work-album-left:hover {
-  transform: rotate(2deg) scale(1.02);
-}
-
-.work-album-right:hover {
-  transform: rotate(-2deg) scale(1.02);
 }
 
 .work-album-img {
@@ -498,19 +479,48 @@ body::-webkit-scrollbar {
   background: var(--surface-2);
 }
 
+.work-album-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.work-album-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 14px 28px;
+  border-radius: 12px;
+  background: var(--text);
+  color: var(--surface);
+  border: none;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.work-album-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px -15px rgba(0,0,0,0.2);
+}
+
 @media (max-width: 768px) {
   .work-album {
     flex-direction: column;
-    gap: 32px;
+    gap: 24px;
     min-height: auto;
     padding: 24px 0;
+    align-items: center;
   }
 
   .work-album-center,
   .work-album-side {
     width: 100%;
     max-width: 360px;
-    transform: none;
     margin: 0;
   }
 
