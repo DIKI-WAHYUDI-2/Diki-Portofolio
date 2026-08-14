@@ -67,8 +67,9 @@ body::-webkit-scrollbar {
   display: flex;
   width: max-content;
   animation:
-    marquee-enter 3s cubic-bezier(0.7, 0, 0.84, 0) forwards,
-    marquee 18s linear 3s infinite;
+    marquee-enter 4s cubic-bezier(0.2, 0, 0.8, 1) forwards,
+    marquee 18s linear 4s infinite;
+  will-change: transform;
 }
 
 .bg-name-text {
