@@ -324,55 +324,51 @@ export default function Portfolio() {
       {/* WORK GALLERY */}
       <section id="work" className="section">
         <Reveal>
-          <div className="section-label">01 — Selected Work</div>
+          <div className="section-label">Selected Work</div>
           <div className="section-title">Work Gallery</div>
           <div className="section-desc">A collection of systems, digital projects, and technical work I've built.</div>
         </Reveal>
 
-        <Reveal delay={100}>
-          <div className="work-highlight">
-            <div className="work-highlight-media">
-              <img src="/images/resqr/login.png" alt="ResQR Login" className="work-highlight-img" />
-            </div>
-            <h3 className="work-editorial-title">{PROJECTS[0].title}</h3>
-            <div className="work-editorial-category">{PROJECTS[0].category}</div>
-            <div className="work-editorial-desc">{PROJECTS[0].desc}</div>
-            <div className="work-editorial-tech">Tech: {PROJECTS[0].tech.join(" · ")}</div>
-            <div className="work-editorial-awards">
-              {PROJECTS[0].awards.map((award) => (
-                <span key={award} className="work-award">🏆 {award}</span>
-              ))}
-            </div>
-            <a href="https://github.com/chardoxx-3/RFID-Student-Monitoring-System" className="work-editorial-link" target="_blank" rel="noopener noreferrer">
-              View Project <ExternalLink size={14} />
-            </a>
-          </div>
-        </Reveal>
-      </section>
-
-      <section id="work-other" className="section">
-        <Reveal>
-          <div className="section-label">02 — More Work</div>
-          <div className="section-title">Other Projects</div>
-        </Reveal>
-
-        <div className="work-editorial">
-          {PROJECTS.slice(1).map((project, i) => (
-            <Reveal key={project.num} delay={i * 100}>
-              <div className="work-editorial-card">
-                <div className="work-editorial-header">
-                  <span className="work-editorial-num">{project.num} —</span>
-                  <h3 className="work-editorial-title">{project.title}</h3>
+        <div className="work-compact">
+          <Reveal delay={100}>
+            <div className="work-feature">
+              <div className="work-feature-body">
+                <h3 className="work-feature-title">{PROJECTS[0].title}</h3>
+                <div className="work-editorial-desc">{PROJECTS[0].desc}</div>
+                <div className="work-editorial-tech">Tech: {PROJECTS[0].tech.join(" · ")}</div>
+                <div className="work-editorial-awards">
+                  {PROJECTS[0].awards.map((award) => (
+                    <span key={award} className="work-award">🏆 {award}</span>
+                  ))}
                 </div>
-                <div className="work-editorial-category">{project.category}</div>
-                <div className="work-editorial-desc">{project.desc}</div>
-                <div className="work-editorial-tech">Tech: {project.tech.join(" · ")}</div>
-                <a href={project.link} className="work-editorial-link">
-                  {project.linkText} <ExternalLink size={14} />
+                <a href="https://github.com/chardoxx-3/RFID-Student-Monitoring-System" className="work-editorial-link" target="_blank" rel="noopener noreferrer">
+                  View Project <ExternalLink size={14} />
                 </a>
               </div>
-            </Reveal>
-          ))}
+              <div className="work-feature-media">
+                <img src="/images/resqr/login.png" alt="ResQR Login" className="work-feature-img" />
+              </div>
+            </div>
+          </Reveal>
+
+          <div className="work-others">
+            {PROJECTS.slice(1).map((project, i) => (
+              <Reveal key={project.num} delay={i * 80}>
+                <div className="work-mini">
+                  <div className="work-mini-header">
+                    <span className="work-mini-num">{project.num} —</span>
+                    <h4 className="work-mini-title">{project.title}</h4>
+                  </div>
+                  <div className="work-mini-category">{project.category}</div>
+                  <div className="work-editorial-desc">{project.desc}</div>
+                  <div className="work-editorial-tech">Tech: {project.tech.join(" · ")}</div>
+                  <a href={project.link} className="work-editorial-link">
+                    {project.linkText} <ExternalLink size={14} />
+                  </a>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
