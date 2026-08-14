@@ -550,7 +550,7 @@ body::-webkit-scrollbar {
 .work-info-awards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 8px;
   margin-bottom: 16px;
 }
@@ -568,7 +568,7 @@ body::-webkit-scrollbar {
 .work-info-tags {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 8px;
   margin-bottom: 24px;
 }
