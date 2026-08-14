@@ -357,7 +357,7 @@ export default function Portfolio() {
                     }
                   : {
                       transform: `translate(calc(-50% + ${
-                        dir * (230 + (distance - 1) * 150)
+                        dir * (255 + (distance - 1) * 165)
                       }px), -50%) scale(${Math.max(0.55, 1 - distance * 0.28)}) rotateY(${
                         -dir * (18 + (distance - 1) * 8)
                       }deg)`,
@@ -382,11 +382,6 @@ export default function Portfolio() {
         </Reveal>
 
         <div className="work-info" key={activeProject.num}>
-          <div className="work-info-top">
-            <span className="work-info-num">{activeProject.num}</span>
-            <span className="work-info-category">{activeProject.category}</span>
-          </div>
-
           <h3 className="work-info-title">{activeProject.title}</h3>
           <p className="work-info-desc">{activeProject.desc}</p>
 
