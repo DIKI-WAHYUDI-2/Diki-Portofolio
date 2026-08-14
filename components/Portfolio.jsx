@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import { Github, Mail, ExternalLink, ChevronRight } from "lucide-react";
+import { Github, Mail, ExternalLink, ChevronRight, Menu, X } from "lucide-react";
 
 const PROJECTS = [
   {
@@ -11,8 +11,7 @@ const PROJECTS = [
     status: "LIVE",
     desc: "Full payroll cycle for a local government unit — GSIS, Pag-IBIG and bank deductions, quincena periods, deduction management with automatic net-pay recalculation, Excel import for employee records, and batch payslip generation.",
     tags: ["PHP", "CodeIgniter 4", "MySQL", "PhpSpreadsheet"],
-    color: "#ff3366",
-    icon: "P",
+    color: "#000000",
   },
   {
     id: "P02",
@@ -21,8 +20,7 @@ const PROJECTS = [
     status: "PILOT",
     desc: "QR-based claim tracking for disaster relief food distribution — per-person claim limits, live cooked-food inventory deduction, kiosk mode with idle-loop demo screen, Bisaya-language scan feedback, and a 5-second polling admin monitor.",
     tags: ["PHP", "CodeIgniter 4", "QR Scan", "Live Polling"],
-    color: "#00d4ff",
-    icon: "S",
+    color: "#333333",
   },
   {
     id: "P03",
@@ -31,8 +29,7 @@ const PROJECTS = [
     status: "LIVE",
     desc: "RFID tap terminal for tricycle drivers — two-step preview-then-accept scan guard, duplicate-tap cooldown, violation reporting, a driver-facing queue portal, and multi-event support with a persisted event selector.",
     tags: ["PHP", "RFID", "CodeIgniter 4", "Realtime UI"],
-    color: "#ffcc00",
-    icon: "i",
+    color: "#1F2933",
   },
   {
     id: "P04",
@@ -41,8 +38,7 @@ const PROJECTS = [
     status: "LIVE",
     desc: "Structured resident records for barangay-level governance — registration, lookups, and reporting built for day-to-day frontline staff use.",
     tags: ["PHP", "CodeIgniter 4", "MySQL"],
-    color: "#aa66ff",
-    icon: "B",
+    color: "#6B6B6B",
   },
 ];
 
@@ -66,8 +62,8 @@ const SKILLS = [
 ];
 
 const SOCIALS = [
-  { label: "Email", value: "youremail@example.com", href: "mailto:youremail@example.com", icon: Mail, color: "#ff3366" },
-  { label: "GitHub", value: "github.com/yourusername", href: "https://github.com/yourusername", icon: Github, color: "#00d4ff" },
+  { label: "Email", value: "youremail@example.com", href: "mailto:youremail@example.com", icon: Mail, color: "#000000" },
+  { label: "GitHub", value: "github.com/yourusername", href: "https://github.com/yourusername", icon: Github, color: "#000000" },
 ];
 
 const TRAININGS = [
@@ -118,51 +114,6 @@ const HACKATHONS = [
   },
 ];
 
-function ProjectMockup({ color, icon, title }) {
-  return (
-    <div style={{ width: "100%", maxWidth: 320, position: "relative" }}>
-      <svg viewBox="0 0 320 200" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "auto" }}>
-        <rect width="320" height="200" rx="8" fill={`${color}15`} />
-        <rect x="1" y="1" width="318" height="198" rx="7" stroke={`${color}40`} strokeWidth="1" />
-        <rect x="12" y="12" width="8" height="8" rx="2" fill={color} opacity="0.6" />
-        <rect x="26" y="12" width="8" height="8" rx="2" fill={color} opacity="0.4" />
-        <rect x="40" y="12" width="8" height="8" rx="2" fill={color} opacity="0.3" />
-        <rect x="12" y="32" width="60" height="6" rx="3" fill={color} opacity="0.3" />
-        <rect x="12" y="44" width="120" height="4" rx="2" fill="white" opacity="0.08" />
-        <rect x="12" y="54" width="100" height="4" rx="2" fill="white" opacity="0.06" />
-        <rect x="12" y="64" width="90" height="4" rx="2" fill="white" opacity="0.06" />
-        <rect x="12" y="80" width="140" height="60" rx="4" fill={color} opacity="0.08" />
-        <rect x="160" y="80" width="148" height="60" rx="4" fill="white" opacity="0.03" />
-        <rect x="170" y="90" width="80" height="6" rx="3" fill={color} opacity="0.4" />
-        <rect x="170" y="102" width="120" height="4" rx="2" fill="white" opacity="0.08" />
-        <rect x="170" y="112" width="100" height="4" rx="2" fill="white" opacity="0.06" />
-        <rect x="12" y="150" width="296" height="32" rx="4" fill="white" opacity="0.02" />
-        <rect x="20" y="158" width="80" height="16" rx="4" fill={color} opacity="0.2" />
-        <rect x="108" y="158" width="80" height="16" rx="4" fill="white" opacity="0.05" />
-        <rect x="196" y="158" width="100" height="16" rx="4" fill="white" opacity="0.03" />
-        <text x="160" y="105" textAnchor="middle" fill={color} opacity="0.5" fontSize="32" fontFamily="sans-serif" fontWeight="bold">{icon}</text>
-      </svg>
-    </div>
-  );
-}
-
-function StatusPill({ status }) {
-  const isLive = status === "LIVE";
-  return (
-    <span
-      className="pf-mono inline-flex items-center gap-1.5 text-xs px-2 py-1 rounded-sm"
-      style={{
-        color: isLive ? "#a8e0b8" : "#e8c98a",
-        background: isLive ? "rgba(76,175,109,0.1)" : "rgba(201,162,39,0.1)",
-        border: `1px solid ${isLive ? "rgba(76,175,109,0.35)" : "rgba(201,162,39,0.35)"}`,
-      }}
-    >
-      <span className="pf-status-dot" style={{ width: 6, height: 6, borderRadius: "50%", background: isLive ? "#4caf6d" : "#c9a227", animation: "pf-blink 2.4s ease-in-out infinite" }} />
-      {status}
-    </span>
-  );
-}
-
 function useReveal() {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -204,6 +155,7 @@ function Reveal({ children, delay = 0, className = "" }) {
 export default function Portfolio() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const rootRef = useRef(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleMouse = (e) => {
@@ -219,64 +171,72 @@ export default function Portfolio() {
 
   return (
     <div ref={rootRef}>
+      {/* NAVIGATION */}
+      <nav className="nav-bar">
+        <div className="nav-left">
+          <div className="nav-logo">R</div>
+          <div className="nav-brand">RICHARD</div>
+        </div>
+        <div className="nav-center hidden md:flex">
+          <a href="#work" className="nav-link">Work</a>
+          <a href="#about" className="nav-link">About</a>
+          <a href="#contact" className="nav-link">Contact</a>
+        </div>
+        <div className="nav-right">
+          <a href="#contact" className="nav-cta hidden md:block">Hire Me</a>
+          <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 8 }}>
+            {menuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
+      </nav>
+
+      {/* MOBILE MENU */}
+      {menuOpen && (
+        <div style={{
+          position: 'fixed',
+          top: '100px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          background: 'var(--surface)',
+          padding: '24px',
+          borderRadius: '16px',
+          boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+          zIndex: 99,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '16px',
+          minWidth: '200px'
+        }}>
+          <a href="#work" className="nav-link" onClick={() => setMenuOpen(false)}>Work</a>
+          <a href="#about" className="nav-link" onClick={() => setMenuOpen(false)}>About</a>
+          <a href="#contact" className="nav-link" onClick={() => setMenuOpen(false)}>Contact</a>
+          <a href="#contact" className="nav-cta" style={{ textAlign: 'center' }} onClick={() => setMenuOpen(false)}>Hire Me</a>
+        </div>
+      )}
+
       {/* HERO */}
       <section className="hero-root">
-        <div className="noise" />
-        <div className="grid-lines" />
+        <svg className="bg-lines" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0 450C240 350 480 550 720 450C960 350 1200 550 1440 450" stroke="rgba(0,0,0,0.04)" strokeWidth="1" fill="none"/>
+          <path d="M0 500C240 400 480 600 720 500C960 400 1200 600 1440 500" stroke="rgba(0,0,0,0.03)" strokeWidth="1" fill="none"/>
+          <circle cx="720" cy="450" r="200" stroke="rgba(0,0,0,0.04)" strokeWidth="1" fill="none"/>
+          <circle cx="720" cy="450" r="280" stroke="rgba(0,0,0,0.03)" strokeWidth="1" fill="none" strokeDasharray="8 8"/>
+        </svg>
 
-        <div
-          className="blob blob-1"
-          style={{ transform: `translate(${mouse.x * 20}px, ${mouse.y * 20}px)` }}
-        />
-        <div
-          className="blob blob-2"
-          style={{ transform: `translate(${mouse.x * -15}px, ${mouse.y * -15}px)` }}
-        />
-        <div
-          className="blob blob-3"
-          style={{ transform: `translate(${mouse.x * 10}px, ${mouse.y * 10}px)` }}
-        />
+        <div className="bg-name">RICHARD</div>
 
-        <div className="orbit orbit-1">
-          <div className="orbit-dot" />
-        </div>
-        <div className="orbit orbit-2">
-          <div className="orbit-dot" style={{ background: "var(--accent-1)", boxShadow: "0 0 10px var(--accent-1)" }} />
+        <div className="hero-left hidden md:block">
+          <div>Freelance</div>
+          <div>Designer & Developer</div>
         </div>
 
-        <div className="content">
-          <div className="mono-label">FULL-STACK DEVELOPER</div>
-
-          <div className="name-wrap">
-            <div
-              className="name-main"
-              style={{ transform: `translate(${mouse.x * 3}px, ${mouse.y * 3}px)` }}
-            >
-              RICHARD
-            </div>
-          </div>
-
-          <div className="accent-bar" />
-
-          <div className="tagline">
-            I build robust back-office systems for local government and civic operations — payroll, logistics, and resident management software that works when it matters most.
-          </div>
-
-          <div className="cta-row">
-            <a href="#work" className="cta cta-primary">
-              View My Work <ChevronRight size={14} />
-            </a>
-            <a href="#contact" className="cta cta-secondary">
-              Get In Touch
-            </a>
-          </div>
+        <div className="hero-right hidden md:block">
+          Scroll down
         </div>
 
-        <div className="scroll-indicator">
-          <div className="scroll-mouse">
-            <div className="scroll-dot" />
-          </div>
-          <span className="scroll-text">Scroll</span>
+        <div className="profile-wrap">
+          <img src="/images/profile.png" alt="RICHARD" className="profile-image" />
+          <div className="profile-label">Full-Stack Developer</div>
         </div>
       </section>
 
@@ -291,16 +251,34 @@ export default function Portfolio() {
           {PROJECTS.map((project, i) => (
             <Reveal key={project.id} delay={i * 100}>
               <div className="work-card">
-                <div className="work-image" style={{ background: `linear-gradient(135deg, ${project.color}11, ${project.color}05)` }}>
-                  <ProjectMockup color={project.color} icon={project.icon} title={project.title} />
+                <div className="work-image" style={{ background: `linear-gradient(135deg, ${project.color}08, ${project.color}03)` }}>
+                  <svg viewBox="0 0 320 200" fill="none" style={{ width: "100%", height: "100%", position: 'absolute', inset: 0 }}>
+                    <rect width="320" height="200" rx="8" fill={project.color} opacity="0.03" />
+                    <rect x="12" y="12" width="8" height="8" rx="2" fill={project.color} opacity="0.2" />
+                    <rect x="26" y="12" width="8" height="8" rx="2" fill={project.color} opacity="0.15" />
+                    <rect x="40" y="12" width="8" height="8" rx="2" fill={project.color} opacity="0.1" />
+                    <rect x="12" y="32" width="60" height="6" rx="3" fill={project.color} opacity="0.15" />
+                    <rect x="12" y="44" width="120" height="4" rx="2" fill={project.color} opacity="0.1" />
+                    <rect x="12" y="54" width="100" height="4" rx="2" fill={project.color} opacity="0.08" />
+                    <rect x="12" y="64" width="90" height="4" rx="2" fill={project.color} opacity="0.08" />
+                    <rect x="12" y="80" width="140" height="60" rx="4" fill={project.color} opacity="0.05" />
+                    <rect x="160" y="80" width="148" height="60" rx="4" fill={project.color} opacity="0.03" />
+                    <rect x="170" y="90" width="80" height="6" rx="3" fill={project.color} opacity="0.2" />
+                    <rect x="170" y="102" width="120" height="4" rx="2" fill={project.color} opacity="0.1" />
+                    <rect x="170" y="112" width="100" height="4" rx="2" fill={project.color} opacity="0.08" />
+                    <rect x="12" y="150" width="296" height="32" rx="4" fill={project.color} opacity="0.02" />
+                    <rect x="20" y="158" width="80" height="16" rx="4" fill={project.color} opacity="0.1" />
+                    <rect x="108" y="158" width="80" height="16" rx="4" fill={project.color} opacity="0.05" />
+                    <rect x="196" y="158" width="100" height="16" rx="4" fill={project.color} opacity="0.03" />
+                  </svg>
                 </div>
                 <div className="work-content">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="pf-mono text-xs" style={{ color: project.color }}>{project.id}</span>
-                    <StatusPill status={project.status} />
+                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: project.color, letterSpacing: '0.05em' }}>{project.id}</span>
+                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', padding: '4px 10px', borderRadius: '6px', background: 'var(--surface-2)', color: 'var(--muted)', border: '1px solid var(--line)', letterSpacing: '0.05em' }}>{project.status}</span>
                   </div>
                   <div className="work-title">{project.title}</div>
-                  <div className="text-xs mb-3" style={{ color: "var(--muted)" }}>{project.org}</div>
+                  <div style={{ fontSize: '13px', color: 'var(--muted)', marginBottom: '12px' }}>{project.org}</div>
                   <div className="work-desc">{project.desc}</div>
                   <div className="work-tags">
                     {project.tags.map((t) => (
@@ -396,7 +374,7 @@ export default function Portfolio() {
               <div className="timeline">
                 {HACKATHONS.map((h, i) => (
                   <div key={i} className="timeline-item">
-                    <div className="timeline-dot" style={{ borderColor: "var(--accent-1)" }} />
+                    <div className="timeline-dot" style={{ borderColor: "var(--muted)" }} />
                     <div className="timeline-content">
                       <div className="timeline-header">
                         <div className="timeline-title">{h.title}</div>
@@ -430,8 +408,8 @@ export default function Portfolio() {
             <div className="contact-info">
               {SOCIALS.map((social) => (
                 <a key={social.label} href={social.href} className="contact-item" target="_blank" rel="noopener noreferrer">
-                  <div className="contact-icon" style={{ background: `${social.color}22`, border: `1px solid ${social.color}44` }}>
-                    <social.icon size={20} style={{ color: social.color }} />
+                  <div className="contact-icon">
+                    <social.icon size={20} style={{ color: 'var(--text)' }} />
                   </div>
                   <div>
                     <div className="contact-label">{social.label}</div>
