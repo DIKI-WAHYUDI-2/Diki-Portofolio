@@ -156,6 +156,7 @@ export default function Portfolio() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const rootRef = useRef(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleMouse = (e) => {
@@ -169,10 +170,18 @@ export default function Portfolio() {
     return () => window.removeEventListener("mousemove", handleMouse);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div ref={rootRef}>
       {/* NAVIGATION */}
-      <nav className="nav-bar">
+      <nav className={`nav-bar ${scrolled ? "visible" : ""}`}>
         <div className="nav-left">
           <div className="nav-logo">R</div>
           <div className="nav-brand">RICHARD</div>
@@ -231,7 +240,10 @@ export default function Portfolio() {
 
         <div className="profile-wrap">
           <img src="/images/profile.png" alt="RICHARD" className="profile-image" />
-          <div className="profile-label">IT GRADUATE · QA · SOFTWARE TESTING</div>
+          <div className="profile-overlay" />
+          <div className="profile-content">
+            <div className="profile-label">IT GRADUATE · QA · SOFTWARE TESTING</div>
+          </div>
         </div>
 
         <div className="scroll-indicator">
