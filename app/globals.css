@@ -111,6 +111,56 @@ body::-webkit-scrollbar {
   opacity: 0.15;
 }
 
+.profile-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 50px;
+  pointer-events: none;
+}
+
+.profile-image {
+  width: 300px;
+  height: 300px;
+  max-width: 70vw;
+  max-height: 70vw;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 50%;
+  border: 4px solid var(--surface);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  animation: profileIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+@keyframes profileIn {
+  to { opacity: 1; transform: scale(1); }
+}
+
+.profile-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 20px;
+  animation: fadeUp 0.8s ease 0.5s forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* Navigation */
 .nav-bar {
   position: fixed;
@@ -690,16 +740,12 @@ textarea.contact-input {
   }
   
   .profile-image {
-    width: 220px;
-    height: 220px;
+    width: 200px;
+    height: 200px;
   }
   
   .profile-wrap {
     padding-bottom: 40px;
-  }
-  
-  .profile-content {
-    bottom: 10%;
   }
   
   .bg-name {
@@ -718,7 +764,7 @@ textarea.contact-input {
 
 @media (min-width: 769px) and (max-width: 1024px) {
   .profile-image {
-    width: 280px;
-    height: 280px;
+    width: 260px;
+    height: 260px;
   }
 }
