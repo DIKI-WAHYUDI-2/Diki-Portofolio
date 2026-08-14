@@ -155,6 +155,7 @@ function Reveal({ children, delay = 0, className = "" }) {
 export default function Portfolio() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const rootRef = useRef(null);
+  const marqueeTrackRef = useRef(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -168,6 +169,23 @@ export default function Portfolio() {
     };
     window.addEventListener("mousemove", handleMouse);
     return () => window.removeEventListener("mousemove", handleMouse);
+  }, []);
+
+  useEffect(() => {
+    const track = marqueeTrackRef.current;
+    if (!track) return;
+
+    const syncMarqueeSpeed = () => {
+      const enterSeconds = 4; // matches marquee-enter duration in CSS
+      const pxPerSecond = window.innerWidth / enterSeconds; // entrance travels 100vw in 4s
+      const loopDistance = track.scrollWidth / 2; // loop travels -50% of the doubled track
+      const loopSeconds = loopDistance / pxPerSecond;
+      track.style.setProperty("--marquee-loop-duration", `${loopSeconds}s`);
+    };
+
+    syncMarqueeSpeed();
+    window.addEventListener("resize", syncMarqueeSpeed);
+    return () => window.removeEventListener("resize", syncMarqueeSpeed);
   }, []);
 
   useEffect(() => {
@@ -230,8 +248,8 @@ export default function Portfolio() {
           <path d="M0 500C240 400 480 600 720 500C960 400 1200 600 1440 500" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.2"/>
         </svg>
 
-        <div className="bg-name-marquee">
-          <div className="bg-name-track">
+<div className="bg-name-marquee">
+          <div className="bg-name-track" ref={marqueeTrackRef}>
             <span className="bg-name-text">RICHARD MICULOB</span>
             <span className="bg-name-text">RICHARD MICULOB</span>
           </div>
