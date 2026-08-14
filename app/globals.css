@@ -110,38 +110,47 @@ body::-webkit-scrollbar {
 
 .profile-wrap {
   position: absolute;
-  inset: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   z-index: 2;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  padding-bottom: 60px;
 }
 
 .profile-image {
-  width: 100%;
-  height: 100%;
+  width: 320px;
+  height: 320px;
+  max-width: 80vw;
+  max-height: 80vw;
   object-fit: cover;
-  object-position: center;
+  object-position: center top;
+  border-radius: 50%;
+  border: 4px solid var(--surface);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
   animation: profileIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   opacity: 0;
+  transform: scale(0.9);
 }
 
 @keyframes profileIn {
-  from { opacity: 0; transform: scale(1.05); }
   to { opacity: 1; transform: scale(1); }
 }
 
 .profile-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.4) 100%);
+  background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.2) 40%, transparent 70%);
   z-index: 3;
   pointer-events: none;
 }
 
 .profile-content {
   position: absolute;
-  bottom: 15%;
+  bottom: 12%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -744,8 +753,16 @@ textarea.contact-input {
   }
   
   .profile-image {
-    width: 160px;
-    height: 160px;
+    width: 220px;
+    height: 220px;
+  }
+  
+  .profile-wrap {
+    padding-bottom: 40px;
+  }
+  
+  .profile-content {
+    bottom: 10%;
   }
   
   .bg-name {
@@ -764,7 +781,7 @@ textarea.contact-input {
 
 @media (min-width: 769px) and (max-width: 1024px) {
   .profile-image {
-    width: 190px;
-    height: 190px;
+    width: 280px;
+    height: 280px;
   }
 }
