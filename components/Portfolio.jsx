@@ -58,25 +58,6 @@ const SKILLS = [
   },
 ];
 
-const CAPABILITIES = [
-  {
-    category: "SOFTWARE & QA",
-    items: ["System Testing", "Bug Identification", "Bug Reporting", "Requirements Validation", "System Analysis", "Database Management"],
-  },
-  {
-    category: "WEB & DEVELOPMENT",
-    items: ["HTML", "CSS", "Python", "MySQL", "Web Development", "Database Systems"],
-  },
-  {
-    category: "VIRTUAL ASSISTANCE",
-    items: ["Data Entry", "Data Validation", "Document Management", "Google Workspace", "Online Research", "Administrative Support"],
-  },
-  {
-    category: "CONTENT & DIGITAL",
-    items: ["Social Media Management", "Content Creation", "Content Optimization", "Analytics", "Research", "Basic Digital Marketing"],
-  },
-];
-
 const SOCIALS = [
   { label: "Email", value: "youremail@example.com", href: "mailto:youremail@example.com", icon: Mail, color: "#000000" },
   { label: "GitHub", value: "github.com/yourusername", href: "https://github.com/yourusername", icon: Github, color: "#000000" },
@@ -273,7 +254,6 @@ export default function Portfolio() {
         </div>
         <div className="nav-center hidden md:flex">
           <a href="#work" className="nav-link">Work</a>
-          <a href="#capabilities" className="nav-link">Capabilities</a>
           <a href="#about" className="nav-link">About</a>
           <a href="#contact" className="nav-link">Contact</a>
         </div>
@@ -303,7 +283,6 @@ export default function Portfolio() {
           minWidth: '200px'
         }}>
           <a href="#work" className="nav-link" onClick={() => setMenuOpen(false)}>Work</a>
-          <a href="#capabilities" className="nav-link" onClick={() => setMenuOpen(false)}>Capabilities</a>
           <a href="#about" className="nav-link" onClick={() => setMenuOpen(false)}>About</a>
           <a href="#contact" className="nav-link" onClick={() => setMenuOpen(false)}>Contact</a>
           <a href="#contact" className="nav-cta" style={{ textAlign: 'center' }} onClick={() => setMenuOpen(false)}>Hire Me</a>
@@ -352,7 +331,7 @@ export default function Portfolio() {
               <div className="section-desc">A collection of systems, digital projects, and technical work I've built.</div>
             </div>
             <a href="https://github.com/chardoxx-3/RFID-Student-Monitoring-System" className="work-album-btn-top" target="_blank" rel="noopener noreferrer">
-              View More Projects <ExternalLink size={14} />
+              View Projects <ExternalLink size={14} />
             </a>
           </div>
         </Reveal>
@@ -406,6 +385,20 @@ export default function Portfolio() {
           <h3 className="work-info-title">{activeProject.title}</h3>
           <p className="work-info-desc">{activeProject.desc}</p>
 
+          {activeProject.awards.length > 0 && (
+            <div className="work-info-awards">
+              {activeProject.awards.map((award) => (
+                <span key={award} className="work-info-award">🏆 {award}</span>
+              ))}
+            </div>
+          )}
+
+          <div className="work-info-tags">
+            {activeProject.tech.map((t) => (
+              <span key={t} className="work-info-tag">{t}</span>
+            ))}
+          </div>
+
           <a
             href={activeProject.link}
             className="work-info-link"
@@ -414,27 +407,6 @@ export default function Portfolio() {
           >
             {activeProject.linkText}
           </a>
-        </div>
-      </section>
-
-      {/* WHAT I CAN DO */}
-      <section id="capabilities" className="section">
-        <Reveal>
-          <div className="section-label">What I Can Do</div>
-          <div className="section-title">Capabilities</div>
-        </Reveal>
-
-        <div className="capabilities-grid">
-          {CAPABILITIES.map((cap) => (
-            <div key={cap.category} className="capability-group">
-              <div className="capability-group-title">{cap.category}</div>
-              <div className="capability-items">
-                {cap.items.map((item) => (
-                  <span key={item} className="capability-item">{item}</span>
-                ))}
-              </div>
-            </div>
-          ))}
         </div>
       </section>
 
