@@ -246,10 +246,10 @@ export default function Portfolio() {
         <svg className="bg-lines" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
           <path d="M0 450C240 350 480 550 720 450C960 350 1200 550 1440 450" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.3"/>
           <path d="M0 500C240 400 480 600 720 500C960 400 1200 600 1440 500" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.2"/>
-          <path d="M-100 300L1540 250" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.15"/>
-          <path d="M-100 650L1540 700" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.15"/>
-          <path d="M200 -100L180 900" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.12"/>
-          <path d="M1240 -100L1220 900" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.12"/>
+          <path d="M0 200C360 120 720 280 1080 180C1260 140 1380 220 1440 200" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.18"/>
+          <path d="M0 700C360 620 720 780 1080 680C1260 640 1380 720 1440 700" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.18"/>
+          <path d="M0 320C180 280 360 360 540 320C720 280 900 360 1080 320C1260 280 1380 340 1440 320" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.12"/>
+          <path d="M0 580C180 540 360 620 540 580C720 540 900 620 1080 580C1260 540 1380 600 1440 580" stroke="var(--light-gray)" strokeWidth="1" fill="none" opacity="0.12"/>
         </svg>
 
 <div className="bg-name-marquee">
