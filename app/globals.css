@@ -475,56 +475,34 @@ body::-webkit-scrollbar {
 }
 
 .work-album-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: perspective(1200px) rotateX(2deg) rotateY(0deg);
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  max-width: 100%;
-}
-
-.work-album-inner:hover {
-  transform: perspective(1200px) rotateX(0deg) rotateY(0deg) scale(1.02);
-}
-
-.work-album-center {
   position: relative;
-  z-index: 3;
+  width: 100%;
+  max-width: 780px;
+  height: 400px;
+  perspective: 1400px;
+}
+
+.work-album-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 420px;
-  flex-shrink: 0;
-  margin: 0;
-  opacity: 1;
-  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), margin 0.7s cubic-bezier(0.22, 1, 0.36, 1), width 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: transform, opacity, margin, width;
-}
-
-.work-album-center:hover {
-  transform: scale(1.03);
-}
-
-.work-album-side {
-  position: relative;
-  z-index: 1;
-  width: 260px;
-  flex-shrink: 0;
-  opacity: 0.85;
-  margin: 0 -50px;
   cursor: pointer;
-  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), margin 0.7s cubic-bezier(0.22, 1, 0.36, 1), width 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: transform, opacity, margin, width;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
 }
 
-.work-album-side:hover {
-  transform: perspective(1200px) rotateY(0deg) translateX(0px) scale(1.03);
-  opacity: 1;
+.work-album-item-center {
+  cursor: default;
 }
 
-.work-album-left {
-  transform: perspective(1200px) rotateY(18deg) translateX(-30px);
+.work-album-item:not(.work-album-item-center):hover .work-album-img {
+  transform: scale(1.05);
+  box-shadow: 0 25px 50px -20px rgba(0, 0, 0, 0.28);
 }
 
-.work-album-right {
-  transform: perspective(1200px) rotateY(-18deg) translateX(30px);
+.work-album-item-center:hover .work-album-img {
+  transform: scale(1.02);
 }
 
 .work-album-img {
@@ -533,8 +511,9 @@ body::-webkit-scrollbar {
   display: block;
   border-radius: 14px;
   border: 1px solid var(--line);
-  box-shadow: 0 20px 40px -20px rgba(0,0,0,0.18);
+  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.18);
   background: var(--surface-2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 @media (max-width: 768px) {
@@ -544,33 +523,29 @@ body::-webkit-scrollbar {
     align-items: flex-start;
   }
 
-  .work-album {
-    flex-direction: column;
-    gap: 20px;
+.work-album {
     min-height: auto;
     padding: 24px 0;
-    align-items: center;
   }
 
   .work-album-inner {
+    position: static;
+    display: flex;
     flex-direction: column;
-    transform: none !important;
-  }
-
-  .work-album-center,
-  .work-album-side {
-    width: 100%;
+    align-items: center;
+    gap: 20px;
+    height: auto;
     max-width: 360px;
-    margin: 0;
+    margin: 0 auto;
+    perspective: none;
+  }
+
+  .work-album-item {
+    position: static !important;
+    width: 100% !important;
     transform: none !important;
-  }
-
-  .work-album-center {
-    z-index: 2;
-  }
-
-  .work-album-side {
-    z-index: 1;
+    opacity: 1 !important;
+    pointer-events: auto !important;
   }
 }
 

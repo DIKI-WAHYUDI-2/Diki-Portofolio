@@ -335,21 +335,43 @@ export default function Portfolio() {
           </div>
         </Reveal>
 
-        <Reveal delay={100}>
+<Reveal delay={100}>
           <div className="work-album">
             <div className="work-album-inner">
               {PROJECTS.map((project, index) => {
-                const offset = (index - activeIndex + PROJECTS.length) % PROJECTS.length;
-                let position = 'work-album-center';
-                if (offset === 1) position = 'work-album-side work-album-left';
-                else if (offset === 2) position = 'work-album-side work-album-right';
+                const total = PROJECTS.length;
 
-                const isCenter = position === 'work-album-center';
+                // Signed distance from the active image: 0 = center,
+                // negative = left side, positive = right side.
+                let diff = (index - activeIndex + total) % total;
+                if (diff > total / 2) diff -= total;
+
+                const isCenter = diff === 0;
+                const distance = Math.abs(diff);
+                const dir = isCenter ? 0 : diff / distance; // -1 or 1
+
+                const style = isCenter
+                  ? {
+                      transform: "translate(-50%, -50%) scale(1) rotateY(0deg)",
+                      zIndex: 5,
+                      opacity: 1,
+                    }
+                  : {
+                      transform: `translate(calc(-50% + ${
+                        dir * (230 + (distance - 1) * 150)
+                      }px), -50%) scale(${Math.max(0.55, 1 - distance * 0.28)}) rotateY(${
+                        -dir * (18 + (distance - 1) * 8)
+                      }deg)`,
+                      zIndex: 5 - distance,
+                      opacity: distance <= 2 ? Math.max(0, 0.85 - (distance - 1) * 0.55) : 0,
+                      pointerEvents: distance <= 2 ? "auto" : "none",
+                    };
 
                 return (
                   <div
                     key={project.num}
-                    className={position}
+                    className={`work-album-item${isCenter ? " work-album-item-center" : ""}`}
+                    style={style}
                     onClick={() => !isCenter && goTo(index)}
                   >
                     <img src={project.image} alt={project.title} className="work-album-img" />
