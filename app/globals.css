@@ -66,7 +66,9 @@ body::-webkit-scrollbar {
 .bg-name-track {
   display: flex;
   width: max-content;
-  animation: marquee 18s linear infinite;
+  animation:
+    marquee-enter 3s cubic-bezier(0.7, 0, 0.84, 0) forwards,
+    marquee 18s linear 3s infinite;
 }
 
 .bg-name-text {
@@ -79,7 +81,12 @@ body::-webkit-scrollbar {
   letter-spacing: -3px;
   user-select: none;
   flex-shrink: 0;
-  padding-right: 2rem;
+  padding-right: 0.35em;
+}
+
+@keyframes marquee-enter {
+  from { transform: translateX(100vw); }
+  to { transform: translateX(0); }
 }
 
 @keyframes marquee {
