@@ -510,11 +510,11 @@ body::-webkit-scrollbar {
 }
 
 .work-album-left {
-  transform: perspective(1200px) rotateY(12deg) skewY(3deg);
+  transform: perspective(1200px) rotateY(6deg) skewY(1deg);
 }
 
 .work-album-right {
-  transform: perspective(1200px) rotateY(-12deg) skewY(-3deg);
+  transform: perspective(1200px) rotateY(-6deg) skewY(-1deg);
 }
 
 .work-album-side:hover {
