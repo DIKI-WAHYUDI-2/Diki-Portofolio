@@ -309,6 +309,12 @@ export default function Portfolio() {
           <div className="scroll-line" />
           <span className="scroll-text">Scroll Down</span>
         </div>
+
+        <div className="hero-text">
+          <div className="hero-name">Richard Victor M. Miculob</div>
+          <div className="hero-subtitle">IT Graduate | Virtual Assistant | Web Development</div>
+          <div className="hero-statement">Recent BSIT graduate passionate about software quality, system development, testing, and creating reliable technology solutions.</div>
+        </div>
       </section>
 
       {/* WORK GALLERY */}
