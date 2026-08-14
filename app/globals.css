@@ -408,6 +408,16 @@ body::-webkit-scrollbar {
 
 #about {
   padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+#trainings {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+#contact {
+  padding-top: 60px;
 }
 
 .section-label {
