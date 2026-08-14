@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import { Github, Mail, ExternalLink, ChevronRight, Menu, X } from "lucide-react";
+import { Github, Mail, ExternalLink, Menu, X } from "lucide-react";
 
 const PROJECTS = [
   {
     num: "01",
-    title: "RFID-Based CPSC Student Monitoring System",
+    title: "RFID-Based CPSC Student Monitoring System with Automated Photo Capture and Email Notification",
     category: "Capstone Project",
     desc: "Automated attendance tracking using RFID readers with photo capture, Google Drive export, email notifications, and admin reporting.",
     tech: ["Python Django", "MySQL", "RFID", "Email Automation"],
