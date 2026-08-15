@@ -736,7 +736,7 @@ body::-webkit-scrollbar {
   grid-template-rows: repeat(5, auto);
   gap: 16px;
   margin-top: 24px;
-  max-width: 420px;
+  max-width: 140px;
 }
 
 .tech-stack-item {
