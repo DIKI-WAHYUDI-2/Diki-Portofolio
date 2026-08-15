@@ -748,7 +748,7 @@ body::-webkit-scrollbar {
 }
 
 .workspace-column:first-of-type {
-  margin-left: 40px;
+  margin-left: 24px;
 }
 
 .tech-stack-item {
