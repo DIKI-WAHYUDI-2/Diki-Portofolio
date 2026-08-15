@@ -455,19 +455,23 @@ export default function Portfolio() {
               </div>
               <div className="tech-stack">
                 <div className="tech-stack-item">
-                  <img src="/images/tech-stack/html-css.svg" alt="HTML/CSS" />
+                  <img src="/images/logos/html.png" alt="HTML" />
+                  <img src="/images/logos/css.png" alt="CSS" />
                 </div>
                 <div className="tech-stack-item">
-                  <img src="/images/tech-stack/js-react.svg" alt="JavaScript/React" />
+                  <img src="/images/logos/js.png" alt="JavaScript" />
+                  <img src="/images/logos/react.png" alt="React" />
                 </div>
                 <div className="tech-stack-item">
-                  <img src="/images/tech-stack/python-flask.svg" alt="Python/Flask" />
+                  <img src="/images/logos/python.png" alt="Python" />
+                  <img src="/images/logos/flask.png" alt="Flask" />
                 </div>
                 <div className="tech-stack-item">
-                  <img src="/images/tech-stack/django.svg" alt="Django" />
+                  <img src="/images/logos/django.png" alt="Django" />
+                  <img src="/images/logos/php.png" alt="PHP" />
                 </div>
                 <div className="tech-stack-item">
-                  <img src="/images/tech-stack/php-codeigniter.svg" alt="PHP/CodeIgniter" />
+                  <img src="/images/logos/codeigniter.png" alt="CodeIgniter" />
                 </div>
               </div>
             </Reveal>
