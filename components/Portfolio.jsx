@@ -500,6 +500,10 @@ export default function Portfolio() {
                     <span className="tech-stack-label">Facebook</span>
                   </div>
                   <div className="tech-stack-item">
+                    <img src="/images/workspace/instagram.png" alt="Instagram" />
+                    <span className="tech-stack-label">Instagram</span>
+                  </div>
+                  <div className="tech-stack-item">
                     <img src="/images/workspace/tiktok.png" alt="TikTok" />
                     <span className="tech-stack-label">TikTok</span>
                   </div>
