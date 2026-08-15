@@ -587,34 +587,44 @@ export default function Portfolio() {
 
         <div className="about-grid">
           <Reveal delay={100}>
-            <div className="about-story">
-              <p>
-                I'm a recent Bachelor of Science in Information Technology graduate with hands-on experience in software development, system testing, documentation, database management, and digital operations.
-              </p>
-              <p>
-                My experience has allowed me to work across both technical and administrative environments, from developing and testing information systems to organizing data, documentation, and digital content.
-              </p>
+            <div className="about-content">
+              <div className="about-story">
+                <p>
+                  I'm a recent Bachelor of Science in Information Technology graduate with hands-on experience in software development, system testing, documentation, database management, and digital operations.
+                </p>
+                <p>
+                  My experience has allowed me to work across both technical and administrative environments, from developing and testing information systems to organizing data, documentation, and digital content.
+                </p>
+              </div>
+
+              <div className="about-stats">
+                <div className="stat-item">
+                  <div className="stat-value">2026</div>
+                  <div className="stat-label">Graduated BSIT</div>
+                </div>
+                <div className="stat-item">
+                  <div className="stat-value">2026</div>
+                  <div className="stat-label">OJT Experience</div>
+                </div>
+                <div className="stat-item">
+                  <div className="stat-value">2×</div>
+                  <div className="stat-label">Capstone Awards</div>
+                </div>
+                <div className="stat-item">
+                  <div className="stat-value">3+</div>
+                  <div className="stat-label">Digital Platforms</div>
+                </div>
+              </div>
             </div>
           </Reveal>
 
           <Reveal delay={200}>
-            <div className="about-stats">
-              <div className="stat-item">
-                <div className="stat-value">2026</div>
-                <div className="stat-label">Graduated BSIT</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-value">2026</div>
-                <div className="stat-label">OJT Experience</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-value">2×</div>
-                <div className="stat-label">Capstone Awards</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-value">3+</div>
-                <div className="stat-label">Digital Platforms</div>
-              </div>
+            <div className="about-image-wrapper">
+              <div className="about-frame-corner about-frame-corner-tl">+</div>
+              <div className="about-frame-corner about-frame-corner-tr">+</div>
+              <div className="about-frame-corner about-frame-corner-bl">+</div>
+              <div className="about-frame-corner about-frame-corner-br">+</div>
+              <img src="/images/about/profile.png" alt="Profile" className="about-image" />
             </div>
           </Reveal>
         </div>
