@@ -693,6 +693,21 @@ body::-webkit-scrollbar {
   max-width: 100%;
 }
 
+.about-image-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.45) 1px, transparent 1px);
+  background-size: 3px 3px;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 2;
+  border-radius: 12px;
+}
+
 .about-frame-corner {
   position: absolute;
   font-family: 'JetBrains Mono', monospace;
@@ -702,6 +717,7 @@ body::-webkit-scrollbar {
   line-height: 1;
   opacity: 0.6;
   pointer-events: none;
+  z-index: 3;
 }
 
 .about-frame-corner-tl {
@@ -733,12 +749,12 @@ body::-webkit-scrollbar {
   border: 1px solid var(--line);
   position: relative;
   z-index: 1;
-  filter: grayscale(100%);
+  filter: grayscale(100%) contrast(1.4) brightness(0.9);
   transition: filter 0.4s ease, transform 0.4s ease;
 }
 
 .about-image-wrapper:hover .about-image {
-  filter: grayscale(0%);
+  filter: grayscale(0%) contrast(1) brightness(1);
   transform: scale(1.02);
 }
 
