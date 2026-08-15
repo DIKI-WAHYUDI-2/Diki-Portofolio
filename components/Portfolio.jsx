@@ -580,40 +580,41 @@ export default function Portfolio() {
       {/* ABOUT */}
       <section id="about" className="section">
         <Reveal>
-          <div className="section-label">About Me</div>
-          <div className="section-title">Story, Skills & Background</div>
+          <div className="section-label">03 — ABOUT ME</div>
+          <div className="section-title">Richard Victor M. Miculob</div>
+          <div className="about-subtitle">IT Graduate. Problem Solver. Digital Generalist.</div>
         </Reveal>
 
         <div className="about-grid">
           <Reveal delay={100}>
             <div className="about-story">
               <p>
-                <strong>I'm RICHARD, a BSIT graduate specializing in QA, software testing, system development, and web development.</strong>
+                I'm a recent Bachelor of Science in Information Technology graduate with hands-on experience in software development, system testing, documentation, database management, and digital operations.
               </p>
               <p>
-                My journey in technology started with a deep curiosity about how systems work and how to make them better. I focus on ensuring software quality through rigorous testing, building robust back-end systems, and creating clean, functional web interfaces.
-              </p>
-              <p>
-                I specialize in QA methodologies, manual and automated testing, and full-stack development with PHP and CodeIgniter 4. Every project I deliver is built with precision, maintainability, and the end-user experience in mind.
-              </p>
-              <p>
-                Based in the Philippines, I'm passionate about creating reliable, efficient, and well-tested software solutions that help organizations operate more effectively.
+                My experience has allowed me to work across both technical and administrative environments, from developing and testing information systems to organizing data, documentation, and digital content.
               </p>
             </div>
           </Reveal>
 
           <Reveal delay={200}>
-            <div className="skills-list">
-              {SKILLS.map((skill) => (
-                <div key={skill.group} className="skill-group">
-                  <div className="skill-group-title">{skill.group.toUpperCase()}</div>
-                  <div className="skill-items">
-                    {skill.items.map((item) => (
-                      <span key={item} className="skill-item">{item}</span>
-                    ))}
-                  </div>
-                </div>
-              ))}
+            <div className="about-stats">
+              <div className="stat-item">
+                <div className="stat-value">2026</div>
+                <div className="stat-label">Graduated BSIT</div>
+              </div>
+              <div className="stat-item">
+                <div className="stat-value">2026</div>
+                <div className="stat-label">OJT Experience</div>
+              </div>
+              <div className="stat-item">
+                <div className="stat-value">2×</div>
+                <div className="stat-label">Capstone Awards</div>
+              </div>
+              <div className="stat-item">
+                <div className="stat-value">3+</div>
+                <div className="stat-label">Digital Platforms</div>
+              </div>
             </div>
           </Reveal>
         </div>
