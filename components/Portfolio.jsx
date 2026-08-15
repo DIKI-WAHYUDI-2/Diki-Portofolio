@@ -453,21 +453,40 @@ export default function Portfolio() {
               <div className="what-i-can-do-desc">
                 Beyond technical skills, I bring a practical blend of software QA, development, virtual assistance, and digital content capabilities to every role.
               </div>
-              <div className="tech-logos">
-                <div className="tech-logo" title="React">
-                  <img src="/images/logos/react.png" alt="React" />
+              <div className="tech-stack">
+                <div className="tech-stack-item">
+                  <div className="tech-stack-name">HTML/CSS</div>
+                  <div className="tech-stack-logos">
+                    <img src="/images/logos/html.png" alt="HTML" />
+                    <img src="/images/logos/css.png" alt="CSS" />
+                  </div>
                 </div>
-                <div className="tech-logo" title="CodeIgniter 4">
-                  <img src="/images/logos/codeigniter.png" alt="CodeIgniter 4" />
+                <div className="tech-stack-item">
+                  <div className="tech-stack-name">JavaScript/React</div>
+                  <div className="tech-stack-logos">
+                    <img src="/images/logos/js.png" alt="JavaScript" />
+                    <img src="/images/logos/react.png" alt="React" />
+                  </div>
                 </div>
-                <div className="tech-logo" title="PHP">
-                  <img src="/images/logos/php.png" alt="PHP" />
+                <div className="tech-stack-item">
+                  <div className="tech-stack-name">Python/Flask</div>
+                  <div className="tech-stack-logos">
+                    <img src="/images/logos/python.png" alt="Python" />
+                    <img src="/images/logos/flask.png" alt="Flask" />
+                  </div>
                 </div>
-                <div className="tech-logo" title="CSS">
-                  <img src="/images/logos/css.png" alt="CSS" />
+                <div className="tech-stack-item">
+                  <div className="tech-stack-name">Django</div>
+                  <div className="tech-stack-logos">
+                    <img src="/images/logos/django.png" alt="Django" />
+                  </div>
                 </div>
-                <div className="tech-logo" title="HTML">
-                  <img src="/images/logos/html.png" alt="HTML" />
+                <div className="tech-stack-item">
+                  <div className="tech-stack-name">PHP/CodeIgniter</div>
+                  <div className="tech-stack-logos">
+                    <img src="/images/logos/php.png" alt="PHP" />
+                    <img src="/images/logos/codeigniter.png" alt="CodeIgniter" />
+                  </div>
                 </div>
               </div>
             </Reveal>
