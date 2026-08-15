@@ -731,20 +731,20 @@ body::-webkit-scrollbar {
 
 .tech-stack {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px 24px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
   margin-top: 24px;
-  max-width: 320px;
+  max-width: 360px;
 }
 
 .tech-stack-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 8px 12px;
+  justify-content: center;
+  padding: 8px;
   background: var(--surface-2);
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 12px;
   transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
@@ -753,33 +753,18 @@ body::-webkit-scrollbar {
   transform: translateY(-2px);
 }
 
-.tech-stack-name {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--muted);
-  letter-spacing: 0.05em;
-  white-space: nowrap;
-  min-width: 90px;
-}
-
-.tech-stack-logos {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.tech-stack-logos img {
-  width: 22px;
-  height: 22px;
+.tech-stack-item img {
+  width: 100%;
+  max-width: 80px;
+  height: auto;
   object-fit: contain;
-  opacity: 0.85;
+  opacity: 0.9;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.tech-stack-item:hover .tech-stack-logos img {
+.tech-stack-item:hover img {
   opacity: 1;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .what-i-can-do-right {

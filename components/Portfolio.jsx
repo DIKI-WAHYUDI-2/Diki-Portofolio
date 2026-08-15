@@ -455,38 +455,19 @@ export default function Portfolio() {
               </div>
               <div className="tech-stack">
                 <div className="tech-stack-item">
-                  <div className="tech-stack-name">HTML/CSS</div>
-                  <div className="tech-stack-logos">
-                    <img src="/images/logos/html.png" alt="HTML" />
-                    <img src="/images/logos/css.png" alt="CSS" />
-                  </div>
+                  <img src="/images/tech-stack/html-css.svg" alt="HTML/CSS" />
                 </div>
                 <div className="tech-stack-item">
-                  <div className="tech-stack-name">JavaScript/React</div>
-                  <div className="tech-stack-logos">
-                    <img src="/images/logos/js.png" alt="JavaScript" />
-                    <img src="/images/logos/react.png" alt="React" />
-                  </div>
+                  <img src="/images/tech-stack/js-react.svg" alt="JavaScript/React" />
                 </div>
                 <div className="tech-stack-item">
-                  <div className="tech-stack-name">Python/Flask</div>
-                  <div className="tech-stack-logos">
-                    <img src="/images/logos/python.png" alt="Python" />
-                    <img src="/images/logos/flask.png" alt="Flask" />
-                  </div>
+                  <img src="/images/tech-stack/python-flask.svg" alt="Python/Flask" />
                 </div>
                 <div className="tech-stack-item">
-                  <div className="tech-stack-name">Django</div>
-                  <div className="tech-stack-logos">
-                    <img src="/images/logos/django.png" alt="Django" />
-                  </div>
+                  <img src="/images/tech-stack/django.svg" alt="Django" />
                 </div>
                 <div className="tech-stack-item">
-                  <div className="tech-stack-name">PHP/CodeIgniter</div>
-                  <div className="tech-stack-logos">
-                    <img src="/images/logos/php.png" alt="PHP" />
-                    <img src="/images/logos/codeigniter.png" alt="CodeIgniter" />
-                  </div>
+                  <img src="/images/tech-stack/php-codeigniter.svg" alt="PHP/CodeIgniter" />
                 </div>
               </div>
             </Reveal>
