@@ -733,16 +733,17 @@ body::-webkit-scrollbar {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-auto-flow: column;
+  grid-template-rows: repeat(5, auto);
   gap: 16px;
   margin-top: 24px;
-  max-width: 320px;
+  max-width: 420px;
 }
 
 .tech-stack-item {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 12px;
+  padding: 12px 14px;
   background: var(--surface-2);
   border: 1px solid var(--line);
   border-radius: 12px;
@@ -755,8 +756,8 @@ body::-webkit-scrollbar {
 }
 
 .tech-stack-item img {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   object-fit: contain;
   opacity: 0.85;
   transition: opacity 0.3s ease, transform 0.3s ease;
