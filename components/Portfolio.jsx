@@ -68,9 +68,7 @@ const WHAT_I_CAN_DO = [
     items: [
       "System Testing",
       "Bug Identification",
-      "Bug Reporting",
       "Requirements Validation",
-      "System Analysis",
       "Web Development",
       "Database Management",
       "MySQL",
