@@ -457,43 +457,55 @@ export default function Portfolio() {
                 <div className="tech-stack-column">
                   <div className="tech-stack-item">
                     <img src="/images/logos/html.png" alt="HTML" />
+                    <span className="tech-stack-label">HTML</span>
                   </div>
                   <div className="tech-stack-item">
                     <img src="/images/logos/css.png" alt="CSS" />
+                    <span className="tech-stack-label">CSS</span>
                   </div>
                   <div className="tech-stack-item">
                     <img src="/images/logos/js.png" alt="JavaScript" />
+                    <span className="tech-stack-label">JavaScript</span>
                   </div>
                   <div className="tech-stack-item">
                     <img src="/images/logos/react.png" alt="React" />
+                    <span className="tech-stack-label">React</span>
                   </div>
                   <div className="tech-stack-item">
                     <img src="/images/logos/python.png" alt="Python" />
+                    <span className="tech-stack-label">Python</span>
                   </div>
                 </div>
                 <div className="tech-stack-column">
                   <div className="tech-stack-item">
                     <img src="/images/logos/flask.png" alt="Flask" />
+                    <span className="tech-stack-label">Flask</span>
                   </div>
                   <div className="tech-stack-item">
                     <img src="/images/logos/django.png" alt="Django" />
+                    <span className="tech-stack-label">Django</span>
                   </div>
                   <div className="tech-stack-item">
                     <img src="/images/logos/php.png" alt="PHP" />
+                    <span className="tech-stack-label">PHP</span>
                   </div>
                   <div className="tech-stack-item">
                     <img src="/images/logos/codeigniter.png" alt="CodeIgniter" />
+                    <span className="tech-stack-label">CodeIgniter</span>
                   </div>
                 </div>
                 <div className="tech-stack-column workspace-column">
                   <div className="tech-stack-item">
                     <img src="/images/workspace/google.png" alt="Google" />
+                    <span className="tech-stack-label">Google</span>
                   </div>
                   <div className="tech-stack-item">
                     <img src="/images/workspace/canva.png" alt="Canva" />
+                    <span className="tech-stack-label">Canva</span>
                   </div>
                   <div className="tech-stack-item">
                     <img src="/images/workspace/figma.png" alt="Figma" />
+                    <span className="tech-stack-label">Figma</span>
                   </div>
                 </div>
               </div>
