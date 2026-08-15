@@ -675,6 +675,169 @@ body::-webkit-scrollbar {
   border: 1px solid var(--line);
 }
 
+/* What I Can Do */
+.what-i-can-do-grid {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  gap: 64px;
+  align-items: start;
+}
+
+.what-i-can-do-left {
+  position: sticky;
+  top: 120px;
+}
+
+.what-i-can-do-desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-top: 24px;
+  margin-bottom: 40px;
+}
+
+.what-i-can-do-micro {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+.what-i-can-do-line {
+  width: 1px;
+  height: 80px;
+  background: var(--line);
+  position: relative;
+  overflow: hidden;
+}
+
+.what-i-can-do-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--text);
+  transform-origin: top;
+  animation: lineGrow 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes lineGrow {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+.what-i-can-do-right {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.bento-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.1);
+}
+
+.bento-card:hover .bento-visual svg {
+  transform: scale(1.05);
+}
+
+.bento-card:hover .bento-visual {
+  opacity: 1;
+}
+
+.bento-large {
+  grid-column: span 2;
+}
+
+.bento-medium {
+  grid-column: span 1;
+}
+
+.bento-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.bento-number {
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
+  font-size: 48px;
+  line-height: 1;
+  color: var(--text);
+  letter-spacing: -0.03em;
+}
+
+.bento-category {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: right;
+  max-width: 120px;
+  line-height: 1.4;
+}
+
+.bento-visual {
+  height: 80px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-visual svg {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.bento-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.bento-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  background: transparent;
+}
+
+.bento-tag:hover {
+  border-color: var(--text);
+  color: var(--text);
+}
+
 /* Trainings & Hackathons */
 .timeline {
   position: relative;
@@ -943,11 +1106,61 @@ textarea.contact-input {
     bottom: 24px;
     max-width: calc(100% - 40px);
   }
+
+  .what-i-can-do-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .what-i-can-do-left {
+    position: static;
+  }
+
+  .what-i-can-do-line {
+    display: none;
+  }
+
+  .what-i-can-do-right {
+    grid-template-columns: 1fr;
+  }
+
+  .bento-large,
+  .bento-medium {
+    grid-column: span 1;
+  }
+
+  .bento-card {
+    padding: 24px;
+  }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
   .profile-image {
     width: 100%;
     height: 100%;
+  }
+
+  .what-i-can-do-grid {
+    gap: 40px;
+  }
+
+  .what-i-can-do-right {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bento-large {
+    grid-column: span 2;
+  }
+
+  .bento-medium {
+    grid-column: span 1;
+  }
+
+  .bento-number {
+    font-size: 36px;
+  }
+
+  .bento-card {
+    padding: 24px;
   }
 }

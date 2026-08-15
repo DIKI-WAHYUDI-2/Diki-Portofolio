@@ -58,6 +58,55 @@ const SKILLS = [
   },
 ];
 
+const WHAT_I_CAN_DO = [
+  {
+    group: "WEB DEVELOPMENT & QA",
+    description:
+      "Building functional digital systems while testing, validating, and improving their reliability, usability, and performance.",
+    visual: "qa",
+    size: "large",
+    items: [
+      "System Testing",
+      "Bug Identification",
+      "Bug Reporting",
+      "Requirements Validation",
+      "System Analysis",
+      "Web Development",
+      "Database Management",
+      "MySQL",
+      "Python",
+      "HTML",
+      "CSS",
+    ],
+  },
+  {
+    group: "Virtual Assistance",
+    description: "Supporting teams with accurate data, organized documents, research, and administrative workflows.",
+    visual: "va",
+    items: [
+      "Data Entry",
+      "Data Validation",
+      "Document Management",
+      "Google Workspace",
+      "Online Research",
+      "Administrative Support",
+    ],
+  },
+  {
+    group: "Content & Digital",
+    description: "Creating and optimizing digital content while supporting social media and research activities.",
+    visual: "digital",
+    items: [
+      "Social Media Management",
+      "Content Creation",
+      "Content Optimization",
+      "Analytics",
+      "Research",
+      "Basic Digital Marketing",
+    ],
+  },
+];
+
 const SOCIALS = [
   { label: "Email", value: "youremail@example.com", href: "mailto:youremail@example.com", icon: Mail, color: "#000000" },
   { label: "GitHub", value: "github.com/yourusername", href: "https://github.com/yourusername", icon: Github, color: "#000000" },
@@ -254,6 +303,7 @@ export default function Portfolio() {
         </div>
         <div className="nav-center hidden md:flex">
           <a href="#work" className="nav-link">Work</a>
+          <a href="#what-i-can-do" className="nav-link">What I Can Do</a>
           <a href="#about" className="nav-link">About</a>
           <a href="#contact" className="nav-link">Contact</a>
         </div>
@@ -283,6 +333,7 @@ export default function Portfolio() {
           minWidth: '200px'
         }}>
           <a href="#work" className="nav-link" onClick={() => setMenuOpen(false)}>Work</a>
+          <a href="#what-i-can-do" className="nav-link" onClick={() => setMenuOpen(false)}>What I Can Do</a>
           <a href="#about" className="nav-link" onClick={() => setMenuOpen(false)}>About</a>
           <a href="#contact" className="nav-link" onClick={() => setMenuOpen(false)}>Contact</a>
           <a href="#contact" className="nav-cta" style={{ textAlign: 'center' }} onClick={() => setMenuOpen(false)}>Hire Me</a>
@@ -393,6 +444,92 @@ export default function Portfolio() {
           >
             {activeProject.linkText}
           </a>
+        </div>
+      </section>
+
+      {/* WHAT I CAN DO */}
+      <section id="what-i-can-do" className="section">
+        <div className="what-i-can-do-grid">
+          <div className="what-i-can-do-left">
+            <Reveal>
+              <div className="section-label">My Capabilities</div>
+              <div className="section-title">What I Can Do</div>
+              <div className="what-i-can-do-desc">
+                Beyond technical skills, I bring a practical blend of software QA, development, virtual assistance, and digital content capabilities to every role.
+              </div>
+              <div className="what-i-can-do-micro">04 AREAS OF EXPERTISE</div>
+              <div className="what-i-can-do-line" />
+            </Reveal>
+          </div>
+
+          <div className="what-i-can-do-right">
+            {WHAT_I_CAN_DO.map((group, index) => (
+              <Reveal key={group.group} delay={150 + index * 120}>
+                <div className={`bento-card ${group.size === "large" ? "bento-large" : "bento-medium"}`}>
+                  <div className="bento-header">
+                    <div className="bento-number">{String(index + 1).padStart(2, "0")}</div>
+                    <div className="bento-category">{group.group}</div>
+                  </div>
+
+                  <div className="bento-visual">
+                    {group.visual === "qa" && (
+                      <svg width="100%" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="10" y="10" width="24" height="24" rx="6" stroke="var(--muted)" strokeWidth="1.5" />
+                        <path d="M17 19L21 23L27 15" stroke="var(--muted)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        <rect x="44" y="20" width="80" height="4" rx="2" fill="var(--line)" />
+                        <rect x="44" y="30" width="50" height="4" rx="2" fill="var(--line)" />
+                        <circle cx="170" cy="22" r="6" stroke="var(--muted)" strokeWidth="1.5" />
+                        <path d="M167 22L169 24L173 20" stroke="var(--muted)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    )}
+                    {group.visual === "web" && (
+                      <svg width="100%" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M30 20L20 30L30 40" stroke="var(--muted)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M170 20L180 30L170 40" stroke="var(--muted)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M25 25H50C65 25 70 30 70 35C70 40 65 45 50 45H25" stroke="var(--muted)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        <rect x="85" y="22" width="30" height="3" rx="1.5" fill="var(--line)" />
+                        <rect x="85" y="30" width="20" height="3" rx="1.5" fill="var(--line)" />
+                        <rect x="85" y="38" width="25" height="3" rx="1.5" fill="var(--line)" />
+                      </svg>
+                    )}
+                    {group.visual === "va" && (
+                      <svg width="100%" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="15" y="10" width="40" height="40" rx="8" stroke="var(--muted)" strokeWidth="1.5" />
+                        <path d="M22 22H48" stroke="var(--line)" strokeWidth="2" strokeLinecap="round" />
+                        <path d="M22 28H40" stroke="var(--line)" strokeWidth="2" strokeLinecap="round" />
+                        <path d="M22 34H35" stroke="var(--line)" strokeWidth="2" strokeLinecap="round" />
+                        <circle cx="75" cy="30" r="8" stroke="var(--muted)" strokeWidth="1.5" />
+                        <path d="M72 30L74 32L78 28" stroke="var(--muted)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        <rect x="95" y="10" width="30" height="40" rx="8" stroke="var(--muted)" strokeWidth="1.5" />
+                        <path d="M102 22H118" stroke="var(--line)" strokeWidth="2" strokeLinecap="round" />
+                        <path d="M102 28H112" stroke="var(--line)" strokeWidth="2" strokeLinecap="round" />
+                        <path d="M102 34H115" stroke="var(--line)" strokeWidth="2" strokeLinecap="round" />
+                      </svg>
+                    )}
+                    {group.visual === "digital" && (
+                      <svg width="100%" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="10" y="35" width="12" height="20" rx="2" fill="var(--line)" />
+                        <rect x="28" y="25" width="12" height="30" rx="2" fill="var(--line)" />
+                        <rect x="46" y="15" width="12" height="40" rx="2" fill="var(--muted)" opacity="0.6" />
+                        <rect x="64" y="20" width="12" height="35" rx="2" fill="var(--line)" />
+                        <rect x="82" y="10" width="12" height="45" rx="2" fill="var(--muted)" opacity="0.4" />
+                        <path d="M100 30H170" stroke="var(--muted)" strokeWidth="1.5" strokeLinecap="round" />
+                        <circle cx="100" cy="30" r="3" fill="var(--muted)" />
+                      </svg>
+                    )}
+                  </div>
+
+                  <p className="bento-desc">{group.description}</p>
+
+                  <div className="bento-skills">
+                    {group.items.map((item) => (
+                      <span key={item} className="bento-tag">{item}</span>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
