@@ -747,6 +747,10 @@ body::-webkit-scrollbar {
   margin-left: 24px;
 }
 
+.workspace-column + .workspace-column {
+  margin-left: 12px;
+}
+
 .tech-stack-item {
   display: flex;
   align-items: center;

@@ -508,16 +508,34 @@ export default function Portfolio() {
                     <span className="tech-stack-label">TikTok</span>
                   </div>
                   <div className="tech-stack-item">
-                    <img src="/images/workspace/capcut.png" alt="CapCut" />
-                    <span className="tech-stack-label">CapCut</span>
+                    <img src="/images/workspace/meta.png" alt="Meta" />
+                    <span className="tech-stack-label">Meta</span>
+                  </div>
+                  <div className="tech-stack-item">
+                    <img src="/images/workspace/notion.png" alt="Notion" />
+                    <span className="tech-stack-label">Notion</span>
+                  </div>
+                </div>
+                <div className="tech-stack-column workspace-column">
+                  <div className="tech-stack-item">
+                    <img src="/images/workspace/google.png" alt="Google" />
+                    <span className="tech-stack-label">Google</span>
                   </div>
                   <div className="tech-stack-item">
                     <img src="/images/workspace/canva.png" alt="Canva" />
                     <span className="tech-stack-label">Canva</span>
                   </div>
                   <div className="tech-stack-item">
-                    <img src="/images/workspace/google.png" alt="Google" />
-                    <span className="tech-stack-label">Google</span>
+                    <img src="/images/workspace/figma.png" alt="Figma" />
+                    <span className="tech-stack-label">Figma</span>
+                  </div>
+                  <div className="tech-stack-item">
+                    <img src="/images/workspace/capcut.png" alt="CapCut" />
+                    <span className="tech-stack-label">CapCut</span>
+                  </div>
+                  <div className="tech-stack-item">
+                    <img src="/images/workspace/trello.png" alt="Trello" />
+                    <span className="tech-stack-label">Trello</span>
                   </div>
                 </div>
               </div>
