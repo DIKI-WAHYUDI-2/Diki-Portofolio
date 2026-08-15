@@ -893,6 +893,13 @@ body::-webkit-scrollbar {
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.bento-gif {
+  width: 100%;
+  height: 60px;
+  object-fit: contain;
+  display: block;
+}
+
 .bento-desc {
   font-size: 14px;
   line-height: 1.6;
