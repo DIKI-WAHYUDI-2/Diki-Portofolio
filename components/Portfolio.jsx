@@ -455,51 +455,19 @@ export default function Portfolio() {
               </div>
               <div className="tech-logos">
                 <div className="tech-logo" title="React">
-                  <svg width="28" height="28" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M64 8C35.4 8 18.6 35.2 9.2 41.6C8.4 42.2 8 43.2 8 44.2C8 46.4 10.2 48 12.4 47.4C23.2 43.6 48.4 47.2 64 71.2C79.6 47.2 104.8 43.6 115.6 47.4C117.8 48 120 46.4 120 44.2C120 43.2 119.6 42.2 118.8 41.6C109.4 35.2 92.6 8 64 8Z" fill="#61DAFB"/>
-                    <circle cx="64" cy="64" r="12" fill="#61DAFB"/>
-                    <path d="M64 20C40.6 20 26.2 41.4 18.4 48.2C16.8 49.6 16 51.6 16 53.6C16 57.2 19 59.8 22.6 58.8C34.4 55.4 54.2 58.8 64 76.2C73.8 58.8 93.6 55.4 105.4 58.8C109 59.8 112 57.2 112 53.6C112 51.6 111.2 49.6 109.6 48.2C101.8 41.4 87.4 20 64 20Z" stroke="#61DAFB" strokeWidth="2" fill="none"/>
-                  </svg>
-                </div>
-                <div className="tech-logo" title="SQL">
-                  <svg width="28" height="28" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="24" y="28" width="80" height="72" rx="8" fill="none" stroke="var(--muted)" strokeWidth="4"/>
-                    <rect x="36" y="40" width="56" height="8" rx="2" fill="var(--muted)" opacity="0.6"/>
-                    <rect x="36" y="56" width="40" height="8" rx="2" fill="var(--muted)" opacity="0.4"/>
-                    <rect x="36" y="72" width="48" height="8" rx="2" fill="var(--muted)" opacity="0.4"/>
-                    <path d="M60 12L60 24M68 16L68 24M76 20L76 24" stroke="var(--muted)" strokeWidth="4" strokeLinecap="round"/>
-                  </svg>
+                  <img src="/images/logos/react.png" alt="React" />
                 </div>
                 <div className="tech-logo" title="CodeIgniter 4">
-                  <svg width="28" height="28" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="16" y="16" width="96" height="96" rx="16" fill="none" stroke="var(--muted)" strokeWidth="4"/>
-                    <path d="M52 36L88 64L52 92V36Z" fill="var(--muted)" opacity="0.7"/>
-                  </svg>
+                  <img src="/images/logos/codeigniter.png" alt="CodeIgniter 4" />
                 </div>
                 <div className="tech-logo" title="PHP">
-                  <svg width="28" height="28" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <ellipse cx="64" cy="64" rx="40" ry="48" fill="none" stroke="var(--muted)" strokeWidth="4"/>
-                    <text x="64" y="72" textAnchor="middle" fill="var(--muted)" fontSize="32" fontWeight="bold" fontFamily="monospace">P</text>
-                  </svg>
+                  <img src="/images/logos/php.png" alt="PHP" />
                 </div>
                 <div className="tech-logo" title="CSS">
-                  <svg width="28" height="28" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="24" y="16" width="80" height="96" rx="8" fill="none" stroke="var(--muted)" strokeWidth="4"/>
-                    <path d="M44 36L84 36L80 92L48 92L44 36Z" fill="none" stroke="var(--muted)" strokeWidth="3"/>
-                    <text x="64" y="72" textAnchor="middle" fill="var(--muted)" fontSize="16" fontWeight="bold" fontFamily="monospace">CSS</text>
-                  </svg>
+                  <img src="/images/logos/css.png" alt="CSS" />
                 </div>
                 <div className="tech-logo" title="HTML">
-                  <svg width="28" height="28" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M24 20L64 8L104 20V108L64 120L24 108V20Z" fill="none" stroke="var(--muted)" strokeWidth="4"/>
-                    <text x="64" y="74" textAnchor="middle" fill="var(--muted)" fontSize="18" fontWeight="bold" fontFamily="monospace">HTML</text>
-                  </svg>
-                </div>
-                <div className="tech-logo" title="Google">
-                  <svg width="28" height="28" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="64" cy="64" r="40" fill="none" stroke="var(--muted)" strokeWidth="4"/>
-                    <text x="64" y="76" textAnchor="middle" fill="var(--muted)" fontSize="36" fontWeight="bold" fontFamily="sans-serif">G</text>
-                  </svg>
+                  <img src="/images/logos/html.png" alt="HTML" />
                 </div>
               </div>
             </Reveal>
