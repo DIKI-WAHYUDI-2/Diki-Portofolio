@@ -678,7 +678,7 @@ body::-webkit-scrollbar {
 /* What I Can Do */
 .what-i-can-do-grid {
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: 2fr 3fr;
   gap: 64px;
   align-items: start;
 }
@@ -742,6 +742,8 @@ body::-webkit-scrollbar {
   padding: 32px;
   display: flex;
   flex-direction: column;
+  min-height: 400px;
+  box-sizing: border-box;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
 }
 
