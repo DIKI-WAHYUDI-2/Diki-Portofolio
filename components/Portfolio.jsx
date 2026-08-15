@@ -68,9 +68,7 @@ const WHAT_I_CAN_DO = [
     items: [
       "System Testing",
       "Bug Identification",
-      "Bug Reporting",
       "Requirements Validation",
-      "System Analysis",
       "Web Development",
       "Database Management",
       "MySQL",
@@ -464,7 +462,7 @@ export default function Portfolio() {
 
           <div className="what-i-can-do-right">
             {WHAT_I_CAN_DO.map((group, index) => (
-              <Reveal key={group.group} delay={150 + index * 120}>
+              <Reveal key={group.group} delay={150 + index * 120} className="bento-reveal">
                 <div className={`bento-card ${group.size === "large" ? "bento-large" : "bento-medium"}`}>
                   <div className="bento-header">
                     <div className="bento-number">{String(index + 1).padStart(2, "0")}</div>
