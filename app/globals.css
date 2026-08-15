@@ -744,11 +744,11 @@ body::-webkit-scrollbar {
 }
 
 .workspace-column {
-  margin-left: 24px;
+  margin-left: 0;
 }
 
-.workspace-column + .workspace-column {
-  margin-left: 12px;
+.workspace-column:first-of-type {
+  margin-left: 40px;
 }
 
 .tech-stack-item {
