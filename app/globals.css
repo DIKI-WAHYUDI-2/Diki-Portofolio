@@ -624,8 +624,8 @@ body::-webkit-scrollbar {
 }
 
 .about-profile-image {
-  width: 88px;
-  height: 88px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   object-fit: cover;
   border: 1px solid var(--line);
