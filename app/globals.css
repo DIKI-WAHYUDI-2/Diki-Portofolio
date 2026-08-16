@@ -631,24 +631,10 @@ body::-webkit-scrollbar {
   display: block;
 }
 
-.about-verified-badge {
-  position: absolute;
-  bottom: 2px;
-  right: 2px;
-  width: 22px;
-  height: 22px;
-  background: #1DA1F2;
-  border-radius: 50%;
-  border: 2px solid var(--surface);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .about-profile-info {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 18px;
 }
 
 .about-profile-name {
@@ -657,6 +643,16 @@ body::-webkit-scrollbar {
   font-weight: 700;
   color: var(--text);
   letter-spacing: -0.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.about-profile-badge {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .about-profile-links {
