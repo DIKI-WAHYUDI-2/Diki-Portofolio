@@ -701,6 +701,34 @@ body::-webkit-scrollbar {
   line-height: 1.2;
 }
 
+.about-description {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--muted);
+  max-width: 640px;
+  margin-top: 24px;
+}
+
+.about-description p {
+  margin-bottom: 16px;
+}
+
+.about-description p:last-child {
+  margin-bottom: 0;
+}
+
+.about-resume-link {
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.3s ease;
+}
+
+.about-resume-link:hover {
+  opacity: 0.7;
+}
+
 @media (max-width: 768px) {
   .about-profile-header {
     flex-direction: column;
