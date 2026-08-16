@@ -652,9 +652,6 @@ export default function Portfolio() {
                   <div className="card-stack-label">TRAIT</div>
                   <div className="card-stack-value">{CARDS[cardIndex]}</div>
                 </div>
-                <div className="card-stack-indicator">
-                  {cardIndex + 1} / {CARDS.length}
-                </div>
               </div>
             </div>
           </div>
