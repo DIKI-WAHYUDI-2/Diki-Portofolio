@@ -165,51 +165,12 @@ const CURRENTLY = [
   { icon: Rocket, label: "Learning", detail: "Full-stack development" },
 ];
 
-const TRAININGS = [
+const EXPERIENCE = [
   {
-    title: "Web Development Bootcamp",
-    org: "Tech Academy Philippines",
-    date: "2023",
-    desc: "Intensive full-stack web development training covering modern PHP frameworks, database design, and deployment workflows.",
-    tags: ["PHP", "MySQL", "REST APIs"],
-  },
-  {
-    title: "CodeIgniter 4 Advanced Workshop",
-    org: "CI4 Community",
-    date: "2023",
-    desc: "Deep-dive into CodeIgniter 4 features including models, libraries, HMVC modules, and security best practices.",
-    tags: ["CodeIgniter 4", "MVC", "Security"],
-  },
-  {
-    title: "Government Systems Design",
-    org: "LGU Digital Transformation",
-    date: "2022",
-    desc: "Training on designing compliant back-office systems for local government units including payroll and resident management requirements.",
-    tags: ["LGU Compliance", "Payroll", "Systems Design"],
-  },
-];
-
-const HACKATHONS = [
-  {
-    title: "Civic Tech Hackathon 2023",
-    org: "Philippine Tech Community",
-    date: "2023",
-    desc: "Built a QR-based disaster relief tracking prototype in 24 hours. The concept later evolved into the Smart Mobile Kitchen system.",
-    tags: ["Prototype", "QR Code", "Relief Logistics"],
-  },
-  {
-    title: "Open Source LGU Systems Challenge",
-    org: "DevCon Philippines",
-    date: "2022",
-    desc: "Developed an open-source barangay resident management module with role-based access and reporting features.",
-    tags: ["Open Source", "Barangay", "Community"],
-  },
-  {
-    title: "Fleet Management Hackathon",
-    org: "Transit Tech PH",
-    date: "2022",
-    desc: "Created an RFID-based fleet terminal prototype with real-time tracking and driver authentication flows.",
-    tags: ["RFID", "Fleet", "Realtime"],
+    title: "DICT Tech-Tuesdays",
+    org: "Certificate of Appreciation",
+    date: "2026",
+    desc: "Participated in a team-based digital solution development activity focused on addressing the needs of local MSMEs and the tourism sector. Contributed to the development and presentation of an online platform designed to showcase and promote local MSME products. Gained experience in collaborative problem-solving, digital solution design, and pitching technology-based solutions.",
   },
 ];
 
@@ -756,61 +717,20 @@ export default function Portfolio() {
       <section id="trainings" className="section">
         <Reveal>
           <div className="section-label">Growth & Experience</div>
-          <div className="section-title">Trainings & Hackathons</div>
+          <div className="section-title">Experience</div>
         </Reveal>
 
-        <div className="about-grid">
-          <Reveal delay={100}>
-            <div>
-              <div className="section-label" style={{ marginBottom: 24 }}>Trainings</div>
-              <div className="timeline">
-                {TRAININGS.map((t, i) => (
-                  <div key={i} className="timeline-item">
-                    <div className="timeline-dot" />
-                    <div className="timeline-content">
-                      <div className="timeline-header">
-                        <div className="timeline-title">{t.title}</div>
-                        <div className="timeline-date">{t.date}</div>
-                      </div>
-                      <div className="timeline-org">{t.org}</div>
-                      <div className="timeline-desc">{t.desc}</div>
-                      <div className="timeline-tags">
-                        {t.tags.map((tag) => (
-                          <span key={tag} className="timeline-tag">{tag}</span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                ))}
+        <div className="experience-list">
+          {EXPERIENCE.map((exp, i) => (
+            <div key={i} className="experience-card">
+              <div className="experience-header">
+                <div className="experience-title">{exp.title}</div>
+                <div className="experience-date">{exp.date}</div>
               </div>
+              <div className="experience-org">{exp.org}</div>
+              <div className="experience-desc">{exp.desc}</div>
             </div>
-          </Reveal>
-
-          <Reveal delay={200}>
-            <div>
-              <div className="section-label" style={{ marginBottom: 24 }}>Hackathons</div>
-              <div className="timeline">
-                {HACKATHONS.map((h, i) => (
-                  <div key={i} className="timeline-item">
-                    <div className="timeline-dot" style={{ borderColor: "var(--muted)" }} />
-                    <div className="timeline-content">
-                      <div className="timeline-header">
-                        <div className="timeline-title">{h.title}</div>
-                        <div className="timeline-date">{h.date}</div>
-                      </div>
-                      <div className="timeline-org">{h.org}</div>
-                      <div className="timeline-desc">{h.desc}</div>
-                      <div className="timeline-tags">
-                        {h.tags.map((tag) => (
-                          <span key={tag} className="timeline-tag">{tag}</span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Reveal>
+          ))}
         </div>
       </section>
 
