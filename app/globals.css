@@ -608,13 +608,13 @@ body::-webkit-scrollbar {
   flex-direction: column;
   gap: 24px;
   max-width: 1100px;
-  margin-top: 8px;
+  margin-top: 32px;
 }
 
 .about-profile-header {
   display: flex;
   align-items: flex-start;
-  gap: 32px;
+  gap: 24px;
 }
 
 .about-profile-image-wrapper {
@@ -707,7 +707,7 @@ body::-webkit-scrollbar {
   line-height: 1.8;
   color: var(--muted);
   max-width: 100%;
-  margin-top: 12px;
+  margin-top: 24px;
 }
 
 .about-description p {
@@ -742,7 +742,7 @@ body::-webkit-scrollbar {
   }
 
   .about-description {
-    margin-top: 8px;
+    margin-top: 16px;
   }
 }
 
