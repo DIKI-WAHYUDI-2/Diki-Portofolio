@@ -672,46 +672,19 @@ body::-webkit-scrollbar {
 }
 
 .about-profile-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-
-.about-stat-card {
   display: flex;
-  gap: 12px;
-  padding: 16px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  transition: border-color 0.3s ease, transform 0.3s ease;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 16px;
 }
 
-.about-stat-card:hover {
-  border-color: var(--text);
-  transform: translateY(-2px);
-}
-
-.about-stat-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: var(--surface-2);
-  border: 1px solid var(--line);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text);
-  flex-shrink: 0;
-}
-
-.about-stat-content {
+.about-stat-item {
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
 
-.about-stat-title {
+.about-stat-label {
   font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
   font-weight: 600;
@@ -722,7 +695,7 @@ body::-webkit-scrollbar {
 
 .about-stat-value {
   font-family: 'Inter', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--text);
   line-height: 1.2;

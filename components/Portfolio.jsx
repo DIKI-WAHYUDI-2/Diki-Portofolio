@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import { Github, Mail, ExternalLink, Menu, X, FolderOpen, Award, GraduationCap } from "lucide-react";
+import { Github, Mail, ExternalLink, Menu, X } from "lucide-react";
 
 const PROJECTS = [
   {
@@ -607,44 +607,20 @@ export default function Portfolio() {
                   RICHARD VICTOR M. MICULOB
                   <img src="/images/about/badge.png" alt="Verified" className="about-profile-badge" />
               </div>
+              </div>
             </div>
-            </div>
-            <div className="about-profile-bio">
-              <p>
-                I'm a recent Bachelor of Science in Information Technology graduate with hands-on experience in software development, system testing, documentation, database management, and digital operations.
-              </p>
-              <p>
-                My experience has allowed me to work across both technical and administrative environments, from developing and testing information systems to organizing data, documentation, and digital content.
-              </p>
-            </div>
-
             <div className="about-profile-stats">
-              <div className="about-stat-card">
-                <div className="about-stat-icon">
-                  <FolderOpen size={22} />
-                </div>
-                <div className="about-stat-content">
-                  <div className="about-stat-title">TOTAL PROJECTS</div>
-                  <div className="about-stat-value">20+</div>
-                </div>
+              <div className="about-stat-item">
+                <span className="about-stat-label">TOTAL PROJECTS</span>
+                <span className="about-stat-value">20+</span>
               </div>
-              <div className="about-stat-card">
-                <div className="about-stat-icon">
-                  <Award size={22} />
-                </div>
-                <div className="about-stat-content">
-                  <div className="about-stat-title">CERTIFICATIONS</div>
-                  <div className="about-stat-value">5</div>
-                </div>
+              <div className="about-stat-item">
+                <span className="about-stat-label">CERTIFICATIONS</span>
+                <span className="about-stat-value">5</span>
               </div>
-              <div className="about-stat-card">
-                <div className="about-stat-icon">
-                  <GraduationCap size={22} />
-                </div>
-                <div className="about-stat-content">
-                  <div className="about-stat-title">BSIT GRADUATED</div>
-                  <div className="about-stat-value">2026</div>
-                </div>
+              <div className="about-stat-item">
+                <span className="about-stat-label">BSIT GRADUATED</span>
+                <span className="about-stat-value">2026</span>
               </div>
             </div>
           </div>
