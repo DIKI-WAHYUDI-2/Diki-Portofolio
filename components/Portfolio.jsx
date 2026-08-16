@@ -362,6 +362,7 @@ export default function Portfolio() {
           <a href="#work" className="nav-link">Work</a>
           <a href="#what-i-can-do" className="nav-link">What I Can Do</a>
           <a href="#about" className="nav-link">About</a>
+          <a href="#trainings" className="nav-link">Experience</a>
           <a href="#contact" className="nav-link">Contact</a>
         </div>
         <div className="nav-right">
@@ -392,6 +393,7 @@ export default function Portfolio() {
           <a href="#work" className="nav-link" onClick={() => setMenuOpen(false)}>Work</a>
           <a href="#what-i-can-do" className="nav-link" onClick={() => setMenuOpen(false)}>What I Can Do</a>
           <a href="#about" className="nav-link" onClick={() => setMenuOpen(false)}>About</a>
+          <a href="#trainings" className="nav-link" onClick={() => setMenuOpen(false)}>Experience</a>
           <a href="#contact" className="nav-link" onClick={() => setMenuOpen(false)}>Contact</a>
           <a href="#contact" className="nav-cta" style={{ textAlign: 'center' }} onClick={() => setMenuOpen(false)}>Hire Me</a>
         </div>
