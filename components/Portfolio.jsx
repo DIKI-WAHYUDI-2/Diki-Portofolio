@@ -172,6 +172,11 @@ const EXPERIENCE = [
     date: "2026",
     desc: "Participated in a team-based digital solution development activity focused on addressing the needs of local MSMEs and the tourism sector. Contributed to the development and presentation of an online platform designed to showcase and promote local MSME products. Gained experience in collaborative problem-solving, digital solution design, and pitching technology-based solutions.",
     certificate: "Certificate of Appreciation",
+    images: [
+      "/images/experience/hackforgov/2.jpg",
+      "/images/experience/hackforgov/3.jpg",
+      "/images/experience/hackforgov/5.jpg",
+    ],
   },
 ];
 
@@ -718,19 +723,28 @@ export default function Portfolio() {
       <section id="trainings" className="section">
         <Reveal>
           <div className="section-label">Growth & Experience</div>
-          <div className="section-title">Trainings & Hackathons</div>
+          <div className="section-title">Experience</div>
         </Reveal>
 
         <div className="experience-list">
           {EXPERIENCE.map((exp, i) => (
             <div key={i} className="experience-card">
-              <div className="experience-header">
-                <div className="experience-title">{exp.title}</div>
-                <div className="experience-date">{exp.date}</div>
+              <div className="experience-content">
+                <div className="experience-header">
+                  <div className="experience-title">{exp.title}</div>
+                  <div className="experience-date">{exp.date}</div>
+                </div>
+                <div className="experience-org">{exp.org}</div>
+                <div className="experience-desc">{exp.desc}</div>
+                {exp.certificate && <div className="experience-certificate">{exp.certificate}</div>}
               </div>
-              <div className="experience-org">{exp.org}</div>
-              <div className="experience-desc">{exp.desc}</div>
-              {exp.certificate && <div className="experience-certificate">{exp.certificate}</div>}
+              {exp.images && exp.images.length > 0 && (
+                <div className="experience-images">
+                  {exp.images.map((src, idx) => (
+                    <img key={idx} src={src} alt={`${exp.title} ${idx + 1}`} className="experience-img" />
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </div>
