@@ -509,7 +509,7 @@ export default function Portfolio() {
                   </div>
                   <div className="tech-stack-item">
                     <img src="/images/workspace/meta.png" alt="Meta" />
-                    <span className="tech-stack-label">Meta</span>
+                    <span className="tech-stack-label">Meta Suite</span>
                   </div>
                   <div className="tech-stack-item">
                     <img src="/images/workspace/notion.png" alt="Notion" />
@@ -620,10 +620,6 @@ export default function Portfolio() {
 
           <Reveal delay={200}>
             <div className="about-image-wrapper">
-              <div className="about-frame-corner about-frame-corner-tl">+</div>
-              <div className="about-frame-corner about-frame-corner-tr">+</div>
-              <div className="about-frame-corner about-frame-corner-bl">+</div>
-              <div className="about-frame-corner about-frame-corner-br">+</div>
               <img src="/images/about/profile.png" alt="Profile" className="about-image" />
             </div>
           </Reveal>
