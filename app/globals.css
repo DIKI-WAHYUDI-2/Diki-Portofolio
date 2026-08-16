@@ -608,7 +608,7 @@ body::-webkit-scrollbar {
   flex-direction: column;
   gap: 24px;
   max-width: 1100px;
-  margin-top: 24px;
+  margin-top: 8px;
 }
 
 .about-profile-header {
@@ -706,7 +706,7 @@ body::-webkit-scrollbar {
   line-height: 1.8;
   color: var(--muted);
   max-width: 100%;
-  margin-top: 24px;
+  margin-top: 0;
 }
 
 .about-description p {
