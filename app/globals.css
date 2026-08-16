@@ -477,15 +477,15 @@ body::-webkit-scrollbar {
 .work-album-inner {
   position: relative;
   width: 100%;
-  max-width: 860px;
-  height: 280px;
+  max-width: 720px;
+  height: 230px;
 }
 
 .work-album-item {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 460px;
+  width: 380px;
   cursor: pointer;
   transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform, opacity;
@@ -496,12 +496,12 @@ body::-webkit-scrollbar {
 }
 
 .work-album-item:not(.work-album-item-center):hover .work-album-img {
-  transform: scale(1.05);
+  transform: scale(1.04);
   box-shadow: 0 25px 50px -20px rgba(0, 0, 0, 0.28);
 }
 
 .work-album-item-center:hover .work-album-img {
-  transform: scale(1.02);
+  transform: scale(1.01);
 }
 
 .work-album-img {

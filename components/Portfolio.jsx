@@ -404,7 +404,7 @@ export default function Portfolio() {
                     }
                   : {
                       transform: `translate(calc(-50% + ${
-                        dir * (255 + (distance - 1) * 165)
+                        dir * (200 + (distance - 1) * 130)
                       }px), -50%) scale(${Math.max(0.55, 1 - distance * 0.28)})`,
                       zIndex: 5 - distance,
                       opacity: distance <= 2 ? Math.max(0, 0.85 - (distance - 1) * 0.55) : 0,
