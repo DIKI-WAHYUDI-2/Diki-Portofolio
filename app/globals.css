@@ -635,7 +635,7 @@ body::-webkit-scrollbar {
 .about-profile-info {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 8px;
 }
 
 .about-profile-name {
@@ -654,34 +654,6 @@ body::-webkit-scrollbar {
   height: 20px;
   object-fit: contain;
   flex-shrink: 0;
-}
-
-.about-profile-links {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.about-profile-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 7px 14px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  color: var(--text);
-  text-decoration: none;
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease;
-}
-
-.about-profile-btn:hover {
-  border-color: var(--text);
-  transform: translateY(-2px);
-  background: var(--surface-2);
 }
 
 .about-profile-bio {
@@ -754,13 +726,6 @@ body::-webkit-scrollbar {
   font-weight: 700;
   color: var(--text);
   line-height: 1.2;
-}
-
-.about-stat-desc {
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.4;
-  margin-top: 4px;
 }
 
 @media (max-width: 768px) {

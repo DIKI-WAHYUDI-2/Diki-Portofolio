@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import { Github, Linkedin, Mail, ExternalLink, Menu, X, FolderOpen, Award, GraduationCap } from "lucide-react";
+import { Github, Mail, ExternalLink, Menu, X, FolderOpen, Award, GraduationCap } from "lucide-react";
 
 const PROJECTS = [
   {
@@ -606,15 +606,6 @@ export default function Portfolio() {
                 <div className="about-profile-name">
                   RICHARD VICTOR M. MICULOB
                   <img src="/images/about/badge.png" alt="Verified" className="about-profile-badge" />
-                </div>
-                <div className="about-profile-links">
-                  <a href="https://github.com/chardoxx-3" target="_blank" rel="noopener noreferrer" className="about-profile-btn">
-                    <Github size={14} /> GitHub
-                  </a>
-                  <a href="https://www.linkedin.com/in/richard-miculob" target="_blank" rel="noopener noreferrer" className="about-profile-btn">
-                    <Linkedin size={14} /> LinkedIn
-                  </a>
-                </div>
               </div>
             </div>
             <div className="about-profile-bio">
@@ -634,7 +625,6 @@ export default function Portfolio() {
                 <div className="about-stat-content">
                   <div className="about-stat-title">TOTAL PROJECTS</div>
                   <div className="about-stat-value">20+</div>
-                  <div className="about-stat-desc">Completed web and systems projects across academic, capstone, and personal development work.</div>
                 </div>
               </div>
               <div className="about-stat-card">
@@ -644,7 +634,6 @@ export default function Portfolio() {
                 <div className="about-stat-content">
                   <div className="about-stat-title">CERTIFICATIONS</div>
                   <div className="about-stat-value">5</div>
-                  <div className="about-stat-desc">Professional certifications in web development, database management, and software testing.</div>
                 </div>
               </div>
               <div className="about-stat-card">
@@ -654,7 +643,6 @@ export default function Portfolio() {
                 <div className="about-stat-content">
                   <div className="about-stat-title">BSIT GRADUATED</div>
                   <div className="about-stat-value">2026</div>
-                  <div className="about-stat-desc">Bachelor of Science in Information Technology graduate with hands-on technical experience.</div>
                 </div>
               </div>
             </div>
