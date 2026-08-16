@@ -723,7 +723,7 @@ export default function Portfolio() {
       <section id="trainings" className="section">
         <Reveal>
           <div className="section-label">Growth & Experience</div>
-          <div className="section-title">Experience</div>
+          <div className="section-title">Trainings & Hackathons</div>
         </Reveal>
 
         <div className="experience-list">
