@@ -130,6 +130,19 @@ const SOCIALS = [
   { label: "GitHub", value: "github.com/yourusername", href: "https://github.com/yourusername", icon: Github, color: "#000000" },
 ];
 
+const CARDS = [
+  "Problem Solver",
+  "Detail-Oriented",
+  "Reliable",
+  "Organized",
+  "Curious",
+  "Quick Learner",
+  "Creative",
+  "Adaptable",
+  "User-Focused",
+  "Open to Feedback",
+];
+
 const TRAININGS = [
   {
     title: "Web Development Bootcamp",
@@ -223,6 +236,7 @@ export default function Portfolio() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeIndex, setActiveIndex] = useState(1);
+  const [cardIndex, setCardIndex] = useState(0);
   const activeProject = PROJECTS[activeIndex];
 
   const goTo = (index) => {
@@ -741,6 +755,19 @@ export default function Portfolio() {
           &copy; {new Date().getFullYear()} RICHARD — Built with discipline.
         </div>
       </footer>
+
+      {/* CARD STACK */}
+      <div className="card-stack">
+        <div className="card-stack-container" onClick={() => setCardIndex((prev) => (prev + 1) % CARDS.length)}>
+          <div className="card-stack-card" key={CARDS[cardIndex]}>
+            <div className="card-stack-label">TRAIT</div>
+            <div className="card-stack-value">{CARDS[cardIndex]}</div>
+          </div>
+          <div className="card-stack-indicator">
+            {cardIndex + 1} / {CARDS.length}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
