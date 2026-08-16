@@ -593,7 +593,8 @@ export default function Portfolio() {
       <section id="about" className="section">
         <Reveal>
           <div className="section-label">ABOUT ME</div>
-          <div className="section-title">Richard Victor M. Miculob</div>
+          <div className="section-title">Web Developer & QA Specialist</div>
+          <div className="about-name">RICHARD VICTOR M. MICULOB</div>
           <div className="about-subtitle">IT Graduate. Problem Solver. Digital Generalist.</div>
         </Reveal>
 
