@@ -1350,6 +1350,8 @@ textarea.contact-input {
   cursor: pointer;
   perspective: 800px;
   overflow: visible;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .card-stack-container:active .card-stack-card-front {
