@@ -675,7 +675,7 @@ body::-webkit-scrollbar {
   display: flex;
   flex-direction: row;
   gap: 32px;
-  margin-top: 16px;
+  margin-top: 4px;
 }
 
 .about-stat-item {
