@@ -664,25 +664,44 @@ export default function Portfolio() {
             {/* CARD STACK */}
             <div className="card-stack">
               <div className="card-stack-container" onClick={() => setCardIndex((prev) => (prev + 1) % CARDS.length)}>
-                {[2, 1, 0].map((depth) => {
-                  const absIndex = (cardIndex + depth) % CARDS.length;
-                  const scatter = CARD_SCATTER[absIndex];
-                  const isFront = depth === 0;
+                {CARDS.map((trait, i) => {
+                  const offset = (i - cardIndex + CARDS.length) % CARDS.length;
+                  const isExiting = offset === CARDS.length - 1;
+                  // Only the front 3 cards and the one that just got flicked away are rendered.
+                  if (offset > 2 && !isExiting) return null;
+
+                  const scatter = CARD_SCATTER[i];
+                  let style;
+
+                  if (isExiting) {
+                    style = {
+                      "--tx": `${scatter.x + 140}px`,
+                      "--ty": `${scatter.y - 60}px`,
+                      "--rot": `${scatter.rot + 40}deg`,
+                      "--sc": 0.85,
+                      "--op": 0,
+                      zIndex: 5,
+                    };
+                  } else {
+                    const depth = offset;
+                    style = {
+                      "--tx": `${scatter.x + depth * 10}px`,
+                      "--ty": `${scatter.y + depth * 8}px`,
+                      "--rot": `${scatter.rot + depth * (scatter.rot >= 0 ? 5 : -5)}deg`,
+                      "--sc": 1 - depth * 0.045,
+                      "--op": depth === 0 ? 1 : 0.55 + (2 - depth) * 0.15,
+                      zIndex: 30 - depth * 10,
+                    };
+                  }
+
                   return (
                     <div
-                      key={isFront ? `front-${CARDS[absIndex]}` : `depth-${depth}-${CARDS[absIndex]}`}
-                      className={`card-stack-card${isFront ? " card-stack-card-front" : ""}`}
-                      style={{
-                        "--tx": `${scatter.x}px`,
-                        "--ty": `${scatter.y}px`,
-                        "--rot": `${scatter.rot}deg`,
-                        "--sc": isFront ? 1 : 1 - depth * 0.045,
-                        "--op": isFront ? 1 : 0.55 + (2 - depth) * 0.15,
-                        zIndex: 10 - depth,
-                      }}
+                      key={trait}
+                      className={`card-stack-card${offset === 0 ? " card-stack-card-front" : ""}`}
+                      style={style}
                     >
                       <div className="card-stack-label">TRAIT</div>
-                      <div className="card-stack-value">{CARDS[absIndex]}</div>
+                      <div className="card-stack-value">{trait}</div>
                     </div>
                   );
                 })}
