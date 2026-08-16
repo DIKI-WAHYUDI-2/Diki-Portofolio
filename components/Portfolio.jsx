@@ -37,6 +37,28 @@ const PROJECTS = [
     link: "#",
     linkText: "View Project →",
   },
+  {
+    num: "04",
+    title: "DocuTrack - Document Tracking System",
+    category: "Web Development",
+    desc: "DocuTRACK: a document tracking system for archiving, tagging, approving, and syncing letters with Google Drive.",
+    tech: ["PHP", "MySQL", "HTML", "CSS", "Google Drive API"],
+    awards: [],
+    image: "/images/DocuTrack/login.png",
+    link: "#",
+    linkText: "View Project →",
+  },
+  {
+    num: "05",
+    title: "Boarding House Rental System",
+    category: "Web Development",
+    desc: "A web-based boarding house rental system for managing listings, bookings, payments, and reviews with separate access for students, landlords, and administrators.",
+    tech: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
+    awards: [],
+    image: "/images/BHRental/login.png",
+    link: "#",
+    linkText: "View Project →",
+  },
 ];
 
 const SKILLS = [
