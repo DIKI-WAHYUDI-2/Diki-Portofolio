@@ -143,6 +143,22 @@ const CARDS = [
   "Open to Feedback",
 ];
 
+// Fixed "chaotic" rotation/offset per card so each trait keeps its own
+// scattered position as it cycles through the stack (looks like a messy
+// pile of photos rather than a neat deck).
+const CARD_SCATTER = [
+  { rot: -7, x: 6, y: -4 },
+  { rot: 5, x: -8, y: 3 },
+  { rot: -3, x: 10, y: 6 },
+  { rot: 9, x: -5, y: -6 },
+  { rot: -10, x: 4, y: 5 },
+  { rot: 4, x: -10, y: -2 },
+  { rot: -5, x: 9, y: -5 },
+  { rot: 8, x: -3, y: 7 },
+  { rot: -8, x: 7, y: 2 },
+  { rot: 3, x: -6, y: -7 },
+];
+
 const TRAININGS = [
   {
     title: "Web Development Bootcamp",
@@ -648,10 +664,28 @@ export default function Portfolio() {
             {/* CARD STACK */}
             <div className="card-stack">
               <div className="card-stack-container" onClick={() => setCardIndex((prev) => (prev + 1) % CARDS.length)}>
-                <div className="card-stack-card" key={CARDS[cardIndex]}>
-                  <div className="card-stack-label">TRAIT</div>
-                  <div className="card-stack-value">{CARDS[cardIndex]}</div>
-                </div>
+                {[2, 1, 0].map((depth) => {
+                  const absIndex = (cardIndex + depth) % CARDS.length;
+                  const scatter = CARD_SCATTER[absIndex];
+                  const isFront = depth === 0;
+                  return (
+                    <div
+                      key={isFront ? `front-${CARDS[absIndex]}` : `depth-${depth}-${CARDS[absIndex]}`}
+                      className={`card-stack-card${isFront ? " card-stack-card-front" : ""}`}
+                      style={{
+                        "--tx": `${scatter.x}px`,
+                        "--ty": `${scatter.y}px`,
+                        "--rot": `${scatter.rot}deg`,
+                        "--sc": isFront ? 1 : 1 - depth * 0.045,
+                        "--op": isFront ? 1 : 0.55 + (2 - depth) * 0.15,
+                        zIndex: 10 - depth,
+                      }}
+                    >
+                      <div className="card-stack-label">TRAIT</div>
+                      <div className="card-stack-value">{CARDS[absIndex]}</div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
