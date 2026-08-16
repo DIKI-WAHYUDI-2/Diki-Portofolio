@@ -645,11 +645,21 @@ export default function Portfolio() {
                 </div>
               </div>
             </div>
+            {/* CARD STACK */}
+            <div className="card-stack">
+              <div className="card-stack-container" onClick={() => setCardIndex((prev) => (prev + 1) % CARDS.length)}>
+                <div className="card-stack-card" key={CARDS[cardIndex]}>
+                  <div className="card-stack-label">TRAIT</div>
+                  <div className="card-stack-value">{CARDS[cardIndex]}</div>
+                </div>
+                <div className="card-stack-indicator">
+                  {cardIndex + 1} / {CARDS.length}
+                </div>
+              </div>
+            </div>
           </div>
         </Reveal>
       </section>
-
-      {/* TRAININGS & HACKATHONS */}
       <section id="trainings" className="section">
         <Reveal>
           <div className="section-label">Growth & Experience</div>
@@ -755,19 +765,6 @@ export default function Portfolio() {
           &copy; {new Date().getFullYear()} RICHARD — Built with discipline.
         </div>
       </footer>
-
-      {/* CARD STACK */}
-      <div className="card-stack">
-        <div className="card-stack-container" onClick={() => setCardIndex((prev) => (prev + 1) % CARDS.length)}>
-          <div className="card-stack-card" key={CARDS[cardIndex]}>
-            <div className="card-stack-label">TRAIT</div>
-            <div className="card-stack-value">{CARDS[cardIndex]}</div>
-          </div>
-          <div className="card-stack-indicator">
-            {cardIndex + 1} / {CARDS.length}
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

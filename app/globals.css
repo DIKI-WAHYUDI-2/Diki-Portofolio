@@ -609,6 +609,7 @@ body::-webkit-scrollbar {
   gap: 24px;
   max-width: 1100px;
   margin-top: 32px;
+  position: relative;
 }
 
 .about-profile-header {
@@ -1336,7 +1337,7 @@ textarea.contact-input {
 
 /* Card Stack */
 .card-stack {
-  position: fixed;
+  position: absolute;
   bottom: 24px;
   right: 24px;
   z-index: 100;
