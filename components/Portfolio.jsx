@@ -550,14 +550,6 @@ export default function Portfolio() {
                     <span className="tech-stack-label">CapCut</span>
                   </div>
             </div>
-            <div className="about-description">
-              <p>
-                I build websites and digital solutions while supporting administrative tasks with a strong eye for detail and organization. I'm a hardworking and adaptable IT graduate who enjoys designing interfaces, solving problems, and learning new technologies as I work toward becoming a full-stack web developer. Outside of technology, I enjoy gaming and watching movies and shows. I'm always looking to improve my skills, grow in the tech industry, and take on opportunities where I can create something useful.
-              </p>
-              <p>
-                Want to know more about my experience? <a href="#" className="about-resume-link">Download my resume</a>.
-              </p>
-            </div>
           </div>
         </Reveal>
           </div>
