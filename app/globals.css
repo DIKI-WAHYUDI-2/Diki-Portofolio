@@ -1145,12 +1145,6 @@ body::-webkit-scrollbar {
   transform: translateY(-2px);
 }
 
-.experience-content {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
 .experience-header {
   display: flex;
   align-items: flex-start;
@@ -1200,24 +1194,57 @@ body::-webkit-scrollbar {
   text-transform: uppercase;
 }
 
-.experience-images {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+.experience-image-stack {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  perspective: 800px;
 }
 
-.experience-img {
+.stacked-image {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   border-radius: 12px;
   border: 1px solid var(--line);
-  display: block;
-  transition: border-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 14px 30px -12px rgba(0, 0, 0, 0.3);
+  transform: translate(var(--tx, 0px), var(--ty, 0px)) rotate(var(--rot, 0deg)) scale(var(--sc, 1));
+  opacity: var(--op, 1);
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.45s ease, box-shadow 0.4s ease;
+  will-change: transform, opacity;
 }
 
-.experience-img:hover {
-  border-color: var(--text);
-  transform: scale(1.01);
+.stacked-image:nth-child(1) {
+  --tx: 0px;
+  --ty: 0px;
+  --rot: 0deg;
+  --sc: 1;
+  --op: 1;
+  z-index: 3;
+}
+
+.stacked-image:nth-child(2) {
+  --tx: 14px;
+  --ty: 10px;
+  --rot: 3deg;
+  --sc: 0.94;
+  --op: 0.75;
+  z-index: 2;
+}
+
+.stacked-image:nth-child(3) {
+  --tx: 28px;
+  --ty: 20px;
+  --rot: 6deg;
+  --sc: 0.88;
+  --op: 0.55;
+  z-index: 1;
+}
+
+.stacked-image:hover {
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.35);
 }
 
 @media (max-width: 768px) {
@@ -1235,12 +1262,28 @@ body::-webkit-scrollbar {
   .experience-date {
     white-space: normal;
   }
-}
 
-  .experience-date {
-    white-space: normal;
+  .experience-image-stack {
+    height: 240px;
+  }
+
+  .stacked-image:nth-child(2) {
+    --tx: 10px;
+    --ty: 7px;
+    --rot: 2deg;
+    --sc: 0.94;
+    --op: 0.75;
+  }
+
+  .stacked-image:nth-child(3) {
+    --tx: 20px;
+    --ty: 14px;
+    --rot: 4deg;
+    --sc: 0.88;
+    --op: 0.55;
   }
 }
+
 
 /* Contact */
 .contact-grid {

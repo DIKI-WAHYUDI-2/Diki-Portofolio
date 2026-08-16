@@ -729,7 +729,7 @@ export default function Portfolio() {
         <div className="experience-list">
           {EXPERIENCE.map((exp, i) => (
             <div key={i} className="experience-card">
-              <div className="experience-content">
+              <div className="experience-text">
                 <div className="experience-header">
                   <div className="experience-title">{exp.title}</div>
                   <div className="experience-date">{exp.date}</div>
@@ -739,9 +739,15 @@ export default function Portfolio() {
                 {exp.certificate && <div className="experience-certificate">{exp.certificate}</div>}
               </div>
               {exp.images && exp.images.length > 0 && (
-                <div className="experience-images">
+                <div className="experience-image-stack">
                   {exp.images.map((src, idx) => (
-                    <img key={idx} src={src} alt={`${exp.title} ${idx + 1}`} className="experience-img" />
+                    <img
+                      key={idx}
+                      src={src}
+                      alt={`${exp.title} ${idx + 1}`}
+                      className="stacked-image"
+                      style={{ "--i": idx }}
+                    />
                   ))}
                 </div>
               )}
