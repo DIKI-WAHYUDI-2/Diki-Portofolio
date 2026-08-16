@@ -608,6 +608,7 @@ export default function Portfolio() {
                   <img src="/images/about/badge.png" alt="Verified" className="about-profile-badge" />
               </div>
             </div>
+            </div>
             <div className="about-profile-bio">
               <p>
                 I'm a recent Bachelor of Science in Information Technology graduate with hands-on experience in software development, system testing, documentation, database management, and digital operations.
