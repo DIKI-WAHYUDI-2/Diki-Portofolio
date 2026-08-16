@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import { Github, Mail, ExternalLink, Menu, X } from "lucide-react";
+import { Github, Mail, ExternalLink, Menu, X, Code2, FlaskConical, Rocket } from "lucide-react";
 
 const PROJECTS = [
   {
@@ -157,6 +157,12 @@ const CARD_SCATTER = [
   { rot: 8, x: -3, y: 7 },
   { rot: -8, x: 7, y: 2 },
   { rot: 3, x: -6, y: -7 },
+];
+
+const CURRENTLY = [
+  { icon: Code2, label: "Building", detail: "Web & digital projects" },
+  { icon: FlaskConical, label: "Exploring", detail: "Software testing & QA" },
+  { icon: Rocket, label: "Learning", detail: "Full-stack development" },
 ];
 
 const TRAININGS = [
@@ -672,14 +678,34 @@ export default function Portfolio() {
                 </div>
               </div>
             </div>
-            {/* CARD STACK */}
-            <div className="card-stack">
-              <div
-                className="card-stack-container"
-                onClick={() => setCardIndex((prev) => (prev + 1) % CARDS.length)}
-                onMouseEnter={() => setCardPaused(true)}
-                onMouseLeave={() => setCardPaused(false)}
-              >
+            {/* CURRENTLY + CARD STACK */}
+            <div className="about-bottom-row">
+              <div className="currently-strip">
+                <div className="currently-strip-label">CURRENTLY</div>
+                <div className="currently-strip-items">
+                  {CURRENTLY.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <div className="currently-item" key={item.label}>
+                        <span className="currently-icon">
+                          <Icon size={16} strokeWidth={2} />
+                        </span>
+                        <div className="currently-text">
+                          <div className="currently-item-label">{item.label}</div>
+                          <div className="currently-item-detail">{item.detail}</div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+              <div className="card-stack">
+                <div
+                  className="card-stack-container"
+                  onClick={() => setCardIndex((prev) => (prev + 1) % CARDS.length)}
+                  onMouseEnter={() => setCardPaused(true)}
+                  onMouseLeave={() => setCardPaused(false)}
+                >
                 {CARDS.map((trait, i) => {
                   const offset = (i - cardIndex + CARDS.length) % CARDS.length;
                   const isExiting = offset === CARDS.length - 1;
@@ -721,6 +747,7 @@ export default function Portfolio() {
                     </div>
                   );
                 })}
+                </div>
               </div>
             </div>
           </div>
