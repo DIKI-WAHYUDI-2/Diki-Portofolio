@@ -515,12 +515,12 @@ export default function Portfolio() {
                     <img src="/images/workspace/trello.png" alt="Trello" />
                     <span className="tech-stack-label">Trello</span>
                   </div>
-                </div>
-                <div className="tech-stack-column workspace-column">
                   <div className="tech-stack-item">
                     <img src="/images/workspace/canva.png" alt="Canva" />
                     <span className="tech-stack-label">Canva</span>
                   </div>
+                </div>
+                <div className="tech-stack-column workspace-column">
                   <div className="tech-stack-item">
                     <img src="/images/workspace/figma.png" alt="Figma" />
                     <span className="tech-stack-label">Figma</span>
