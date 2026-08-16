@@ -253,6 +253,7 @@ export default function Portfolio() {
   const [scrolled, setScrolled] = useState(false);
   const [activeIndex, setActiveIndex] = useState(1);
   const [cardIndex, setCardIndex] = useState(0);
+  const [cardPaused, setCardPaused] = useState(false);
   const activeProject = PROJECTS[activeIndex];
 
   const goTo = (index) => {
@@ -296,6 +297,14 @@ export default function Portfolio() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (cardPaused) return;
+    const id = setInterval(() => {
+      setCardIndex((prev) => (prev + 1) % CARDS.length);
+    }, 1500);
+    return () => clearInterval(id);
+  }, [cardPaused]);
 
   return (
     <div ref={rootRef} style={{ position: 'relative' }}>
@@ -663,7 +672,12 @@ export default function Portfolio() {
             </div>
             {/* CARD STACK */}
             <div className="card-stack">
-              <div className="card-stack-container" onClick={() => setCardIndex((prev) => (prev + 1) % CARDS.length)}>
+              <div
+                className="card-stack-container"
+                onClick={() => setCardIndex((prev) => (prev + 1) % CARDS.length)}
+                onMouseEnter={() => setCardPaused(true)}
+                onMouseLeave={() => setCardPaused(false)}
+              >
                 {CARDS.map((trait, i) => {
                   const offset = (i - cardIndex + CARDS.length) % CARDS.length;
                   const isExiting = offset === CARDS.length - 1;
