@@ -1179,6 +1179,18 @@ body::-webkit-scrollbar {
   color: var(--muted);
 }
 
+.experience-certificate {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 @media (max-width: 768px) {
   .experience-card {
     padding: 24px;

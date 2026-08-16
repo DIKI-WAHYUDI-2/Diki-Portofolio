@@ -167,10 +167,11 @@ const CURRENTLY = [
 
 const EXPERIENCE = [
   {
-    title: "DICT Tech-Tuesdays",
-    org: "Certificate of Appreciation",
+    title: "Tech-Tuesdays",
+    org: "Department of Information and Communications Technology",
     date: "2026",
     desc: "Participated in a team-based digital solution development activity focused on addressing the needs of local MSMEs and the tourism sector. Contributed to the development and presentation of an online platform designed to showcase and promote local MSME products. Gained experience in collaborative problem-solving, digital solution design, and pitching technology-based solutions.",
+    certificate: "Certificate of Appreciation",
   },
 ];
 
@@ -729,6 +730,7 @@ export default function Portfolio() {
               </div>
               <div className="experience-org">{exp.org}</div>
               <div className="experience-desc">{exp.desc}</div>
+              {exp.certificate && <div className="experience-certificate">{exp.certificate}</div>}
             </div>
           ))}
         </div>
