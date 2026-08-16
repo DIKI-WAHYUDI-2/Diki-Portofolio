@@ -606,21 +606,21 @@ export default function Portfolio() {
                 <div className="about-profile-name">
                   RICHARD VICTOR M. MICULOB
                   <img src="/images/about/badge.png" alt="Verified" className="about-profile-badge" />
-              </div>
-              </div>
-            </div>
-            <div className="about-profile-stats">
-              <div className="about-stat-item">
-                <span className="about-stat-label">TOTAL PROJECTS</span>
-                <span className="about-stat-value">20+</span>
-              </div>
-              <div className="about-stat-item">
-                <span className="about-stat-label">CERTIFICATIONS</span>
-                <span className="about-stat-value">5</span>
-              </div>
-              <div className="about-stat-item">
-                <span className="about-stat-label">BSIT GRADUATED</span>
-                <span className="about-stat-value">2026</span>
+                </div>
+                <div className="about-profile-stats">
+                  <div className="about-stat-item">
+                    <span className="about-stat-label">PROJECTS</span>
+                    <span className="about-stat-value">20+</span>
+                  </div>
+                  <div className="about-stat-item">
+                    <span className="about-stat-label">CERTIFICATIONS</span>
+                    <span className="about-stat-value">5</span>
+                  </div>
+                  <div className="about-stat-item">
+                    <span className="about-stat-label">BSIT GRADUATED</span>
+                    <span className="about-stat-value">2026</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
