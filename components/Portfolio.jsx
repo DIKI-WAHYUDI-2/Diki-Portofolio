@@ -329,7 +329,7 @@ export default function Portfolio() {
           <a href="#work" className="nav-link">Work</a>
           <a href="#what-i-can-do" className="nav-link">What I Can Do</a>
           <a href="#about" className="nav-link">About</a>
-          <a href="#trainings" className="nav-link">Experience</a>
+          <a href="#trainings" className="nav-link">Trainings</a>
           <a href="#contact" className="nav-link">Contact</a>
         </div>
         <div className="nav-right">
@@ -717,7 +717,7 @@ export default function Portfolio() {
       <section id="trainings" className="section">
         <Reveal>
           <div className="section-label">Growth & Experience</div>
-          <div className="section-title">Experience</div>
+          <div className="section-title">Trainings & Hackathons</div>
         </Reveal>
 
         <div className="experience-list">
