@@ -398,16 +398,14 @@ export default function Portfolio() {
 
                 const style = isCenter
                   ? {
-                      transform: "translate(-50%, -50%) scale(1) rotateY(0deg)",
+                      transform: "translate(-50%, -50%) scale(1)",
                       zIndex: 5,
                       opacity: 1,
                     }
                   : {
                       transform: `translate(calc(-50% + ${
                         dir * (255 + (distance - 1) * 165)
-                      }px), -50%) scale(${Math.max(0.55, 1 - distance * 0.28)}) rotateY(${
-                        -dir * (18 + (distance - 1) * 8)
-                      }deg)`,
+                      }px), -50%) scale(${Math.max(0.55, 1 - distance * 0.28)})`,
                       zIndex: 5 - distance,
                       opacity: distance <= 2 ? Math.max(0, 0.85 - (distance - 1) * 0.55) : 0,
                       pointerEvents: distance <= 2 ? "auto" : "none",

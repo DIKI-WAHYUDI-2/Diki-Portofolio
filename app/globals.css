@@ -479,7 +479,6 @@ body::-webkit-scrollbar {
   width: 100%;
   max-width: 860px;
   height: 280px;
-  perspective: 1400px;
 }
 
 .work-album-item {
