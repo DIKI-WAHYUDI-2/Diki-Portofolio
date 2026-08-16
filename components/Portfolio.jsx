@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import { Github, Mail, ExternalLink, Menu, X } from "lucide-react";
+import { Github, Linkedin, Mail, ExternalLink, Menu, X } from "lucide-react";
 
 const PROJECTS = [
   {
@@ -594,48 +594,41 @@ export default function Portfolio() {
         <Reveal>
           <div className="section-label">ABOUT ME</div>
           <div className="section-title">Problem Solver. Digital Generalist.</div>
-          <div className="about-name">RICHARD VICTOR M. MICULOB</div>
         </Reveal>
 
-        <div className="about-grid">
-          <Reveal delay={100}>
-            <div className="about-content">
-              <div className="about-story">
-                <p>
-                  I'm a recent Bachelor of Science in Information Technology graduate with hands-on experience in software development, system testing, documentation, database management, and digital operations.
-                </p>
-                <p>
-                  My experience has allowed me to work across both technical and administrative environments, from developing and testing information systems to organizing data, documentation, and digital content.
-                </p>
+        <Reveal delay={100}>
+          <div className="about-profile-card">
+            <div className="about-profile-header">
+              <div className="about-profile-image-wrapper">
+                <img src="/images/about/profile.png" alt="Profile" className="about-profile-image" />
+                <div className="about-verified-badge">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
               </div>
-
-              <div className="about-stats">
-                <div className="stat-item">
-                  <div className="stat-value">2026</div>
-                  <div className="stat-label">Graduated BSIT</div>
-                </div>
-                <div className="stat-item">
-                  <div className="stat-value">2026</div>
-                  <div className="stat-label">OJT Experience</div>
-                </div>
-                <div className="stat-item">
-                  <div className="stat-value">2×</div>
-                  <div className="stat-label">Capstone Awards</div>
-                </div>
-                <div className="stat-item">
-                  <div className="stat-value">3+</div>
-                  <div className="stat-label">Digital Platforms</div>
+              <div className="about-profile-info">
+                <div className="about-profile-name">RICHARD VICTOR M. MICULOB</div>
+                <div className="about-profile-links">
+                  <a href="https://github.com/chardoxx-3" target="_blank" rel="noopener noreferrer" className="about-profile-btn">
+                    <Github size={14} /> GitHub
+                  </a>
+                  <a href="https://www.linkedin.com/in/richard-miculob" target="_blank" rel="noopener noreferrer" className="about-profile-btn">
+                    <Linkedin size={14} /> LinkedIn
+                  </a>
                 </div>
               </div>
             </div>
-          </Reveal>
-
-          <Reveal delay={200}>
-            <div className="about-image-wrapper">
-              <img src="/images/about/profile.png" alt="Profile" className="about-image" />
+            <div className="about-profile-bio">
+              <p>
+                I'm a recent Bachelor of Science in Information Technology graduate with hands-on experience in software development, system testing, documentation, database management, and digital operations.
+              </p>
+              <p>
+                My experience has allowed me to work across both technical and administrative environments, from developing and testing information systems to organizing data, documentation, and digital content.
+              </p>
             </div>
-          </Reveal>
-        </div>
+          </div>
+        </Reveal>
       </section>
 
       {/* TRAININGS & HACKATHONS */}
