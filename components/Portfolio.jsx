@@ -803,6 +803,7 @@ export default function Portfolio() {
                 {exp.certificate && (
                   <a href={exp.certificateLink} className="experience-certificate" target="_blank" rel="noopener noreferrer">
                     {exp.certificate}
+                    <ExternalLink size={12} style={{ marginLeft: 6 }} />
                   </a>
                 )}
               </div>

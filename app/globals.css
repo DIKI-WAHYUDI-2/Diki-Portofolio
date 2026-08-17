@@ -1175,15 +1175,14 @@ body::-webkit-scrollbar {
 }
 
 .experience-certificate {
-  margin-top: 20px;
+  margin-top: 32px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
   font-weight: 600;
   color: var(--text);
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  text-decoration: none;
   transition: opacity 0.3s ease;
 }
 
