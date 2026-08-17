@@ -427,7 +427,7 @@ body::-webkit-scrollbar {
   color: var(--muted);
   max-width: 640px;
   margin-top: 12px;
-  margin-bottom: 0;
+  margin-bottom: 40px;
 }
 
 /* Work Header */
