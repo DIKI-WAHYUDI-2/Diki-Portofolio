@@ -724,6 +724,9 @@ export default function Portfolio() {
         <Reveal>
           <div className="section-label">Growth & Experience</div>
           <div className="section-title">Trainings & Hackathons</div>
+          <div className="section-desc">
+            A collection of trainings, workshops, and hackathons that shaped my technical and collaborative skills.
+          </div>
         </Reveal>
 
         <div className="experience-list">
