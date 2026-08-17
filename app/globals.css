@@ -1124,7 +1124,7 @@ body::-webkit-scrollbar {
 .experience-list {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 48px;
   max-width: 1100px;
 }
 
@@ -1132,17 +1132,7 @@ body::-webkit-scrollbar {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 32px;
-  transition: border-color 0.3s ease, transform 0.3s ease;
   align-items: start;
-}
-
-.experience-card:hover {
-  border-color: var(--text);
-  transform: translateY(-2px);
 }
 
 .experience-header {
@@ -1251,7 +1241,6 @@ body::-webkit-scrollbar {
   .experience-card {
     grid-template-columns: 1fr;
     gap: 24px;
-    padding: 24px;
   }
 
   .experience-header {
