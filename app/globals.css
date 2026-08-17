@@ -1139,6 +1139,15 @@ body::-webkit-scrollbar {
   align-items: start;
 }
 
+/* Tech-Tuesdays layout flip: image on the left, text on the right */
+.experience-card-reverse .experience-text {
+  order: 2;
+}
+
+.experience-card-reverse .experience-image-stack {
+  order: 1;
+}
+
 .experience-header {
   display: flex;
   align-items: flex-start;
@@ -1256,6 +1265,14 @@ body::-webkit-scrollbar {
 
   .experience-image-stack {
     height: 240px;
+  }
+
+  .experience-card-reverse .experience-text {
+    order: 2;
+  }
+
+  .experience-card-reverse .experience-image-stack {
+    order: 1;
   }
 }
 
