@@ -169,7 +169,7 @@ const EXPERIENCE = [
   {
     title: "Tech-Tuesdays",
     org: "Department of Information and Communications Technology",
-    date: "2026",
+    date: "March 31, 2026",
     desc: "Participated in a team-based digital solution development activity focused on addressing the needs of local MSMEs and the tourism sector. Contributed to the development and presentation of an online platform designed to showcase and promote local MSME products. Gained experience in collaborative problem-solving, digital solution design, and pitching technology-based solutions.",
     certificate: "Certificate of Appreciation",
     certificateLink: "/certificates/techtuesday.pdf",

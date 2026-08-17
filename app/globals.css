@@ -1141,6 +1141,7 @@ body::-webkit-scrollbar {
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
+  margin-bottom: 12px;
 }
 
 .experience-title {
@@ -1163,17 +1164,18 @@ body::-webkit-scrollbar {
   font-size: 14px;
   font-weight: 500;
   color: var(--text);
+  margin-top: 12px;
 }
 
 .experience-desc {
   font-size: 15px;
   line-height: 1.7;
   color: var(--muted);
-  margin-top: 4px;
+  margin-top: 12px;
 }
 
 .experience-certificate {
-  margin-top: 16px;
+  margin-top: 20px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
   font-weight: 600;
