@@ -220,6 +220,64 @@ function Reveal({ children, delay = 0, className = "" }) {
   );
 }
 
+// Same click-to-flick mechanic as the About-me trait cards: the front image
+// flies off and the next one in the pile takes its place.
+function ExperienceImageStack({ images, title }) {
+  const [index, setIndex] = useState(0);
+  const count = images.length;
+
+  return (
+    <div
+      className="experience-image-stack"
+      onClick={() => setIndex((prev) => (prev + 1) % count)}
+    >
+      {images.map((src, i) => {
+        const offset = (i - index + count) % count;
+        const isExiting = offset === count - 1;
+        // Only the front 3 images and the one that just got flicked away are rendered.
+        if (offset > 2 && !isExiting) return null;
+
+        const scatter = CARD_SCATTER[i % CARD_SCATTER.length];
+        let style;
+
+        if (isExiting) {
+          style = {
+            "--tx": `${scatter.x + 100}px`,
+            "--ty": `${scatter.y - 40}px`,
+            "--rot": `${scatter.rot + 25}deg`,
+            "--sc": 0.88,
+            "--op": 0,
+            zIndex: 5,
+          };
+        } else {
+          const depth = offset;
+          const isFront = depth === 0;
+          const calm = 0.4; // dampens the scatter chaos for the album stack
+          const dir = depth % 2 === 1 ? -1 : 1; // alternate: mid card peeks up, back card peeks down
+          style = {
+            "--tx": isFront ? "0px" : `${scatter.x * calm + depth * 8}px`,
+            "--ty": isFront ? "0px" : `${scatter.y * calm + dir * depth * 10}px`,
+            "--rot": isFront ? "0deg" : `${scatter.rot * calm + depth * (scatter.rot >= 0 ? 1.5 : -1.5)}deg`,
+            "--sc": isFront ? 1 : 1 - depth * 0.06,
+            "--op": isFront ? 1 : 0.75 - (depth - 1) * 0.2,
+            zIndex: 30 - depth * 10,
+          };
+        }
+
+        return (
+          <img
+            key={src}
+            src={src}
+            alt={`${title} ${i + 1}`}
+            className={`stacked-image${offset === 0 ? " stacked-image-front" : ""}`}
+            style={style}
+          />
+        );
+      })}
+    </div>
+  );
+}
+
 export default function Portfolio() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const rootRef = useRef(null);
@@ -744,17 +802,7 @@ export default function Portfolio() {
                 {exp.certificate && <div className="experience-certificate">{exp.certificate}</div>}
               </div>
               {exp.images && exp.images.length > 0 && (
-                <div className="experience-image-stack">
-                  {exp.images.map((src, idx) => (
-                    <img
-                      key={idx}
-                      src={src}
-                      alt={`${exp.title} ${idx + 1}`}
-                      className="stacked-image"
-                      style={{ "--i": idx }}
-                    />
-                  ))}
-                </div>
+                <ExperienceImageStack images={exp.images} title={exp.title} />
               )}
             </div>
           ))}
