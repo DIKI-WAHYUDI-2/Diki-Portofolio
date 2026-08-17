@@ -175,14 +175,11 @@ const EXPERIENCE = [
     certificate: "Certificate of Completion",
     certificateLink: "/certificates/va.pdf",
     images: [
-      "/images/experience/hackforgov/1.jpg",
-      "/images/experience/hackforgov/2.jpg",
-      "/images/experience/hackforgov/3.jpg",
-      "/images/experience/hackforgov/4.jpg",
-      "/images/experience/hackforgov/5.jpg",
+      "/images/experience/va/1.jpg",
+      "/images/experience/va/2.jpg",
     ],
   },
-  {
+{
     title: "Tech-Tuesdays",
     org: "Department of Information and Communications Technology",
     date: "March 31, 2026",
@@ -191,11 +188,53 @@ const EXPERIENCE = [
     certificate: "Certificate of Appreciation",
     certificateLink: "/certificates/techtuesday.pdf",
     images: [
+      "/images/experience/techtuesday/1.jpg",
+      "/images/experience/techtuesday/2.jpg",
+    ],
+  },  
+  {
+    title: "HACK FOR GOV 4",
+    org: "Department of Information and Communications Technology",
+    date: "2025",
+    desc: "Participated in a 9-hour Capture the Flag (CTF) cybersecurity competition involving hands-on challenges in identifying vulnerabilities, analyzing systems, and finding hidden flags. Developed practical skills in cybersecurity, ethical hacking, logical reasoning, troubleshooting, and time-constrained problem-solving.",
+    certificate: "Certificate of Participation",
+    certificateLink: "/certificates/hackforgov-ctf.pdf",
+    images: [
       "/images/experience/hackforgov/1.jpg",
       "/images/experience/hackforgov/2.jpg",
       "/images/experience/hackforgov/3.jpg",
       "/images/experience/hackforgov/4.jpg",
       "/images/experience/hackforgov/5.jpg",
+    ],
+  },
+  {
+    title: "AI Ideas for Impact",
+    org: "Department of Information and Communications Technology",
+    date: "2025",
+    imageLeft: true,
+    desc: "Participated in a digital innovation activity focused on applying artificial intelligence to improve existing systems and workflows. Collaborated with a team to develop and present AI-powered solutions designed to make processes more efficient, faster, and accessible.",
+    certificate: "Certificate of Participation",
+    certificateLink: "/certificates/ai-ideas-for-impact.pdf",
+    images: [
+      "/images/experience/aideas/1.jpg",
+      "/images/experience/aideas/2.jpg",
+      "/images/experience/aideas/3.jpg",
+      "/images/experience/aideas/4.jpg",
+      "/images/experience/aideas/5.jpg",
+    ],
+  },
+  {
+    title: "Reverse Pitching",
+    org: "Department of Information and Communications Technology",
+    date: "2025",
+    desc: "Participated in a reverse-pitching activity where participants selected real-world problems presented by organizations and developed technology-driven solutions to address them. Contributed to the development and presentation of a digital platform concept aimed at improving the efficiency of municipal and MSME operations.",
+    certificate: "Certificate of Participation",
+    certificateLink: "/certificates/reverse-pitching.pdf",
+    images: [
+      "/images/experience/reverse/1.jpg",
+      "/images/experience/reverse/2.jpg",
+      "/images/experience/reverse/3.jpg",
+      "/images/experience/reverse/4.jpg",
     ],
   },
 ];
@@ -706,7 +745,7 @@ export default function Portfolio() {
                   </div>
                   <div className="about-stat-item">
                     <span className="about-stat-label">CERTIFICATIONS</span>
-                    <span className="about-stat-value">5</span>
+                    <span className="about-stat-value">9</span>
                   </div>
                   <div className="about-stat-item">
                     <span className="about-stat-label">BSIT GRADUATED</span>

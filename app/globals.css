@@ -1128,7 +1128,7 @@ body::-webkit-scrollbar {
 .experience-list {
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 96px;
   max-width: 1100px;
 }
 
