@@ -439,6 +439,10 @@ body::-webkit-scrollbar {
   margin-bottom: 12px;
 }
 
+.work-header .section-desc {
+  margin-bottom: 10;
+}
+
 .work-album-btn-top {
   display: inline-flex;
   align-items: center;
@@ -467,7 +471,7 @@ body::-webkit-scrollbar {
 .work-album {
   position: relative;
   width: 100%;
-  min-height: 300px;
+  min-height: 230px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1175,7 +1179,9 @@ body::-webkit-scrollbar {
 }
 
 .experience-certificate {
-  margin-top: 32px;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 56px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
   font-weight: 600;
@@ -1183,6 +1189,7 @@ body::-webkit-scrollbar {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   text-decoration: none;
+  white-space: nowrap;
   transition: opacity 0.3s ease;
 }
 
