@@ -1156,6 +1156,14 @@ body::-webkit-scrollbar {
   letter-spacing: -0.01em;
 }
 
+.experience-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
 .experience-date {
   font-family: 'JetBrains Mono', monospace;
   font-size: 12px;

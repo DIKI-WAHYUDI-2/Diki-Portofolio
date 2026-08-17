@@ -167,7 +167,8 @@ const CURRENTLY = [
 
 const EXPERIENCE = [
   {
-    title: "General Virtual Assistance 2.0: A Paradigm Shift in AI-Powered Interaction",
+    title: "General Virtual Assistance 2.0",
+    subtitle: "A Paradigm Shift in AI-Powered Interaction",
     org: "DICT",
     date: "April to May 2026",
     desc: "Completed a 20-day intensive virtual assistance training program focused on professional VA fundamentals, niche development, client communication, productivity, and AI-powered workflows. The training also covered social media management, including creating and managing a professional page, developing content, scheduling posts, and using social media to attract potential clients. Gained practical experience in client outreach, service improvement, workflow optimization, and delivering efficient virtual assistance solutions.",
@@ -809,7 +810,10 @@ export default function Portfolio() {
             <div key={i} className="experience-card">
               <div className="experience-text">
                 <div className="experience-header">
-                  <div className="experience-title">{exp.title}</div>
+                  <div className="experience-title">
+                    {exp.title}
+                    {exp.subtitle && <div className="experience-subtitle">{exp.subtitle}</div>}
+                  </div>
                   <div className="experience-date">{exp.date}</div>
                 </div>
                 <div className="experience-org">{exp.org}</div>
