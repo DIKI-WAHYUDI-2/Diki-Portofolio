@@ -171,8 +171,9 @@ const EXPERIENCE = [
     subtitle: "A Paradigm Shift in AI-Powered Interaction",
     org: "Department of Information and Communications Technology",
     date: "April to May 2026",
-    desc: "Completed a 20-day intensive virtual assistance training program focused on professional VA fundamentals, niche development, client communication, productivity, and AI-powered workflows. The training also covered social media management, including creating and managing a professional page, developing content, scheduling posts, and using social media to attract potential clients. Gained practical experience in client outreach, service improvement, workflow optimization, and delivering efficient virtual assistance solutions.",
+    desc: "Completed a 20-day intensive virtual assistance training focused on VA fundamentals, client communication, productivity, AI-powered workflows, and social media management. Gained hands-on experience in niche development, content creation, page management, post scheduling, client outreach, and improving workflows to deliver efficient virtual assistance services.",
     certificate: "Certificate of Completion",
+    certificateLink: "/certificates/va.pdf",
     images: [
       "/images/experience/hackforgov/1.jpg",
       "/images/experience/hackforgov/2.jpg",
