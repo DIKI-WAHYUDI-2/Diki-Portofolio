@@ -1190,7 +1190,7 @@ body::-webkit-scrollbar {
 .experience-certificate {
   display: inline-flex;
   align-items: center;
-  margin-top: 56px;
+  margin-top: 24px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
   font-weight: 600;
