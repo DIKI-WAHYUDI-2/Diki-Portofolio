@@ -169,7 +169,7 @@ const EXPERIENCE = [
   {
     title: "General Virtual Assistance 2.0",
     subtitle: "A Paradigm Shift in AI-Powered Interaction",
-    org: "DICT",
+    org: "Department of Information and Communications Technology",
     date: "April to May 2026",
     desc: "Completed a 20-day intensive virtual assistance training program focused on professional VA fundamentals, niche development, client communication, productivity, and AI-powered workflows. The training also covered social media management, including creating and managing a professional page, developing content, scheduling posts, and using social media to attract potential clients. Gained practical experience in client outreach, service improvement, workflow optimization, and delivering efficient virtual assistance solutions.",
     certificate: "Certificate of Completion",
