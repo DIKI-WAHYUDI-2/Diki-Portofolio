@@ -1015,7 +1015,6 @@ export default function Portfolio() {
                   const data = {
                     name: form.name.value.trim(),
                     email: form.email.value.trim(),
-                    subject: form.subject.value.trim(),
                     message: form.message.value.trim(),
                   };
 
@@ -1045,11 +1044,6 @@ export default function Portfolio() {
                 <div className="contact-modal-field">
                   <label className="contact-modal-label">Email Address</label>
                   <input type="email" name="email" className="contact-modal-input" placeholder="your.email@example.com" required />
-                </div>
-
-                <div className="contact-modal-field">
-                  <label className="contact-modal-label">Subject</label>
-                  <input type="text" name="subject" className="contact-modal-input" placeholder="How can I help you?" required />
                 </div>
 
                 <div className="contact-modal-field contact-modal-field--grow">
