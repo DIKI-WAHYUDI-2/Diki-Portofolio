@@ -1991,7 +1991,7 @@ textarea.contact-modal-input {
   position: fixed;
   left: 0;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%) translateX(-20px);
   z-index: 150;
   display: flex;
   align-items: center;
@@ -2007,8 +2007,22 @@ textarea.contact-modal-input {
   font-size: 13px;
   font-weight: 500;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.coffee-btn--visible {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+  pointer-events: auto;
+}
+
+.coffee-btn:hover {
+  background: var(--text);
+  color: var(--surface);
+  border-color: var(--text);
 }
 
 .coffee-count {
@@ -2018,33 +2032,9 @@ textarea.contact-modal-input {
   min-width: 22px;
   height: 22px;
   padding: 0 6px;
-  border-radius: 999px;
-  background: var(--text);
-  color: var(--surface);
   font-size: 11px;
   font-weight: 700;
   line-height: 1;
-}
-
-.coffee-btn:hover {
-  background: var(--text);
-  color: var(--surface);
-  border-color: var(--text);
-}
-
-.coffee-btn--visible {
-  animation: coffeeSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes coffeeSlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-50%) translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(-50%) translateX(0);
-  }
 }
 
 /* Mobile */

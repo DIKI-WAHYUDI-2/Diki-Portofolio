@@ -1117,13 +1117,11 @@ export default function Portfolio() {
         </button>
       )}
 
-      {showCoffee && (
-        <a href="#" className={`coffee-btn coffee-btn--visible`} aria-label="Get me a coffee" onClick={handleCoffeeClick}>
-          <span>Get me a coffee</span>
-          <Coffee size={18} />
-          <span className="coffee-count">{coffeeCount}</span>
-        </a>
-      )}
+      <a href="#" className={`coffee-btn${showCoffee ? " coffee-btn--visible" : ""}`} aria-label="Get me a coffee" onClick={handleCoffeeClick}>
+        <span>Get me a coffee</span>
+        <Coffee size={18} />
+        <span className="coffee-count">{coffeeCount}</span>
+      </a>
 
       {/* FOOTER */}
       <footer className="footer">
