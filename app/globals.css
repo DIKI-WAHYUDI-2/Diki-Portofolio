@@ -645,12 +645,15 @@ body::-webkit-scrollbar {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 14px;
-  transition: border-color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
 }
 
 .award-item:hover {
   border-color: var(--text);
   transform: translateY(-2px);
+  opacity: 0.8;
 }
 
 .award-icon {
