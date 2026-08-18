@@ -675,8 +675,8 @@ body::-webkit-scrollbar {
 }
 
 .awards-img {
-  width: 560px;
-  height: 375px;
+  width: 640px;
+  height: 428px;
   object-fit: cover;
   display: block;
   flex-shrink: 0;
