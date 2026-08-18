@@ -351,15 +351,16 @@ export default function Portfolio() {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [showCoffee, setShowCoffee] = useState(false);
-  const [coffeeCount, setCoffeeCount] = useState(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('coffeeCount');
-      return saved ? parseInt(saved, 10) : 0;
-    }
-    return 0;
-  });
+  const [coffeeCount, setCoffeeCount] = useState(0);
   const [coffeePop, setCoffeePop] = useState(false);
   const activeProject = PROJECTS[activeIndex];
+
+  useEffect(() => {
+    const saved = localStorage.getItem('coffeeCount');
+    if (saved) {
+      setCoffeeCount(parseInt(saved, 10));
+    }
+  }, []);
 
   const goTo = (index) => {
     const normalized = ((index % PROJECTS.length) + PROJECTS.length) % PROJECTS.length;
