@@ -449,10 +449,10 @@ export default function Portfolio() {
       </svg>
       {/* NAVIGATION */}
       <nav className={`nav-bar ${scrolled ? "scrolled" : ""}`}>
-        <div className="nav-left">
+        <a href="#hero" className="nav-left">
           <div className="nav-logo">R</div>
           <div className="nav-brand">RICHARD</div>
-        </div>
+        </a>
         <div className="nav-center hidden md:flex">
           <a href="#work" className="nav-link">Work</a>
           <a href="#what-i-can-do" className="nav-link">What I Can Do</a>
@@ -495,7 +495,7 @@ export default function Portfolio() {
       )}
 
       {/* HERO */}
-      <section className="hero-root">
+      <section id="hero" className="hero-root">
 
 <div className="bg-name-marquee">
           <div className="bg-name-track" ref={marqueeTrackRef}>
