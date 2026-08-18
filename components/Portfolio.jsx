@@ -351,6 +351,13 @@ export default function Portfolio() {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [showCoffee, setShowCoffee] = useState(false);
+  const [coffeeCount, setCoffeeCount] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('coffeeCount');
+      return saved ? parseInt(saved, 10) : 0;
+    }
+    return 0;
+  });
   const activeProject = PROJECTS[activeIndex];
 
   const goTo = (index) => {
@@ -360,6 +367,17 @@ export default function Portfolio() {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleCoffeeClick = (e) => {
+    e.preventDefault();
+    const hasClicked = localStorage.getItem('coffeeClicked');
+    if (!hasClicked) {
+      const newCount = coffeeCount + 1;
+      setCoffeeCount(newCount);
+      localStorage.setItem('coffeeCount', newCount.toString());
+      localStorage.setItem('coffeeClicked', 'true');
+    }
   };
 
   useEffect(() => {
@@ -1100,9 +1118,10 @@ export default function Portfolio() {
       )}
 
       {showCoffee && (
-        <a href="#" className={`coffee-btn coffee-btn--visible`} aria-label="Get me a coffee">
+        <a href="#" className={`coffee-btn coffee-btn--visible`} aria-label="Get me a coffee" onClick={handleCoffeeClick}>
           <span>Get me a coffee</span>
           <Coffee size={18} />
+          <span className="coffee-count">{coffeeCount}</span>
         </a>
       )}
 
