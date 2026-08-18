@@ -173,7 +173,7 @@ const EXPERIENCE = [
     date: "April to May 2026",
     desc: "Completed a 20-day intensive virtual assistance training focused on VA fundamentals, client communication, productivity, AI-powered workflows, and social media management. Gained hands-on experience in niche development, content creation, page management, post scheduling, client outreach, and improving workflows to deliver efficient virtual assistance services.",
     certificate: "Certificate of Completion",
-    certificateLink: "/certificates/va.pdf",
+    certificateLink: "/certificates/Virtual_Assistance.pdf",
     images: [
       "/images/experience/va/1.jpg",
       "/images/experience/va/2.jpg",
@@ -186,7 +186,7 @@ const EXPERIENCE = [
     imageLeft: true,
     desc: "Participated in a team-based digital solution development activity focused on addressing the needs of local MSMEs and the tourism sector. Contributed to the development and presentation of an online platform designed to showcase and promote local MSME products. Gained experience in collaborative problem-solving, digital solution design, and pitching technology-based solutions.",
     certificate: "Certificate of Appreciation",
-    certificateLink: "/certificates/techtuesday.pdf",
+    certificateLink: "/certificates/Tech-Tuesdays.pdf",
     images: [
       "/images/experience/techtuesday/1.jpg",
       "/images/experience/techtuesday/2.jpg",
@@ -195,10 +195,10 @@ const EXPERIENCE = [
   {
     title: "HACK FOR GOV 4",
     org: "Department of Information and Communications Technology",
-    date: "2025",
+    date: "November 10, 2025",
     desc: "Participated in a 9-hour Capture the Flag (CTF) cybersecurity competition involving hands-on challenges in identifying vulnerabilities, analyzing systems, and finding hidden flags. Developed practical skills in cybersecurity, ethical hacking, logical reasoning, troubleshooting, and time-constrained problem-solving.",
     certificate: "Certificate of Participation",
-    certificateLink: "/certificates/hackforgov-ctf.pdf",
+    certificateLink: "/certificates/Hack_for_Gov.pdf",
     images: [
       "/images/experience/hackforgov/1.jpg",
       "/images/experience/hackforgov/2.jpg",
@@ -210,11 +210,11 @@ const EXPERIENCE = [
   {
     title: "AI Ideas for Impact",
     org: "Department of Information and Communications Technology",
-    date: "2025",
+    date: "September 23-24, 2025",
     imageLeft: true,
     desc: "Participated in a digital innovation activity focused on applying artificial intelligence to improve existing systems and workflows. Collaborated with a team to develop and present AI-powered solutions designed to make processes more efficient, faster, and accessible.",
     certificate: "Certificate of Participation",
-    certificateLink: "/certificates/ai-ideas-for-impact.pdf",
+    certificateLink: "/certificates/AIdeas.pdf",
     images: [
       "/images/experience/aideas/1.jpg",
       "/images/experience/aideas/2.jpg",
@@ -226,10 +226,10 @@ const EXPERIENCE = [
   {
     title: "Reverse Pitching",
     org: "Department of Information and Communications Technology",
-    date: "2025",
+    date: "June 25-26, 2025",
     desc: "Participated in a reverse-pitching activity where participants selected real-world problems presented by organizations and developed technology-driven solutions to address them. Contributed to the development and presentation of a digital platform concept aimed at improving the efficiency of municipal and MSME operations.",
     certificate: "Certificate of Participation",
-    certificateLink: "/certificates/reverse-pitching.pdf",
+    certificateLink: "/certificates/Reverse_Pitching.pdf",
     images: [
       "/images/experience/reverse/1.jpg",
       "/images/experience/reverse/2.jpg",
