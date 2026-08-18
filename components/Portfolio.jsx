@@ -848,22 +848,22 @@ export default function Portfolio() {
             <a href="/awards/Programmer_of_the_Year.pdf" className="award-item" target="_blank" rel="noopener noreferrer">
               <div className="award-icon">🏆</div>
               <div className="award-title">Programmer of the Year</div>
-              <ExternalLink size={12} style={{ marginLeft: 8, flexShrink: 0 }} />
+              <ExternalLink size={12} style={{ marginLeft: 'auto', flexShrink: 0 }} />
             </a>
             <a href="/awards/Dean_Lister.pdf" className="award-item" target="_blank" rel="noopener noreferrer">
               <div className="award-icon">🎓</div>
               <div className="award-title">Dean’s Lister</div>
-              <ExternalLink size={12} style={{ marginLeft: 8, flexShrink: 0 }} />
+              <ExternalLink size={12} style={{ marginLeft: 'auto', flexShrink: 0 }} />
             </a>
             <a href="/awards/Best_Capstone_Paper.pdf" className="award-item" target="_blank" rel="noopener noreferrer">
               <div className="award-icon">🏆</div>
               <div className="award-title">Best Capstone Paper</div>
-              <ExternalLink size={12} style={{ marginLeft: 8, flexShrink: 0 }} />
+              <ExternalLink size={12} style={{ marginLeft: 'auto', flexShrink: 0 }} />
             </a>
             <a href="/awards/Best_Capstone_System.pdf" className="award-item" target="_blank" rel="noopener noreferrer">
               <div className="award-icon">🏆</div>
               <div className="award-title">Best Capstone System</div>
-              <ExternalLink size={12} style={{ marginLeft: 8, flexShrink: 0 }} />
+              <ExternalLink size={12} style={{ marginLeft: 'auto', flexShrink: 0 }} />
             </a>
           </div>
         </div>
