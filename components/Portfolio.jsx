@@ -446,8 +446,8 @@ export default function Portfolio() {
           <a href="#work" className="nav-link">Work</a>
           <a href="#what-i-can-do" className="nav-link">What I Can Do</a>
           <a href="#about" className="nav-link">About</a>
+          <a href="#awards" className="nav-link">Awards</a>
           <a href="#trainings" className="nav-link">Trainings</a>
-          <a href="#contact" className="nav-link">Contact</a>
         </div>
         <div className="nav-right">
           <a href="#contact" className="nav-cta hidden md:block">Hire Me</a>
@@ -477,8 +477,8 @@ export default function Portfolio() {
           <a href="#work" className="nav-link" onClick={() => setMenuOpen(false)}>Work</a>
           <a href="#what-i-can-do" className="nav-link" onClick={() => setMenuOpen(false)}>What I Can Do</a>
           <a href="#about" className="nav-link" onClick={() => setMenuOpen(false)}>About</a>
+          <a href="#awards" className="nav-link" onClick={() => setMenuOpen(false)}>Awards</a>
           <a href="#trainings" className="nav-link" onClick={() => setMenuOpen(false)}>Experience</a>
-          <a href="#contact" className="nav-link" onClick={() => setMenuOpen(false)}>Contact</a>
           <a href="#contact" className="nav-cta" style={{ textAlign: 'center' }} onClick={() => setMenuOpen(false)}>Hire Me</a>
         </div>
       )}
@@ -828,6 +828,22 @@ export default function Portfolio() {
                 </div>
               </div>
             </div>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* AWARDS */}
+      <section id="awards" className="section">
+        <Reveal>
+          <div className="section-label">Recognition</div>
+          <div className="section-title">Awards and Achievements</div>
+          <div className="section-desc">
+            <ul style={{ listStyle: 'none', padding: 0, margin: '24px 0 0', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <li style={{ fontSize: '15px', lineHeight: '1.7', color: 'var(--muted)' }}>🏆 Programmer of the Year</li>
+              <li style={{ fontSize: '15px', lineHeight: '1.7', color: 'var(--muted)' }}>🎓 Dean’s Lister</li>
+              <li style={{ fontSize: '15px', lineHeight: '1.7', color: 'var(--muted)' }}>🏆 Best Capstone Paper</li>
+              <li style={{ fontSize: '15px', lineHeight: '1.7', color: 'var(--muted)' }}>🏆 Best Capstone System</li>
+            </ul>
           </div>
         </Reveal>
       </section>
