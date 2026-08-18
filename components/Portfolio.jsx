@@ -748,7 +748,7 @@ export default function Portfolio() {
                 </div>
                 <div className="about-description">
                   <p>
-                    I build websites and digital solutions while supporting administrative tasks with a strong eye for detail and organization. I'm a hardworking and adaptable IT graduate who enjoys designing interfaces, solving problems, and learning new technologies as I work toward becoming a full-stack web developer. Outside of technology, I enjoy gaming and watching movies and shows. I'm always looking to improve my skills, grow in the tech industry, and take on opportunities where I can create something useful.
+                    I’m a BSIT graduate focused on software testing, web development, and digital systems. I enjoy turning ideas and real-world problems into practical digital solutions, particularly through web applications, databases, and system testing. Throughout my studies, I gained hands-on experience building database-driven systems and working with technologies such as RFID and QR-based solutions. My work was recognized through awards including Programmer of the Year, Dean’s List, and Best Capstone Paper and System. I’ve also completed training in virtual assistance and AI-powered workflows, giving me experience across both technical and digital operations.
                   </p>
                   <p>
                     Want to know more about my experience? <a href="#" className="about-resume-link">Download my resume</a>.
