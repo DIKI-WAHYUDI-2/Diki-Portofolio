@@ -342,6 +342,7 @@ export default function Portfolio() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalMinimized, setIsModalMinimized] = useState(false);
   const [formStatus, setFormStatus] = useState("idle");
+  const [showSuccessBanner, setShowSuccessBanner] = useState(false);
   const activeProject = PROJECTS[activeIndex];
 
   const goTo = (index) => {
@@ -460,6 +461,17 @@ export default function Portfolio() {
           </button>
         </div>
       </nav>
+
+      {showSuccessBanner && (
+        <div className="success-banner">
+          <div className="success-banner-inner">
+            <span className="success-banner-text">Thanks! Your message has been sent successfully.</span>
+            <button className="success-banner-close" onClick={() => setShowSuccessBanner(false)}>
+              <X size={16} />
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* MOBILE MENU */}
       {menuOpen && (
@@ -1020,18 +1032,21 @@ export default function Portfolio() {
 
                   setFormStatus("submitting");
 
-                  try {
-                    await fetch('https://script.google.com/macros/s/AKfycbz68sln0VIOOVOegEYiQLJwTdLonmPHMzq8jqzWCaqdgUAG2-LWxJVuRaEM5HQl6ABH/exec', {
-                      method: 'POST',
-                      mode: 'no-cors',
-                      headers: { 'Content-Type': 'application/json' },
-                      body: JSON.stringify(data),
-                    });
-                    setFormStatus("success");
-                    form.reset();
-                  } catch (error) {
-                    setFormStatus("error");
-                  }
+                   try {
+                     await fetch('https://script.google.com/macros/s/AKfycbz68sln0VIOOVOegEYiQLJwTdLonmPHMzq8jqzWCaqdgUAG2-LWxJVuRaEM5HQl6ABH/exec', {
+                       method: 'POST',
+                       mode: 'no-cors',
+                       headers: { 'Content-Type': 'application/json' },
+                       body: JSON.stringify(data),
+                     });
+                     setFormStatus("success");
+                     form.reset();
+                     setIsModalOpen(false);
+                     setShowSuccessBanner(true);
+                     setTimeout(() => setShowSuccessBanner(false), 5000);
+                   } catch (error) {
+                     setFormStatus("error");
+                   }
                 }}
               >
                 <div className="contact-modal-field">
@@ -1057,12 +1072,6 @@ export default function Portfolio() {
                 <button type="submit" className="contact-modal-submit" disabled={formStatus === "submitting"}>
                   {formStatus === "submitting" ? "SENDING..." : formStatus === "success" ? "MESSAGE SENT" : "SEND MESSAGE →"}
                 </button>
-
-                {formStatus === "success" && (
-                  <div className="contact-modal-success">
-                    Thanks! Your message has been sent successfully.
-                  </div>
-                )}
 
                 {formStatus === "error" && (
                   <div className="contact-modal-error">

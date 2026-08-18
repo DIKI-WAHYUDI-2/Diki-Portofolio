@@ -1785,18 +1785,6 @@ textarea.contact-modal-input {
   box-shadow: none;
 }
 
-.contact-modal-success {
-  margin-top: 16px;
-  padding: 16px 20px;
-  background: var(--surface-2);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: var(--text);
-  line-height: 1.5;
-}
-
 .contact-modal-error {
   margin-top: 16px;
   padding: 16px 20px;
@@ -1807,6 +1795,59 @@ textarea.contact-modal-input {
   font-size: 14px;
   color: var(--text);
   line-height: 1.5;
+}
+
+.success-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: var(--text);
+  color: var(--surface);
+  padding: 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  animation: successBannerIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.success-banner-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.success-banner-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.success-banner-close {
+  background: none;
+  border: none;
+  color: var(--surface);
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+  flex-shrink: 0;
+}
+
+.success-banner-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+@keyframes successBannerIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes modalSlideIn {
