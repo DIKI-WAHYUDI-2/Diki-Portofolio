@@ -911,23 +911,6 @@ export default function Portfolio() {
         </Reveal>
 
         <div className="contact-grid">
-          <Reveal delay={100}>
-            <div className="contact-info">
-              {SOCIALS.map((social) => (
-                <a key={social.label} href={social.href} className="contact-item" target="_blank" rel="noopener noreferrer">
-                  <div className="contact-icon">
-                    <social.icon size={20} style={{ color: 'var(--text)' }} />
-                  </div>
-                  <div>
-                    <div className="contact-label">{social.label}</div>
-                    <div className="contact-value">{social.value}</div>
-                  </div>
-                  <ExternalLink size={14} style={{ color: "var(--muted)", marginLeft: "auto" }} />
-                </a>
-              ))}
-            </div>
-          </Reveal>
-
           <Reveal delay={200}>
             <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
               <div className="contact-field">
@@ -950,6 +933,23 @@ export default function Portfolio() {
                 Send Message
               </button>
             </form>
+          </Reveal>
+
+          <Reveal delay={100}>
+            <div className="contact-info">
+              {SOCIALS.map((social) => (
+                <a key={social.label} href={social.href} className="contact-item" target="_blank" rel="noopener noreferrer">
+                  <div className="contact-icon">
+                    <social.icon size={20} style={{ color: 'var(--text)' }} />
+                  </div>
+                  <div>
+                    <div className="contact-label">{social.label}</div>
+                    <div className="contact-value">{social.value}</div>
+                  </div>
+                  <ExternalLink size={14} style={{ color: "var(--muted)", marginLeft: "auto" }} />
+                </a>
+              ))}
+            </div>
           </Reveal>
         </div>
       </section>
