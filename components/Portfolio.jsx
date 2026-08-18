@@ -902,16 +902,7 @@ export default function Portfolio() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="section contact-section">
-        <div className="contact-bg-text">
-          <div className="contact-bg-track">
-            <span className="contact-bg-word">CONTACT</span>
-            <span className="contact-bg-word">CONTACT</span>
-            <span className="contact-bg-word">CONTACT</span>
-            <span className="contact-bg-word">CONTACT</span>
-          </div>
-        </div>
-
+      <section id="contact" className="section">
         <div className="contact-grid">
           <div className="contact-left">
             <Reveal>
