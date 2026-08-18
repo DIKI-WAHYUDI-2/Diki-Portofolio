@@ -341,6 +341,7 @@ export default function Portfolio() {
   const [cardPaused, setCardPaused] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalMinimized, setIsModalMinimized] = useState(false);
+  const [formStatus, setFormStatus] = useState("idle");
   const activeProject = PROJECTS[activeIndex];
 
   const goTo = (index) => {
@@ -1017,6 +1018,8 @@ export default function Portfolio() {
                     message: form.message.value.trim(),
                   };
 
+                  setFormStatus("submitting");
+
                   try {
                     await fetch('https://script.google.com/macros/s/AKfycbz68sln0VIOOVOegEYiQLJwTdLonmPHMzq8jqzWCaqdgUAG2-LWxJVuRaEM5HQl6ABH/exec', {
                       method: 'POST',
@@ -1024,11 +1027,10 @@ export default function Portfolio() {
                       headers: { 'Content-Type': 'application/json' },
                       body: JSON.stringify(data),
                     });
-                    alert('Message sent successfully!');
+                    setFormStatus("success");
                     form.reset();
-                    setIsModalOpen(false);
                   } catch (error) {
-                    alert('Failed to send message. Please try again.');
+                    setFormStatus("error");
                   }
                 }}
               >
@@ -1052,9 +1054,21 @@ export default function Portfolio() {
                   <textarea rows="6" name="message" className="contact-modal-input" placeholder="Tell me about your project..." required />
                 </div>
 
-                <button type="submit" className="contact-modal-submit">
-                  SEND MESSAGE →
+                <button type="submit" className="contact-modal-submit" disabled={formStatus === "submitting"}>
+                  {formStatus === "submitting" ? "SENDING..." : formStatus === "success" ? "MESSAGE SENT" : "SEND MESSAGE →"}
                 </button>
+
+                {formStatus === "success" && (
+                  <div className="contact-modal-success">
+                    Thanks! Your message has been sent successfully.
+                  </div>
+                )}
+
+                {formStatus === "error" && (
+                  <div className="contact-modal-error">
+                    Failed to send message. Please try again or contact me directly.
+                  </div>
+                )}
               </form>
             </div>
           )}
