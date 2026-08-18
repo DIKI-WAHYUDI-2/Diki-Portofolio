@@ -358,7 +358,7 @@ export default function Portfolio() {
     }
     return 0;
   });
-  const [splash, setSplash] = useState(false);
+  const [coffeePop, setCoffeePop] = useState(false);
   const activeProject = PROJECTS[activeIndex];
 
   const goTo = (index) => {
@@ -379,8 +379,14 @@ export default function Portfolio() {
       localStorage.setItem('coffeeCount', newCount.toString());
       localStorage.setItem('coffeeClicked', 'true');
     }
-    setSplash(true);
+    setCoffeePop(true);
   };
+
+  useEffect(() => {
+    if (!coffeePop) return;
+    const id = setTimeout(() => setCoffeePop(false), 400);
+    return () => clearTimeout(id);
+  }, [coffeePop]);
 
   useEffect(() => {
     const handleMouse = (e) => {
@@ -1121,15 +1127,9 @@ export default function Portfolio() {
 
       <a href="#" className={`coffee-btn${showCoffee ? " coffee-btn--visible" : ""}`} aria-label="Get me a coffee" onClick={handleCoffeeClick}>
         <span className="coffee-text">Get me a coffee</span>
-        <img src="/images/gif/coffee.gif" alt="Coffee" className="coffee-gif" />
+        <img src="/images/gif/coffee.gif" alt="Coffee" className={`coffee-gif${coffeePop ? " coffee-gif--pop" : ""}`} />
         <span className="coffee-count">{coffeeCount}</span>
       </a>
-      {splash && (
-        <div className="coffee-splash" onAnimationEnd={() => setSplash(false)}>
-          <span></span><span></span><span></span><span></span><span></span>
-          <span></span><span></span><span></span>
-        </div>
-      )}
 
       {/* FOOTER */}
       <footer className="footer">

@@ -2011,6 +2011,7 @@ textarea.contact-modal-input {
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
+  overflow: visible;
 }
 
 .coffee-gif {
@@ -2018,6 +2019,13 @@ textarea.contact-modal-input {
   height: 28px;
   object-fit: cover;
   display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  z-index: 151;
+}
+
+.coffee-gif--pop {
+  transform: scale(2.8);
 }
 
 .coffee-text {
@@ -2030,46 +2038,6 @@ textarea.contact-modal-input {
 .coffee-btn:hover .coffee-text {
   opacity: 1;
   max-width: 160px;
-}
-
-.coffee-splash {
-  position: fixed;
-  left: 56px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 149;
-  pointer-events: none;
-}
-
-.coffee-splash span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--text);
-  animation: coffeeBurst 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.coffee-splash span:nth-child(1) { --angle: 0deg; }
-.coffee-splash span:nth-child(2) { --angle: 45deg; }
-.coffee-splash span:nth-child(3) { --angle: 90deg; }
-.coffee-splash span:nth-child(4) { --angle: 135deg; }
-.coffee-splash span:nth-child(5) { --angle: 180deg; }
-.coffee-splash span:nth-child(6) { --angle: 225deg; }
-.coffee-splash span:nth-child(7) { --angle: 270deg; }
-.coffee-splash span:nth-child(8) { --angle: 315deg; }
-
-@keyframes coffeeBurst {
-  0% {
-    transform: translate(-50%, -50%) rotate(var(--angle)) translateX(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(var(--angle)) translateX(28px);
-    opacity: 0;
-  }
 }
 
 .coffee-btn--visible {
