@@ -596,7 +596,7 @@ export default function Portfolio() {
               <div className="section-label">My Capabilities</div>
               <div className="section-title">What I Can Do</div>
               <div className="what-i-can-do-desc">
-                Beyond technical skills, I bring a practical blend of software QA, development, virtual assistance, and digital content capabilities to every role.
+                I combine technical, problem-solving, and digital skills to build reliable systems, test systems, manage data, and support efficient digital workflows.
               </div>
               <div className="tech-stack">
                 <div className="tech-stack-column">
