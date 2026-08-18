@@ -854,7 +854,7 @@ export default function Portfolio() {
             </div>
           </div>
           <div className="awards-image">
-            <img src="/images/awards/awards.jpg" alt="Awards" />
+            <img src="/images/awards/awards.png" alt="Awards" />
           </div>
           <div className="awards-column">
             <div className="award-item">

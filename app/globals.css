@@ -675,12 +675,11 @@ body::-webkit-scrollbar {
 }
 
 .awards-image {
-  width: 220px;
-  height: 220px;
+  width: 300px;
+  height: 300px;
   flex-shrink: 0;
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid var(--line);
   box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.18);
 }
 
@@ -699,8 +698,8 @@ body::-webkit-scrollbar {
 
   .awards-image {
     width: 100%;
-    max-width: 280px;
-    height: 280px;
+    max-width: 320px;
+    height: 320px;
     margin: 0 auto;
   }
 
