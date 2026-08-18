@@ -433,7 +433,11 @@ body::-webkit-scrollbar {
 /* Prevent accidental image selection/drag when highlighting nearby text */
 .hero-root img,
 .work-album img,
-.work-album-img {
+.work-album-img,
+.tech-stack-item img,
+.bento-gif,
+.about-profile-image,
+.about-profile-badge {
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;

@@ -607,77 +607,77 @@ export default function Portfolio() {
               <div className="tech-stack">
                 <div className="tech-stack-column">
                   <div className="tech-stack-item">
-                    <img src="/images/logos/html.png" alt="HTML" />
+                    <img src="/images/logos/html.png" alt="HTML" draggable={false} />
                     <span className="tech-stack-label">HTML</span>
                   </div>
                   <div className="tech-stack-item">
-                    <img src="/images/logos/css.png" alt="CSS" />
+                    <img src="/images/logos/css.png" alt="CSS" draggable={false} />
                     <span className="tech-stack-label">CSS</span>
                   </div>
                   <div className="tech-stack-item">
-                    <img src="/images/logos/js.png" alt="JavaScript" />
+                    <img src="/images/logos/js.png" alt="JavaScript" draggable={false} />
                     <span className="tech-stack-label">JavaScript</span>
                   </div>
                   <div className="tech-stack-item">
-                    <img src="/images/logos/react.png" alt="React" />
+                    <img src="/images/logos/react.png" alt="React" draggable={false} />
                     <span className="tech-stack-label">React</span>
                   </div>
                   <div className="tech-stack-item">
-                    <img src="/images/logos/python.png" alt="Python" />
+                    <img src="/images/logos/python.png" alt="Python" draggable={false} />
                     <span className="tech-stack-label">Python</span>
                   </div>
                 </div>
                 <div className="tech-stack-column">
                   <div className="tech-stack-item">
-                    <img src="/images/logos/flask.png" alt="Flask" />
+                    <img src="/images/logos/flask.png" alt="Flask" draggable={false} />
                     <span className="tech-stack-label">Flask</span>
                   </div>
                   <div className="tech-stack-item">
-                    <img src="/images/logos/django.png" alt="Django" />
+                    <img src="/images/logos/django.png" alt="Django" draggable={false} />
                     <span className="tech-stack-label">Django</span>
                   </div>
                   <div className="tech-stack-item">
-                    <img src="/images/logos/php.png" alt="PHP" />
+                    <img src="/images/logos/php.png" alt="PHP" draggable={false} />
                     <span className="tech-stack-label">PHP</span>
                   </div>
                   <div className="tech-stack-item">
-                    <img src="/images/logos/codeigniter.png" alt="CodeIgniter" />
+                    <img src="/images/logos/codeigniter.png" alt="CodeIgniter" draggable={false} />
                     <span className="tech-stack-label">CodeIgniter</span>
                   </div>
                   <div className="tech-stack-item">
-                    <img src="/images/logos/mysql.png" alt="MySQL" />
+                    <img src="/images/logos/mysql.png" alt="MySQL" draggable={false} />
                     <span className="tech-stack-label">MySQL</span>
                   </div>
                 </div>
                 <div className="tech-stack-column workspace-column">
                   <div className="tech-stack-item">
-                    <img src="/images/workspace/meta.png" alt="Meta" />
+                    <img src="/images/workspace/meta.png" alt="Meta" draggable={false} />
                     <span className="tech-stack-label">Meta Suite</span>
                   </div>
                   <div className="tech-stack-item">
-                    <img src="/images/workspace/notion.png" alt="Notion" />
+                    <img src="/images/workspace/notion.png" alt="Notion" draggable={false} />
                     <span className="tech-stack-label">Notion</span>
                   </div>
                   <div className="tech-stack-item">
-                    <img src="/images/workspace/google.png" alt="Google" />
+                    <img src="/images/workspace/google.png" alt="Google" draggable={false} />
                     <span className="tech-stack-label">Google</span>
                   </div>
                   <div className="tech-stack-item">
-                    <img src="/images/workspace/trello.png" alt="Trello" />
+                    <img src="/images/workspace/trello.png" alt="Trello" draggable={false} />
                     <span className="tech-stack-label">Trello</span>
                   </div>
                   <div className="tech-stack-item">
-                    <img src="/images/workspace/canva.png" alt="Canva" />
+                    <img src="/images/workspace/canva.png" alt="Canva" draggable={false} />
                     <span className="tech-stack-label">Canva</span>
                   </div>
                 </div>
                 <div className="tech-stack-column workspace-column">
                   <div className="tech-stack-item">
-                    <img src="/images/workspace/figma.png" alt="Figma" />
+                    <img src="/images/workspace/figma.png" alt="Figma" draggable={false} />
                     <span className="tech-stack-label">Figma</span>
                   </div>
                   <div className="tech-stack-item">
-                    <img src="/images/workspace/capcut.png" alt="CapCut" />
+                    <img src="/images/workspace/capcut.png" alt="CapCut" draggable={false} />
                     <span className="tech-stack-label">CapCut</span>
                   </div>
             </div>
@@ -696,13 +696,13 @@ export default function Portfolio() {
 
                   <div className="bento-visual">
                     {index === 0 && (
-                      <img src="/images/gif/coding.gif" alt="Web Development & QA" className="bento-gif" />
+                      <img src="/images/gif/coding.gif" alt="Web Development & QA" className="bento-gif" draggable={false} />
                     )}
                     {index === 1 && (
-                      <img src="/images/gif/assistant.gif" alt="Virtual Assistance" className="bento-gif" />
+                      <img src="/images/gif/assistant.gif" alt="Virtual Assistance" className="bento-gif" draggable={false} />
                     )}
                     {index === 2 && (
-                      <img src="/images/gif/social.gif" alt="Content & Digital" className="bento-gif" />
+                      <img src="/images/gif/social.gif" alt="Content & Digital" className="bento-gif" draggable={false} />
                     )}
                   </div>
 
@@ -731,12 +731,12 @@ export default function Portfolio() {
           <div className="about-profile-card">
             <div className="about-profile-header">
               <div className="about-profile-image-wrapper">
-                <img src="/images/about/profile.png" alt="Profile" className="about-profile-image" />
+                <img src="/images/about/profile.png" alt="Profile" className="about-profile-image" draggable={false} />
               </div>
               <div className="about-profile-info">
                 <div className="about-profile-name">
                   RICHARD VICTOR M. MICULOB
-                  <img src="/images/about/badge.png" alt="Verified" className="about-profile-badge" />
+                  <img src="/images/about/badge.png" alt="Verified" className="about-profile-badge" draggable={false} />
                 </div>
                 <div className="about-profile-stats">
                   <div className="about-stat-item">
