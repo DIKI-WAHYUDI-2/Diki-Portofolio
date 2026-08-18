@@ -678,8 +678,8 @@ body::-webkit-scrollbar {
 }
 
 .awards-img {
-  width: 768px;
-  height: 514px;
+  width: 640px;
+  height: 428px;
   object-fit: cover;
   display: block;
   flex-shrink: 0;
