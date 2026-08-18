@@ -1005,22 +1005,39 @@ export default function Portfolio() {
 
           {!isModalMinimized && (
             <div className="contact-modal-inner">
-              <form className="contact-modal-form" onSubmit={(e) => e.preventDefault()}>
+              <form
+                className="contact-modal-form"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const name = e.target.fullName.value.trim();
+                  const email = e.target.email.value.trim();
+                  const subject = e.target.subject.value.trim();
+                  const message = e.target.message.value.trim();
+                  const body = `From: ${name} <${email}>\n\n${message}`;
+                  const mailto = `mailto:miculobrichardvictor@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                  window.location.href = mailto;
+                }}
+              >
 
-                <div className="contact-modal-field">
-                  <label className="contact-modal-label">Email Address</label>
-                  <input type="email" className="contact-modal-input" placeholder="your.email@example.com" />
-                </div>
+                  <div className="contact-modal-field">
+                    <label className="contact-modal-label">Full Name</label>
+                    <input type="text" name="fullName" className="contact-modal-input" placeholder="Your full name" />
+                  </div>
 
-                <div className="contact-modal-field">
-                  <label className="contact-modal-label">Subject</label>
-                  <input type="text" className="contact-modal-input" placeholder="How can I help you?" />
-                </div>
+                  <div className="contact-modal-field">
+                    <label className="contact-modal-label">Email Address</label>
+                    <input type="email" name="email" className="contact-modal-input" placeholder="your.email@example.com" />
+                  </div>
 
-                <div className="contact-modal-field contact-modal-field--grow">
-                  <label className="contact-modal-label">Message</label>
-                  <textarea rows="6" className="contact-modal-input" placeholder="Tell me about your project..." />
-                </div>
+                  <div className="contact-modal-field">
+                    <label className="contact-modal-label">Subject</label>
+                    <input type="text" name="subject" className="contact-modal-input" placeholder="How can I help you?" />
+                  </div>
+
+                  <div className="contact-modal-field contact-modal-field--grow">
+                    <label className="contact-modal-label">Message</label>
+                    <textarea rows="6" name="message" className="contact-modal-input" placeholder="Tell me about your project..." />
+                  </div>
 
                 <button type="submit" className="contact-modal-submit">
                   SEND MESSAGE →
