@@ -904,7 +904,10 @@ export default function Portfolio() {
       <section id="contact" className="section">
         <Reveal>
           <div className="section-label">Get In Touch</div>
-          <div className="section-title">Contact</div>
+          <div className="section-title">Let's Work Together</div>
+          <div className="section-desc">
+            I'm currently open to opportunities in IT, QA, web development, and digital operations.
+          </div>
         </Reveal>
 
         <div className="contact-grid">
