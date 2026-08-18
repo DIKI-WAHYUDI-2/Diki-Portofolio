@@ -930,9 +930,22 @@ export default function Portfolio() {
 
           <Reveal delay={200}>
             <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
-              <input type="text" placeholder="Your Name" className="contact-input" />
-              <input type="email" placeholder="Your Email" className="contact-input" />
-              <textarea placeholder="Tell me about your project..." className="contact-input" />
+              <div className="contact-field">
+                <label className="contact-label-input">Full name</label>
+                <input type="text" className="contact-input" />
+              </div>
+              <div className="contact-field">
+                <label className="contact-label-input">Email Address</label>
+                <input type="email" className="contact-input" />
+              </div>
+              <div className="contact-field">
+                <label className="contact-label-input">Subject</label>
+                <input type="text" className="contact-input" />
+              </div>
+              <div className="contact-field">
+                <label className="contact-label-input">Message</label>
+                <textarea rows="4" className="contact-input" />
+              </div>
               <button type="submit" className="contact-submit">
                 Send Message
               </button>
