@@ -437,7 +437,8 @@ body::-webkit-scrollbar {
 .tech-stack-item img,
 .bento-gif,
 .about-profile-image,
-.about-profile-badge {
+.about-profile-badge,
+.awards-img {
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -657,7 +658,6 @@ body::-webkit-scrollbar {
 }
 
 .award-icon {
-  font-size: 24px;
   flex-shrink: 0;
   width: 40px;
   height: 40px;
@@ -667,6 +667,7 @@ body::-webkit-scrollbar {
   background: var(--surface-2);
   border-radius: 10px;
   border: 1px solid var(--line);
+  color: var(--text);
 }
 
 .award-title {
