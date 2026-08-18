@@ -350,6 +350,7 @@ export default function Portfolio() {
   const [formStatus, setFormStatus] = useState("idle");
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [showCoffee, setShowCoffee] = useState(false);
   const activeProject = PROJECTS[activeIndex];
 
   const goTo = (index) => {
@@ -394,6 +395,7 @@ export default function Portfolio() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
       setShowBackToTop(window.scrollY > 400);
+      setShowCoffee(window.scrollY > window.innerHeight * 0.5);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -1097,10 +1099,12 @@ export default function Portfolio() {
         </button>
       )}
 
-      <a href="#" className="coffee-btn" aria-label="Get me a coffee">
-        <span>Get me a coffee</span>
-        <Coffee size={18} />
-      </a>
+      {showCoffee && (
+        <a href="#" className={`coffee-btn coffee-btn--visible`} aria-label="Get me a coffee">
+          <span>Get me a coffee</span>
+          <Coffee size={18} />
+        </a>
+      )}
 
       {/* FOOTER */}
       <footer className="footer">
