@@ -935,7 +935,7 @@ export default function Portfolio() {
             </form>
           </Reveal>
 
-          <Reveal delay={100}>
+          <Reveal delay={100} className="contact-info-wrap">
             <div className="contact-info">
               {SOCIALS.map((social) => (
                 <a key={social.label} href={social.href} className="contact-item" target="_blank" rel="noopener noreferrer">

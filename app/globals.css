@@ -1385,7 +1385,7 @@ body::-webkit-scrollbar {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 64px;
-  align-items: start;
+  align-items: stretch;
 }
 
 @media (max-width: 768px) {
@@ -1395,11 +1395,16 @@ body::-webkit-scrollbar {
   }
 }
 
+.contact-info-wrap {
+  height: 100%;
+}
+
 .contact-info {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-top: auto;
+  height: 100%;
+  justify-content: center;
 }
 
 .contact-item {
