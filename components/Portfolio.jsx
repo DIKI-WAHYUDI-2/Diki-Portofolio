@@ -1007,10 +1007,30 @@ export default function Portfolio() {
             <div className="contact-modal-inner">
               <form
                 className="contact-modal-form"
-                action="https://formspree.io/f/xbgrpdpa"
-                method="POST"
-                target="_blank"
-                rel="noopener noreferrer"
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  const form = e.target;
+                  const data = {
+                    name: form.name.value.trim(),
+                    email: form.email.value.trim(),
+                    subject: form.subject.value.trim(),
+                    message: form.message.value.trim(),
+                  };
+
+                  try {
+                    await fetch('https://script.google.com/macros/s/AKfycbz68sln0VIOOVOegEYiQLJwTdLonmPHMzq8jqzWCaqdgUAG2-LWxJVuRaEM5HQl6ABH/exec', {
+                      method: 'POST',
+                      mode: 'no-cors',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify(data),
+                    });
+                    alert('Message sent successfully!');
+                    form.reset();
+                    setIsModalOpen(false);
+                  } catch (error) {
+                    alert('Failed to send message. Please try again.');
+                  }
+                }}
               >
                 <div className="contact-modal-field">
                   <label className="contact-modal-label">Full Name</label>
