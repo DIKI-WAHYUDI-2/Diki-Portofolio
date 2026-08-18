@@ -342,7 +342,7 @@ export default function Portfolio() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalMinimized, setIsModalMinimized] = useState(false);
   const [formStatus, setFormStatus] = useState("idle");
-  const [showSuccessBanner, setShowSuccessBanner] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const activeProject = PROJECTS[activeIndex];
 
   const goTo = (index) => {
@@ -461,17 +461,6 @@ export default function Portfolio() {
           </button>
         </div>
       </nav>
-
-      {showSuccessBanner && (
-        <div className="success-banner">
-          <div className="success-banner-inner">
-            <span className="success-banner-text">Thanks! Your message has been sent successfully.</span>
-            <button className="success-banner-close" onClick={() => setShowSuccessBanner(false)}>
-              <X size={16} />
-            </button>
-          </div>
-        </div>
-      )}
 
       {/* MOBILE MENU */}
       {menuOpen && (
@@ -1042,8 +1031,7 @@ export default function Portfolio() {
                      setFormStatus("success");
                      form.reset();
                      setIsModalOpen(false);
-                     setShowSuccessBanner(true);
-                     setTimeout(() => setShowSuccessBanner(false), 5000);
+                     setShowSuccessModal(true);
                    } catch (error) {
                      setFormStatus("error");
                    }
@@ -1081,6 +1069,22 @@ export default function Portfolio() {
               </form>
             </div>
           )}
+        </div>
+      )}
+
+      {showSuccessModal && (
+        <div className="success-modal-overlay" onClick={() => setShowSuccessModal(false)}>
+          <div className="success-modal" onClick={(e) => e.stopPropagation()}>
+            <button className="success-modal-close" onClick={() => setShowSuccessModal(false)}>
+              <X size={20} />
+            </button>
+            <div className="success-modal-icon">✓</div>
+            <h3 className="success-modal-title">Message Sent!</h3>
+            <p className="success-modal-text">Thanks for reaching out. I'll get back to you as soon as possible.</p>
+            <button className="success-modal-btn" onClick={() => setShowSuccessModal(false)}>
+              CONTINUE BROWSING
+            </button>
+          </div>
         </div>
       )}
 
