@@ -1098,8 +1098,8 @@ export default function Portfolio() {
       )}
 
       <a href="#" className="coffee-btn" aria-label="Get me a coffee">
-        <Coffee size={18} />
         <span>Get me a coffee</span>
+        <Coffee size={18} />
       </a>
 
       {/* FOOTER */}

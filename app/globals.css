@@ -1989,16 +1989,17 @@ textarea.contact-modal-input {
 
 .coffee-btn {
   position: fixed;
-  left: 20px;
+  left: 0;
   top: 50%;
   transform: translateY(-50%);
   z-index: 150;
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 16px;
-  border-radius: 999px;
+  padding: 12px 20px 12px 16px;
+  border-radius: 0 12px 12px 0;
   border: 1px solid var(--line);
+  border-left: none;
   background: var(--surface);
   color: var(--text);
   text-decoration: none;
