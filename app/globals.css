@@ -2026,16 +2026,6 @@ textarea.contact-modal-input {
   pointer-events: auto;
 }
 
-.coffee-btn:hover {
-  background: var(--text);
-  color: var(--surface);
-  border-color: var(--text);
-}
-
-.coffee-btn:hover .coffee-gif {
-  filter: brightness(0) invert(1);
-}
-
 .coffee-count {
   display: inline-flex;
   align-items: center;
