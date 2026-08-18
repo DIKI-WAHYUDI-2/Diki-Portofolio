@@ -844,11 +844,6 @@ export default function Portfolio() {
         <div className="awards-layout">
           <img src="/images/awards/awards.png" alt="Awards" className="awards-img" />
           <div className="awards-column">
-            <a href="/awards/Programmer_of_the_Year.pdf" className="award-item" target="_blank" rel="noopener noreferrer">
-              <div className="award-icon"><Trophy size={18} /></div>
-              <div className="award-title">Programmer of the Year</div>
-              <ExternalLink size={12} style={{ marginLeft: 'auto', flexShrink: 0 }} />
-            </a>
             <a href="/awards/Dean_Lister.pdf" className="award-item" target="_blank" rel="noopener noreferrer">
               <div className="award-icon"><GraduationCap size={18} /></div>
               <div className="award-title">Dean’s Lister</div>

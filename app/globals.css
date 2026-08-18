@@ -636,6 +636,7 @@ body::-webkit-scrollbar {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  align-items: center;
 }
 
 .award-item {
@@ -643,6 +644,8 @@ body::-webkit-scrollbar {
   align-items: center;
   gap: 12px;
   padding: 20px;
+  width: 100%;
+  max-width: 320px;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 14px;
