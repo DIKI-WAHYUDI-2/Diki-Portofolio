@@ -339,6 +339,7 @@ export default function Portfolio() {
   const [activeIndex, setActiveIndex] = useState(1);
   const [cardIndex, setCardIndex] = useState(0);
   const [cardPaused, setCardPaused] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const activeProject = PROJECTS[activeIndex];
 
   const goTo = (index) => {
@@ -901,20 +902,102 @@ export default function Portfolio() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="section">
-        <Reveal>
-          <div className="section-label">Get In Touch</div>
-          <div className="section-title">Let's Work Together</div>
-          <div className="section-desc">
-            I'm currently open to opportunities in IT, QA, web development, and digital operations.
+      <section id="contact" className="section contact-section">
+        <div className="contact-bg-text">
+          <div className="contact-bg-track">
+            <span className="contact-bg-word">CONTACT</span>
+            <span className="contact-bg-word">CONTACT</span>
+            <span className="contact-bg-word">CONTACT</span>
+            <span className="contact-bg-word">CONTACT</span>
           </div>
-        </Reveal>
+        </div>
 
         <div className="contact-grid">
-          <Reveal delay={200}>
-            <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+          <div className="contact-left">
+            <Reveal>
+              <div className="contact-eyebrow">GET IN TOUCH</div>
+            </Reveal>
+            <Reveal delay={100}>
+              <h2 className="contact-headline">
+                LET'S<br />
+                <span className="contact-headline-accent">WORK</span><br />
+                TOGETHER
+              </h2>
+            </Reveal>
+            <Reveal delay={200}>
+              <p className="contact-description">Looking for the next problem worth solving.</p>
+            </Reveal>
+            <Reveal delay={300}>
+              <p className="contact-secondary">
+                I'm open to opportunities where I can contribute to software testing, web development, IT operations, and digital workflows.
+              </p>
+            </Reveal>
+            <Reveal delay={400}>
+              <a href="#" className="contact-resume-btn">DOWNLOAD RESUME →</a>
+            </Reveal>
+          </div>
+
+          <div className="contact-right">
+            <div className="contact-cards">
+              <Reveal delay={200}>
+                <a href="mailto:miculobrichardvictor@gmail.com" className="contact-card" target="_blank" rel="noopener noreferrer">
+                  <span className="contact-card-number">01</span>
+                  <div className="contact-card-icon">
+                    <Mail size={20} />
+                  </div>
+                  <div className="contact-card-info">
+                    <div className="contact-card-label">EMAIL</div>
+                    <div className="contact-card-value">miculobrichardvictor@gmail.com</div>
+                  </div>
+                </a>
+              </Reveal>
+              <Reveal delay={280}>
+                <a href="https://github.com/chardoxx-3" className="contact-card" target="_blank" rel="noopener noreferrer">
+                  <span className="contact-card-number">02</span>
+                  <div className="contact-card-icon">
+                    <Github size={20} />
+                  </div>
+                  <div className="contact-card-info">
+                    <div className="contact-card-label">GITHUB</div>
+                    <div className="contact-card-value">github.com/chardoxx-3</div>
+                  </div>
+                  <ExternalLink size={16} className="contact-card-arrow" />
+                </a>
+              </Reveal>
+              <Reveal delay={360}>
+                <a href="https://www.linkedin.com/in/richard-victor-miculob/" className="contact-card" target="_blank" rel="noopener noreferrer">
+                  <span className="contact-card-number">03</span>
+                  <div className="contact-card-icon">
+                    <Linkedin size={20} />
+                  </div>
+                  <div className="contact-card-info">
+                    <div className="contact-card-label">LINKEDIN</div>
+                    <div className="contact-card-value">linkedin.com/in/richard-victor-miculob</div>
+                  </div>
+                  <ExternalLink size={16} className="contact-card-arrow" />
+                </a>
+              </Reveal>
+            </div>
+            <Reveal delay={440}>
+              <button className="contact-cta" onClick={() => setIsModalOpen(true)}>
+                SEND ME A MESSAGE →
+              </button>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {isModalOpen && (
+        <div className="contact-modal-overlay" onClick={() => setIsModalOpen(false)}>
+          <div className="contact-modal" onClick={(e) => e.stopPropagation()}>
+            <button className="contact-modal-close" onClick={() => setIsModalOpen(false)}>
+              <X size={20} />
+            </button>
+            <div className="contact-modal-eyebrow">GET IN TOUCH</div>
+            <h3 className="contact-modal-title">SEND ME A MESSAGE</h3>
+            <form className="contact-modal-form" onSubmit={(e) => e.preventDefault()}>
               <div className="contact-field">
-                <label className="contact-label-input">Full name</label>
+                <label className="contact-label-input">Full Name</label>
                 <input type="text" className="contact-input" placeholder="Your full name" />
               </div>
               <div className="contact-field">
@@ -930,29 +1013,12 @@ export default function Portfolio() {
                 <textarea rows="4" className="contact-input" placeholder="Tell me about your project..." />
               </div>
               <button type="submit" className="contact-submit">
-                Send Message
+                SEND MESSAGE →
               </button>
             </form>
-          </Reveal>
-
-          <Reveal delay={100} className="contact-info-wrap">
-            <div className="contact-info">
-              {SOCIALS.map((social) => (
-                <a key={social.label} href={social.href} className="contact-item" target="_blank" rel="noopener noreferrer">
-                  <div className="contact-icon">
-                    <social.icon size={20} style={{ color: 'var(--text)' }} />
-                  </div>
-                  <div>
-                    <div className="contact-label">{social.label}</div>
-                    <div className="contact-value">{social.value}</div>
-                  </div>
-                  <ExternalLink size={14} style={{ color: "var(--muted)", marginLeft: "auto" }} />
-                </a>
-              ))}
-            </div>
-          </Reveal>
+          </div>
         </div>
-      </section>
+      )}
 
       {/* FOOTER */}
       <footer className="footer">
