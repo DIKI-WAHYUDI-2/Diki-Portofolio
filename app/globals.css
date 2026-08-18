@@ -982,8 +982,7 @@ body::-webkit-scrollbar {
 }
 
 .what-i-can-do-left {
-  position: sticky;
-  top: 120px;
+  position: static;
 }
 
 .what-i-can-do-desc {
