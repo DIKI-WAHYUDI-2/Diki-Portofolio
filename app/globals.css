@@ -1605,30 +1605,36 @@ body::-webkit-scrollbar {
 .contact-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   z-index: 1000;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px;
+  align-items: stretch;
+  justify-content: flex-end;
   animation: overlayFadeIn 0.4s ease forwards;
 }
 
 .contact-modal {
   background: var(--surface);
-  border-radius: 22px;
+  border-radius: 22px 0 0 22px;
   width: 100%;
-  max-width: 720px;
+  max-width: 520px;
+  height: 100%;
+  max-height: 100vh;
   position: relative;
-  animation: modalFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.12);
+  animation: modalSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  box-shadow: -20px 0 50px -20px rgba(0, 0, 0, 0.15);
   border: 1px solid var(--line);
+  border-right: none;
+  display: flex;
+  flex-direction: column;
 }
 
 .contact-modal-inner {
-  padding: 48px;
+  padding: 40px;
+  overflow-y: auto;
+  flex: 1;
 }
 
 .contact-modal-header {
@@ -1636,7 +1642,7 @@ body::-webkit-scrollbar {
   align-items: flex-start;
   justify-content: space-between;
   gap: 24px;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
 .contact-modal-close {
@@ -1669,7 +1675,7 @@ body::-webkit-scrollbar {
 .contact-modal-title {
   font-family: 'Inter', sans-serif;
   font-weight: 800;
-  font-size: clamp(32px, 4.5vw, 52px);
+  font-size: clamp(28px, 4vw, 40px);
   color: var(--text);
   letter-spacing: -0.03em;
   line-height: 1.05;
@@ -1691,7 +1697,7 @@ body::-webkit-scrollbar {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding: 24px 0;
+  padding: 20px 0;
   border-top: 1px solid var(--line);
 }
 
@@ -1700,12 +1706,12 @@ body::-webkit-scrollbar {
 }
 
 .contact-modal-row .contact-modal-field:first-child {
-  padding-right: 32px;
+  padding-right: 24px;
   border-top: none;
 }
 
 .contact-modal-row .contact-modal-field:last-child {
-  padding-left: 32px;
+  padding-left: 24px;
 }
 
 .contact-modal-label {
@@ -1726,10 +1732,10 @@ body::-webkit-scrollbar {
   border-radius: 0;
   color: var(--text);
   font-family: 'Inter', sans-serif;
-  font-size: 17px;
+  font-size: 16px;
   outline: none;
   transition: border-color 0.3s ease;
-  padding-bottom: 10px;
+  padding-bottom: 8px;
 }
 
 .contact-modal-input:focus {
@@ -1742,13 +1748,13 @@ body::-webkit-scrollbar {
 }
 
 textarea.contact-modal-input {
-  min-height: 100px;
+  min-height: 120px;
   resize: vertical;
   border-bottom: 1px solid var(--line);
 }
 
 .contact-modal-submit {
-  margin-top: 36px;
+  margin-top: 32px;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 700;
@@ -1774,24 +1780,26 @@ textarea.contact-modal-input {
   to { opacity: 1; }
 }
 
-@keyframes modalFadeIn {
-  from { opacity: 0; transform: translateY(30px) scale(0.97); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+@keyframes modalSlideIn {
+  from { opacity: 0; transform: translateX(60px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 @media (max-width: 768px) {
   .contact-modal-overlay {
-    padding: 24px;
+    padding: 0;
     align-items: flex-end;
+    justify-content: flex-end;
   }
 
   .contact-modal-inner {
-    padding: 40px 28px;
+    padding: 32px 24px;
   }
 
   .contact-modal {
     max-width: 100%;
     border-radius: 22px 22px 0 0;
+    max-height: 90vh;
   }
 
   .contact-modal-row {
@@ -1807,7 +1815,7 @@ textarea.contact-modal-input {
   }
 
   .contact-modal-title {
-    font-size: 32px;
+    font-size: 28px;
   }
 }
 
