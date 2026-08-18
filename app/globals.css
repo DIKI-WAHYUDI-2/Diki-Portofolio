@@ -2020,6 +2020,18 @@ textarea.contact-modal-input {
   display: block;
 }
 
+.coffee-text {
+  opacity: 0;
+  max-width: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-width 0.3s ease;
+}
+
+.coffee-btn:hover .coffee-text {
+  opacity: 1;
+  max-width: 160px;
+}
+
 .coffee-btn--visible {
   opacity: 1;
   transform: translateY(-50%) translateX(0);

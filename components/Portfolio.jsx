@@ -1118,6 +1118,7 @@ export default function Portfolio() {
       )}
 
       <a href="#" className={`coffee-btn${showCoffee ? " coffee-btn--visible" : ""}`} aria-label="Get me a coffee" onClick={handleCoffeeClick}>
+        <span className="coffee-text">Get me a coffee</span>
         <img src="/images/gif/coffee.gif" alt="Coffee" className="coffee-gif" />
         <span className="coffee-count">{coffeeCount}</span>
       </a>
