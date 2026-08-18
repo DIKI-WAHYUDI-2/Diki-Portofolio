@@ -1007,7 +1007,7 @@ export default function Portfolio() {
             <div className="contact-modal-inner">
               <form
                 className="contact-modal-form"
-                action="https://formspree.io/f/xnnzzdwn"
+                action="https://formspree.io/f/xbgrpdpa"
                 method="POST"
               >
                 <div className="contact-modal-field">
