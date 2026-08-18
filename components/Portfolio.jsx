@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import { Github, Mail, ExternalLink, Menu, X, Code2, FlaskConical, Rocket, Trophy, GraduationCap, Linkedin, Minus } from "lucide-react";
+import { Github, Mail, ExternalLink, Menu, X, Code2, FlaskConical, Rocket, Trophy, GraduationCap, Linkedin, Minus, ArrowUp } from "lucide-react";
 
 const PROJECTS = [
   {
@@ -349,11 +349,16 @@ export default function Portfolio() {
   const [isModalMinimized, setIsModalMinimized] = useState(false);
   const [formStatus, setFormStatus] = useState("idle");
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
   const activeProject = PROJECTS[activeIndex];
 
   const goTo = (index) => {
     const normalized = ((index % PROJECTS.length) + PROJECTS.length) % PROJECTS.length;
     setActiveIndex(normalized);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -388,6 +393,7 @@ export default function Portfolio() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+      setShowBackToTop(window.scrollY > 400);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -1083,6 +1089,12 @@ export default function Portfolio() {
             </button>
           </div>
         </div>
+      )}
+
+      {showBackToTop && !isModalOpen && (
+        <button className="back-to-top" onClick={scrollToTop} aria-label="Back to top">
+          <ArrowUp size={20} />
+        </button>
       )}
 
       {/* FOOTER */}
