@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import { Github, Mail, ExternalLink, Menu, X, Code2, FlaskConical, Rocket, Trophy, GraduationCap } from "lucide-react";
+import { Github, Mail, ExternalLink, Menu, X, Code2, FlaskConical, Rocket, Trophy, GraduationCap, Linkedin } from "lucide-react";
 
 const PROJECTS = [
   {
@@ -120,8 +120,9 @@ const WHAT_I_CAN_DO = [
 ];
 
 const SOCIALS = [
-  { label: "Email", value: "youremail@example.com", href: "mailto:youremail@example.com", icon: Mail, color: "#000000" },
-  { label: "GitHub", value: "github.com/yourusername", href: "https://github.com/yourusername", icon: Github, color: "#000000" },
+  { label: "Email", value: "miculobrichardvictor@gmail.com", href: "mailto:miculobrichardvictor@gmail.com", icon: Mail, color: "#000000" },
+  { label: "GitHub", value: "github.com/chardoxx-3", href: "https://github.com/chardoxx-3", icon: Github, color: "#000000" },
+  { label: "LinkedIn", value: "linkedin.com/in/richard-victor-miculob", href: "https://www.linkedin.com/in/richard-victor-miculob/", icon: Linkedin, color: "#000000" },
 ];
 
 const CARDS = [
