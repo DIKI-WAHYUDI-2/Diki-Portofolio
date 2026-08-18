@@ -853,9 +853,7 @@ export default function Portfolio() {
               <div className="award-title">Dean’s Lister</div>
             </div>
           </div>
-          <div className="awards-image">
-            <img src="/images/awards/awards.png" alt="Awards" />
-          </div>
+          <img src="/images/awards/awards.png" alt="Awards" className="awards-img" />
           <div className="awards-column">
             <div className="award-item">
               <div className="award-icon">🏆</div>
