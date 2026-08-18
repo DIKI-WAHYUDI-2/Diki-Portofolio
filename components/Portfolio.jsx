@@ -838,14 +838,35 @@ export default function Portfolio() {
           <div className="section-label">Recognition</div>
           <div className="section-title">Awards and Achievements</div>
           <div className="section-desc">
-            <ul style={{ listStyle: 'none', padding: 0, margin: '24px 0 0', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              <li style={{ fontSize: '15px', lineHeight: '1.7', color: 'var(--muted)' }}>🏆 Programmer of the Year</li>
-              <li style={{ fontSize: '15px', lineHeight: '1.7', color: 'var(--muted)' }}>🎓 Dean’s Lister</li>
-              <li style={{ fontSize: '15px', lineHeight: '1.7', color: 'var(--muted)' }}>🏆 Best Capstone Paper</li>
-              <li style={{ fontSize: '15px', lineHeight: '1.7', color: 'var(--muted)' }}>🏆 Best Capstone System</li>
-            </ul>
+            A collection of academic and professional recognitions that reflect my dedication to excellence.
           </div>
         </Reveal>
+
+        <div className="awards-layout">
+          <div className="awards-column">
+            <div className="award-item">
+              <div className="award-icon">🏆</div>
+              <div className="award-title">Programmer of the Year</div>
+            </div>
+            <div className="award-item">
+              <div className="award-icon">🎓</div>
+              <div className="award-title">Dean’s Lister</div>
+            </div>
+          </div>
+          <div className="awards-image">
+            <img src="/images/awards/awards.jpg" alt="Awards" />
+          </div>
+          <div className="awards-column">
+            <div className="award-item">
+              <div className="award-icon">🏆</div>
+              <div className="award-title">Best Capstone Paper</div>
+            </div>
+            <div className="award-item">
+              <div className="award-icon">🏆</div>
+              <div className="award-title">Best Capstone System</div>
+            </div>
+          </div>
+        </div>
       </section>
       <section id="trainings" className="section">
         <Reveal>
