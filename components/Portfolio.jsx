@@ -506,7 +506,7 @@ export default function Portfolio() {
         </div>
 
         <div className="profile-wrap">
-          <img src="/images/profile.png" alt="RICHARD" className="profile-image" />
+          <img src="/images/profile.png" alt="RICHARD" className="profile-image" draggable={false} />
         </div>
 
         <div className="scroll-indicator">
@@ -571,7 +571,7 @@ export default function Portfolio() {
                     style={style}
                     onClick={() => !isCenter && goTo(index)}
                   >
-                    <img src={project.image} alt={project.title} className="work-album-img" />
+                    <img src={project.image} alt={project.title} className="work-album-img" draggable={false} />
                   </div>
                 );
               })}

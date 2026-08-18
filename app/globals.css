@@ -430,6 +430,18 @@ body::-webkit-scrollbar {
   margin-bottom: 40px;
 }
 
+/* Prevent accidental image selection/drag when highlighting nearby text */
+.hero-root img,
+.work-album img,
+.work-album-img {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  pointer-events: none;
+}
+
 /* Work Header */
 .work-header {
   display: flex;
