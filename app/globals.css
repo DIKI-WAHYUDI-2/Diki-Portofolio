@@ -1995,7 +1995,7 @@ textarea.contact-modal-input {
   z-index: 150;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   padding: 8px 16px 8px 12px;
   border-radius: 0 12px 12px 0;
   border: 1px solid var(--line);
@@ -2016,7 +2016,6 @@ textarea.contact-modal-input {
 .coffee-gif {
   width: 28px;
   height: 28px;
-  border-radius: 50%;
   object-fit: cover;
   display: block;
 }
