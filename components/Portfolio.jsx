@@ -1009,6 +1009,8 @@ export default function Portfolio() {
                 className="contact-modal-form"
                 action="https://formspree.io/f/xbgrpdpa"
                 method="POST"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <div className="contact-modal-field">
                   <label className="contact-modal-label">Full Name</label>
