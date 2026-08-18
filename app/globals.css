@@ -1459,11 +1459,9 @@ body::-webkit-scrollbar {
 }
 
 .contact-label-input {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
   color: var(--text);
 }
 
