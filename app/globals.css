@@ -624,10 +624,10 @@ body::-webkit-scrollbar {
 /* Awards */
 .awards-layout {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: auto 1fr;
   gap: 40px;
-  align-items: center;
-  max-width: 900px;
+  align-items: start;
+  max-width: 1000px;
   margin: 40px auto 0;
 }
 
@@ -675,8 +675,8 @@ body::-webkit-scrollbar {
 }
 
 .awards-img {
-  width: 340px;
-  height: 340px;
+  width: 520px;
+  height: 347px;
   object-fit: cover;
   border-radius: 16px;
   display: block;
@@ -691,8 +691,9 @@ body::-webkit-scrollbar {
 
   .awards-img {
     width: 100%;
-    max-width: 340px;
-    height: 340px;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 3350 / 2241;
     margin: 0 auto;
   }
 

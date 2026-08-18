@@ -843,6 +843,7 @@ export default function Portfolio() {
         </Reveal>
 
         <div className="awards-layout">
+          <img src="/images/awards/awards.png" alt="Awards" className="awards-img" />
           <div className="awards-column">
             <div className="award-item">
               <div className="award-icon">🏆</div>
@@ -852,9 +853,6 @@ export default function Portfolio() {
               <div className="award-icon">🎓</div>
               <div className="award-title">Dean’s Lister</div>
             </div>
-          </div>
-          <img src="/images/awards/awards.png" alt="Awards" className="awards-img" />
-          <div className="awards-column">
             <div className="award-item">
               <div className="award-icon">🏆</div>
               <div className="award-title">Best Capstone Paper</div>
