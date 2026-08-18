@@ -82,45 +82,39 @@ const SKILLS = [
 
 const WHAT_I_CAN_DO = [
   {
-    group: "WEB DEVELOPMENT & QA",
+    group: "IT, Web Development & QA",
     description:
-      "Building functional digital systems while testing, validating, and improving their reliability, usability, and performance.",
+      "Building and testing functional digital systems, from database-driven web applications to RFID and QR-based solutions, with a focus on reliability, usability, and practical problem-solving.",
     visual: "qa",
     size: "large",
     items: [
+      "Web Development",
       "System Testing",
       "Bug Identification",
-      "Web Development",
+      "System Analysis",
       "Database Management",
       "MySQL",
+      "PHP",
       "Python",
       "HTML",
       "CSS",
+      "JavaScript",
+      "RFID & QR Integration",
     ],
   },
   {
-    group: "Virtual Assistance",
-    description: "Supporting teams with accurate data, organized documents, research, and administrative workflows.",
+    group: "VA & Digital Operations",
+    description: "Supporting teams with organized data, documentation, research, and digital workflows while helping keep day-to-day operations accurate and efficient.",
     visual: "va",
     items: [
       "Data Entry",
       "Data Validation",
       "Document Management",
-      "Google Workspace",
       "Online Research",
       "Administrative Support",
-    ],
-  },
-  {
-    group: "Content & Digital",
-    description: "Creating and optimizing digital content while supporting social media and research activities.",
-    visual: "digital",
-    items: [
+      "Google Workspace",
       "Social Media Management",
       "Content Optimization",
-      "Analytics",
-      "Research",
-      "Basic Digital Marketing",
     ],
   },
 ];
