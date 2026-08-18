@@ -1602,116 +1602,118 @@ body::-webkit-scrollbar {
   box-shadow: 0 20px 40px -15px rgba(0,0,0,0.2);
 }
 
-.contact-modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  z-index: 1000;
-  display: flex;
-  align-items: stretch;
-  justify-content: flex-end;
-  animation: overlayFadeIn 0.4s ease forwards;
-}
-
+/* Gmail-style docked compose window: floats bottom-right, no backdrop,
+   rest of the portfolio stays visible and interactive behind it. */
 .contact-modal {
-  background: var(--surface);
-  border-radius: 22px 0 0 22px;
+  position: fixed;
+  bottom: 0;
+  right: 28px;
+  z-index: 1000;
   width: 100%;
-  max-width: 520px;
-  height: 100%;
-  max-height: 100vh;
-  position: relative;
-  animation: modalSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  box-shadow: -20px 0 50px -20px rgba(0, 0, 0, 0.15);
+  max-width: 440px;
+  height: min(600px, 82vh);
+  background: var(--surface);
   border: 1px solid var(--line);
-  border-right: none;
+  border-bottom: none;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  animation: modalSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.contact-modal-inner {
-  padding: 40px;
-  overflow-y: auto;
-  flex: 1;
+.contact-modal--minimized {
+  height: auto;
 }
 
 .contact-modal-header {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 24px;
-  margin-bottom: 32px;
-}
-
-.contact-modal-close {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 10px;
-  color: var(--text);
-  display: flex;
   align-items: center;
-  justify-content: center;
-  border-radius: 12px;
-  transition: all 0.3s ease;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  background: var(--text);
   flex-shrink: 0;
 }
 
-.contact-modal-close:hover {
-  background: var(--surface-2);
-}
-
-.contact-modal-eyebrow {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 12px;
+.contact-modal--minimized .contact-modal-header {
+  cursor: pointer;
 }
 
 .contact-modal-title {
   font-family: 'Inter', sans-serif;
-  font-weight: 800;
-  font-size: clamp(28px, 4vw, 40px);
-  color: var(--text);
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--surface);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contact-modal-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.contact-modal-icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  color: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.contact-modal-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.contact-modal-inner {
+  padding: 20px 24px 24px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
 }
 
 .contact-modal-form {
   display: flex;
   flex-direction: column;
   gap: 0;
-}
-
-.contact-modal-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
+  height: 100%;
 }
 
 .contact-modal-field {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 20px 0;
+  gap: 10px;
+  padding: 16px 0;
   border-top: 1px solid var(--line);
 }
 
 .contact-modal-field:first-child {
   padding-top: 0;
-}
-
-.contact-modal-row .contact-modal-field:first-child {
-  padding-right: 24px;
   border-top: none;
 }
 
-.contact-modal-row .contact-modal-field:last-child {
-  padding-left: 24px;
+.contact-modal-field--grow {
+  flex: 1;
+  min-height: 0;
+}
+
+.contact-modal-field--grow .contact-modal-input {
+  flex: 1;
+  min-height: 90px;
 }
 
 .contact-modal-label {
@@ -1732,7 +1734,7 @@ body::-webkit-scrollbar {
   border-radius: 0;
   color: var(--text);
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   outline: none;
   transition: border-color 0.3s ease;
   padding-bottom: 8px;
@@ -1748,18 +1750,18 @@ body::-webkit-scrollbar {
 }
 
 textarea.contact-modal-input {
-  min-height: 120px;
-  resize: vertical;
+  resize: none;
   border-bottom: 1px solid var(--line);
+  font-family: inherit;
 }
 
 .contact-modal-submit {
-  margin-top: 32px;
+  margin-top: 20px;
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.05em;
-  padding: 18px 32px;
+  padding: 14px 28px;
   background: var(--text);
   color: var(--surface);
   border: none;
@@ -1767,6 +1769,7 @@ textarea.contact-modal-input {
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   align-self: flex-start;
+  flex-shrink: 0;
 }
 
 .contact-modal-submit:hover {
@@ -1775,47 +1778,25 @@ textarea.contact-modal-input {
   box-shadow: 0 15px 35px -15px rgba(0,0,0,0.2);
 }
 
-@keyframes overlayFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
 @keyframes modalSlideIn {
-  from { opacity: 0; transform: translateX(60px); }
-  to { opacity: 1; transform: translateX(0); }
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 768px) {
-  .contact-modal-overlay {
-    padding: 0;
-    align-items: flex-end;
-    justify-content: flex-end;
+  .contact-modal {
+    right: 0;
+    max-width: 100%;
+    border-radius: 16px 16px 0 0;
+    height: min(560px, 88vh);
   }
 
   .contact-modal-inner {
-    padding: 32px 24px;
-  }
-
-  .contact-modal {
-    max-width: 100%;
-    border-radius: 22px 22px 0 0;
-    max-height: 90vh;
-  }
-
-  .contact-modal-row {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-modal-row .contact-modal-field:first-child {
-    padding-right: 0;
-  }
-
-  .contact-modal-row .contact-modal-field:last-child {
-    padding-left: 0;
+    padding: 20px 20px 24px;
   }
 
   .contact-modal-title {
-    font-size: 28px;
+    font-size: 13px;
   }
 }
 

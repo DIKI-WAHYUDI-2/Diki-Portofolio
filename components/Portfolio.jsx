@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import { Github, Mail, ExternalLink, Menu, X, Code2, FlaskConical, Rocket, Trophy, GraduationCap, Linkedin } from "lucide-react";
+import { Github, Mail, ExternalLink, Menu, X, Code2, FlaskConical, Rocket, Trophy, GraduationCap, Linkedin, Minus } from "lucide-react";
 
 const PROJECTS = [
   {
@@ -340,6 +340,7 @@ export default function Portfolio() {
   const [cardIndex, setCardIndex] = useState(0);
   const [cardPaused, setCardPaused] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalMinimized, setIsModalMinimized] = useState(false);
   const activeProject = PROJECTS[activeIndex];
 
   const goTo = (index) => {
@@ -970,7 +971,7 @@ export default function Portfolio() {
               </Reveal>
             </div>
             <Reveal delay={440}>
-              <button className="contact-cta" onClick={() => setIsModalOpen(true)}>
+              <button className="contact-cta" onClick={() => { setIsModalOpen(true); setIsModalMinimized(false); }}>
                 SEND ME A MESSAGE →
               </button>
             </Reveal>
@@ -979,30 +980,36 @@ export default function Portfolio() {
       </section>
 
       {isModalOpen && (
-        <div className="contact-modal-overlay" onClick={() => setIsModalOpen(false)}>
-          <div className="contact-modal" onClick={(e) => e.stopPropagation()}>
+        <div className={`contact-modal${isModalMinimized ? " contact-modal--minimized" : ""}`}>
+          <div className="contact-modal-header" onClick={() => isModalMinimized && setIsModalMinimized(false)}>
+            <h3 className="contact-modal-title">Send Me a Message</h3>
+            <div className="contact-modal-controls">
+              <button
+                type="button"
+                className="contact-modal-icon-btn"
+                aria-label={isModalMinimized ? "Expand" : "Minimize"}
+                onClick={(e) => { e.stopPropagation(); setIsModalMinimized((v) => !v); }}
+              >
+                <Minus size={16} />
+              </button>
+              <button
+                type="button"
+                className="contact-modal-icon-btn"
+                aria-label="Close"
+                onClick={(e) => { e.stopPropagation(); setIsModalOpen(false); }}
+              >
+                <X size={16} />
+              </button>
+            </div>
+          </div>
+
+          {!isModalMinimized && (
             <div className="contact-modal-inner">
-              <div className="contact-modal-header">
-                <div>
-                  <div className="contact-modal-eyebrow">GET IN TOUCH</div>
-                  <h3 className="contact-modal-title">SEND ME A MESSAGE</h3>
-                </div>
-                <button className="contact-modal-close" onClick={() => setIsModalOpen(false)}>
-                  <X size={20} />
-                </button>
-              </div>
-
               <form className="contact-modal-form" onSubmit={(e) => e.preventDefault()}>
-                <div className="contact-modal-row">
-                  <div className="contact-modal-field">
-                    <label className="contact-modal-label">Full Name</label>
-                    <input type="text" className="contact-modal-input" placeholder="Your full name" />
-                  </div>
 
-                  <div className="contact-modal-field">
-                    <label className="contact-modal-label">Email Address</label>
-                    <input type="email" className="contact-modal-input" placeholder="your.email@example.com" />
-                  </div>
+                <div className="contact-modal-field">
+                  <label className="contact-modal-label">Email Address</label>
+                  <input type="email" className="contact-modal-input" placeholder="your.email@example.com" />
                 </div>
 
                 <div className="contact-modal-field">
@@ -1010,9 +1017,9 @@ export default function Portfolio() {
                   <input type="text" className="contact-modal-input" placeholder="How can I help you?" />
                 </div>
 
-                <div className="contact-modal-field">
+                <div className="contact-modal-field contact-modal-field--grow">
                   <label className="contact-modal-label">Message</label>
-                  <textarea rows="5" className="contact-modal-input" placeholder="Tell me about your project..." />
+                  <textarea rows="6" className="contact-modal-input" placeholder="Tell me about your project..." />
                 </div>
 
                 <button type="submit" className="contact-modal-submit">
@@ -1020,7 +1027,7 @@ export default function Portfolio() {
                 </button>
               </form>
             </div>
-          </div>
+          )}
         </div>
       )}
 
