@@ -932,19 +932,19 @@ export default function Portfolio() {
             <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
               <div className="contact-field">
                 <label className="contact-label-input">Full name</label>
-                <input type="text" className="contact-input" />
+                <input type="text" className="contact-input" placeholder="Your full name" />
               </div>
               <div className="contact-field">
                 <label className="contact-label-input">Email Address</label>
-                <input type="email" className="contact-input" />
+                <input type="email" className="contact-input" placeholder="your.email@example.com" />
               </div>
               <div className="contact-field">
                 <label className="contact-label-input">Subject</label>
-                <input type="text" className="contact-input" />
+                <input type="text" className="contact-input" placeholder="How can I help you?" />
               </div>
               <div className="contact-field">
                 <label className="contact-label-input">Message</label>
-                <textarea rows="4" className="contact-input" />
+                <textarea rows="4" className="contact-input" placeholder="Tell me about your project..." />
               </div>
               <button type="submit" className="contact-submit">
                 Send Message
