@@ -981,32 +981,45 @@ export default function Portfolio() {
       {isModalOpen && (
         <div className="contact-modal-overlay" onClick={() => setIsModalOpen(false)}>
           <div className="contact-modal" onClick={(e) => e.stopPropagation()}>
-            <button className="contact-modal-close" onClick={() => setIsModalOpen(false)}>
-              <X size={20} />
-            </button>
-            <div className="contact-modal-eyebrow">GET IN TOUCH</div>
-            <h3 className="contact-modal-title">SEND ME A MESSAGE</h3>
-            <form className="contact-modal-form" onSubmit={(e) => e.preventDefault()}>
-              <div className="contact-field">
-                <label className="contact-label-input">Full Name</label>
-                <input type="text" className="contact-input" placeholder="Your full name" />
+            <div className="contact-modal-inner">
+              <div className="contact-modal-header">
+                <div>
+                  <div className="contact-modal-eyebrow">GET IN TOUCH</div>
+                  <h3 className="contact-modal-title">SEND ME A MESSAGE</h3>
+                </div>
+                <button className="contact-modal-close" onClick={() => setIsModalOpen(false)}>
+                  <X size={20} />
+                </button>
               </div>
-              <div className="contact-field">
-                <label className="contact-label-input">Email Address</label>
-                <input type="email" className="contact-input" placeholder="your.email@example.com" />
-              </div>
-              <div className="contact-field">
-                <label className="contact-label-input">Subject</label>
-                <input type="text" className="contact-input" placeholder="How can I help you?" />
-              </div>
-              <div className="contact-field">
-                <label className="contact-label-input">Message</label>
-                <textarea rows="4" className="contact-input" placeholder="Tell me about your project..." />
-              </div>
-              <button type="submit" className="contact-submit">
-                SEND MESSAGE →
-              </button>
-            </form>
+
+              <form className="contact-modal-form" onSubmit={(e) => e.preventDefault()}>
+                <div className="contact-modal-row">
+                  <div className="contact-modal-field">
+                    <label className="contact-modal-label">Full Name</label>
+                    <input type="text" className="contact-modal-input" placeholder="Your full name" />
+                  </div>
+
+                  <div className="contact-modal-field">
+                    <label className="contact-modal-label">Email Address</label>
+                    <input type="email" className="contact-modal-input" placeholder="your.email@example.com" />
+                  </div>
+                </div>
+
+                <div className="contact-modal-field">
+                  <label className="contact-modal-label">Subject</label>
+                  <input type="text" className="contact-modal-input" placeholder="How can I help you?" />
+                </div>
+
+                <div className="contact-modal-field">
+                  <label className="contact-modal-label">Message</label>
+                  <textarea rows="5" className="contact-modal-input" placeholder="Tell me about your project..." />
+                </div>
+
+                <button type="submit" className="contact-modal-submit">
+                  SEND MESSAGE →
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       )}
