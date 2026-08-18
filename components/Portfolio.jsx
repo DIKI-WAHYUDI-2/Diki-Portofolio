@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import { Github, Mail, ExternalLink, Menu, X, Code2, FlaskConical, Rocket, Trophy, GraduationCap, Linkedin, Minus, ArrowUp } from "lucide-react";
+import { Github, Mail, ExternalLink, Menu, X, Code2, FlaskConical, Rocket, Trophy, GraduationCap, Linkedin, Minus, ArrowUp, Coffee } from "lucide-react";
 
 const PROJECTS = [
   {
@@ -1096,6 +1096,11 @@ export default function Portfolio() {
           <ArrowUp size={20} />
         </button>
       )}
+
+      <a href="#" className="coffee-btn" aria-label="Get me a coffee">
+        <Coffee size={18} />
+        <span>Get me a coffee</span>
+      </a>
 
       {/* FOOTER */}
       <footer className="footer">

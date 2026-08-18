@@ -1987,6 +1987,37 @@ textarea.contact-modal-input {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
+.coffee-btn {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 150;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.coffee-btn:hover {
+  background: var(--text);
+  color: var(--surface);
+  border-color: var(--text);
+  transform: translateY(-50%) translateX(4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
 /* Mobile */
 @media (max-width: 768px) {
   .hero-root {
