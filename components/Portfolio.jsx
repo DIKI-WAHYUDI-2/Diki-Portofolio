@@ -358,6 +358,7 @@ export default function Portfolio() {
     }
     return 0;
   });
+  const [splash, setSplash] = useState(false);
   const activeProject = PROJECTS[activeIndex];
 
   const goTo = (index) => {
@@ -378,6 +379,7 @@ export default function Portfolio() {
       localStorage.setItem('coffeeCount', newCount.toString());
       localStorage.setItem('coffeeClicked', 'true');
     }
+    setSplash(true);
   };
 
   useEffect(() => {
@@ -1122,6 +1124,12 @@ export default function Portfolio() {
         <img src="/images/gif/coffee.gif" alt="Coffee" className="coffee-gif" />
         <span className="coffee-count">{coffeeCount}</span>
       </a>
+      {splash && (
+        <div className="coffee-splash" onAnimationEnd={() => setSplash(false)}>
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span>
+        </div>
+      )}
 
       {/* FOOTER */}
       <footer className="footer">

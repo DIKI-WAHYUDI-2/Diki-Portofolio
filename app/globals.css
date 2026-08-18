@@ -2032,6 +2032,46 @@ textarea.contact-modal-input {
   max-width: 160px;
 }
 
+.coffee-splash {
+  position: fixed;
+  left: 56px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 149;
+  pointer-events: none;
+}
+
+.coffee-splash span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text);
+  animation: coffeeBurst 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.coffee-splash span:nth-child(1) { --angle: 0deg; }
+.coffee-splash span:nth-child(2) { --angle: 45deg; }
+.coffee-splash span:nth-child(3) { --angle: 90deg; }
+.coffee-splash span:nth-child(4) { --angle: 135deg; }
+.coffee-splash span:nth-child(5) { --angle: 180deg; }
+.coffee-splash span:nth-child(6) { --angle: 225deg; }
+.coffee-splash span:nth-child(7) { --angle: 270deg; }
+.coffee-splash span:nth-child(8) { --angle: 315deg; }
+
+@keyframes coffeeBurst {
+  0% {
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateX(28px);
+    opacity: 0;
+  }
+}
+
 .coffee-btn--visible {
   opacity: 1;
   transform: translateY(-50%) translateX(0);
