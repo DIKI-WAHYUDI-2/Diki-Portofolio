@@ -26,7 +26,7 @@ export default function TechnicalArchive({ projects = [], categories = [] }) {
       <div className="archive-header">
         <div className="archive-header-left">
           <div className="work-eyebrow">ARCHIVE</div>
-          <h2 className="archive-heading">Technical Projects</h2>
+          <h2 className="section-title">Technical Projects</h2>
           <p className="archive-description">Browse the complete collection by category or technology.</p>
         </div>
         <div className="archive-header-right">
