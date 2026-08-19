@@ -329,16 +329,6 @@ export default function Portfolio() {
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-      setShowBackToTop(window.scrollY > 400);
-      setShowCoffee(window.scrollY > window.innerHeight * 0.5);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
     if (cardPaused) return;
     const id = setInterval(() => {
       setCardIndex((prev) => (prev + 1) % CARDS.length);
