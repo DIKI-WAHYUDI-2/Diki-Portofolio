@@ -210,7 +210,7 @@ const EXPERIENCE = [
     org: "Department of Information and Communications Technology",
     date: "September 23-24, 2025",
     imageLeft: true,
-    desc: "Participated in a digital innovation activity focused on applying artificial intelligence to improve existing systems and workflows. Collaborated with a team to develop and present AI-powered solutions designed to make processes more efficient, faster, and accessible.",
+    desc: "Participated in a digital innovation activity focused on applying artificial intelligence to improve existing systems and workflows. Collaborated with a team to develop and present an AI-powered solution designed to make processes more efficient, faster, and accessible. Awarded the Special Award for Most Promising Prototype for demonstrating strong potential, innovation, and practical impact.",
     certificates: [
       { name: "Certificate of Participation", link: "/certificates/AIdeas.pdf" },
       { name: "Most Promising Prototype", link: "/certificates/Most_Promising_Prototype.pdf" },

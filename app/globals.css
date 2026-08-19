@@ -1367,7 +1367,7 @@ body::-webkit-scrollbar {
 
   .experience-header {
     flex-direction: column;
-    gap: 4px;
+  gap: 2px;
   }
 
   .experience-date {
