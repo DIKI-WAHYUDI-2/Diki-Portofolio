@@ -497,12 +497,12 @@ export default function Portfolio() {
             <div className="nav-logo">R</div>
             <div className="nav-brand">RICHARD</div>
           </a>
-          <button className="md:hidden nav-menu-btn" onClick={() => setMenuOpen(!menuOpen)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 8, position: 'relative', zIndex: 210 }}>
+          <button className="md:hidden nav-menu-btn" onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
-        {menuOpen && (
-          <div className="nav-mobile-menu">
+        <div className="nav-mobile-menu">
+          <div className="nav-mobile-menu-inner">
             <a href="#work" className="nav-link" onClick={() => setMenuOpen(false)}>Work</a>
             <a href="#what-i-can-do" className="nav-link" onClick={() => setMenuOpen(false)}>What I Can Do</a>
             <a href="#about" className="nav-link" onClick={() => setMenuOpen(false)}>About</a>
@@ -510,7 +510,7 @@ export default function Portfolio() {
             <a href="#trainings" className="nav-link" onClick={() => setMenuOpen(false)}>Experience</a>
             <a href="#contact" className="nav-cta" style={{ textAlign: 'center' }} onClick={() => setMenuOpen(false)}>Hire Me</a>
           </div>
-        )}
+        </div>
         <div className="nav-center hidden md:flex">
           <a href="#work" className="nav-link">Work</a>
           <a href="#what-i-can-do" className="nav-link">What I Can Do</a>

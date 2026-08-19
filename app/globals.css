@@ -270,6 +270,7 @@ body::-webkit-scrollbar {
   display: flex;
   align-items: center;
   gap: 14px;
+  line-height: 1;
 }
 
 .nav-logo {
@@ -292,6 +293,9 @@ body::-webkit-scrollbar {
   letter-spacing: 3px;
   color: var(--text);
   text-transform: uppercase;
+  line-height: 1;
+  display: flex;
+  align-items: center;
 }
 
 .nav-center {
@@ -2062,6 +2066,12 @@ textarea.contact-modal-input {
   display: contents;
 }
 
+/* Hidden on desktop by default; the mobile media query below
+   turns this back on only when the viewport is narrow. */
+.nav-mobile-menu {
+  display: none;
+}
+
 /* Mobile */
 @media (max-width: 768px) {
   .hero-root {
@@ -2079,16 +2089,14 @@ textarea.contact-modal-input {
   .nav-bar {
     z-index: 200;
     height: auto;
-    min-height: 78px;
-    padding: 0 16px;
-    transition: min-height 0.3s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 18px 16px;
+    transition: padding 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     flex-direction: column;
     align-items: stretch;
   }
 
   .nav-bar--expanded {
-    min-height: auto;
-    padding: 12px 16px 16px;
+    padding: 18px 16px 16px;
   }
 
   .nav-mobile-header {
@@ -2096,25 +2104,63 @@ textarea.contact-modal-input {
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    height: 42px;
   }
 
   .nav-menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
     position: relative;
     z-index: 210;
+    transition: background-color 0.3s ease;
   }
 
+  .nav-menu-btn:hover {
+    background: var(--light-gray);
+  }
+
+  /* Smooth height-expand animation using the grid-rows trick,
+     since height:auto cannot be transitioned directly. */
   .nav-mobile-menu {
-    display: none;
-    flex-direction: column;
-    gap: 12px;
+    display: grid;
+    grid-template-rows: 0fr;
     width: 100%;
-    padding-top: 12px;
-    border-top: 1px solid var(--line);
-    margin-top: 8px;
+    opacity: 0;
+    transition: grid-template-rows 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.3s ease;
   }
 
   .nav-bar--expanded .nav-mobile-menu {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    transition: grid-template-rows 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.4s ease 0.05s;
+  }
+
+  .nav-mobile-menu-inner {
     display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 0;
+    overflow: hidden;
+    padding-top: 0;
+    margin-top: 0;
+    border-top: 0 solid var(--line);
+    transition: padding-top 0.35s ease, margin-top 0.35s ease, border-top-width 0.35s ease;
+  }
+
+  .nav-bar--expanded .nav-mobile-menu-inner {
+    padding-top: 12px;
+    margin-top: 8px;
+    border-top-width: 1px;
   }
 
   .nav-mobile-menu .nav-link,
