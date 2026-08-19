@@ -2365,7 +2365,7 @@ textarea.contact-modal-input {
   z-index: 10;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 40px 80px;
+  padding: 120px 40px 80px;
 }
 
 .archive-header {
@@ -2568,6 +2568,10 @@ textarea.contact-modal-input {
   .work-cta {
     padding-left: 20px;
     padding-right: 20px;
+  }
+
+  .archive-section {
+    padding-top: 130px;
   }
 
   .bento-grid {
