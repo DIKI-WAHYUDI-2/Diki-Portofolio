@@ -2369,10 +2369,6 @@ textarea.contact-modal-input {
 }
 
 .archive-header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 24px;
   margin-bottom: 24px;
 }
 
@@ -2380,75 +2376,10 @@ textarea.contact-modal-input {
   max-width: 420px;
 }
 
-.archive-heading {
-  font-size: 28px;
-  font-weight: 700;
-  margin: 8px 0 10px;
-  letter-spacing: -0.02em;
-}
-
 .archive-description {
   font-size: 14px;
   color: var(--muted);
   line-height: 1.6;
-}
-
-.archive-search {
-  width: 260px;
-  padding: 10px 12px;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  background: var(--surface);
-  color: var(--text);
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  outline: none;
-}
-
-.archive-search:focus {
-  border-color: var(--text);
-}
-
-.archive-filters {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  padding-bottom: 10px;
-  margin-bottom: 18px;
-}
-
-.archive-filter-pill {
-  white-space: nowrap;
-  padding: 8px 14px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: var(--surface);
-  color: var(--muted);
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.archive-filter-pill:hover {
-  border-color: var(--text);
-  color: var(--text);
-}
-
-.archive-filter-pill--active {
-  background: var(--text);
-  color: var(--surface);
-  border-color: var(--text);
-}
-
-.archive-meta {
-  margin-bottom: 14px;
-}
-
-.archive-count {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  color: var(--muted);
 }
 
 .archive-list {
@@ -2585,10 +2516,6 @@ textarea.contact-modal-input {
   .archive-header {
     flex-direction: column;
     align-items: flex-start;
-  }
-
-  .archive-search {
-    width: 100%;
   }
 
   .archive-row {
