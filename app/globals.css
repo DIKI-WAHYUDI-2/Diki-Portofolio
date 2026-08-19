@@ -2373,13 +2373,14 @@ textarea.contact-modal-input {
 }
 
 .archive-header-left {
-  max-width: 420px;
+  max-width: none;
 }
 
 .archive-description {
   font-size: 14px;
   color: var(--muted);
   line-height: 1.6;
+  max-width: 500px;
 }
 
 .archive-list {

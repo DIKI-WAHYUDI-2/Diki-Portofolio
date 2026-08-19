@@ -9,7 +9,8 @@ export default function TechnicalArchive({ projects = [] }) {
     <section className="archive-section">
       <div className="archive-header">
         <div className="archive-header-left">
-          <h2 className="section-title">TECHNICAL PROJECTS</h2>
+          <div className="section-label">Archive</div>
+          <div className="section-title">Technical Projects</div>
           <p className="archive-description">A complete collection of my technical work, systems, and digital projects.</p>
         </div>
       </div>
