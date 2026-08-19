@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { ExternalLink, Menu, X, ArrowUp } from "lucide-react";
 
-export default function Header() {
+export default function Header({ alwaysShowCoffee, alwaysShowBackToTop }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -51,12 +51,12 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
-      setShowBackToTop(window.scrollY > 400);
-      setShowCoffee(window.scrollY > window.innerHeight * 0.5);
+      setShowBackToTop(alwaysShowBackToTop || window.scrollY > 400);
+      setShowCoffee(alwaysShowCoffee || window.scrollY > window.innerHeight * 0.5);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [alwaysShowCoffee, alwaysShowBackToTop]);
 
   return (
     <>

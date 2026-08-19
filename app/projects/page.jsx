@@ -8,11 +8,11 @@ import Header from "../../components/Header";
 export default function ProjectsPage() {
   return (
     <>
-      <Header />
+      <Header alwaysShowCoffee alwaysShowBackToTop />
       <div className="projects-page">
       <div className="projects-header">
         <div className="section-label">All Work</div>
-        <div className="section-title">Projects</div>
+        <div className="section-title">Technical Projects</div>
         <div className="section-desc">
           A complete collection of my technical work, systems, and digital projects.
         </div>
