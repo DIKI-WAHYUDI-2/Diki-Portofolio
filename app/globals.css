@@ -2072,6 +2072,10 @@ textarea.contact-modal-input {
     display: none;
   }
 
+  .nav-bar {
+    z-index: 200;
+  }
+
   .bg-name-text {
     font-size: clamp(80px, 18vw, 200px);
   }
