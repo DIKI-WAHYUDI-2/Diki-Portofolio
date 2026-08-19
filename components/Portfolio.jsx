@@ -492,23 +492,25 @@ export default function Portfolio() {
       </svg>
       {/* NAVIGATION */}
       <nav className={`nav-bar ${scrolled ? "scrolled" : ""} ${menuOpen ? "nav-bar--expanded" : ""}`}>
-        <a href="#hero" className="nav-left">
-          <div className="nav-logo">R</div>
-          <div className="nav-brand">RICHARD</div>
-          <button className="md:hidden nav-menu-btn" onClick={(e) => { e.preventDefault(); setMenuOpen(!menuOpen); }} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 8, position: 'relative', zIndex: 210 }}>
+        <div className="nav-mobile-header">
+          <a href="#hero" className="nav-left">
+            <div className="nav-logo">R</div>
+            <div className="nav-brand">RICHARD</div>
+          </a>
+          <button className="md:hidden nav-menu-btn" onClick={() => setMenuOpen(!menuOpen)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 8, position: 'relative', zIndex: 210 }}>
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
-          {menuOpen && (
-            <div className="nav-mobile-menu">
-              <a href="#work" className="nav-link" onClick={() => setMenuOpen(false)}>Work</a>
-              <a href="#what-i-can-do" className="nav-link" onClick={() => setMenuOpen(false)}>What I Can Do</a>
-              <a href="#about" className="nav-link" onClick={() => setMenuOpen(false)}>About</a>
-              <a href="#awards" className="nav-link" onClick={() => setMenuOpen(false)}>Awards</a>
-              <a href="#trainings" className="nav-link" onClick={() => setMenuOpen(false)}>Experience</a>
-              <a href="#contact" className="nav-cta" style={{ textAlign: 'center' }} onClick={() => setMenuOpen(false)}>Hire Me</a>
-            </div>
-          )}
-        </a>
+        </div>
+        {menuOpen && (
+          <div className="nav-mobile-menu">
+            <a href="#work" className="nav-link" onClick={() => setMenuOpen(false)}>Work</a>
+            <a href="#what-i-can-do" className="nav-link" onClick={() => setMenuOpen(false)}>What I Can Do</a>
+            <a href="#about" className="nav-link" onClick={() => setMenuOpen(false)}>About</a>
+            <a href="#awards" className="nav-link" onClick={() => setMenuOpen(false)}>Awards</a>
+            <a href="#trainings" className="nav-link" onClick={() => setMenuOpen(false)}>Experience</a>
+            <a href="#contact" className="nav-cta" style={{ textAlign: 'center' }} onClick={() => setMenuOpen(false)}>Hire Me</a>
+          </div>
+        )}
         <div className="nav-center hidden md:flex">
           <a href="#work" className="nav-link">Work</a>
           <a href="#what-i-can-do" className="nav-link">What I Can Do</a>
