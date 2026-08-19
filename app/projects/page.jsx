@@ -3,10 +3,13 @@
 import React from "react";
 import { ExternalLink } from "lucide-react";
 import { PROJECTS } from "../../lib/projects";
+import Header from "../../components/Header";
 
 export default function ProjectsPage() {
   return (
-    <div className="projects-page">
+    <>
+      <Header />
+      <div className="projects-page">
       <div className="projects-header">
         <div className="section-label">All Work</div>
         <div className="section-title">Projects</div>
@@ -47,6 +50,6 @@ export default function ProjectsPage() {
           </div>
         ))}
       </div>
-    </div>
+    </>
   );
 }

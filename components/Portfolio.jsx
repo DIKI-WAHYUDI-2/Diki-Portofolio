@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import { Github, Mail, ExternalLink, Menu, X, Code2, FlaskConical, Rocket, Trophy, GraduationCap, Linkedin, Minus, ArrowUp } from "lucide-react";
+import { Github, Mail, ExternalLink, X, Code2, FlaskConical, Rocket, Trophy, GraduationCap, Linkedin, Minus } from "lucide-react";
 import Link from "next/link";
 import { PROJECTS } from "../lib/projects";
+import Header from "./Header";
 
 const SKILLS = [
   {
@@ -284,8 +285,6 @@ export default function Portfolio() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const rootRef = useRef(null);
   const marqueeTrackRef = useRef(null);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [activeIndex, setActiveIndex] = useState(1);
   const [cardIndex, setCardIndex] = useState(0);
   const [cardPaused, setCardPaused] = useState(false);
@@ -293,53 +292,12 @@ export default function Portfolio() {
   const [isModalMinimized, setIsModalMinimized] = useState(false);
   const [formStatus, setFormStatus] = useState("idle");
   const [showSuccessModal, setShowSuccessModal] = useState(false);
-  const [showBackToTop, setShowBackToTop] = useState(false);
-  const [showCoffee, setShowCoffee] = useState(false);
-  const [coffeeCount, setCoffeeCount] = useState(0);
-  const [coffeePop, setCoffeePop] = useState(false);
-  const [coffeeLoading, setCoffeeLoading] = useState(true);
   const activeProject = PROJECTS[activeIndex];
-
-  useEffect(() => {
-    let cancelled = false;
-    fetch('/api/coffee-count')
-      .then(res => res.json())
-      .then(data => {
-        if (!cancelled && typeof data.count === 'number') {
-          setCoffeeCount(data.count);
-        }
-        setCoffeeLoading(false);
-      })
-      .catch(() => setCoffeeLoading(false));
-    return () => { cancelled = true; };
-  }, []);
 
   const goTo = (index) => {
     const normalized = ((index % PROJECTS.length) + PROJECTS.length) % PROJECTS.length;
     setActiveIndex(normalized);
   };
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  const handleCoffeeClick = async (e) => {
-    e.preventDefault();
-    setCoffeePop(true);
-    try {
-      const res = await fetch('/api/coffee-count', { method: 'POST' });
-      const data = await res.json();
-      if (typeof data.count === 'number') {
-        setCoffeeCount(data.count);
-      }
-    } catch {}
-  };
-
-  useEffect(() => {
-    if (!coffeePop) return;
-    const id = setTimeout(() => setCoffeePop(false), 400);
-    return () => clearTimeout(id);
-  }, [coffeePop]);
 
   useEffect(() => {
     const handleMouse = (e) => {
@@ -434,38 +392,7 @@ export default function Portfolio() {
           <path d="M0 4750 C 300 4690, 600 4810, 900 4750 C 1200 4690, 1400 4830, 1440 4770" stroke="var(--light-gray)" strokeWidth="1" fill="none"/>
         </g>
       </svg>
-      {/* NAVIGATION */}
-      <nav className={`nav-bar ${scrolled ? "scrolled" : ""} ${menuOpen ? "nav-bar--expanded" : ""}`}>
-        <div className="nav-mobile-header">
-          <a href="#hero" className="nav-left">
-            <div className="nav-logo">R</div>
-            <div className="nav-brand">RICHARD</div>
-          </a>
-          <button className="md:hidden nav-menu-btn" onClick={() => setMenuOpen(!menuOpen)}>
-            {menuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
-        <div className="nav-mobile-menu">
-          <div className="nav-mobile-menu-inner">
-            <a href="#work" className="nav-link" onClick={() => setMenuOpen(false)}>Work</a>
-            <a href="#what-i-can-do" className="nav-link" onClick={() => setMenuOpen(false)}>What I Can Do</a>
-            <a href="#about" className="nav-link" onClick={() => setMenuOpen(false)}>About</a>
-            <a href="#awards" className="nav-link" onClick={() => setMenuOpen(false)}>Awards</a>
-            <a href="#trainings" className="nav-link" onClick={() => setMenuOpen(false)}>Trainings</a>
-            <a href="#contact" className="nav-link" onClick={() => setMenuOpen(false)}>Contact Me</a>
-          </div>
-        </div>
-        <div className="nav-center hidden md:flex">
-          <a href="#work" className="nav-link">Work</a>
-          <a href="#what-i-can-do" className="nav-link">What I Can Do</a>
-          <a href="#about" className="nav-link">About</a>
-          <a href="#awards" className="nav-link">Awards</a>
-          <a href="#trainings" className="nav-link">Trainings</a>
-        </div>
-        <div className="nav-right">
-          <a href="#contact" className="nav-cta hidden md:block">Hire Me</a>
-        </div>
-      </nav>
+      <Header />
 
       {/* HERO */}
       <section id="hero" className="hero-root">
@@ -1057,18 +984,6 @@ export default function Portfolio() {
           </div>
         </div>
       )}
-
-      {showBackToTop && !isModalOpen && (
-        <button className="back-to-top" onClick={scrollToTop} aria-label="Back to top">
-          <ArrowUp size={20} />
-        </button>
-      )}
-
-      <a href="#" className={`coffee-btn${showCoffee ? " coffee-btn--visible" : ""}`} aria-label="Get me a coffee" onClick={handleCoffeeClick}>
-        <span className="coffee-text">Get me a coffee</span>
-        <img src="/images/gif/coffee.gif" alt="Coffee" className={`coffee-gif${coffeePop ? " coffee-gif--pop" : ""}`} />
-        <span className="coffee-count">{coffeeCount}</span>
-      </a>
 
       {/* FOOTER */}
       <footer className="footer">
