@@ -353,13 +353,21 @@ export default function Portfolio() {
   const [showCoffee, setShowCoffee] = useState(false);
   const [coffeeCount, setCoffeeCount] = useState(0);
   const [coffeePop, setCoffeePop] = useState(false);
+  const [coffeeLoading, setCoffeeLoading] = useState(true);
   const activeProject = PROJECTS[activeIndex];
 
   useEffect(() => {
-    const saved = localStorage.getItem('coffeeCount');
-    if (saved) {
-      setCoffeeCount(parseInt(saved, 10));
-    }
+    let cancelled = false;
+    fetch('/api/coffee-count')
+      .then(res => res.json())
+      .then(data => {
+        if (!cancelled && typeof data.count === 'number') {
+          setCoffeeCount(data.count);
+        }
+        setCoffeeLoading(false);
+      })
+      .catch(() => setCoffeeLoading(false));
+    return () => { cancelled = true; };
   }, []);
 
   const goTo = (index) => {
@@ -371,16 +379,16 @@ export default function Portfolio() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleCoffeeClick = (e) => {
+  const handleCoffeeClick = async (e) => {
     e.preventDefault();
-    const hasClicked = localStorage.getItem('coffeeClicked');
-    if (!hasClicked) {
-      const newCount = coffeeCount + 1;
-      setCoffeeCount(newCount);
-      localStorage.setItem('coffeeCount', newCount.toString());
-      localStorage.setItem('coffeeClicked', 'true');
-    }
     setCoffeePop(true);
+    try {
+      const res = await fetch('/api/coffee-count', { method: 'POST' });
+      const data = await res.json();
+      if (typeof data.count === 'number') {
+        setCoffeeCount(data.count);
+      }
+    } catch {}
   };
 
   useEffect(() => {
