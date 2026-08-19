@@ -54,6 +54,7 @@ export default function Header({ alwaysShowCoffee, alwaysShowBackToTop }) {
       setShowBackToTop(alwaysShowBackToTop || window.scrollY > 400);
       setShowCoffee(alwaysShowCoffee || window.scrollY > window.innerHeight * 0.5);
     };
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [alwaysShowCoffee, alwaysShowBackToTop]);
