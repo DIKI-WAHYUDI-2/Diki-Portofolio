@@ -508,7 +508,7 @@ export default function Portfolio() {
             <a href="#about" className="nav-link" onClick={() => setMenuOpen(false)}>About</a>
             <a href="#awards" className="nav-link" onClick={() => setMenuOpen(false)}>Awards</a>
             <a href="#trainings" className="nav-link" onClick={() => setMenuOpen(false)}>Trainings</a>
-            <a href="#contact" className="nav-cta" style={{ textAlign: 'center' }} onClick={() => setMenuOpen(false)}>Hire Me</a>
+            <a href="#contact" className="nav-link" onClick={() => setMenuOpen(false)}>Contact Me</a>
           </div>
         </div>
         <div className="nav-center hidden md:flex">

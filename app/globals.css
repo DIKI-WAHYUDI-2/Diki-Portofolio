@@ -2082,7 +2082,7 @@ textarea.contact-modal-input {
     display: none;
   }
 
-  .nav-cta {
+  .nav-right .nav-cta {
     display: none;
   }
 
@@ -2163,18 +2163,11 @@ textarea.contact-modal-input {
     border-top-width: 1px;
   }
 
-  .nav-mobile-menu .nav-link,
-  .nav-mobile-menu .nav-cta {
+  .nav-mobile-menu .nav-link {
     width: 100%;
     text-align: left;
     padding: 10px 0;
     border-bottom: 1px solid var(--line);
-  }
-
-  .nav-mobile-menu .nav-cta {
-    text-align: center;
-    border-bottom: none;
-    margin-top: 4px;
   }
 
   .bg-name-text {
