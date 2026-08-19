@@ -12,7 +12,7 @@ const PROJECTS = [
     tech: ["HTML", "CSS", "PHP", "MySQL"],
     awards: [],
     image: "/images/ResQR/login.png",
-    link: "#",
+    link: "https://github.com/chardoxx-3/ResQR-Disaster-Relief-Management-System",
     linkText: "View Project →",
   },
     {
@@ -34,7 +34,7 @@ const PROJECTS = [
     tech: ["PHP", "MySQL", "HTML", "CSS"],
     awards: [],
     image: "/images/iTrak/Screenshot%202026-08-14%20175457.png",
-    link: "#",
+    link: "https://github.com/chardoxx-3/iTrak-Terminal-Management-System",
     linkText: "View Project →",
   },
   {
@@ -45,7 +45,7 @@ const PROJECTS = [
     tech: ["PHP", "MySQL", "HTML", "CSS", "Google Drive API"],
     awards: [],
     image: "/images/DocuTrack/login.png",
-    link: "#",
+    link: "https://github.com/chardoxx-3/Document-Tracking-System-DocuTrack",
     linkText: "View Project →",
   },
   {
@@ -56,7 +56,7 @@ const PROJECTS = [
     tech: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
     awards: [],
     image: "/images/BHRental/login.png",
-    link: "#",
+    link: "https://github.com/chardoxx-3/BH-Rental-System",
     linkText: "View Project →",
   },
 ];
@@ -559,7 +559,7 @@ export default function Portfolio() {
               <div className="section-desc">A collection of systems, digital projects, and technical work I've built.</div>
             </div>
             <a href="https://github.com/chardoxx-3/RFID-Student-Monitoring-System" className="work-album-btn-top" target="_blank" rel="noopener noreferrer">
-              View Projects <ExternalLink size={14} />
+              View More Projects <ExternalLink size={14} />
             </a>
           </div>
         </Reveal>
