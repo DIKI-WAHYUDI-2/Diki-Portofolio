@@ -419,7 +419,7 @@ export default function Portfolio() {
               <div className="section-title">Work Gallery</div>
               <div className="section-desc">A collection of systems, digital projects, and technical work I've built.</div>
             </div>
-            <Link href="/projects" className="work-album-btn-top">
+            <Link href="/work" className="work-album-btn-top">
               View More Projects <ExternalLink size={14} />
             </Link>
           </div>
