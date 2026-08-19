@@ -778,7 +778,7 @@ export default function Portfolio() {
                     <span className="about-stat-value">20+</span>
                   </div>
                   <div className="about-stat-item">
-                    <span className="about-stat-label">CERTIFICATIONS</span>
+                    <span className="about-stat-label">CERTIFICATES</span>
                     <span className="about-stat-value">9</span>
                   </div>
                   <div className="about-stat-item">
