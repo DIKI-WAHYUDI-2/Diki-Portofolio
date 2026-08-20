@@ -1090,6 +1090,43 @@ body::-webkit-scrollbar {
   margin-left: 30px;
 }
 
+@media (max-width: 768px) {
+  .what-i-can-do-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .tech-stack {
+    flex-wrap: wrap;
+    gap: 12px;
+    row-gap: 20px;
+    padding-bottom: 0;
+  }
+
+  .tech-stack-column {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .tech-stack-column:nth-child(3) {
+    margin-left: 0;
+  }
+
+  .workspace-column {
+    margin-left: 0;
+  }
+
+  .tech-stack-item {
+    padding: 10px 12px;
+  }
+
+  .tech-stack-item img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
 .tech-stack-item {
   display: flex;
   align-items: center;
