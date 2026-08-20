@@ -3,7 +3,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Github, Mail, ExternalLink, X, Code2, FlaskConical, Rocket, Trophy, GraduationCap, Linkedin, Minus } from "lucide-react";
 import Link from "next/link";
-import { PROJECTS } from "../lib/projects";
+import { PROJECTS } from "../data/projects";
 import Header from "./Header";
 
 const SKILLS = [

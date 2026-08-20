@@ -2429,9 +2429,10 @@ textarea.contact-modal-input {
 
 .archive-row-tags {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .archive-row-category {
