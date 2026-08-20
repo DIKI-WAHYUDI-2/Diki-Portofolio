@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 
-export default function TypewriterTitle({ text, speed = 40, className = "", ...props }) {
+export default function TypewriterTitle({ text, speed = 80, className = "", ...props }) {
   const [displayed, setDisplayed] = useState("");
   const [started, setStarted] = useState(false);
   const ref = React.useRef(null);
