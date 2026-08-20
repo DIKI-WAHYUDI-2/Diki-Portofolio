@@ -16,10 +16,6 @@ export default function WorkCTA() {
           </Link>
         </div>
 
-        <div className="work-cta-meta">
-          <span>RICHARD M. · TECHNICAL · DIGITAL · CREATIVE</span>
-          <span>20+ PROJECTS · 2026</span>
-        </div>
       </div>
     </section>
   );

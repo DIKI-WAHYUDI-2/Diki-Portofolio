@@ -2670,11 +2670,11 @@ textarea.contact-modal-input {
 .work-cta-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 80px 40px 60px;
-  min-height: 65vh;
+  padding: 80px 40px 100px;
+  min-height: 45vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .work-cta-eyebrow {
@@ -2683,7 +2683,7 @@ textarea.contact-modal-input {
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 40px;
+  margin-bottom: 16px;
 }
 
 .work-cta-main {
@@ -2691,7 +2691,6 @@ textarea.contact-modal-input {
   align-items: center;
   justify-content: space-between;
   gap: 40px;
-  flex: 1;
 }
 
 .work-cta-heading {
