@@ -30,9 +30,11 @@ export default function TechnicalArchive({ projects = [] }) {
               <div className="archive-row-desc">{project.desc}</div>
               <div className="archive-row-tags">
                 <span className="archive-row-category">{project.category}</span>
-                {project.tech.map((t) => (
-                  <span key={t} className="archive-tag">{t}</span>
-                ))}
+                <div className="archive-row-tech">
+                  {project.tech.map((t) => (
+                    <span key={t} className="archive-tag">{t}</span>
+                  ))}
+                </div>
               </div>
             </div>
             <span className="archive-row-action">

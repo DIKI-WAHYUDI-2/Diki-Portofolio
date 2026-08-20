@@ -2429,10 +2429,15 @@ textarea.contact-modal-input {
 
 .archive-row-tags {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.archive-row-tech {
+  display: flex;
   flex-wrap: wrap;
+  gap: 10px;
 }
 
 .archive-row-category {
