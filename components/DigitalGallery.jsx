@@ -4,6 +4,8 @@ import React from "react";
 import Link from "next/link";
 
 export default function DigitalGallery({ projects = [] }) {
+  const [hero, ...rest] = projects;
+
   return (
     <section className="digital-section">
       <div className="digital-header">
@@ -14,8 +16,21 @@ export default function DigitalGallery({ projects = [] }) {
         </div>
       </div>
 
+      {hero && (
+        <Link href={hero.link} className="digital-card digital-card--hero" target="_blank" rel="noopener noreferrer">
+          <div className="digital-image-wrap digital-image-wrap--hero">
+            <img src={hero.image} alt={hero.title} className="digital-image" />
+          </div>
+          <div className="digital-content">
+            <div className="digital-category">{hero.category}</div>
+            <h3 className="digital-title">{hero.title}</h3>
+            <p className="digital-desc">{hero.desc}</p>
+          </div>
+        </Link>
+      )}
+
       <div className="digital-grid">
-        {projects.map((project) => (
+        {rest.map((project) => (
           <Link
             key={project.num}
             href={project.link}
