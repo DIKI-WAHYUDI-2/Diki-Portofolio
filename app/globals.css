@@ -638,7 +638,7 @@ body::-webkit-scrollbar {
   .work-mobile-stack-wrap {
     display: block;
     max-width: 320px;
-    margin: 0 auto;
+    margin: 40px auto 0;
   }
 
   .work-mobile-stack {
@@ -659,6 +659,7 @@ body::-webkit-scrollbar {
   }
 
   .work-info {
+    margin: 56px auto 0;
     padding: 0 8px;
   }
 }
