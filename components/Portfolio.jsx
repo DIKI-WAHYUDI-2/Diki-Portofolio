@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import { Github, Mail, ExternalLink, X, Code2, FlaskConical, Rocket, Trophy, GraduationCap, Linkedin, Minus } from "lucide-react";
+import { Github, Mail, ExternalLink, X, Code2, FlaskConical, Rocket, Trophy, GraduationCap, Linkedin, Minus, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { PROJECTS } from "../data/projects";
 import Header from "./Header";
@@ -256,11 +256,35 @@ export default function Portfolio() {
   const [isModalMinimized, setIsModalMinimized] = useState(false);
   const [formStatus, setFormStatus] = useState("idle");
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [mobileIndex, setMobileIndex] = useState(0);
+  const touchStartRef = useRef(null);
   const activeProject = PROJECTS[activeIndex];
 
   const goTo = (index) => {
     const normalized = ((index % PROJECTS.length) + PROJECTS.length) % PROJECTS.length;
     setActiveIndex(normalized);
+  };
+
+  const goToMobile = (index) => {
+    const normalized = ((index % PROJECTS.length) + PROJECTS.length) % PROJECTS.length;
+    setMobileIndex(normalized);
+  };
+
+  const nextMobile = () => goToMobile(mobileIndex + 1);
+  const prevMobile = () => goToMobile(mobileIndex - 1);
+
+  const handleTouchStart = (e) => {
+    touchStartRef.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (!touchStartRef.current) return;
+    const diff = touchStartRef.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) nextMobile();
+      else prevMobile();
+    }
+    touchStartRef.current = null;
   };
 
   useEffect(() => {
@@ -431,6 +455,36 @@ export default function Portfolio() {
             </div>
           </div>
         </Reveal>
+
+        <div className="work-carousel-mobile"
+             onTouchStart={handleTouchStart}
+             onTouchEnd={handleTouchEnd}>
+          <button className="work-carousel-btn work-carousel-btn--prev" onClick={prevMobile} aria-label="Previous project">
+            <ChevronLeft size={20} />
+          </button>
+          <div className="work-carousel-track">
+            {PROJECTS.map((project, index) => (
+              <div
+                key={project.num}
+                className={`work-carousel-slide${index === mobileIndex ? " work-carousel-slide--active" : ""}`}
+              >
+                <img src={project.image} alt={project.title} className="work-album-img" draggable={false} />
+              </div>
+            ))}
+          </div>
+          <button className="work-carousel-btn work-carousel-btn--next" onClick={nextMobile} aria-label="Next project">
+            <ChevronRight size={20} />
+          </button>
+          <div className="work-carousel-dots">
+            {PROJECTS.map((_, index) => (
+              <span
+                key={index}
+                className={`work-carousel-dot${index === mobileIndex ? " work-carousel-dot--active" : ""}`}
+                onClick={() => goToMobile(index)}
+              />
+            ))}
+          </div>
+        </div>
 
         <div className="work-info" key={activeProject.num}>
           <h3 className="work-info-title">{activeProject.title}</h3>

@@ -567,6 +567,10 @@ body::-webkit-scrollbar {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
+.work-carousel-mobile {
+  display: none;
+}
+
 /* Work Info (dynamic description under the carousel) */
 .work-info {
   max-width: 820px;
@@ -624,28 +628,79 @@ body::-webkit-scrollbar {
   }
 
   .work-album {
-    min-height: auto;
-    padding: 0 0 12px;
+    display: none;
   }
 
-  .work-album-inner {
-    position: static;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    height: auto;
+  .work-carousel-mobile {
+    display: block;
+    position: relative;
     max-width: 360px;
     margin: 0 auto;
-    perspective: none;
+    padding: 0 44px;
   }
 
-  .work-album-item {
-    position: static !important;
-    width: 100% !important;
-    transform: none !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
+  .work-carousel-track {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .work-carousel-slide {
+    display: none;
+  }
+
+  .work-carousel-slide--active {
+    display: block;
+  }
+
+  .work-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    color: var(--text);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .work-carousel-btn:active {
+    background: var(--light-gray);
+  }
+
+  .work-carousel-btn--prev {
+    left: 0;
+  }
+
+  .work-carousel-btn--next {
+    right: 0;
+  }
+
+  .work-carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .work-carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--light-gray);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  .work-carousel-dot--active {
+    background: var(--text);
+    transform: scale(1.1);
   }
 
   .work-info {
