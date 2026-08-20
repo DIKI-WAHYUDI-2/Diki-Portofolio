@@ -32,7 +32,7 @@ function TechTag({ tech }) {
 
 export default function TechnicalArchive({ projects = [] }) {
   return (
-    <section className="archive-section">
+    <section className="archive-section" id="technical">
       <Reveal>
         <div className="archive-header">
           <div className="archive-header-left">

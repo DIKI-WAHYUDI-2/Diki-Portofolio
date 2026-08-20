@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Header from "../../components/Header";
+import WorkHeader from "../../components/WorkHeader";
 import TechnicalArchive from "../../components/TechnicalArchive";
 import DigitalGallery from "../../components/DigitalGallery";
 import WorkCTA from "../../components/WorkCTA";
@@ -13,7 +13,7 @@ const digital = PROJECTS.filter((p) => p.category.includes("Digital"));
 export default function Work() {
   return (
     <main style={{ position: "relative" }}>
-      <Header alwaysShowCoffee alwaysShowBackToTop />
+      <WorkHeader />
 
       <TechnicalArchive projects={technical} />
 

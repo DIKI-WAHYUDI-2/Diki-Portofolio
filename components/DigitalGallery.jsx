@@ -8,7 +8,7 @@ export default function DigitalGallery({ projects = [] }) {
   const [hero, ...rest] = projects;
 
   return (
-    <section className="digital-section">
+    <section className="digital-section" id="digital">
       <Reveal>
         <div className="digital-header">
           <div className="section-label">Digital Projects</div>
