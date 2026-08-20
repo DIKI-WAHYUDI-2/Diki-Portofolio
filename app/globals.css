@@ -632,7 +632,7 @@ body::-webkit-scrollbar {
   }
 
   .work-album-btn-top {
-    display: none;
+    margin-top: 8px;
   }
 
   .work-mobile-stack-wrap {
