@@ -2429,9 +2429,9 @@ textarea.contact-modal-input {
 
 .archive-row-tags {
   display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
 }
 
 .archive-row-category {
