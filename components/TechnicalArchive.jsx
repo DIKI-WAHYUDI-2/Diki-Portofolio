@@ -19,13 +19,15 @@ const TECH_LOGOS = {
 };
 
 function TechTag({ tech }) {
-  const logo = TECH_LOGOS[tech.name];
-  return (
-    <span className="archive-tag">
-      {logo && <img src={logo} alt={tech.name} className="archive-tag-img" />}
-      <span>{tech.name} — {tech.percentage}%</span>
-    </span>
-  );
+  const logo = TECH_LOGOS[tech];
+  if (logo) {
+    return (
+      <span className="archive-tag">
+        <img src={logo} alt={tech} className="archive-tag-img" />
+      </span>
+    );
+  }
+  return <span className="archive-tag">{tech}</span>;
 }
 
 export default function TechnicalArchive({ projects = [] }) {
@@ -41,7 +43,7 @@ export default function TechnicalArchive({ projects = [] }) {
         </div>
       </Reveal>
 
-      <Reveal delay={100}>
+      <Reveal delay={150}>
         <div className="archive-list">
           {projects.map((project) => (
             <Link
@@ -59,7 +61,7 @@ export default function TechnicalArchive({ projects = [] }) {
                   <span className="archive-row-category">{project.category}</span>
                   <div className="archive-row-tech">
                     {project.tech.map((t) => (
-                      <TechTag key={t.name} tech={t} />
+                      <TechTag key={t} tech={t} />
                     ))}
                   </div>
                 </div>
