@@ -21,8 +21,11 @@ export default function DigitalGallery({ projects = [] }) {
             <img src={hero.image} alt={hero.title} className="digital-image" />
           </div>
           <div className="digital-content">
-            <h3 className="digital-title">{hero.title}</h3>
-            <p className="digital-desc">{hero.desc}</p>
+            <div className="digital-content-inner">
+              <div className="digital-num-bg">{hero.num}</div>
+              <h3 className="digital-title">{hero.title}</h3>
+              <p className="digital-desc">{hero.desc}</p>
+            </div>
           </div>
         </div>
       )}

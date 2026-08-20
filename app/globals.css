@@ -2524,6 +2524,30 @@ textarea.contact-modal-input {
   justify-content: center;
 }
 
+.digital-content-inner {
+  position: relative;
+}
+
+.digital-num-bg {
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: 120px;
+  line-height: 1;
+  color: var(--text);
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.digital-card--hero .digital-title,
+.digital-card--hero .digital-desc {
+  position: relative;
+  z-index: 1;
+}
+
 .digital-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -2545,6 +2569,12 @@ textarea.contact-modal-input {
 
   .digital-card--hero .digital-content {
     width: 100%;
+  }
+
+  .digital-num-bg {
+    font-size: 72px;
+    top: -10px;
+    left: -5px;
   }
 }
 
