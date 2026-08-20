@@ -2195,9 +2195,9 @@ textarea.contact-modal-input {
     font-size: clamp(80px, 18vw, 200px);
   }
 
-  .section {
-    padding: 80px 20px;
-  }
+.section {
+  padding: 120px 20px 80px;
+}
 
   .scroll-indicator {
     right: 20px;
