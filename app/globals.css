@@ -2396,12 +2396,11 @@ textarea.contact-modal-input {
   border-bottom: 1px solid var(--line);
   text-decoration: none;
   color: inherit;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: background 0.2s ease;
 }
 
 .archive-row:hover {
   background: rgba(0, 0, 0, 0.02);
-  transform: translateX(4px);
 }
 
 .archive-row-num {
