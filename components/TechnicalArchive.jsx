@@ -4,6 +4,29 @@ import React from "react";
 import { ExternalLink } from "lucide-react";
 import Link from "next/link";
 
+const TECH_LOGOS = {
+  "Python Django": "/images/logos/django.png",
+  "PHP": "/images/logos/php.png",
+  "MySQL": "/images/logos/mysql.png",
+  "HTML": "/images/logos/html.png",
+  "CSS": "/images/logos/css.png",
+  "JavaScript": "/images/logos/js.png",
+  "CodeIgniter 4": "/images/logos/codeigniter.png",
+  "Python Flask": "/images/logos/flask.png",
+};
+
+function TechTag({ tech }) {
+  const logo = TECH_LOGOS[tech];
+  if (logo) {
+    return (
+      <span className="archive-tag">
+        <img src={logo} alt={tech} className="archive-tag-img" />
+      </span>
+    );
+  }
+  return <span className="archive-tag">{tech}</span>;
+}
+
 export default function TechnicalArchive({ projects = [] }) {
   return (
     <section className="archive-section">
@@ -32,7 +55,7 @@ export default function TechnicalArchive({ projects = [] }) {
                 <span className="archive-row-category">{project.category}</span>
                 <div className="archive-row-tech">
                   {project.tech.map((t) => (
-                    <span key={t.name} className="archive-tag">{t.name} — {t.percentage}%</span>
+                    <TechTag key={t} tech={t} />
                   ))}
                 </div>
               </div>

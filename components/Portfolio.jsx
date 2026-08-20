@@ -52,7 +52,7 @@ const WHAT_I_CAN_DO = [
     description: "Supporting teams with organized data, documentation, research, and digital workflows while helping keep day-to-day operations accurate and efficient.",
     visual: "va",
     items: [
-      "Data Entry & Management",
+      "Data Entry",
       "Data Validation",
       "Document Management",
       "Online Research",
