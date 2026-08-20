@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import TypewriterTitle from "./TypewriterTitle";
 
 export default function DigitalGallery({ projects = [] }) {
   const [hero, ...rest] = projects;
@@ -9,7 +10,7 @@ export default function DigitalGallery({ projects = [] }) {
     <section className="digital-section">
       <div className="digital-header">
         <div className="section-label">Digital Projects</div>
-        <div className="section-title">Beyond Code</div>
+        <TypewriterTitle text="Beyond Code" />
         <div className="section-desc">
           Creative, visual, content, and digital projects developed alongside my technical work.
         </div>

@@ -3,8 +3,9 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Github, Mail, ExternalLink, X, Code2, FlaskConical, Rocket, Trophy, GraduationCap, Linkedin, Minus } from "lucide-react";
 import Link from "next/link";
-import { PROJECTS } from "../data/projects";
+import { PROJECTS } from "../lib/projects";
 import Header from "./Header";
+import TypewriterTitle from "./TypewriterTitle";
 
 const SKILLS = [
   {
@@ -416,7 +417,7 @@ export default function Portfolio() {
           <div className="work-header">
             <div>
               <div className="section-label">Selected Work</div>
-              <div className="section-title">Work Gallery</div>
+              <TypewriterTitle text="Work Gallery" />
               <div className="section-desc">A collection of systems, digital projects, and technical work I've built.</div>
             </div>
             <Link href="/work" className="work-album-btn-top">
@@ -489,7 +490,7 @@ export default function Portfolio() {
           <div className="what-i-can-do-left">
             <Reveal>
               <div className="section-label">My Capabilities</div>
-              <div className="section-title">What I Can Do</div>
+              <TypewriterTitle text="What I Can Do" />
               <div className="what-i-can-do-desc">
                 I combine technical, problem-solving, and digital skills to build reliable systems, test systems, manage data, and support efficient digital workflows.
               </div>
@@ -613,7 +614,7 @@ export default function Portfolio() {
       <section id="about" className="section">
         <Reveal>
           <div className="section-label">ABOUT ME</div>
-          <div className="section-title">Problem Solver. Digital Generalist.</div>
+          <TypewriterTitle text="Problem Solver. Digital Generalist." />
         </Reveal>
 
         <Reveal delay={100}>
@@ -731,7 +732,7 @@ export default function Portfolio() {
       <section id="awards" className="section">
         <Reveal>
           <div className="section-label">Recognition</div>
-          <div className="section-title">Awards and Achievements</div>
+          <TypewriterTitle text="Awards and Achievements" />
           <div className="section-desc">
             A collection of academic and professional recognitions that reflect my dedication to excellence.
           </div>
@@ -761,7 +762,7 @@ export default function Portfolio() {
       <section id="trainings" className="section">
         <Reveal>
           <div className="section-label">Growth & Experience</div>
-          <div className="section-title">Trainings & Hackathons</div>
+          <TypewriterTitle text="Trainings & Hackathons" />
           <div className="section-desc">
             A collection of trainings, workshops, and hackathons that shaped my technical and collaborative skills.
           </div>

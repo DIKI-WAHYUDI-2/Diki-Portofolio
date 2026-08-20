@@ -4,6 +4,7 @@ import React from "react";
 import { ExternalLink } from "lucide-react";
 import { PROJECTS } from "../../lib/projects";
 import Header from "../../components/Header";
+import TypewriterTitle from "../../components/TypewriterTitle";
 
 export default function ProjectsPage() {
   return (
@@ -12,7 +13,7 @@ export default function ProjectsPage() {
       <div className="projects-page">
       <div className="projects-header">
         <div className="section-label">All Work</div>
-        <div className="section-title">Technical Projects</div>
+        <TypewriterTitle text="Technical Projects" />
         <div className="section-desc">
           A complete collection of my technical work, systems, and digital projects.
         </div>

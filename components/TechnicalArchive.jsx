@@ -3,6 +3,7 @@
 import React from "react";
 import { ExternalLink } from "lucide-react";
 import Link from "next/link";
+import TypewriterTitle from "./TypewriterTitle";
 
 const TECH_LOGOS = {
   "Python Django": "/images/logos/django.png",
@@ -34,7 +35,7 @@ export default function TechnicalArchive({ projects = [] }) {
       <div className="archive-header">
         <div className="archive-header-left">
           <div className="section-label">Archive</div>
-          <div className="section-title">Technical Projects</div>
+          <TypewriterTitle text="Technical Projects" />
           <p className="archive-description">A complete collection of my technical work, systems, and digital projects.</p>
         </div>
       </div>
