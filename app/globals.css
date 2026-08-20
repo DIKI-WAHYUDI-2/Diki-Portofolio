@@ -2471,6 +2471,85 @@ textarea.contact-modal-input {
   align-items: center;
 }
 
+/* Digital Projects */
+.digital-section {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 40px 80px;
+}
+
+.digital-header {
+  margin-bottom: 40px;
+}
+
+.digital-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.digital-card {
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.digital-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+}
+
+.digital-image-wrap {
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.digital-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.digital-card:hover .digital-image {
+  transform: scale(1.04);
+}
+
+.digital-content {
+  padding: 16px;
+}
+
+.digital-category {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.digital-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  line-height: 1.3;
+}
+
+.digital-desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+  margin: 0;
+}
+
 /* CTA */
 .work-cta {
   position: relative;
