@@ -6,6 +6,7 @@ import Link from "next/link";
 import { PROJECTS } from "../lib/projects";
 import Header from "./Header";
 import TypewriterTitle from "./TypewriterTitle";
+import Reveal from "./Reveal";
 
 const SKILLS = [
   {
@@ -185,44 +186,6 @@ const EXPERIENCE = [
     ],
   },
 ];
-
-function useReveal() {
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          obs.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-  return [ref, visible];
-}
-
-function Reveal({ children, delay = 0, className = "" }) {
-  const [ref, visible] = useReveal();
-  return (
-    <div
-      ref={ref}
-      className={className}
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(24px)",
-        transition: `opacity 0.8s ease ${delay}ms, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
-      }}
-    >
-      {children}
-    </div>
-  );
-}
 
 // Same click-to-flick mechanic as the About-me trait cards: the front image
 // flies off and the next one in the pile takes its place.
