@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import { Github, Mail, ExternalLink, X, Code2, FlaskConical, Rocket, Trophy, GraduationCap, Linkedin, Minus, ChevronLeft, ChevronRight } from "lucide-react";
+import { Github, Mail, ExternalLink, X, Code2, FlaskConical, Rocket, Trophy, GraduationCap, Linkedin, Minus } from "lucide-react";
 import Link from "next/link";
 import { PROJECTS } from "../data/projects";
 import Header from "./Header";
@@ -245,6 +245,62 @@ function ExperienceImageStack({ images, title }) {
   );
 }
 
+// Mobile-only stacked album for the Work Gallery — same click-to-flick
+// mechanic as the Experience section's image stack, but cycling through
+// project cover images instead of a single experience's photos.
+function WorkAlbumStack({ projects, activeIndex, onAdvance }) {
+  const count = projects.length;
+
+  return (
+    <div className="work-mobile-stack" onClick={onAdvance}>
+      {projects.map((project, i) => {
+        const offset = (i - activeIndex + count) % count;
+        const isExiting = offset === count - 1;
+        // Only the front 3 cards and the one that just got flicked away are rendered.
+        if (offset > 2 && !isExiting) return null;
+
+        const scatter = CARD_SCATTER[i % CARD_SCATTER.length];
+        let style;
+
+        if (isExiting) {
+          style = {
+            "--tx": `${scatter.x + 100}px`,
+            "--ty": `${scatter.y - 40}px`,
+            "--rot": `${scatter.rot + 25}deg`,
+            "--sc": 0.88,
+            "--op": 0,
+            zIndex: 5,
+          };
+        } else {
+          const depth = offset;
+          const isFront = depth === 0;
+          const calm = 0.4; // dampens the scatter chaos for the album stack
+          const dir = depth % 2 === 1 ? -1 : 1; // alternate: mid card peeks up, back card peeks down
+          style = {
+            "--tx": isFront ? "0px" : `${scatter.x * calm + depth * 8}px`,
+            "--ty": isFront ? "0px" : `${scatter.y * calm + dir * depth * 10}px`,
+            "--rot": isFront ? "0deg" : `${scatter.rot * calm + depth * (scatter.rot >= 0 ? 1.5 : -1.5)}deg`,
+            "--sc": isFront ? 1 : 1 - depth * 0.06,
+            "--op": isFront ? 1 : 0.75 - (depth - 1) * 0.2,
+            zIndex: 30 - depth * 10,
+          };
+        }
+
+        return (
+          <img
+            key={project.num}
+            src={project.image}
+            alt={project.title}
+            className={`stacked-image${offset === 0 ? " stacked-image-front" : ""}`}
+            style={style}
+            draggable={false}
+          />
+        );
+      })}
+    </div>
+  );
+}
+
 export default function Portfolio() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const rootRef = useRef(null);
@@ -256,35 +312,11 @@ export default function Portfolio() {
   const [isModalMinimized, setIsModalMinimized] = useState(false);
   const [formStatus, setFormStatus] = useState("idle");
   const [showSuccessModal, setShowSuccessModal] = useState(false);
-  const [mobileIndex, setMobileIndex] = useState(0);
-  const touchStartRef = useRef(null);
   const activeProject = PROJECTS[activeIndex];
 
   const goTo = (index) => {
     const normalized = ((index % PROJECTS.length) + PROJECTS.length) % PROJECTS.length;
     setActiveIndex(normalized);
-  };
-
-  const goToMobile = (index) => {
-    const normalized = ((index % PROJECTS.length) + PROJECTS.length) % PROJECTS.length;
-    setMobileIndex(normalized);
-  };
-
-  const nextMobile = () => goToMobile(mobileIndex + 1);
-  const prevMobile = () => goToMobile(mobileIndex - 1);
-
-  const handleTouchStart = (e) => {
-    touchStartRef.current = e.touches[0].clientX;
-  };
-
-  const handleTouchEnd = (e) => {
-    if (!touchStartRef.current) return;
-    const diff = touchStartRef.current - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) {
-      if (diff > 0) nextMobile();
-      else prevMobile();
-    }
-    touchStartRef.current = null;
   };
 
   useEffect(() => {
@@ -456,34 +488,12 @@ export default function Portfolio() {
           </div>
         </Reveal>
 
-        <div className="work-carousel-mobile"
-             onTouchStart={handleTouchStart}
-             onTouchEnd={handleTouchEnd}>
-          <button className="work-carousel-btn work-carousel-btn--prev" onClick={prevMobile} aria-label="Previous project">
-            <ChevronLeft size={20} />
-          </button>
-          <div className="work-carousel-track">
-            {PROJECTS.map((project, index) => (
-              <div
-                key={project.num}
-                className={`work-carousel-slide${index === mobileIndex ? " work-carousel-slide--active" : ""}`}
-              >
-                <img src={project.image} alt={project.title} className="work-album-img" draggable={false} />
-              </div>
-            ))}
-          </div>
-          <button className="work-carousel-btn work-carousel-btn--next" onClick={nextMobile} aria-label="Next project">
-            <ChevronRight size={20} />
-          </button>
-          <div className="work-carousel-dots">
-            {PROJECTS.map((_, index) => (
-              <span
-                key={index}
-                className={`work-carousel-dot${index === mobileIndex ? " work-carousel-dot--active" : ""}`}
-                onClick={() => goToMobile(index)}
-              />
-            ))}
-          </div>
+        <div className="work-mobile-stack-wrap">
+          <WorkAlbumStack
+            projects={PROJECTS}
+            activeIndex={activeIndex}
+            onAdvance={() => goTo(activeIndex + 1)}
+          />
         </div>
 
         <div className="work-info" key={activeProject.num}>

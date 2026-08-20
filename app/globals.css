@@ -567,7 +567,7 @@ body::-webkit-scrollbar {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.work-carousel-mobile {
+.work-mobile-stack-wrap {
   display: none;
 }
 
@@ -631,76 +631,31 @@ body::-webkit-scrollbar {
     display: none;
   }
 
-  .work-carousel-mobile {
-    display: block;
-    position: relative;
-    max-width: 360px;
-    margin: 0 auto;
-    padding: 0 44px;
-  }
-
-  .work-carousel-track {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .work-carousel-slide {
+  .work-album-btn-top {
     display: none;
   }
 
-  .work-carousel-slide--active {
+  .work-mobile-stack-wrap {
     display: block;
+    max-width: 320px;
+    margin: 0 auto;
   }
 
-  .work-carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    color: var(--text);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  .work-mobile-stack {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 17.8 / 10;
+    perspective: 800px;
     cursor: pointer;
-    z-index: 2;
-    transition: background 0.2s ease, box-shadow 0.2s ease;
+    user-select: none;
+    -webkit-user-select: none;
   }
 
-  .work-carousel-btn:active {
-    background: var(--light-gray);
-  }
-
-  .work-carousel-btn--prev {
-    left: 0;
-  }
-
-  .work-carousel-btn--next {
-    right: 0;
-  }
-
-  .work-carousel-dots {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 16px;
-  }
-
-  .work-carousel-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--light-gray);
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
-  }
-
-  .work-carousel-dot--active {
-    background: var(--text);
-    transform: scale(1.1);
+  /* Project screenshots vary in aspect ratio, so letterbox instead of
+     cropping like the Experience section's event photos do. */
+  .work-mobile-stack .stacked-image {
+    object-fit: contain;
+    background: var(--surface-2);
   }
 
   .work-info {
