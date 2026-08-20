@@ -33,7 +33,7 @@ export default function ProjectsPage() {
               <p className="project-desc">{project.desc}</p>
               <div className="project-tech">
                 {project.tech.map((t, i) => (
-                  <span key={i} className="project-tech-item">{t}</span>
+                  <span key={i} className="project-tech-item">{t.name} — {t.percentage}%</span>
                 ))}
               </div>
               {project.awards.length > 0 && (
