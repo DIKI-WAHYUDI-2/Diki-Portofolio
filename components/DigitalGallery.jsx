@@ -21,7 +21,6 @@ export default function DigitalGallery({ projects = [] }) {
             <img src={hero.image} alt={hero.title} className="digital-image" />
           </div>
           <div className="digital-content">
-            <div className="digital-category">{hero.category}</div>
             <h3 className="digital-title">{hero.title}</h3>
             <p className="digital-desc">{hero.desc}</p>
           </div>
@@ -38,7 +37,6 @@ export default function DigitalGallery({ projects = [] }) {
               <img src={project.image} alt={project.title} className="digital-image" />
             </div>
             <div className="digital-content">
-              <div className="digital-category">{project.category}</div>
               <h3 className="digital-title">{project.title}</h3>
               <p className="digital-desc">{project.desc}</p>
             </div>

@@ -2504,23 +2504,16 @@ textarea.contact-modal-input {
 
 .digital-image-wrap--hero {
   width: 50%;
-  aspect-ratio: 16 / 10;
   overflow: hidden;
   background: var(--bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
 }
 
 .digital-image-wrap--hero .digital-image {
   width: 100%;
-  height: 100%;
+  height: auto;
+  display: block;
   object-fit: contain;
-  transition: transform 0.5s ease;
-}
-
-.digital-card--hero:hover .digital-image-wrap--hero .digital-image {
-  transform: scale(1.03);
 }
 
 .digital-card--hero .digital-content {
@@ -2548,7 +2541,6 @@ textarea.contact-modal-input {
 
   .digital-image-wrap--hero {
     width: 100%;
-    aspect-ratio: 16 / 9;
   }
 
   .digital-card--hero .digital-content {
@@ -2573,36 +2565,20 @@ textarea.contact-modal-input {
 
 .digital-image-wrap {
   width: 100%;
-  aspect-ratio: 16 / 10;
   overflow: hidden;
   background: var(--bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
 }
 
 .digital-image {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: contain;
   display: block;
-  transition: transform 0.5s ease;
-}
-
-.digital-card:hover .digital-image {
-  transform: scale(1.04);
 }
 
 .digital-content {
   padding: 16px;
-}
-
-.digital-category {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--muted);
-  margin-bottom: 8px;
 }
 
 .digital-title {
