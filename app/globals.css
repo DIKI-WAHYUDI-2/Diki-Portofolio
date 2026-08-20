@@ -2663,37 +2663,86 @@ textarea.contact-modal-input {
 .work-cta {
   position: relative;
   z-index: 10;
+  background: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid var(--line);
+}
+
+.work-cta-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 80px 40px 120px;
-  text-align: center;
+  padding: 80px 40px 60px;
+  min-height: 65vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.work-cta-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 40px;
+}
+
+.work-cta-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex: 1;
 }
 
 .work-cta-heading {
-  font-size: clamp(28px, 4vw, 48px);
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
-  letter-spacing: -0.03em;
-  margin: 12px 0 24px;
+  font-size: clamp(56px, 7vw, 100px);
+  line-height: 0.95;
+  color: var(--text);
+  letter-spacing: -0.05em;
+  max-width: 850px;
+  margin: 0;
 }
 
 .work-cta-button {
+  flex-shrink: 0;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 14px 24px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: var(--surface);
+  justify-content: center;
+  width: 200px;
+  height: 64px;
+  border: 1px solid var(--text);
+  border-radius: 16px;
+  background: transparent;
   color: var(--text);
   text-decoration: none;
-  font-weight: 500;
-  transition: all 0.2s ease;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: all 0.25s ease;
 }
 
 .work-cta-button:hover {
   background: var(--text);
   color: var(--surface);
-  border-color: var(--text);
+  transform: translateY(-3px);
+}
+
+.work-cta-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0.6;
 }
 
 /* Mobile Responsive */
@@ -2734,6 +2783,30 @@ textarea.contact-modal-input {
 
   .archive-row-desc {
     font-size: 12px;
+  }
+
+  .work-cta-main {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .work-cta-heading {
+    font-size: clamp(36px, 8vw, 56px);
+    max-width: 100%;
+  }
+
+  .work-cta-button {
+    width: 100%;
+    height: auto;
+    padding: 14px 24px;
+  }
+
+  .work-cta-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    text-align: left;
   }
 }
 
