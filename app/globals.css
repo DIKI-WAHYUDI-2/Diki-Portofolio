@@ -2453,6 +2453,16 @@ textarea.contact-modal-input {
   border: 1px solid var(--line);
   border-radius: 6px;
   color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.archive-tag-img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  display: block;
 }
 
 .archive-row-action {
