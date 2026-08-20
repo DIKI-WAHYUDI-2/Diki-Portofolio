@@ -12,6 +12,7 @@ const TECH_LOGOS = {
   "CSS": "/images/logos/css.png",
   "JavaScript": "/images/logos/js.png",
   "CodeIgniter 4": "/images/logos/codeigniter.png",
+  "Python": "/images/logos/python.png",
   "Python Flask": "/images/logos/flask.png",
 };
 
