@@ -101,12 +101,12 @@ export default function Header({ alwaysShowCoffee, alwaysShowBackToTop }) {
             <div className="nav-logo">R</div>
             <div className="nav-brand">RICHARD</div>
           </a>
+          <button className="md:hidden nav-menu-btn" onClick={() => setMenuOpen(!menuOpen)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 8, position: 'relative', zIndex: 210 }}>
+            {menuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
           <button className="md:hidden nav-theme-toggle" onClick={toggleTheme} aria-label="Toggle theme" style={{ position: 'relative', zIndex: 210 }}>
             <Sun className="icon-sun" size={18} />
             <Moon className="icon-moon" size={18} />
-          </button>
-          <button className="md:hidden nav-menu-btn" onClick={() => setMenuOpen(!menuOpen)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 8, position: 'relative', zIndex: 210 }}>
-            {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
         {menuOpen && (
