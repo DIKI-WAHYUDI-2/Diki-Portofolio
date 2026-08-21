@@ -15,7 +15,7 @@ export default function WorkCTA() {
         <Reveal delay={150}>
           <div className="work-cta-main">
             <h2 className="work-cta-heading">Let&apos;s build something useful.</h2>
-            <Link href="#contact" className="work-cta-button">
+            <Link href="/#contact" className="work-cta-button">
               Hire Me →
             </Link>
           </div>
