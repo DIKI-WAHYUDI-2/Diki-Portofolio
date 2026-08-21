@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useLayoutEffect, useState, useRef } from "react";
 import { Github, Mail, ExternalLink, X, Code2, FlaskConical, Rocket, Trophy, GraduationCap, Linkedin, Minus } from "lucide-react";
 import Link from "next/link";
 import { PROJECTS } from "../data/projects";
@@ -339,7 +339,7 @@ export default function Portfolio() {
     return () => window.removeEventListener("mousemove", handleMouse);
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const track = marqueeTrackRef.current;
     if (!track) return;
 
@@ -354,6 +354,37 @@ export default function Portfolio() {
     syncMarqueeSpeed();
     window.addEventListener("resize", syncMarqueeSpeed);
     return () => window.removeEventListener("resize", syncMarqueeSpeed);
+  }, []);
+
+  useEffect(() => {
+    const track = marqueeTrackRef.current;
+    if (!track) return;
+
+    const syncAfterFonts = () => {
+      const enterSeconds = 8;
+      const pxPerSecond = window.innerWidth / enterSeconds;
+      const loopDistance = track.scrollWidth / 2;
+      const loopSeconds = loopDistance / pxPerSecond;
+      track.style.setProperty("--marquee-loop-duration", `${loopSeconds}s`);
+    };
+
+    const handleFontsReady = () => {
+      syncAfterFonts();
+    };
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(handleFontsReady);
+    } else {
+      window.addEventListener("load", handleFontsReady);
+    }
+
+    return () => {
+      if (document.fonts && document.fonts.ready) {
+        // No cleanup needed for fonts.ready promise
+      } else {
+        window.removeEventListener("load", handleFontsReady);
+      }
+    };
   }, []);
 
   useEffect(() => {
