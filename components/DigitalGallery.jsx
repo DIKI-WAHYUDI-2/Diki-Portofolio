@@ -20,7 +20,7 @@ export default function DigitalGallery({ projects = [] }) {
       </Reveal>
 
       {hero && (
-        <Reveal delay={150}>
+        <Reveal delay={100}>
           <div className="digital-card digital-card--hero">
             <div className="digital-image-wrap digital-image-wrap--hero">
               <img src={hero.image} alt={hero.title} className="digital-image" />
@@ -34,7 +34,7 @@ export default function DigitalGallery({ projects = [] }) {
         </Reveal>
       )}
 
-      <Reveal delay={300}>
+      <Reveal delay={100}>
         <div className="digital-grid">
           {rest.map((project) => (
             <div

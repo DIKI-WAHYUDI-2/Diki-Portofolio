@@ -43,7 +43,7 @@ export default function TechnicalArchive({ projects = [] }) {
         </div>
       </Reveal>
 
-      <Reveal delay={150}>
+      <Reveal delay={100}>
         <div className="archive-list">
           {projects.map((project) => (
             <Link
