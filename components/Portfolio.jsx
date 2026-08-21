@@ -415,8 +415,24 @@ export default function Portfolio() {
       {/* HERO */}
       <section id="hero" className="hero-root">
 
-<div className="bg-name-marquee">
-          <div className="bg-name-track" ref={marqueeTrackRef}>
+        <div className="bg-name-marquee">
+          <div className="bg-name-track bg-name-track--top" ref={marqueeTrackRef}>
+            <span className="bg-name-text">RICHARD MICULOB</span>
+            <span className="bg-name-text">RICHARD MICULOB</span>
+            <span className="bg-name-text">RICHARD MICULOB</span>
+            <span className="bg-name-text">RICHARD MICULOB</span>
+            <span className="bg-name-text">RICHARD MICULOB</span>
+            <span className="bg-name-text">RICHARD MICULOB</span>
+            <span className="bg-name-text">RICHARD MICULOB</span>
+            <span className="bg-name-text">RICHARD MICULOB</span>
+          </div>
+          <div className="bg-name-track bg-name-track--bottom">
+            <span className="bg-name-text">RICHARD MICULOB</span>
+            <span className="bg-name-text">RICHARD MICULOB</span>
+            <span className="bg-name-text">RICHARD MICULOB</span>
+            <span className="bg-name-text">RICHARD MICULOB</span>
+            <span className="bg-name-text">RICHARD MICULOB</span>
+            <span className="bg-name-text">RICHARD MICULOB</span>
             <span className="bg-name-text">RICHARD MICULOB</span>
             <span className="bg-name-text">RICHARD MICULOB</span>
           </div>
