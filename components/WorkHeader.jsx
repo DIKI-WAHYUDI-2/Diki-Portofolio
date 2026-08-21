@@ -61,16 +61,6 @@ export default function WorkHeader() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const stored = window.localStorage.getItem("theme");
-      if (stored === "dark" || (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-        setDark(true);
-        document.documentElement.classList.add("dark");
-      }
-    }
-  }, []);
-
   const toggleTheme = () => {
     const next = !dark;
     setDark(next);
