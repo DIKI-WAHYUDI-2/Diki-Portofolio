@@ -1462,11 +1462,11 @@ body::-webkit-scrollbar {
   }
 
   .experience-card-reverse .experience-text {
-    order: 2;
+    order: 0;
   }
 
   .experience-card-reverse .experience-image-stack {
-    order: 1;
+    order: 0;
   }
 }
 
