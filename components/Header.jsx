@@ -35,13 +35,20 @@ export default function Header({ alwaysShowCoffee, alwaysShowBackToTop }) {
   const handleCoffeeClick = async (e) => {
     e.preventDefault();
     setCoffeePop(true);
+    const previousCount = coffeeCount;
+    const optimisticCount = previousCount + 1;
+    setCoffeeCount(optimisticCount);
     try {
       const res = await fetch('/api/coffee-count', { method: 'POST' });
       const data = await res.json();
       if (typeof data.count === 'number') {
         setCoffeeCount(data.count);
+      } else {
+        setCoffeeCount(previousCount);
       }
-    } catch {}
+    } catch {
+      setCoffeeCount(previousCount);
+    }
   };
 
   useEffect(() => {
