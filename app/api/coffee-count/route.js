@@ -2,8 +2,7 @@ import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 
-const UPSTASH_URL = process.env.UPSTASH_REDIS_REST_URL;
-const UPSTASH_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN;
+const GOOGLE_SHEET_WEBAPP_URL = process.env.GOOGLE_SHEET_WEBAPP_URL;
 const COUNT_KEY = 'coffee_count';
 
 const countFilePath = path.join(process.cwd(), 'data', 'coffee-count.json');
@@ -18,44 +17,40 @@ function ensureFile() {
   }
 }
 
-async function upstashGet() {
-  if (!UPSTASH_URL) return null;
+async function sheetGet() {
+  if (!GOOGLE_SHEET_WEBAPP_URL) return null;
   try {
-    const res = await fetch(`${UPSTASH_URL}/get/${COUNT_KEY}`, {
-      headers: { Authorization: `Bearer ${UPSTASH_TOKEN}` },
+    const res = await fetch(GOOGLE_SHEET_WEBAPP_URL, {
+      method: 'GET',
       cache: 'no-store',
     });
     if (!res.ok) return null;
     const data = await res.json();
-    const raw = data.result;
-    const num = Number(raw);
+    const num = Number(data.count);
     return Number.isFinite(num) ? num : null;
   } catch {
     return null;
   }
 }
 
-async function upstashSet(value) {
-  if (!UPSTASH_URL) return;
+async function sheetPost() {
+  if (!GOOGLE_SHEET_WEBAPP_URL) return;
   try {
-    await fetch(`${UPSTASH_URL}/set/${COUNT_KEY}`, {
+    await fetch(GOOGLE_SHEET_WEBAPP_URL, {
       method: 'POST',
-      headers: {
-        Authorization: `Bearer ${UPSTASH_TOKEN}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ value: String(value) }),
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'increment' }),
       cache: 'no-store',
     });
   } catch {
-    // ignore Upstash errors and fall back to filesystem
+    // ignore sheet errors and fall back to filesystem
   }
 }
 
 export async function GET() {
-  if (UPSTASH_URL) {
-    const upstashCount = await upstashGet();
-    if (upstashCount !== null) return NextResponse.json({ count: upstashCount });
+  if (GOOGLE_SHEET_WEBAPP_URL) {
+    const sheetCount = await sheetGet();
+    if (sheetCount !== null) return NextResponse.json({ count: sheetCount });
   }
 
   try {
@@ -69,34 +64,18 @@ export async function GET() {
 }
 
 export async function POST() {
-  const nextCount = (await getCurrentCount()) + 1;
-
-  if (UPSTASH_URL) {
-    await upstashSet(nextCount);
-  }
-
-  try {
-    ensureFile();
-    fs.writeFileSync(countFilePath, JSON.stringify({ count: nextCount }), 'utf8');
-  } catch {
-    // filesystem write failed; Upstash may still persist the count
-  }
-
-  return NextResponse.json({ count: nextCount });
-}
-
-async function getCurrentCount() {
-  if (UPSTASH_URL) {
-    const upstashCount = await upstashGet();
-    if (upstashCount !== null) return upstashCount;
+  if (GOOGLE_SHEET_WEBAPP_URL) {
+    await sheetPost();
   }
 
   try {
     ensureFile();
     const raw = fs.readFileSync(countFilePath, 'utf8');
     const data = JSON.parse(raw);
-    return data.count ?? 0;
+    const next = { count: (data.count ?? 0) + 1 };
+    fs.writeFileSync(countFilePath, JSON.stringify(next), 'utf8');
+    return NextResponse.json(next);
   } catch {
-    return 0;
+    return NextResponse.json({ count: 0 });
   }
 }
