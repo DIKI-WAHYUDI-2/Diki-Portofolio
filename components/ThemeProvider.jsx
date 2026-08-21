@@ -43,6 +43,10 @@ export function ThemeProvider({ children }) {
       transition: `clip-path 0.5s cubic-bezier(0.4, 0, 0.2, 1)`,
     });
 
+    document.documentElement.classList.add("theme-transitioning");
+    document.documentElement.classList.toggle("dark", next);
+    localStorage.setItem("theme", next ? "dark" : "light");
+
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         setClipStyle((prev) => ({
@@ -54,15 +58,20 @@ export function ThemeProvider({ children }) {
 
     setTimeout(() => {
       setDark(next);
-      document.documentElement.classList.toggle("dark", next);
-      localStorage.setItem("theme", next ? "dark" : "light");
+      setClipStyle({});
 
       setTimeout(() => {
-        setClipStyle({});
         setAnimating(false);
+        document.documentElement.classList.remove("theme-transitioning");
       }, 50);
     }, 500);
   };
+
+  useEffect(() => {
+    return () => {
+      document.documentElement.classList.remove("theme-transitioning");
+    };
+  }, []);
 
   return (
     <ThemeContext.Provider value={{ dark, toggleTheme }}>
