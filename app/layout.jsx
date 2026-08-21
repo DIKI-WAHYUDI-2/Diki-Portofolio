@@ -11,7 +11,7 @@ export const metadata = {
     siteName: "RICHARD PORTFOLIO",
     images: [
       {
-        url: "/images/profile.png",
+        url: "/images/about/profile.png",
         width: 1200,
         height: 630,
         alt: "RICHARD PORTFOLIO",
@@ -23,7 +23,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "RICHARD PORTFOLIO",
     description: "Full-stack developer building payroll, disaster relief, and administrative systems for local government.",
-    images: ["/images/profile.png"],
+    images: ["/images/about/profile.png"],
   },
 };
 
@@ -31,8 +31,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/images/profile.png" />
-        <link rel="apple-touch-icon" href="/images/profile.png" />
+        <link rel="icon" href="/images/about/profile.png" />
+        <link rel="apple-touch-icon" href="/images/about/profile.png" />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark');}catch(e){}})();`,
