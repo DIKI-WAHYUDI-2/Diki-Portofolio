@@ -1468,6 +1468,10 @@ body::-webkit-scrollbar {
   .experience-card-reverse .experience-image-stack {
     order: 0;
   }
+
+  .experience-list {
+    gap: 48px;
+  }
 }
 
 
