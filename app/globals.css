@@ -61,6 +61,7 @@ body::-webkit-scrollbar {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.4s ease;
 }
 
 .bg-lines {
@@ -98,7 +99,8 @@ body::-webkit-scrollbar {
   font-weight: 700;
   font-size: clamp(120px, 22vw, 350px);
   color: transparent;
-  -webkit-text-stroke: 1.5px rgba(0,0,0,0.85);
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: var(--text);
   white-space: nowrap;
   letter-spacing: -3px;
   user-select: none;
