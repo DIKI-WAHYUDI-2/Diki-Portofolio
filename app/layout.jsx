@@ -4,6 +4,27 @@ import { ThemeProvider } from "../components/ThemeProvider";
 export const metadata = {
   title: "RICHARD PORTFOLIO",
   description: "Full-stack developer building payroll, disaster relief, and administrative systems for local government.",
+  openGraph: {
+    title: "RICHARD PORTFOLIO",
+    description: "Full-stack developer building payroll, disaster relief, and administrative systems for local government.",
+    url: "https://richard-portfolio.vercel.app",
+    siteName: "RICHARD PORTFOLIO",
+    images: [
+      {
+        url: "/images/profile.png",
+        width: 1200,
+        height: 630,
+        alt: "RICHARD PORTFOLIO",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "RICHARD PORTFOLIO",
+    description: "Full-stack developer building payroll, disaster relief, and administrative systems for local government.",
+    images: ["/images/profile.png"],
+  },
 };
 
 export default function RootLayout({ children }) {
