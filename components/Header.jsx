@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ExternalLink, Menu, X, ArrowUp } from "lucide-react";
 
 export default function Header({ alwaysShowCoffee, alwaysShowBackToTop }) {
@@ -11,6 +11,7 @@ export default function Header({ alwaysShowCoffee, alwaysShowBackToTop }) {
   const [coffeeCount, setCoffeeCount] = useState(0);
   const [coffeePop, setCoffeePop] = useState(false);
   const [coffeeLoading, setCoffeeLoading] = useState(true);
+  const navRef = useRef(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -59,9 +60,24 @@ export default function Header({ alwaysShowCoffee, alwaysShowBackToTop }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [alwaysShowCoffee, alwaysShowBackToTop]);
 
+  useEffect(() => {
+    if (!menuOpen) return;
+    const handleClickAway = (e) => {
+      if (navRef.current && !navRef.current.contains(e.target)) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickAway);
+    document.addEventListener("touchstart", handleClickAway);
+    return () => {
+      document.removeEventListener("mousedown", handleClickAway);
+      document.removeEventListener("touchstart", handleClickAway);
+    };
+  }, [menuOpen]);
+
   return (
     <>
-      <nav className={`nav-bar ${scrolled ? "scrolled" : ""} ${menuOpen ? "nav-bar--expanded" : ""}`}>
+      <nav ref={navRef} className={`nav-bar ${scrolled ? "scrolled" : ""} ${menuOpen ? "nav-bar--expanded" : ""}`}>
         <div className="nav-mobile-header">
           <a href="/" className="nav-left">
             <div className="nav-logo">R</div>
