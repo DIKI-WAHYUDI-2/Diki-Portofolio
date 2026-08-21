@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { ExternalLink, Menu, X, ArrowUp } from "lucide-react";
+import { ExternalLink, Menu, X, ArrowUp, Sun, Moon } from "lucide-react";
 
 export default function Header({ alwaysShowCoffee, alwaysShowBackToTop }) {
   const [scrolled, setScrolled] = useState(false);
@@ -11,6 +11,7 @@ export default function Header({ alwaysShowCoffee, alwaysShowBackToTop }) {
   const [coffeeCount, setCoffeeCount] = useState(0);
   const [coffeePop, setCoffeePop] = useState(false);
   const [coffeeLoading, setCoffeeLoading] = useState(true);
+  const [dark, setDark] = useState(false);
   const navRef = useRef(null);
 
   useEffect(() => {
@@ -61,6 +62,23 @@ export default function Header({ alwaysShowCoffee, alwaysShowBackToTop }) {
   }, [alwaysShowCoffee, alwaysShowBackToTop]);
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      const stored = window.localStorage.getItem("theme");
+      if (stored === "dark" || (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+        setDark(true);
+        document.documentElement.classList.add("dark");
+      }
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const next = !dark;
+    setDark(next);
+    document.documentElement.classList.toggle("dark", next);
+    window.localStorage.setItem("theme", next ? "dark" : "light");
+  };
+
+  useEffect(() => {
     if (!menuOpen) return;
     const handleClickAway = (e) => {
       if (navRef.current && !navRef.current.contains(e.target)) {
@@ -83,6 +101,10 @@ export default function Header({ alwaysShowCoffee, alwaysShowBackToTop }) {
             <div className="nav-logo">R</div>
             <div className="nav-brand">RICHARD</div>
           </a>
+          <button className="md:hidden nav-theme-toggle" onClick={toggleTheme} aria-label="Toggle theme" style={{ position: 'relative', zIndex: 210 }}>
+            <Sun className="icon-sun" size={18} />
+            <Moon className="icon-moon" size={18} />
+          </button>
           <button className="md:hidden nav-menu-btn" onClick={() => setMenuOpen(!menuOpen)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 8, position: 'relative', zIndex: 210 }}>
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -107,6 +129,10 @@ export default function Header({ alwaysShowCoffee, alwaysShowBackToTop }) {
           <a href="/#trainings" className="nav-link">Trainings</a>
         </div>
         <div className="nav-right">
+          <button className="nav-theme-toggle hidden md:inline-flex" onClick={toggleTheme} aria-label="Toggle theme" style={{ marginRight: 8 }}>
+            <Sun className="icon-sun" size={18} />
+            <Moon className="icon-moon" size={18} />
+          </button>
           <a href="/#contact" className="nav-cta hidden md:block">Hire Me</a>
         </div>
       </nav>

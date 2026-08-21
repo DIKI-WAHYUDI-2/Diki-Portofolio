@@ -10,6 +10,18 @@
   --text: #000000;
   --muted: #555555;
   --light-gray: #BFC1C5;
+  --surface-rgb: 255, 255, 255;
+}
+
+.dark {
+  --bg: #0f1115;
+  --surface: #1a1d23;
+  --surface-2: #252a33;
+  --line: rgba(255,255,255,0.10);
+  --text: #e7e9ee;
+  --muted: #9ca3af;
+  --light-gray: #374151;
+  --surface-rgb: 26, 29, 35;
 }
 
 html {
@@ -31,6 +43,7 @@ body {
   overflow-x: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 body::-webkit-scrollbar {
@@ -246,7 +259,7 @@ body::-webkit-scrollbar {
   max-width: 1200px;
   height: 78px;
   padding: 0 28px;
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(var(--surface-rgb, 255, 255, 255), 0.85);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-radius: 18px;
@@ -259,7 +272,7 @@ body::-webkit-scrollbar {
 
 .nav-bar.scrolled {
   z-index: 200;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(var(--surface-rgb, 255, 255, 255), 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   box-shadow: 0 12px 40px rgba(0,0,0,0.1);
@@ -354,6 +367,59 @@ body::-webkit-scrollbar {
 .nav-cta:hover {
   background: var(--text);
   color: var(--surface);
+}
+
+.nav-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1.5px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-theme-toggle:hover {
+  background: var(--surface-2);
+  transform: translateY(-1px);
+}
+
+.nav-theme-toggle svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+}
+
+.nav-theme-toggle .icon-sun,
+.nav-theme-toggle .icon-moon {
+  position: absolute;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+}
+
+.dark .nav-theme-toggle .icon-sun {
+  transform: rotate(90deg) scale(0.5);
+  opacity: 0;
+}
+
+.dark .nav-theme-toggle .icon-moon {
+  transform: rotate(0deg) scale(1);
+  opacity: 1;
+}
+
+.nav-theme-toggle .icon-moon {
+  transform: rotate(-90deg) scale(0.5);
+  opacity: 0;
+}
+
+.nav-theme-toggle .icon-sun {
+  transform: rotate(0deg) scale(1);
+  opacity: 1;
 }
 
 /* Scroll indicator */
@@ -2194,6 +2260,10 @@ textarea.contact-modal-input {
   }
 
   .nav-right .nav-cta {
+    display: none;
+  }
+
+  .nav-right .nav-theme-toggle {
     display: none;
   }
 
