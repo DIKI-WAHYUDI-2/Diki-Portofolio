@@ -24,22 +24,16 @@
   --surface-rgb: 26, 29, 35;
 }
 
-html.theme-transitioning,
-html.theme-transitioning *,
-html.theme-transitioning *::before,
-html.theme-transitioning *::after {
-  transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              fill 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              stroke 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
-}
-
 html {
   scroll-behavior: smooth;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  background-color: var(--bg);
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
 }
 
 html::-webkit-scrollbar {
@@ -3269,4 +3263,48 @@ textarea.contact-modal-input {
   .bento-card {
     padding: 24px;
   }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+}
+
+/* Declarative circle expand. --vt-x/--vt-y/--vt-r are set in JS right
+   before startViewTransition() is called. Tying the wipe to a real CSS
+   animation (rather than an imperative .animate() call attached after
+   the fact) lets the browser's own view-transition lifecycle track it
+   correctly, instead of racing a separately-scheduled Web Animation. */
+@keyframes vt-circle-wipe {
+  from {
+    clip-path: circle(0px at var(--vt-x) var(--vt-y));
+  }
+  to {
+    clip-path: circle(var(--vt-r) at var(--vt-x) var(--vt-y));
+  }
+}
+
+.vt-wipe-active::view-transition-new(root) {
+  animation: vt-circle-wipe 500ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Kills every CSS transition (body bg-color, .nav-bar, .hero-root, etc.)
+   while a theme view-transition is in flight. Without this, those
+   transitions animate mid-snapshot and get baked into the frozen
+   ::view-transition-new(root) image, which shows up as a blink of the
+   old theme right before the circle wipe reveals it. */
+.vt-disable-anim,
+.vt-disable-anim *,
+.vt-disable-anim *::before,
+.vt-disable-anim *::after {
+  transition: none !important;
 }
