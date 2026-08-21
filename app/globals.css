@@ -2685,7 +2685,10 @@ textarea.contact-modal-input {
   }
 
   .digital-hero-num {
-    font-size: 160px;
+    right: 10px;
+    left: auto;
+    transform: translateY(-50%);
+    font-size: 100px;
   }
 
   .digital-grid-num {
