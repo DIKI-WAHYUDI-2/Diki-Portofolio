@@ -305,6 +305,7 @@ export default function Portfolio() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const rootRef = useRef(null);
   const marqueeTrackRef = useRef(null);
+  const heroRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(1);
   const [cardIndex, setCardIndex] = useState(0);
   const [cardPaused, setCardPaused] = useState(false);
@@ -348,7 +349,10 @@ export default function Portfolio() {
       const pxPerSecond = window.innerWidth / enterSeconds; // entrance travels 100vw in 4s
       const loopDistance = track.scrollWidth / 2; // loop travels -50% of the doubled track
       const loopSeconds = loopDistance / pxPerSecond;
-      track.style.setProperty("--marquee-loop-duration", `${loopSeconds}s`);
+      // Set on the hero section (not the track itself) so every bg-name-track
+      // descendant -- the center row and all mobile fill rows -- inherits the
+      // exact same duration and stays in perfect sync as one cohesive animation.
+      heroRef.current?.style.setProperty("--marquee-loop-duration", `${loopSeconds}s`);
     };
 
     syncMarqueeSpeed();
@@ -413,30 +417,28 @@ export default function Portfolio() {
       <Header />
 
       {/* HERO */}
-      <section id="hero" className="hero-root">
+      <section id="hero" className="hero-root" ref={heroRef}>
 
-        <div className="bg-name-marquee">
-          <div className="bg-name-track bg-name-track--top" ref={marqueeTrackRef}>
-            <span className="bg-name-text">RICHARD MICULOB</span>
-            <span className="bg-name-text">RICHARD MICULOB</span>
-            <span className="bg-name-text">RICHARD MICULOB</span>
-            <span className="bg-name-text">RICHARD MICULOB</span>
-            <span className="bg-name-text">RICHARD MICULOB</span>
-            <span className="bg-name-text">RICHARD MICULOB</span>
-            <span className="bg-name-text">RICHARD MICULOB</span>
-            <span className="bg-name-text">RICHARD MICULOB</span>
-          </div>
-          <div className="bg-name-track bg-name-track--bottom">
-            <span className="bg-name-text">RICHARD MICULOB</span>
-            <span className="bg-name-text">RICHARD MICULOB</span>
-            <span className="bg-name-text">RICHARD MICULOB</span>
-            <span className="bg-name-text">RICHARD MICULOB</span>
-            <span className="bg-name-text">RICHARD MICULOB</span>
-            <span className="bg-name-text">RICHARD MICULOB</span>
+<div className="bg-name-marquee">
+          <div className="bg-name-track" ref={marqueeTrackRef}>
             <span className="bg-name-text">RICHARD MICULOB</span>
             <span className="bg-name-text">RICHARD MICULOB</span>
           </div>
         </div>
+
+        {/* Mobile-only fill rows: 4 above + 4 below, same animation/style as the center row = 9 total */}
+        {["t1", "t2", "t3", "t4", "b1", "b2", "b3", "b4"].map((pos) => (
+          <div
+            key={pos}
+            className={`bg-name-marquee bg-name-marquee--mobile-extra bg-name-marquee--${pos}`}
+            aria-hidden="true"
+          >
+            <div className="bg-name-track">
+              <span className="bg-name-text">RICHARD MICULOB</span>
+              <span className="bg-name-text">RICHARD MICULOB</span>
+            </div>
+          </div>
+        ))}
 
         <div className="concentric-circles">
           <div className="circle circle-1" />

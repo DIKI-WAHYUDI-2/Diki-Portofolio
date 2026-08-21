@@ -76,30 +76,20 @@ body::-webkit-scrollbar {
 /* Marquee Background Text */
 .bg-name-marquee {
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 0;
   width: 100%;
-  height: 100%;
   overflow: hidden;
   z-index: 1;
   pointer-events: none;
+  transform: translateY(-50%);
 }
 
 .bg-name-track {
-  position: absolute;
-  left: 0;
   display: flex;
   width: max-content;
   animation: marquee var(--marquee-loop-duration, 18s) linear infinite;
   will-change: transform;
-}
-
-.bg-name-track--top {
-  top: 38%;
-}
-
-.bg-name-track--bottom {
-  top: 62%;
 }
 
 .bg-name-text {
@@ -119,6 +109,11 @@ body::-webkit-scrollbar {
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+
+/* Extra fill rows are mobile-only; hidden by default on desktop */
+.bg-name-marquee--mobile-extra {
+  display: none;
 }
 
 .concentric-circles {
@@ -2355,16 +2350,25 @@ textarea.contact-modal-input {
   }
 
   .bg-name-text {
-    font-size: clamp(100px, 20vw, 220px);
+    font-size: clamp(56px, 15vw, 140px);
   }
 
-  .bg-name-track--top {
-    top: 38%;
+  /* Reveal the 8 extra fill rows and stack all 9 evenly across the hero height.
+     Each row reuses the exact same .bg-name-track animation as the center row
+     (same duration via the inherited --marquee-loop-duration, same direction,
+     same opacity) so the whole background reads as one cohesive motion. */
+  .bg-name-marquee--mobile-extra {
+    display: block;
   }
 
-  .bg-name-track--bottom {
-    top: 62%;
-  }
+  .bg-name-marquee--t1 { top: 10%; }
+  .bg-name-marquee--t2 { top: 20%; }
+  .bg-name-marquee--t3 { top: 30%; }
+  .bg-name-marquee--t4 { top: 40%; }
+  .bg-name-marquee--b1 { top: 60%; }
+  .bg-name-marquee--b2 { top: 70%; }
+  .bg-name-marquee--b3 { top: 80%; }
+  .bg-name-marquee--b4 { top: 90%; }
 
 .section {
   padding: 120px 20px 60px;
