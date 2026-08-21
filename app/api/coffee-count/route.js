@@ -2,9 +2,9 @@ import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 
-const KV_REST_API_URL = process.env.KV_REST_API_URL;
-const KV_REST_API_TOKEN = process.env.KV_REST_API_TOKEN;
-const KV_COUNT_KEY = 'coffee_count';
+const UPSTASH_URL = process.env.UPSTASH_REDIS_REST_URL;
+const UPSTASH_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN;
+const COUNT_KEY = 'coffee_count';
 
 const countFilePath = path.join(process.cwd(), 'data', 'coffee-count.json');
 
@@ -18,42 +18,44 @@ function ensureFile() {
   }
 }
 
-async function kvGet() {
-  if (!KV_REST_API_URL) return null;
+async function upstashGet() {
+  if (!UPSTASH_URL) return null;
   try {
-    const res = await fetch(`${KV_REST_API_URL}/get/${KV_COUNT_KEY}`, {
-      headers: { Authorization: `Bearer ${KV_REST_API_TOKEN}` },
+    const res = await fetch(`${UPSTASH_URL}/get/${COUNT_KEY}`, {
+      headers: { Authorization: `Bearer ${UPSTASH_TOKEN}` },
       cache: 'no-store',
     });
     if (!res.ok) return null;
     const data = await res.json();
-    return typeof data.result === 'number' ? data.result : null;
+    const raw = data.result;
+    const num = Number(raw);
+    return Number.isFinite(num) ? num : null;
   } catch {
     return null;
   }
 }
 
-async function kvSet(value) {
-  if (!KV_REST_API_URL) return;
+async function upstashSet(value) {
+  if (!UPSTASH_URL) return;
   try {
-    await fetch(`${KV_REST_API_URL}/set/${KV_COUNT_KEY}`, {
+    await fetch(`${UPSTASH_URL}/set/${COUNT_KEY}`, {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${KV_REST_API_TOKEN}`,
+        Authorization: `Bearer ${UPSTASH_TOKEN}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ value }),
+      body: JSON.stringify({ value: String(value) }),
       cache: 'no-store',
     });
   } catch {
-    // ignore KV errors and fall back to filesystem
+    // ignore Upstash errors and fall back to filesystem
   }
 }
 
 export async function GET() {
-  if (KV_REST_API_URL) {
-    const kvCount = await kvGet();
-    if (kvCount !== null) return NextResponse.json({ count: kvCount });
+  if (UPSTASH_URL) {
+    const upstashCount = await upstashGet();
+    if (upstashCount !== null) return NextResponse.json({ count: upstashCount });
   }
 
   try {
@@ -69,24 +71,24 @@ export async function GET() {
 export async function POST() {
   const nextCount = (await getCurrentCount()) + 1;
 
-  if (KV_REST_API_URL) {
-    await kvSet(nextCount);
+  if (UPSTASH_URL) {
+    await upstashSet(nextCount);
   }
 
   try {
     ensureFile();
     fs.writeFileSync(countFilePath, JSON.stringify({ count: nextCount }), 'utf8');
   } catch {
-    // filesystem write failed; KV may still persist the count
+    // filesystem write failed; Upstash may still persist the count
   }
 
   return NextResponse.json({ count: nextCount });
 }
 
 async function getCurrentCount() {
-  if (KV_REST_API_URL) {
-    const kvCount = await kvGet();
-    if (kvCount !== null) return kvCount;
+  if (UPSTASH_URL) {
+    const upstashCount = await upstashGet();
+    if (upstashCount !== null) return upstashCount;
   }
 
   try {
