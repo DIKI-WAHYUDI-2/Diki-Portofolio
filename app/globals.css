@@ -88,9 +88,7 @@ body::-webkit-scrollbar {
 .bg-name-track {
   display: flex;
   width: max-content;
-  animation:
-    marquee-enter 8s linear forwards,
-    marquee var(--marquee-loop-duration, 18s) linear 8s infinite;
+  animation: marquee var(--marquee-loop-duration, 18s) linear infinite;
   will-change: transform;
 }
 
@@ -106,11 +104,6 @@ body::-webkit-scrollbar {
   user-select: none;
   flex-shrink: 0;
   padding-right: 0.35em;
-}
-
-@keyframes marquee-enter {
-  from { transform: translateX(0); }
-  to { transform: translateX(0); }
 }
 
 @keyframes marquee {
