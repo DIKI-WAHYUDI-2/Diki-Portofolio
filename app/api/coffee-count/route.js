@@ -3,7 +3,6 @@ import fs from 'fs';
 import path from 'path';
 
 const GOOGLE_SHEET_WEBAPP_URL = process.env.GOOGLE_SHEET_WEBAPP_URL;
-const COUNT_KEY = 'coffee_count';
 
 const countFilePath = path.join(process.cwd(), 'data', 'coffee-count.json');
 
@@ -34,16 +33,20 @@ async function sheetGet() {
 }
 
 async function sheetPost() {
-  if (!GOOGLE_SHEET_WEBAPP_URL) return;
+  if (!GOOGLE_SHEET_WEBAPP_URL) return null;
   try {
-    await fetch(GOOGLE_SHEET_WEBAPP_URL, {
+    const res = await fetch(GOOGLE_SHEET_WEBAPP_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ action: 'increment' }),
       cache: 'no-store',
     });
+    if (!res.ok) return null;
+    const data = await res.json();
+    const num = Number(data.count);
+    return Number.isFinite(num) ? num : null;
   } catch {
-    // ignore sheet errors and fall back to filesystem
+    return null;
   }
 }
 
@@ -65,7 +68,10 @@ export async function GET() {
 
 export async function POST() {
   if (GOOGLE_SHEET_WEBAPP_URL) {
-    await sheetPost();
+    const newCount = await sheetPost();
+    if (newCount !== null) {
+      return NextResponse.json({ count: newCount });
+    }
   }
 
   try {
