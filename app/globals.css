@@ -2286,6 +2286,11 @@ textarea.contact-modal-input {
     justify-content: space-between;
     width: 100%;
     height: 42px;
+    gap: 8px;
+  }
+
+  .nav-mobile-header .nav-theme-toggle {
+    margin-left: auto;
   }
 
   .nav-menu-btn {
