@@ -917,7 +917,7 @@ export default function Portfolio() {
             <div className="contact-modal-controls">
               <button
                 type="button"
-                className="contact-modal-icon-btn"
+                className="contact-modal-icon-btn contact-modal-minimize-btn"
                 aria-label={isModalMinimized ? "Expand" : "Minimize"}
                 onClick={(e) => { e.stopPropagation(); setIsModalMinimized((v) => !v); }}
               >
@@ -1010,13 +1010,6 @@ export default function Portfolio() {
           </div>
         </div>
       )}
-
-      {/* FOOTER */}
-      <footer className="footer">
-        <div className="footer-text">
-          &copy; {new Date().getFullYear()} RICHARD — Built with discipline.
-        </div>
-      </footer>
     </div>
   );
 }

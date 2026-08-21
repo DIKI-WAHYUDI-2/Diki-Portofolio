@@ -2045,6 +2045,10 @@ textarea.contact-modal-input {
   .contact-modal-title {
     font-size: 13px;
   }
+
+  .contact-modal-minimize-btn {
+    display: none;
+  }
 }
 
 /* Footer */
