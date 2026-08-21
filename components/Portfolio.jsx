@@ -369,7 +369,10 @@ export default function Portfolio() {
   }, [cardPaused]);
 
   return (
-    <div ref={rootRef} style={{ position: 'relative' }}>
+    <div
+  ref={rootRef}
+  className="portfolio-root"
+>
       <svg className="bg-lines" viewBox="0 0 1440 5000" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{width:'100%',height:'100%'}}>
         <g opacity="0.28">
           <path d="M-100 200 C 200 100, 500 300, 800 200 C 1100 100, 1300 280, 1540 180" stroke="var(--light-gray)" strokeWidth="1.5" fill="none"/>
