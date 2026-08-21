@@ -312,7 +312,15 @@ export default function Portfolio() {
   const [isModalMinimized, setIsModalMinimized] = useState(false);
   const [formStatus, setFormStatus] = useState("idle");
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const activeProject = PROJECTS[activeIndex];
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const goTo = (index) => {
     const normalized = ((index % PROJECTS.length) + PROJECTS.length) % PROJECTS.length;
@@ -641,7 +649,7 @@ export default function Portfolio() {
       <section id="about" className="section">
         <Reveal>
           <div className="section-label">ABOUT ME</div>
-          <TypewriterTitle text="Problem Solver. Digital Generalist." />
+          <TypewriterTitle text={isMobile ? "Problem Solver.\nDigital Generalist." : "Problem Solver. Digital Generalist."} />
         </Reveal>
 
         <Reveal delay={100}>

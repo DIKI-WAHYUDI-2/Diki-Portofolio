@@ -49,7 +49,7 @@ export default function TypewriterTitle({ text, speed = 55, className = "", ...p
       className={`section-title typewriter-title ${className}`}
       {...props}
     >
-      <span className="typewriter-text">{displayed}</span>
+      <span className="typewriter-text" style={{ whiteSpace: "pre-line" }}>{displayed}</span>
       {started && <span className="typewriter-cursor">|</span>}
     </div>
   );
