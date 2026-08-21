@@ -2149,6 +2149,14 @@ textarea.contact-modal-input {
   pointer-events: auto;
 }
 
+@media (max-width: 768px) {
+  .coffee-btn {
+    top: auto;
+    bottom: 7px;
+    /* left stays 0, radius/border stay as-is — it's flush, so it still reads as attached */
+  }
+}
+
 .coffee-count {
   display: inline-flex;
   align-items: center;
