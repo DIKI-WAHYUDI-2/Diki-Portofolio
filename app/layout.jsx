@@ -2,7 +2,7 @@ import "./globals.css";
 import { ThemeProvider } from "../components/ThemeProvider";
 
 export const metadata = {
-  title: "RICHARD — Full-Stack Developer",
+  title: "RICHARD PORTFOLIO",
   description: "Full-stack developer building payroll, disaster relief, and administrative systems for local government.",
 };
 
@@ -10,6 +10,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <link rel="icon" href="/images/profile.png" />
+        <link rel="apple-touch-icon" href="/images/profile.png" />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark');}catch(e){}})();`,
