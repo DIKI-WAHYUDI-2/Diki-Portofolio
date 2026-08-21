@@ -2218,6 +2218,12 @@ textarea.contact-modal-input {
   pointer-events: auto;
 }
 
+.coffee-btn--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 @media (max-width: 768px) {
   .coffee-btn {
     top: auto;

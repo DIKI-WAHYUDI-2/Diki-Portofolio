@@ -12,6 +12,7 @@ export default function WorkHeader() {
   const [coffeeCount, setCoffeeCount] = useState(0);
   const [coffeePop, setCoffeePop] = useState(false);
   const [coffeeLoading, setCoffeeLoading] = useState(true);
+  const [coffeeClaimed, setCoffeeClaimed] = useState(false);
   const navRef = useRef(null);
 
   useEffect(() => {
@@ -34,6 +35,11 @@ export default function WorkHeader() {
 
   const handleCoffeeClick = async (e) => {
     e.preventDefault();
+    if (coffeeClaimed) return;
+    setCoffeeClaimed(true);
+    try {
+      sessionStorage.setItem('coffee-claimed', 'true');
+    } catch {}
     setCoffeePop(true);
     const previousCount = coffeeCount;
     const optimisticCount = previousCount + 1;
@@ -50,6 +56,14 @@ export default function WorkHeader() {
       setCoffeeCount(previousCount);
     }
   };
+
+  useEffect(() => {
+    try {
+      if (sessionStorage.getItem('coffee-claimed') === 'true') {
+        setCoffeeClaimed(true);
+      }
+    } catch {}
+  }, []);
 
   useEffect(() => {
     if (!coffeePop) return;
@@ -121,7 +135,7 @@ export default function WorkHeader() {
         </button>
       )}
 
-      <a href="#" className={`coffee-btn${showCoffee ? " coffee-btn--visible" : ""}`} aria-label="Get me a coffee" onClick={handleCoffeeClick}>
+      <a href="#" className={`coffee-btn${showCoffee ? " coffee-btn--visible" : ""}${coffeeClaimed ? " coffee-btn--disabled" : ""}`} aria-label="Get me a coffee" onClick={handleCoffeeClick}>
         <span className="coffee-text">Get me a coffee</span>
         <img src="/images/gif/coffee.gif" alt="Coffee" className={`coffee-gif${coffeePop ? " coffee-gif--pop" : ""}`} />
         <span className="coffee-count">{coffeeLoading ? "..." : coffeeCount}</span>
