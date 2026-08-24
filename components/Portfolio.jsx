@@ -703,7 +703,7 @@ export default function Portfolio() {
                     I’m a BSIT graduate focused on software testing, web development, and digital systems. I enjoy turning ideas and real-world problems into practical digital solutions, particularly through web applications, databases, and system testing. Throughout my studies, I gained hands-on experience building database-driven systems and working with technologies such as RFID and QR-based solutions. My work was recognized through awards including Dean’s List, and Best Capstone Paper and System. I’ve also completed training in virtual assistance and AI-powered workflows, giving me experience across both technical and digital operations.
                   </p>
                   <p>
-                    Want to know more about my experience? <a href="/resume/Richard_Victor_Miculob_Resume.pdf" className="about-resume-link" target="_blank" rel="noopener noreferrer">Download my resume</a>.
+                    Want to know more about my experience? <a href="/resume/Richard_Miculob_Resume.pdf" className="about-resume-link" target="_blank" rel="noopener noreferrer">Download my resume</a>.
                   </p>
                 </div>
               </div>
@@ -877,7 +877,7 @@ export default function Portfolio() {
               </p>
             </Reveal>
             <Reveal delay={400}>
-              <a href="/resume/Richard_Victor_Miculob_Resume.pdf" className="contact-resume-btn" target="_blank" rel="noopener noreferrer">DOWNLOAD RESUME →</a>
+              <a href="/resume/Richard_Miculob_Resume.pdf" className="contact-resume-btn" target="_blank" rel="noopener noreferrer">DOWNLOAD RESUME →</a>
             </Reveal>
           </div>
 
