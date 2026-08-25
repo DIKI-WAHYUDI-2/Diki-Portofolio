@@ -533,23 +533,14 @@ body::before {
 
 .typewriter-title {
   display: inline-block;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.typewriter-text {
-  display: inline;
-}
-
-.typewriter-cursor {
-  display: inline-block;
-  margin-left: 2px;
-  animation: typewriterBlink 0.8s steps(1) infinite;
-  color: var(--text);
-  font-weight: 400;
-}
-
-@keyframes typewriterBlink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+.typewriter-title.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .section-desc {

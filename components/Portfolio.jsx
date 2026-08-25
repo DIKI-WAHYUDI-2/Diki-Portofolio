@@ -517,27 +517,31 @@ export default function Portfolio() {
           </div>
         </Reveal>
 
-        <div className="work-mobile-stack-wrap">
-          <WorkAlbumStack
-            projects={PROJECTS}
-            activeIndex={activeIndex}
-            onAdvance={() => goTo(activeIndex + 1)}
-          />
-        </div>
+        <Reveal delay={150}>
+          <div className="work-mobile-stack-wrap">
+            <WorkAlbumStack
+              projects={PROJECTS}
+              activeIndex={activeIndex}
+              onAdvance={() => goTo(activeIndex + 1)}
+            />
+          </div>
+        </Reveal>
 
-        <div className="work-info" key={activeProject.num}>
-          <h3 className="work-info-title">{activeProject.title}</h3>
-          <p className="work-info-desc">{activeProject.desc}</p>
+        <Reveal delay={200}>
+          <div className="work-info" key={activeProject.num}>
+            <h3 className="work-info-title">{activeProject.title}</h3>
+            <p className="work-info-desc">{activeProject.desc}</p>
 
-          <a
-            href={activeProject.link}
-            className="work-info-link"
-            target={activeProject.link !== "#" ? "_blank" : undefined}
-            rel="noopener noreferrer"
-          >
-            {activeProject.linkText}
-          </a>
-        </div>
+            <a
+              href={activeProject.link}
+              className="work-info-link"
+              target={activeProject.link !== "#" ? "_blank" : undefined}
+              rel="noopener noreferrer"
+            >
+              {activeProject.linkText}
+            </a>
+          </div>
+        </Reveal>
       </section>
 
       {/* WHAT I CAN DO */}
@@ -794,26 +798,28 @@ export default function Portfolio() {
           </div>
         </Reveal>
 
-        <div className="awards-layout">
-          <img src="/images/awards/awards.png" alt="Awards" className="awards-img" />
-          <div className="awards-column">
-            <a href="/awards/Dean_Lister.pdf" className="award-item" target="_blank" rel="noopener noreferrer">
-              <div className="award-icon"><GraduationCap size={18} /></div>
-              <div className="award-title">Dean’s Lister</div>
-              <ExternalLink size={12} style={{ marginLeft: 'auto', flexShrink: 0 }} />
-            </a>
-            <a href="/awards/Best_Capstone_Paper.pdf" className="award-item" target="_blank" rel="noopener noreferrer">
-              <div className="award-icon"><Trophy size={18} /></div>
-              <div className="award-title">Best Capstone Paper</div>
-              <ExternalLink size={12} style={{ marginLeft: 'auto', flexShrink: 0 }} />
-            </a>
-            <a href="/awards/Best_Capstone_System.pdf" className="award-item" target="_blank" rel="noopener noreferrer">
-              <div className="award-icon"><Trophy size={18} /></div>
-              <div className="award-title">Best Capstone System</div>
-              <ExternalLink size={12} style={{ marginLeft: 'auto', flexShrink: 0 }} />
-            </a>
+        <Reveal delay={100}>
+          <div className="awards-layout">
+            <img src="/images/awards/awards.png" alt="Awards" className="awards-img" />
+            <div className="awards-column">
+              <a href="/awards/Dean_Lister.pdf" className="award-item" target="_blank" rel="noopener noreferrer">
+                <div className="award-icon"><GraduationCap size={18} /></div>
+                <div className="award-title">Dean's Lister</div>
+                <ExternalLink size={12} style={{ marginLeft: 'auto', flexShrink: 0 }} />
+              </a>
+              <a href="/awards/Best_Capstone_Paper.pdf" className="award-item" target="_blank" rel="noopener noreferrer">
+                <div className="award-icon"><Trophy size={18} /></div>
+                <div className="award-title">Best Capstone Paper</div>
+                <ExternalLink size={12} style={{ marginLeft: 'auto', flexShrink: 0 }} />
+              </a>
+              <a href="/awards/Best_Capstone_System.pdf" className="award-item" target="_blank" rel="noopener noreferrer">
+                <div className="award-icon"><Trophy size={18} /></div>
+                <div className="award-title">Best Capstone System</div>
+                <ExternalLink size={12} style={{ marginLeft: 'auto', flexShrink: 0 }} />
+              </a>
+            </div>
           </div>
-        </div>
+        </Reveal>
       </section>
       <section id="trainings" className="section">
         <Reveal>
@@ -826,30 +832,32 @@ export default function Portfolio() {
 
         <div className="experience-list">
           {EXPERIENCE.map((exp, i) => (
-            <div key={i} className={`experience-card${exp.imageLeft ? " experience-card-reverse" : ""}`}>
-              <div className="experience-text">
-                <div className="experience-header">
-                  <div className="experience-title">
-                    {exp.title}
-                    {exp.subtitle && <div className="experience-subtitle">{exp.subtitle}</div>}
+            <Reveal key={i} delay={100 + i * 100}>
+              <div className={`experience-card${exp.imageLeft ? " experience-card-reverse" : ""}`}>
+                <div className="experience-text">
+                  <div className="experience-header">
+                    <div className="experience-title">
+                      {exp.title}
+                      {exp.subtitle && <div className="experience-subtitle">{exp.subtitle}</div>}
+                    </div>
+                    <div className="experience-date">{exp.date}</div>
                   </div>
-                  <div className="experience-date">{exp.date}</div>
+                  <div className="experience-org">{exp.org}</div>
+                  <div className="experience-desc">{exp.desc}</div>
+                  {exp.certificates && exp.certificates.map((cert, i) => (
+                    <div key={i}>
+                      <a href={cert.link} className="experience-certificate" target="_blank" rel="noopener noreferrer">
+                        {cert.name}
+                        <ExternalLink size={12} style={{ marginLeft: 6 }} />
+                      </a>
+                    </div>
+                  ))}
                 </div>
-                <div className="experience-org">{exp.org}</div>
-                <div className="experience-desc">{exp.desc}</div>
-                {exp.certificates && exp.certificates.map((cert, i) => (
-                  <div key={i}>
-                    <a href={cert.link} className="experience-certificate" target="_blank" rel="noopener noreferrer">
-                      {cert.name}
-                      <ExternalLink size={12} style={{ marginLeft: 6 }} />
-                    </a>
-                  </div>
-                ))}
+                {exp.images && exp.images.length > 0 && (
+                  <ExperienceImageStack images={exp.images} title={exp.title} />
+                )}
               </div>
-              {exp.images && exp.images.length > 0 && (
-                <ExperienceImageStack images={exp.images} title={exp.title} />
-              )}
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>

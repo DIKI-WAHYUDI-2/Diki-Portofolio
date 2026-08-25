@@ -3,10 +3,10 @@ import { ThemeProvider } from "../components/ThemeProvider";
 
 export const metadata = {
   title: "RICHARD PORTFOLIO",
-  description: "Full-stack developer building payroll, disaster relief, and administrative systems for local government.",
+  description: "BSIT graduate specializing in web development, QA, and practical digital solutions.",
   openGraph: {
     title: "RICHARD PORTFOLIO",
-    description: "Full-stack developer building payroll, disaster relief, and administrative systems for local government.",
+    description: "BSIT graduate specializing in web development, QA, and practical digital solutions.",
     url: "https://richard-portfolio.vercel.app",
     siteName: "RICHARD PORTFOLIO",
     images: [
@@ -22,7 +22,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "RICHARD PORTFOLIO",
-    description: "Full-stack developer building payroll, disaster relief, and administrative systems for local government.",
+    description: "BSIT graduate specializing in web development, QA, and practical digital solutions.",
     images: ["/images/about/profile.png"],
   },
 };
@@ -31,8 +31,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/images/about/profile.png" />
-        <link rel="apple-touch-icon" href="/images/about/profile.png" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/favicon.svg" />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark');}catch(e){}})();`,
