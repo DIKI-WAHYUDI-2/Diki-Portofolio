@@ -832,32 +832,30 @@ export default function Portfolio() {
 
         <div className="experience-list">
           {EXPERIENCE.map((exp, i) => (
-            <Reveal key={i} delay={100 + i * 100}>
-              <div className={`experience-card${exp.imageLeft ? " experience-card-reverse" : ""}`}>
-                <div className="experience-text">
-                  <div className="experience-header">
-                    <div className="experience-title">
-                      {exp.title}
-                      {exp.subtitle && <div className="experience-subtitle">{exp.subtitle}</div>}
-                    </div>
-                    <div className="experience-date">{exp.date}</div>
+            <div key={i} className={`experience-card${exp.imageLeft ? " experience-card-reverse" : ""}`}>
+              <div className="experience-text">
+                <div className="experience-header">
+                  <div className="experience-title">
+                    {exp.title}
+                    {exp.subtitle && <div className="experience-subtitle">{exp.subtitle}</div>}
                   </div>
-                  <div className="experience-org">{exp.org}</div>
-                  <div className="experience-desc">{exp.desc}</div>
-                  {exp.certificates && exp.certificates.map((cert, i) => (
-                    <div key={i}>
-                      <a href={cert.link} className="experience-certificate" target="_blank" rel="noopener noreferrer">
-                        {cert.name}
-                        <ExternalLink size={12} style={{ marginLeft: 6 }} />
-                      </a>
-                    </div>
-                  ))}
+                  <div className="experience-date">{exp.date}</div>
                 </div>
-                {exp.images && exp.images.length > 0 && (
-                  <ExperienceImageStack images={exp.images} title={exp.title} />
-                )}
+                <div className="experience-org">{exp.org}</div>
+                <div className="experience-desc">{exp.desc}</div>
+                {exp.certificates && exp.certificates.map((cert, i) => (
+                  <div key={i}>
+                    <a href={cert.link} className="experience-certificate" target="_blank" rel="noopener noreferrer">
+                      {cert.name}
+                      <ExternalLink size={12} style={{ marginLeft: 6 }} />
+                    </a>
+                  </div>
+                ))}
               </div>
-            </Reveal>
+              {exp.images && exp.images.length > 0 && (
+                <ExperienceImageStack images={exp.images} title={exp.title} />
+              )}
+            </div>
           ))}
         </div>
       </section>
