@@ -671,7 +671,7 @@ export default function Portfolio() {
 
         <div className="profile-wrap flex justify-center items-center">
           <img
-            src="/images/Profile.png"
+            src="/images/profile.png"
             alt="RICHARD"
             className="profile-image w-[240px] h-[240px] md:w-[420px] md:h-[420px] lg:w-[720px] lg:h-[720px] object-cover mt-24"
             draggable={false}

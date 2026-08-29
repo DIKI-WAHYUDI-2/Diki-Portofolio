@@ -9,7 +9,7 @@ export const metadata = {
     title: "DIKI PORTFOLIO",
     description:
       "BSIT graduate specializing in web development, QA, and practical digital solutions.",
-    url: "https://richard-portfolio.vercel.app",
+    url: "https://diki-portfolio.vercel.app",
     siteName: "DIKI PORTFOLIO",
     images: [
       {
@@ -25,7 +25,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "DIKI PORTFOLIO",
     description:
-      "BSIT graduate specializing in web development, QA, and practical digital solutions.",
+      "BSIT graduate specializing in web development, Backend, and practical digital solutions.",
     images: ["/images/about/profile.png"],
   },
 };
