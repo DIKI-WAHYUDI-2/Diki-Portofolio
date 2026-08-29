@@ -146,125 +146,6 @@ const CURRENTLY = [
   { icon: Rocket, label: "Learning", detail: "Full-stack development" },
 ];
 
-const EXPERIENCE = [
-  {
-    title: "On-the-job Training",
-    org: "Department of Information and Communications Technology",
-    date: "January to May 2026",
-    desc: "Completed 600 hours of OJT at DICT, gaining experience in technical support, field operations, event coordination, and system development. Assisted with Free Wi-Fi for All deployments, data cabinet assembly, internet speed testing, and launching event preparation. Helped develop DocuTrack and ResQR, including beneficiary data gathering, simulation, and project presentation.",
-    certificates: [
-      {
-        name: "Certificate of Completion",
-        link: "/certificates/On-the-job_Training.pdf",
-      },
-      {
-        name: "Certificate of Recognition",
-        link: "/certificates/Digital_Innovation_Award.pdf",
-      },
-    ],
-    images: [
-      "/images/experience/ojt/1.jpg",
-      "/images/experience/ojt/2.jpg",
-      "/images/experience/ojt/3.jpg",
-      "/images/experience/ojt/4.jpg",
-      "/images/experience/ojt/5.jpeg",
-    ],
-  },
-  {
-    title: "General Virtual Assistance 2.0",
-    subtitle: "A Paradigm Shift in AI-Powered Interaction",
-    org: "Department of Information and Communications Technology",
-    date: "April to May 2026",
-    imageLeft: true,
-    desc: "Completed a 20-day intensive virtual assistance training focused on VA fundamentals, client communication, productivity, AI-powered workflows, and social media management. Gained hands-on experience in niche development, content creation, page management, post scheduling, client outreach, and improving workflows to deliver efficient virtual assistance services.",
-    certificates: [
-      {
-        name: "Certificate of Completion",
-        link: "/certificates/Virtual_Assistance.pdf",
-      },
-    ],
-    images: ["/images/experience/va/1.jpg", "/images/experience/va/2.jpg"],
-  },
-  {
-    title: "Tech-Tuesdays",
-    org: "Department of Information and Communications Technology",
-    date: "March 31, 2026",
-    desc: "Participated in a team-based digital solution development activity focused on addressing the needs of local MSMEs and the tourism sector. Contributed to the development and presentation of an online platform designed to showcase and promote local MSME products. Gained experience in collaborative problem-solving, digital solution design, and pitching technology-based solutions.",
-    certificates: [
-      {
-        name: "Certificate of Appreciation",
-        link: "/certificates/Tech-Tuesdays.pdf",
-      },
-    ],
-    images: [
-      "/images/experience/techtuesday/1.jpg",
-      "/images/experience/techtuesday/2.jpg",
-    ],
-  },
-  {
-    title: "HACK FOR GOV 4",
-    org: "Department of Information and Communications Technology",
-    date: "November 10, 2025",
-    imageLeft: true,
-    desc: "Participated in a 9-hour Capture the Flag (CTF) cybersecurity competition involving hands-on challenges in identifying vulnerabilities, analyzing systems, and finding hidden flags. Developed practical skills in cybersecurity, ethical hacking, logical reasoning, troubleshooting, and time-constrained problem-solving.",
-    certificates: [
-      {
-        name: "Certificate of Participation",
-        link: "/certificates/Hack_for_Gov.pdf",
-      },
-    ],
-    images: [
-      "/images/experience/hackforgov/1.jpg",
-      "/images/experience/hackforgov/2.jpg",
-      "/images/experience/hackforgov/3.jpg",
-      "/images/experience/hackforgov/4.jpg",
-      "/images/experience/hackforgov/5.jpg",
-    ],
-  },
-  {
-    title: "AI Ideas for Impact",
-    org: "Department of Information and Communications Technology",
-    date: "September 23-24, 2025",
-    desc: "Participated in a digital innovation activity focused on applying artificial intelligence to improve existing systems and workflows. Collaborated with a team to develop and present an AI-powered solution designed to make processes more efficient, faster, and accessible. Awarded the Special Award for Most Promising Prototype for demonstrating strong potential, innovation, and practical impact.",
-    certificates: [
-      {
-        name: "Certificate of Participation",
-        link: "/certificates/AIdeas.pdf",
-      },
-      {
-        name: "Most Promising Prototype",
-        link: "/certificates/Most_Promising_Prototype.pdf",
-      },
-    ],
-    images: [
-      "/images/experience/aideas/1.jpg",
-      "/images/experience/aideas/2.jpg",
-      "/images/experience/aideas/3.jpg",
-      "/images/experience/aideas/4.jpg",
-      "/images/experience/aideas/5.jpg",
-    ],
-  },
-  {
-    title: "Reverse Pitching",
-    org: "Department of Information and Communications Technology",
-    date: "June 25-26, 2025",
-    imageLeft: true,
-    desc: "Participated in a reverse-pitching activity where participants selected real-world problems presented by organizations and developed technology-driven solutions to address them. Contributed to the development and presentation of a digital platform concept aimed at improving the efficiency of municipal and MSME operations.",
-    certificates: [
-      {
-        name: "Certificate of Participation",
-        link: "/certificates/Reverse_Pitching.pdf",
-      },
-    ],
-    images: [
-      "/images/experience/reverse/1.jpg",
-      "/images/experience/reverse/2.jpg",
-      "/images/experience/reverse/3.jpg",
-      "/images/experience/reverse/4.jpg",
-    ],
-  },
-];
-
 // Same click-to-flick mechanic as the About-me trait cards: the front image
 // flies off and the next one in the pile takes its place.
 function ExperienceImageStack({ images, title }) {
@@ -1038,7 +919,7 @@ export default function Portfolio() {
                   <p>
                     Want to know more about my experience?{" "}
                     <a
-                      href="/resume/Richard_Victor_Miculob_Resume.pdf"
+                      href="/resume/Diki_Wahyudi_Resume.pdf"
                       className="about-resume-link"
                       target="_blank"
                       rel="noopener noreferrer">
@@ -1159,7 +1040,7 @@ export default function Portfolio() {
             </Reveal>
             <Reveal delay={400}>
               <a
-                href="/resume/Richard_Victor_Miculob_Resume.pdf"
+                href="/resume/Diki_Wahyudi_Resume.pdf"
                 className="contact-resume-btn"
                 target="_blank"
                 rel="noopener noreferrer">
