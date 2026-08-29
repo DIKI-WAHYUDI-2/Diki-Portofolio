@@ -1,57 +1,122 @@
 export const PROJECTS = [
   {
     num: "01",
-    title: "ResQR - Disaster Relief Management System",
+    title: "N2G – News Sentiment Classification System Using Indobert",
     category: "Web Development",
-    desc: "Developed a QR code-based disaster relief management system for registering beneficiaries, monitoring relief distribution, and coordinating emergency response operations.",
-    tech: ["HTML", "CSS", "PHP", "MySQL"],
+    desc: "A sentiment analysis system that classifies news articles related to PTPN IV Regional III into positive, negative, or neutral categories using a fine-tuned IndoBERT model — enabling automated media monitoring without manual review of each article.",
+    tech: ["NEXT.JS", "FLASK", "MYSQL", "INDOBERT"],
     awards: [],
-    image: "/images/ResQR/login.png",
-    link: "https://github.com/chardoxx-3/ResQR-Disaster-Relief-Management-System",
-    linkText: "View Project →",
+    image: "/images/N2G/N2G-1.png",
+    links: [
+      {
+        text: "Frontend",
+        url: "https://github.com/DIKI-WAHYUDI-2/N2G-Frontend",
+      },
+      {
+        text: "Backend",
+        url: "https://github.com/DIKI-WAHYUDI-2/N2G-Backend",
+      },
+    ],
   },
+
   {
     num: "02",
-    title: "RFID-Based CPSC Student Monitoring System with Automated Photo Capture and Email Notification",
+    title: "MA Al-Muhsinin Online Student Admission (PPDB) System",
     category: "Capstone Project",
-    desc: "Developed an RFID-based student monitoring system that automates attendance tracking through RFID scanning, photo capture, email notifications, Google Drive export, and administrative reporting. Awarded Best Capstone Paper and Best Capstone System.",
-    tech: ["Python Django", "MySQL", "RFID", "Email Automation"],
-    awards: ["Best Capstone Paper", "Best Capstone System"],
-    image: "/images/Capstone/login.png",
-    link: "https://github.com/chardoxx-3/RFID-Student-Monitoring-System",
-    linkText: "View Project →",
+    desc: "A web-based registration platform built for MA Al-Muhsinin, enabling prospective students to submit their new student admission applications online streamlining the enrollment process without requiring in-person paperwork.",
+    tech: ["LARAVEL", "MySQL", "Email Automation"],
+    awards: [],
+    image: "/images/Ma Al-Muhsinin/ma-almuhsinin-1.png",
+    links: [
+      {
+        text: "GitHub",
+        url: "https://github.com/DIKI-WAHYUDI-2/ppdb-ma-almuhsinin",
+      },
+    ],
   },
+
   {
     num: "03",
-    title: "iTrak - Terminal Management System",
+    title:
+      "Puskesmas Rokan IV Koto (Community Health Center) Management System",
     category: "Web Development",
-    desc: "Developed an RFID-based terminal management system for monitoring driver attendance, managing routes and queues, processing payments, and providing real-time operational analytics.",
-    tech: ["PHP", "MySQL", "HTML", "CSS"],
+    desc: "A web-based system for managing patient registration, doctor scheduling/consultation, and medicine inventory at a Puskesmas — streamlining daily clinical operations from patient check-in to medical consultation and drug stock tracking.",
+    tech: ["LARAVEL", "MySQL"],
     awards: [],
-    image: "/images/iTrak/Screenshot%202026-08-14%20175457.png",
-    link: "https://github.com/chardoxx-3/iTrak-Terminal-Management-System",
-    linkText: "View Project →",
+    image: "/images/Puskesmas Rokan IV Koto/Puskesmas Rokan IV Koto 1.png",
+    links: [
+      {
+        text: "GitHub",
+        url: "https://github.com/DIKI-WAHYUDI-2/Sistem-Manajemen-Puskesmas-Rokan-IV-Koto",
+      },
+    ],
   },
+
   {
     num: "04",
-    title: "DocuTrack - Document Tracking System",
+    title: "SIMBELSAH - Setia Aqidah Tutoring Management System",
     category: "Web Development",
-    desc: "Developed a document tracking system for organizing, archiving, tagging, and approving official letters, with Google Drive integration for centralized document storage and synchronization.",
-    tech: ["PHP", "MySQL", "HTML", "CSS", "Google Drive API"],
+    desc: "A web-based management system for Bimbel Setia Aqidah, built with Laravel to handle tutoring center operations including user authentication, activity logging, and administrative management of tutoring activities.",
+    tech: ["LARAVEL", "MySQL"],
     awards: [],
-    image: "/images/DocuTrack/login.png",
-    link: "https://github.com/chardoxx-3/Document-Tracking-System-DocuTrack",
-    linkText: "View Project →",
+    image: "/images/Simbelsah/Simbelsah-1.png",
+    links: [
+      {
+        text: "GitHub",
+        url: "https://github.com/DIKI-WAHYUDI-2/bimbel-setia-aqidah",
+      },
+    ],
   },
+
   {
     num: "05",
-    title: "Boarding House Rental System",
+    title: "Kepenghuluan Sintong Pusaka Official Village Portal",
     category: "Web Development",
-    desc: "Developed a web-based boarding house rental platform for managing property listings, bookings, payments, and reviews, with separate access and features for students, landlords, and administrators.",
-    tech: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
+    desc: "An official village government portal for Kepenghuluan Sintong Pusaka (Rokan Hilir Regency, Riau). Features a village profile (history, vision-mission, government structure), a news portal for local activities, an activity gallery, and regional/demographic information, complete with an admin panel for content management by village staff.",
+    tech: ["LARAVEL", "MySQL"],
     awards: [],
-    image: "/images/BHRental/login.png",
-    link: "https://github.com/chardoxx-3/BH-Rental-System",
-    linkText: "View Project →",
+    image: "/images/Web Desa/Web Desa-1.png",
+    links: [
+      {
+        text: "View Project",
+        url: "https://kepenghuluan-sintongpusaka.web.id/",
+      },
+    ],
+  },
+
+  {
+    num: "06",
+    title: "Commitin",
+    category: "Web Development",
+    desc: "An interactive web-based learning platform for mastering Git and GitHub through structured lessons, simulated terminal exercises, and progressive case studies. Users can practice real-world Git workflows, explore command references, and track their learning progress through hands-on challenges.",
+    tech: ["Spring Boot", "MySQL", "JavaScript", "isomorphic-git"],
+    awards: [],
+    image: "/images/Commitin/Commitin-1.png",
+    links: [
+      {
+        text: "GitHub",
+        url: "https://github.com/DIKI-WAHYUDI-2/commitin",
+      },
+    ],
+  },
+
+  {
+    num: "07",
+    title: "Kopling",
+    category: "Mobile Development",
+    desc: "A mobile application for discovering nearby mobile coffee vendors, allowing users to explore vendor locations and access information directly from their smartphones.",
+    tech: ["Flutter", "Dart", "Spring Boot", "PostgreSQL"],
+    awards: [],
+    image: "/images/Kopling/Kopling-2.png",
+    links: [
+      {
+        text: "Frontend",
+        url: "https://github.com/DIKI-WAHYUDI-2/kopling-fe",
+      },
+      {
+        text: "Backend",
+        url: "https://github.com/DIKI-WAHYUDI-2/kopling-be",
+      },
+    ],
   },
 ];

@@ -15,7 +15,14 @@ const TECH_LOGOS = {
   "JavaScript": "/images/logos/js.png",
   "CodeIgniter 4": "/images/logos/codeigniter.png",
   "Python": "/images/logos/python.png",
-  "Python Flask": "/images/logos/flask.png",
+  "Flask": "/images/logos/flask.png",
+  "Laravel": "/images/logos/laravel.png",
+  "Spring Boot": "/images/logos/springboot.png",
+  "NextJs": "/images/logos/next.png",
+  "PostgreSQL": "/images/logos/postgresql.png",
+  "Figma": "/images/logos/figma.png",
+  "Docker": "/images/logos/docker.png",
+  "Flutter": "/images/logos/flutter.png",
 };
 
 function TechTag({ tech }) {
@@ -38,7 +45,10 @@ export default function TechnicalArchive({ projects = [] }) {
           <div className="archive-header-left">
             <div className="section-label">Archive</div>
             <TypewriterTitle text="Technical Projects" />
-            <p className="archive-description">A complete collection of my technical work, systems, and digital projects.</p>
+            <p className="archive-description">
+              A complete collection of my technical work, systems, and digital
+              projects.
+            </p>
           </div>
         </div>
       </Reveal>
@@ -46,19 +56,19 @@ export default function TechnicalArchive({ projects = [] }) {
       <Reveal delay={100}>
         <div className="archive-list">
           {projects.map((project) => (
-            <Link
-              key={project.num}
-              href={project.link}
-              className="archive-row"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <div key={project.num} className="archive-row">
               <span className="archive-row-num">{project.num}</span>
+
               <div className="archive-row-main">
                 <div className="archive-row-title">{project.title}</div>
+
                 <div className="archive-row-desc">{project.desc}</div>
+
                 <div className="archive-row-tags">
-                  <span className="archive-row-category">{project.category}</span>
+                  <span className="archive-row-category">
+                    {project.category}
+                  </span>
+
                   <div className="archive-row-tech">
                     {project.tech.map((t) => (
                       <TechTag key={t} tech={t} />
@@ -66,10 +76,21 @@ export default function TechnicalArchive({ projects = [] }) {
                   </div>
                 </div>
               </div>
-              <span className="archive-row-action">
-                <ExternalLink size={16} />
-              </span>
-            </Link>
+
+              <div className="archive-row-action">
+                {project.links?.map((link) => (
+                  <a
+                    key={link.url}
+                    href={link.url}
+                    className="archive-row-link"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    {link.text}
+                    <ExternalLink size={14} />
+                  </a>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </Reveal>

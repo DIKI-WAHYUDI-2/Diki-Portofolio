@@ -17,8 +17,6 @@ export default function Work() {
 
       <TechnicalArchive projects={technical} />
 
-      <DigitalGallery projects={digital} />
-
       <WorkCTA />
     </main>
   );
